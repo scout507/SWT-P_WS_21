@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Mirror;
 
 public class MonsterController : NetworkBehaviour
@@ -16,20 +17,27 @@ public class MonsterController : NetworkBehaviour
 
     float timer;
     float refreshRate = 1.5f;
+    NavMeshAgent nav;
+    
 
     private void Start()
     {
-        if(isServer) FindPlayers();
+        if(isServer)
+        {
+            nav = GetComponent<NavMeshAgent>();
+            FindPlayers();
+        } 
     }
 
 
     void Update()
     {
         timer += Time.deltaTime;
-        
+
         if(isServer && timer >= refreshRate) FindPlayers();
         if(isServer && !awake && timer >= refreshRate) awake = CheckAggro();
         if(isServer && awake && timer >= refreshRate) target = FindTarget();
+        if(isServer && target != null) nav.SetDestination(target.transform.position);
 
         if(timer >= refreshRate) timer = 0f;
     }
