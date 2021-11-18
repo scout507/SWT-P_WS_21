@@ -11,7 +11,9 @@ public class MonsterController : NetworkBehaviour
     public float hp;
     public float moveSpeed;
     public bool awake; //this is true when the monster gets aggro
-    
+    public float atkRange;
+    public float atkCooldown;
+
     public List<GameObject> players;
     public GameObject target;
 
@@ -34,10 +36,22 @@ public class MonsterController : NetworkBehaviour
     {
         timer += Time.deltaTime;
 
+        //Movement
         if(isServer && timer >= refreshRate) FindPlayers();
         if(isServer && !awake && timer >= refreshRate) awake = CheckAggro();
         if(isServer && awake && timer >= refreshRate) target = FindTarget();
-        if(isServer && target != null) nav.SetDestination(target.transform.position);
+        if(isServer && target != null)
+        {
+            if(Vector3.Distance(target.transform.position, transform.position) > atkRange)
+            {
+                nav.isStopped = false;
+                nav.SetDestination(target.transform.position);
+            }
+            else nav.isStopped = true; 
+        } 
+
+
+
 
         if(timer >= refreshRate) timer = 0f;
     }
