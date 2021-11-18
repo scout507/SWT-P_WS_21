@@ -204,7 +204,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  mouseSensitivity: 200
+  mouseSensitivity: 2000
   playerCamera: {fileID: 2573211292027365843}
 --- !u!114 &2573211290775857303
 MonoBehaviour:
