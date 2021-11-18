@@ -18,6 +18,7 @@ public class MonsterController : NetworkBehaviour
     public GameObject target;
 
     float timer;
+    float atkTimer;
     float refreshRate = 1.5f;
     NavMeshAgent nav;
     
@@ -34,29 +35,36 @@ public class MonsterController : NetworkBehaviour
 
     void Update()
     {
+        //Since the ai is only handled by the server, nobody else needs to run this code
+        if(!isServer) return;
+
         timer += Time.deltaTime;
+        atkTimer += Time.deltaTime;
 
         //Movement
-        if(isServer && timer >= refreshRate) FindPlayers();
-        if(isServer && !awake && timer >= refreshRate) awake = CheckAggro();
-        if(isServer && awake && timer >= refreshRate) target = FindTarget();
-        if(isServer && target != null)
+        if(timer >= refreshRate) FindPlayers();
+        if(!awake && timer >= refreshRate) awake = CheckAggro();
+        if(awake && timer >= refreshRate) target = FindTarget();
+        if(target != null)
         {
             if(Vector3.Distance(target.transform.position, transform.position) > atkRange)
             {
                 nav.isStopped = false;
                 nav.SetDestination(target.transform.position);
             }
-            else nav.isStopped = true; 
+            else
+            {
+                nav.isStopped = true; 
+                Attack();
+            } 
         } 
-
-
 
 
         if(timer >= refreshRate) timer = 0f;
     }
 
-    public void FindPlayers(){
+    void FindPlayers()
+    {
         //Make a new list
         players = new List<GameObject>();
 
@@ -69,7 +77,8 @@ public class MonsterController : NetworkBehaviour
         }
     }
 
-    bool CheckAggro(){
+    bool CheckAggro()
+    {
         //Check if a player is in the aggro Radius
         foreach (GameObject player in players)
         {
@@ -78,7 +87,8 @@ public class MonsterController : NetworkBehaviour
         return false;
     }
 
-    GameObject FindTarget(){
+    GameObject FindTarget()
+    {
         float shortestDistance = 0f;
         GameObject newTarget = null;
 
@@ -96,6 +106,17 @@ public class MonsterController : NetworkBehaviour
         }
 
         return newTarget;
+    }
+
+
+    void Attack()
+    {
+        if(atkTimer >= atkCooldown)
+        {
+            atkTimer = 0;
+            //TODO: Attack animation
+            //TODO: Call player script and damage him
+        }
     }
 
 
