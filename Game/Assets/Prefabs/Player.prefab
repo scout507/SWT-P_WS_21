@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 658317854740833945}
   - component: {fileID: 2573211290775857303}
   - component: {fileID: 4592639138261043955}
+  - component: {fileID: 202321335588506024}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -207,7 +208,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   mouseSensitivity: 2000
-  playerCamera: {fileID: 2573211292027365843}
+  cameraMountPoint: {fileID: 2573211292027365843}
 --- !u!114 &658317854740833945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +228,6 @@ MonoBehaviour:
   weaoponRange: 50
   gunEnd: {fileID: 2046544312235349952}
   gun: {fileID: 8228071114298076104}
-  playerCamera: {fileID: 2573211292027365855}
 --- !u!114 &2573211290775857303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +274,36 @@ MonoBehaviour:
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+--- !u!114 &202321335588506024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2573211290775858027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734b48bea0b204338958ee3d885e11f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 1
+  sendInterval: 0.05
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 0
+  bufferTimeMultiplier: 1
+  bufferSizeLimit: 64
+  catchupThreshold: 4
+  catchupMultiplier: 0.1
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  target: {fileID: 2573211292027365852}
 --- !u!1 &2573211291595838414
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,10 +409,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2573211292027365852}
-  - component: {fileID: 2573211292027365855}
-  - component: {fileID: 2573211292027365854}
   m_Layer: 0
-  m_Name: Player Camera
+  m_Name: Player Camera Mount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -403,57 +431,6 @@ Transform:
   m_Father: {fileID: 2573211290775857300}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &2573211292027365855
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2573211292027365843}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!81 &2573211292027365854
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2573211292027365843}
-  m_Enabled: 1
 --- !u!1 &2767148475960317706
 GameObject:
   m_ObjectHideFlags: 0
