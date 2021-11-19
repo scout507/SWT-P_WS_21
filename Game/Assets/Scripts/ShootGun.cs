@@ -11,16 +11,15 @@ public class ShootGun : NetworkBehaviour
     [SerializeField] float weaoponRange = 50f;
     [SerializeField] Transform gunEnd;
     [SerializeField] GameObject gun;
-    [SerializeField] Camera playerCamera;
 
     private WaitForSeconds shotDuration = new WaitForSeconds(0.07f);
-    private LineRenderer laserLine;
+    //private LineRenderer laserLine;
     private float nextFire;
 
 
     public override void OnStartLocalPlayer()
     {
-        laserLine = gun.GetComponent<LineRenderer>();
+        //laserLine = gun.GetComponent<LineRenderer>();
     }
 
     void Update()
@@ -29,35 +28,37 @@ public class ShootGun : NetworkBehaviour
         {
             return;
         }
+
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire) 
         {
             nextFire = Time.time + fireRate;
 
-            StartCoroutine(ShotEffect());
-
-            Vector3 rayOrigin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
-            RaycastHit hit;
-
-            laserLine.SetPosition(0, gunEnd.position);
-
-            if(Physics.Raycast(rayOrigin, playerCamera.transform.forward, out hit, weaoponRange)) 
-            {
-                laserLine.SetPosition(1, hit.point);
-                Debug.Log("Hit!");
-            }
-            else 
-            {
-                laserLine.SetPosition(1, rayOrigin + (playerCamera.transform.forward * weaoponRange));
-            }
+            Shoot();
         }
         
     }
 
-    private IEnumerator ShotEffect() 
+    [Command]
+    void CmdShoot(Vector3 hit)
     {
-        
-        laserLine.enabled = true;
-        yield return shotDuration;
-        laserLine.enabled = false;
+       Debug.Log("Hit!");
     }
+
+    void Shoot()
+    {
+        Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit hit;
+
+        if(Physics.Raycast(rayOrigin, Camera.main.transform.forward, out hit, weaoponRange)) 
+        {
+            Debug.Log("In Range!");
+            CmdShoot(hit.point);
+        }
+        else 
+        {
+            Debug.Log("Out of Range!");
+        }
+        
+    }
+    
 }
