@@ -515,7 +515,7 @@ MonoBehaviour:
   syncInterval: 0.1
   aggroRadius: 100
   damage: 0
-  hp: 0
+  hp: 100
   moveSpeed: 0
   awake: 0
   atkRange: 2
@@ -658,7 +658,7 @@ MonoBehaviour:
   syncInterval: 0.1
   aggroRadius: 100
   damage: 0
-  hp: 0
+  hp: 100
   moveSpeed: 0
   awake: 0
   atkRange: 2
@@ -1258,7 +1258,7 @@ MonoBehaviour:
   syncInterval: 0.1
   aggroRadius: 100
   damage: 0
-  hp: 0
+  hp: 100
   moveSpeed: 0
   awake: 0
   atkRange: 2
