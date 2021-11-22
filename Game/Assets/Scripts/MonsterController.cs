@@ -10,7 +10,7 @@ public class MonsterController : NetworkBehaviour
     public float damage;
     public float hp;
     public float moveSpeed;
-    public bool awake; //this is true when the monster gets aggro
+    public bool awake;  //this is true when the monster gets aggro
     public float atkRange;
     public float atkCooldown;
 
@@ -19,8 +19,8 @@ public class MonsterController : NetworkBehaviour
 
     float timer;
     float atkTimer;
-    float refreshRate = 1f;
-    Vector3 home;
+    float refreshRate = 1f; //the refreshRate for target finding calculations
+    Vector3 home;   //stores the spawn spot
     NavMeshAgent nav;
 
     
@@ -72,6 +72,7 @@ public class MonsterController : NetworkBehaviour
         if(timer >= refreshRate) timer = 0f;
     }
 
+    //Makes a list containing all active players.
     void FindPlayers()
     {
         //Make a new list
@@ -86,6 +87,7 @@ public class MonsterController : NetworkBehaviour
         }
     }
 
+    //Checks if a player is within aggro range
     bool CheckAggro()
     {
         //Check if a player is in the aggro Radius
@@ -96,6 +98,7 @@ public class MonsterController : NetworkBehaviour
         return false;
     }
 
+    //Finds the nearest Target
     GameObject FindTarget()
     {
         float shortestDistance = 0f;
