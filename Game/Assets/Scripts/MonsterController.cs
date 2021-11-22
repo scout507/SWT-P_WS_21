@@ -19,12 +19,15 @@ public class MonsterController : NetworkBehaviour
 
     float timer;
     float atkTimer;
-    float refreshRate = 1.5f;
+    float refreshRate = 1f;
+    Vector3 home;
     NavMeshAgent nav;
+
     
 
     private void Start()
     {
+        home = transform.position;
         if(isServer)
         {
             nav = GetComponent<NavMeshAgent>();
@@ -57,6 +60,12 @@ public class MonsterController : NetworkBehaviour
                 nav.isStopped = true; 
                 Attack();
             } 
+        }
+        else
+        {
+            //if there's no legal target, the monster de-aggros and returns to it's spawn position.
+            awake = false;
+            nav.SetDestination(home); 
         } 
 
 
@@ -98,7 +107,9 @@ public class MonsterController : NetworkBehaviour
 
             if(shortestDistance == 0) shortestDistance = distance;
 
-            if(distance <= shortestDistance)
+            //if the player is reachable and the closest to the monster, the player becomes the new target
+            NavMeshPath navMeshPath = new NavMeshPath();
+            if(distance <= shortestDistance && nav.CalculatePath(player.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
             {
                 shortestDistance = distance;
                 newTarget = player;
@@ -106,6 +117,17 @@ public class MonsterController : NetworkBehaviour
         }
 
         return newTarget;
+    }
+
+    //this can be used to manualy trigger monsters.
+    [Command]
+    void AggroMob(GameObject player)
+    {
+        if(target == null)
+        {
+            awake = true;
+            target = player;
+        }
     }
 
 
@@ -118,6 +140,5 @@ public class MonsterController : NetworkBehaviour
             //TODO: Call player script and damage him
         }
     }
-
 
 }
