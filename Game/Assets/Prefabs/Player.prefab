@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8337706594802313564}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 2573211290703826082}
   - component: {fileID: 2573211290703826081}
   - component: {fileID: 2573211290703826080}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,8 @@ GameObject:
   - component: {fileID: 2573211290775857303}
   - component: {fileID: 4592639138261043955}
   - component: {fileID: 202321335588506024}
-  m_Layer: 0
+  - component: {fileID: 1483651712877243449}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  gunDamage: 1
+  gunDamage: 10
   fireRate: 0.25
   weaoponRange: 50
   gunEnd: {fileID: 2046544312235349952}
@@ -304,6 +305,21 @@ MonoBehaviour:
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
   target: {fileID: 2573211292027365852}
+--- !u!114 &1483651712877243449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2573211290775858027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94056d0750725f94a8d6e864aa1a67b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  health: 100
 --- !u!1 &2573211291595838414
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +332,7 @@ GameObject:
   - component: {fileID: 2573211291595838410}
   - component: {fileID: 2573211291595838409}
   - component: {fileID: 2573211291595838408}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2573211292027365852}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player Camera Mount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +456,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2046544312235349952}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GunEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +489,7 @@ GameObject:
   - component: {fileID: 382015653204693735}
   - component: {fileID: 7900964976073528727}
   - component: {fileID: 3567426591131031528}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,7 +583,7 @@ GameObject:
   - component: {fileID: 800880177183590219}
   - component: {fileID: 8479895815670171953}
   - component: {fileID: 56750366364620069}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,7 +657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4560995246611458228}
   - component: {fileID: 7462479606402887680}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,7 +791,7 @@ GameObject:
   - component: {fileID: 4816283087645354668}
   - component: {fileID: 4424635949717368560}
   - component: {fileID: 8038576987956876217}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -870,7 +886,7 @@ GameObject:
   - component: {fileID: 4867130365725059835}
   - component: {fileID: 4884163162363538365}
   - component: {fileID: 5909900221078904505}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
