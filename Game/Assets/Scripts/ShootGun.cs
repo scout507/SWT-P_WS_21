@@ -39,7 +39,7 @@ public class ShootGun : NetworkBehaviour
     void CmdShootPlayer(GameObject player)
     {
        Debug.Log("Hit Player!");
-       player.GetComponent<Health>().TakeDemage(gunDamage);
+       player.GetComponent<Health>().TakeDamage(gunDamage);
     }
 
     // Function for hit on wall, can start Animation or something on point of hit

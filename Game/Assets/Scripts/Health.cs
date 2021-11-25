@@ -12,7 +12,7 @@ public class Health : NetworkBehaviour
     /**
     Function for taking Demage, runs on Server
     */
-    public void TakeDemage(int amount)
+    public void TakeDamage(int amount)
     {
         if(!isServer) return;
 
@@ -40,12 +40,9 @@ public class Health : NetworkBehaviour
     [TargetRpc]
     void TargetDeath()
     {
-        if(gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            //Debug dummy, swap with real death sequence later
-            gameObject.GetComponent<PlayerMovement>().enabled = false;
-            gameObject.GetComponent<ShootGun>().enabled = false;
-            Debug.Log("You are Dead");
-        }
+        //Debug dummy, swap with real death sequence later
+        gameObject.GetComponent<PlayerMovement>().enabled = false;
+        gameObject.GetComponent<ShootGun>().enabled = false;
+        Debug.Log("You are Dead");
     }
 }
