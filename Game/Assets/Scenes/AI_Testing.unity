@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 194484041}
   - component: {fileID: 194484040}
   - component: {fileID: 194484039}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 729850343}
   - component: {fileID: 729850342}
   - component: {fileID: 729850341}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AI_Agent (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   - component: {fileID: 1052237219}
   - component: {fileID: 1052237218}
   - component: {fileID: 1052237217}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AI_Agent (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -792,7 +792,7 @@ GameObject:
   - component: {fileID: 1674763703}
   - component: {fileID: 1674763702}
   - component: {fileID: 1674763701}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1303,7 +1303,7 @@ GameObject:
   - component: {fileID: 1916303905}
   - component: {fileID: 1916303904}
   - component: {fileID: 1916303906}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AI_Agent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1444,7 +1444,7 @@ GameObject:
   - component: {fileID: 2080359071}
   - component: {fileID: 2080359070}
   - component: {fileID: 2080359069}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

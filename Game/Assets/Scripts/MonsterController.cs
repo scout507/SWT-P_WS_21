@@ -147,21 +147,8 @@ public class MonsterController : NetworkBehaviour
         }
     }
 
-
-    //this can be used to manualy trigger monsters.
-    [Command]
-    void AggroMob(GameObject player)
-    {
-        if(target == null)
-        {
-            awake = true;
-            target = player;
-        }
-    }
-
     //can be called if a player damages the monster.
-    [Command]
-    void TakeDamage(float dmgTaken)
+    public void TakeDamage(float dmgTaken)
     {
         if(!dead)
         {
@@ -171,4 +158,16 @@ public class MonsterController : NetworkBehaviour
         }
     }
 
+
+    //this can be used to manualy trigger monsters.
+    void AggroMob(GameObject player)
+    {
+        if(target == null)
+        {
+            awake = true;
+            target = player;
+        }
+    }
+
+    
 }

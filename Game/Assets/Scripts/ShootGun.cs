@@ -42,6 +42,13 @@ public class ShootGun : NetworkBehaviour
        player.GetComponent<Health>().TakeDamage(gunDamage);
     }
 
+    // Called when monster is hit
+    [Command]
+    void CmdShootMonster(GameObject monster)
+    {
+        monster.GetComponent<MonsterController>().TakeDamage(gunDamage);
+    }
+
     // Function for hit on wall, can start Animation or something on point of hit
     [ClientRpc]
     void RpcHitWall(Vector3 hit)
@@ -72,6 +79,10 @@ public class ShootGun : NetworkBehaviour
             if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 CmdShootPlayer(hit.collider.gameObject.transform.parent.gameObject); // Gets Parent of Collider and calls function for hit on Player
+            }
+            else if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Monster"))
+            {
+                CmdShootMonster(hit.collider.gameObject.transform.parent.gameObject); // Calls TakeDamage on the monster hit
             }
             else
             {
