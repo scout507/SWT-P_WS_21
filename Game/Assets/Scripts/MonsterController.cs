@@ -143,7 +143,7 @@ public class MonsterController : NetworkBehaviour
         {
             atkTimer = 0;
             //TODO: Attack animation
-            //TODO: Call player script and damage him
+            target.GetComponent<Health>().TakeDamage(Mathf.RoundToInt(damage)); //Health script uses int for health. Needs to be resolved  
         }
     }
 
