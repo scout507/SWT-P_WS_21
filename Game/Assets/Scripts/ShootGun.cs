@@ -16,11 +16,6 @@ public class ShootGun : NetworkBehaviour
     public override void OnStartLocalPlayer()
     {
         gameObject.layer = 0;
-        foreach (Transform child in gameObject.transform)
-        {
-            child.gameObject.layer = 0;
-        }
-        
     }
 
 
@@ -71,7 +66,7 @@ public class ShootGun : NetworkBehaviour
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
         
-        if(Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~LayerMask.NameToLayer("Default"))) 
+        if(Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0)) 
         {
             Debug.Log("In Range!");
             if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
