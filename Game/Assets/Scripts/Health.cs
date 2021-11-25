@@ -10,7 +10,7 @@ public class Health : NetworkBehaviour
     public int health = 100; // Variable for Health, synced on all Clients
 
     /**
-    Function for taking Demage, runs on Server
+    Function for taking Damage, runs on Server
     */
     public void TakeDamage(int amount)
     {
