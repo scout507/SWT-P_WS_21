@@ -16,6 +16,10 @@ public class ShootGun : NetworkBehaviour
     public override void OnStartLocalPlayer()
     {
         gameObject.layer = 0;
+        foreach (Transform child in gameObject.transform)
+        {
+            child.gameObject.layer = 0;
+        }
     }
 
 
