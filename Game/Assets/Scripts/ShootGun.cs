@@ -10,12 +10,17 @@ public class ShootGun : NetworkBehaviour
     [SerializeField] float weaoponRange = 50f; // Range for gun, maybe attached to Gun-Object later
     [SerializeField] Transform gunEnd; // Gun end for Animations, maybe attached to Gun-Object later 
     [SerializeField] GameObject gun; // Gun-Object, can change
+    [SerializeField] int gunAmmo = 8;
     private float nextFire; // Time of the next shot you can take 
 
 
     public override void OnStartLocalPlayer()
     {
         gameObject.layer = 0;
+        foreach (Transform child in gameObject.transform)
+        {
+            child.gameObject.layer = 0;
+        }
     }
 
 
@@ -29,7 +34,19 @@ public class ShootGun : NetworkBehaviour
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire) 
         {
             nextFire = Time.time + fireRate;
-            Shoot();
+            if(gunAmmo > 0)
+            {
+              Shoot();  
+            }
+            else
+            {
+                Debug.Log("Out of Ammo!");
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            gunAmmo = 8;
         }
         
     }
@@ -65,6 +82,8 @@ public class ShootGun : NetworkBehaviour
         RaycastHit hit;
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
+
+        gunAmmo--;
         
         if(Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0)) 
         {
@@ -84,5 +103,5 @@ public class ShootGun : NetworkBehaviour
         }
         
     }
-    
+
 }
