@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
+    #region Start & Stop Callbacks
     public static GameManager Instance;
     public GameState State;
     public int s_playersAlive;
@@ -22,12 +24,12 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-    void Start()
+    public override void OnStartServer()
     {
         UpdateGameState(GameState.SelectCharacter);
     }
 
-    public void UpdateGameState(GameState newState)
+    [Server]public void UpdateGameState(GameState newState)
     {
         State = newState;
 
@@ -57,7 +59,7 @@ public class GameManager : MonoBehaviour
         OnGameStateChanged?.Invoke(newState);
     }
 
-    private void HandleSelectCharacter()
+    [Server]private void HandleSelectCharacter()
     {
 
     }
