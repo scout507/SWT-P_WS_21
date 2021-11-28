@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,21 +7,32 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameState State;
+    public int s_playersAlive;
+    public int s_zombiesAlive;
 
+    // In Awake Functions muss mittels GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
+    // das Abboniert werden
+    // Dann dort eine Funktion anleegen: 
+    // private void GameManagerOnGameStateChanged(GameState obj){} <-- wird jedes mal ausgeführt wenn der GameState sich ändert
+    // unsubscribe ONDestropy mi t- =
     public static event Action<GameState> OnGameStateChanged;
 
-    void Awake(){
+    void Awake()
+    {
         Instance = this;
     }
 
-    void Start(){
+    void Start()
+    {
         UpdateGameState(GameState.SelectCharacter);
     }
 
-    public void UpdateGameState(GameState newState){
+    public void UpdateGameState(GameState newState)
+    {
         State = newState;
 
-        switch (newState){
+        switch (newState)
+        {
             case GameState.SelectCharacter:
                 HandleSelectCharacter();
                 break;
@@ -45,13 +57,15 @@ public class GameManager : MonoBehaviour
         OnGameStateChanged?.Invoke(newState);
     }
 
-    private HandleSelectCharacter(){
+    private void HandleSelectCharacter()
+    {
 
     }
  
 }
 
-public enum GameState{
+public enum GameState
+{
         SelectCharacter,
         Phase1,
         Phase2,
@@ -60,4 +74,4 @@ public enum GameState{
         Phase5,
         Victory,
         Lose
-    }
+}
