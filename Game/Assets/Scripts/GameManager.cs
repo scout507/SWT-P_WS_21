@@ -57,8 +57,13 @@ public class GameManager : NetworkBehaviour
 
         OnGameStateChanged?.Invoke(newState);
     }
-
+    
+    // Such a Method could be Called when the specific State is called
     [Server]private void HandleSelectCharacter()
+    {
+        
+    }
+    [Server]private void HandlePhase1()
     {
 
     }
