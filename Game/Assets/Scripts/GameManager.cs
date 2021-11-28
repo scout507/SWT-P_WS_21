@@ -6,7 +6,6 @@ using Mirror;
 
 public class GameManager : NetworkBehaviour
 {
-    #region Start & Stop Callbacks
     public static GameManager Instance;
     public GameState State;
     public int s_playersAlive;
