@@ -19,7 +19,7 @@ public class PlayerMovement : NetworkBehaviour
     bool isGrounded;
 
     [SerializeField] float mouseSensitivity = 100f;
-    [SerializeField] GameObject playerCamera;
+    [SerializeField] GameObject cameraMountPoint;
 
     float xRotation = 0f;
 
@@ -28,14 +28,16 @@ public class PlayerMovement : NetworkBehaviour
     {
         
         Cursor.lockState = CursorLockMode.Locked;
+        Transform cameraTransform = Camera.main.gameObject.transform;  //Find main camera which is part of the scene instead of the prefab
+        cameraTransform.parent = cameraMountPoint.transform;  //Make the camera a child of the mount point
+        cameraTransform.position = cameraMountPoint.transform.position;  //Set position/rotation same as the mount point
+        cameraTransform.rotation = cameraMountPoint.transform.rotation;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(!isLocalPlayer){
-            playerCamera.GetComponent<Camera>().enabled = false;
-            playerCamera.GetComponent<AudioListener>().enabled = false;
             return;
         }
 
@@ -51,7 +53,7 @@ public class PlayerMovement : NetworkBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        cameraMountPoint.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
 
         float moveX = Input.GetAxis("Horizontal");
