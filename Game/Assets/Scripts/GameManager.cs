@@ -11,11 +11,10 @@ public class GameManager : NetworkBehaviour
     public int s_playersAlive;
     public int s_zombiesAlive;
 
-    // In Awake Functions muss mittels GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
-    // das Abboniert werden
-    // Dann dort eine Funktion anleegen: 
-    // private void GameManagerOnGameStateChanged(GameState obj){} <-- wird jedes mal ausgeführt wenn der GameState sich ändert
-    // unsubscribe ONDestropy mi t- =
+    // Subscribe to the GameManager via GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
+    // Implement a Function
+    // private void GameManagerOnGameStateChanged(GameState obj){} <-- will be run everytiem GameState changes
+    // unsubscribe ONDestropy with -= instead of +=
     public static event Action<GameState> OnGameStateChanged;
 
     void Awake()
