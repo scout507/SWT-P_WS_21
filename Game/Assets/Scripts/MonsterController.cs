@@ -20,6 +20,7 @@ public class MonsterController : NetworkBehaviour
     float timer;
     float atkTimer;
     float refreshRate = 1f; //the refreshRate for target finding calculations
+    bool dead;
     Vector3 home;   //stores the spawn spot
     NavMeshAgent nav;
 
@@ -44,32 +45,36 @@ public class MonsterController : NetworkBehaviour
         timer += Time.deltaTime;
         atkTimer += Time.deltaTime;
 
-        //Movement
-        if(timer >= refreshRate) FindPlayers();
-        if(!awake && timer >= refreshRate) awake = CheckAggro();
-        if(awake && timer >= refreshRate) target = FindTarget();
-        if(target != null)
-        {
-            if(Vector3.Distance(target.transform.position, transform.position) > atkRange)
+        if(!dead){
+
+            if(hp <= 0) Die();
+
+            //Movement
+            if(timer >= refreshRate) FindPlayers();
+            if(!awake && timer >= refreshRate) awake = CheckAggro();
+            if(awake && timer >= refreshRate) target = FindTarget();
+            if(target != null)
             {
-                nav.isStopped = false;
-                nav.SetDestination(target.transform.position);
+                if(Vector3.Distance(target.transform.position, transform.position) > atkRange)
+                {
+                    nav.isStopped = false;
+                    nav.SetDestination(target.transform.position);
+                }
+                else
+                {
+                    nav.isStopped = true; 
+                    Attack();
+                } 
             }
             else
             {
-                nav.isStopped = true; 
-                Attack();
+                //if there's no legal target, the monster de-aggros and returns to it's spawn position.
+                awake = false;
+                nav.SetDestination(home); 
             } 
+
+            if(timer >= refreshRate) timer = 0f;
         }
-        else
-        {
-            //if there's no legal target, the monster de-aggros and returns to it's spawn position.
-            awake = false;
-            nav.SetDestination(home); 
-        } 
-
-
-        if(timer >= refreshRate) timer = 0f;
     }
 
     //Makes a list containing all active players.
@@ -122,8 +127,39 @@ public class MonsterController : NetworkBehaviour
         return newTarget;
     }
 
+    void Die()
+    {
+        if(!dead)
+        {
+            dead = true;
+            //TODO: Death-Animation
+            Destroy(this.gameObject, 0.5f); // Destroys the Monster after 0.5f
+        }  
+    }
+
+    void Attack()
+    {
+        if(atkTimer >= atkCooldown)
+        {
+            atkTimer = 0;
+            //TODO: Attack animation
+            target.GetComponent<Health>().TakeDamage(Mathf.RoundToInt(damage)); //Health script uses int for health. Needs to be resolved  
+        }
+    }
+
+    //can be called if a player damages the monster.
+    public void TakeDamage(float dmgTaken)
+    {
+        if(!dead)
+        {
+            //TODO: Play damage animation & sound
+            hp -= dmgTaken;
+            if(hp <= 0) Die();
+        }
+    }
+
+
     //this can be used to manualy trigger monsters.
-    [Command]
     void AggroMob(GameObject player)
     {
         if(target == null)
@@ -133,15 +169,5 @@ public class MonsterController : NetworkBehaviour
         }
     }
 
-
-    void Attack()
-    {
-        if(atkTimer >= atkCooldown)
-        {
-            atkTimer = 0;
-            //TODO: Attack animation
-            //TODO: Call player script and damage him
-        }
-    }
-
+    
 }
