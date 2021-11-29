@@ -8,10 +8,12 @@ using TMPro;
 public class NetworkRoomPlayer : NetworkBehaviour
 {
     [Header("UI")]
-    [SerializeField] private GameObject lobbyUI;
+    //[SerializeField] private GameObject lobbyUI;
     [SerializeField] private TMP_Text[] playerNameTexts;
+    [SerializeField] private TMP_Text[] playerReadyTexts;
     [SerializeField] private Toggle[] playerReadyToggles;
     [SerializeField] private Button startGameButton;
+    [SerializeField] private GameObject canvas;
 
     [SyncVar(hook = nameof(handleDisplayNameChanged))]
     public string displayName = "Loading...";
@@ -46,12 +48,13 @@ public class NetworkRoomPlayer : NetworkBehaviour
     {
         CmdSetDisplayName(PlayerNameInput.playerName);
 
-        lobbyUI.SetActive(true);
+        //lobbyUI.SetActive(true);
     }
 
     public override void OnStartClient()
     {
         Room.roomPlayers.Add(this);
+        if (hasAuthority) canvas.SetActive(true);
         UpdateDisplay();
     }
 
@@ -76,18 +79,21 @@ public class NetworkRoomPlayer : NetworkBehaviour
             return;
         }
 
+        Debug.Log("Test");
+
         for (int i = 0; i < playerNameTexts.Length; i++)
         {
             playerNameTexts[i].text = "Waiting for Player";
-            playerReadyToggles[i].isOn = false;
+            playerReadyTexts[i].text = "";
+            //playerReadyToggles[i].isOn = false;
         }
 
         for (int i = 0; i < Room.roomPlayers.Count; i++)
         {
             playerNameTexts[i].text = Room.roomPlayers[i].displayName;
-            playerReadyToggles[i].isOn = Room.roomPlayers[i].isReady ? true : false;
+            playerReadyTexts[i].text = Room.roomPlayers[i].isReady ? "<color=green>Ready</color>" : "<color=red>Not Ready</color>";
+            //playerReadyToggles[i].isOn = Room.roomPlayers[i].isReady ? true : false;
         }
-
     }
 
     public void handleReadyToStart(bool readyToStart)
@@ -96,11 +102,11 @@ public class NetworkRoomPlayer : NetworkBehaviour
         startGameButton.interactable = readyToStart;
     }
 
-    public void stopGame()
+    /*public void stopGame()
     {
         NetworkManagerLobby test = GameObject.FindGameObjectWithTag("NetworkManagerLobby").GetComponent<NetworkManagerLobby>();
         test.StopClient();
-    }
+    }*/
 
     [Command]
     public void CmdSetDisplayName(string displayName)

@@ -13,10 +13,12 @@ public class NetworkManagerLobby : NetworkManager
     [Header("Room")]
     [SerializeField] private NetworkRoomPlayer roomPlayerPrefab = null;
 
+    [SerializeField] public List<NetworkRoomPlayer> roomPlayers = new List<NetworkRoomPlayer>();
+
     public static event Action OnClientConnected;
     public static event Action OnClientDisconnected;
 
-    public List<NetworkRoomPlayer> roomPlayers { get; } = new List<NetworkRoomPlayer>();
+    
 
     public override void OnStartServer()
     {
@@ -66,6 +68,8 @@ public class NetworkManagerLobby : NetworkManager
     {
         if (SceneManager.GetActiveScene().path == menuScene)
         {
+            Debug.Log(roomPlayers.Count);
+
             bool isLeader = roomPlayers.Count == 0;
 
             NetworkRoomPlayer roomPlayerInstance = Instantiate(roomPlayerPrefab);
