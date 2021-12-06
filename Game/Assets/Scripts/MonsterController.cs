@@ -13,9 +13,12 @@ public class MonsterController : NetworkBehaviour
     public bool awake;  //this is true when the monster gets aggro
     public float atkRange;
     public float atkCooldown;
+    
+    [Range(0.1f,2)]
+    public float playerToObjectRatio; //This is used to either prefer players (<1) or destructable objects (>1)  
 
-    public List<GameObject> players;
-    public GameObject target;
+    public List<GameObject> targets; //A list containing all possible targets
+    public GameObject currentTarget;
 
     float timer;
     float atkTimer;
@@ -32,7 +35,7 @@ public class MonsterController : NetworkBehaviour
         if(isServer)
         {
             nav = GetComponent<NavMeshAgent>();
-            FindPlayers();
+            FindTargets();
         } 
     }
 
@@ -50,15 +53,15 @@ public class MonsterController : NetworkBehaviour
             if(hp <= 0) Die();
 
             //Movement
-            if(timer >= refreshRate) FindPlayers();
+            if(timer >= refreshRate) FindTargets();
             if(!awake && timer >= refreshRate) awake = CheckAggro();
-            if(awake && timer >= refreshRate) target = FindTarget();
-            if(target != null)
+            if(awake && timer >= refreshRate) currentTarget = FindTarget();
+            if(currentTarget != null)
             {
-                if(Vector3.Distance(target.transform.position, transform.position) > atkRange)
+                if(Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
                 {
                     nav.isStopped = false;
-                    nav.SetDestination(target.transform.position);
+                    nav.SetDestination(currentTarget.transform.position);
                 }
                 else
                 {
@@ -77,30 +80,32 @@ public class MonsterController : NetworkBehaviour
         }
     }
 
-    //Makes a list containing all active players.
-    void FindPlayers()
+    //Makes a list containing all active players and destructable objects.
+    void FindTargets()
     {
         //Make a new list
-        players = new List<GameObject>();
+        targets = new List<GameObject>();
 
-        //Find all players
+        //Find all players and objects
         GameObject[] activePlayers = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] destructables = GameObject.FindGameObjectsWithTag("DestructableObject");
 
+
+        //If the player or object is within the aggro radius, it gets added to the list
         foreach (GameObject player in activePlayers)
         {
-            players.Add(player);
+            if(Vector3.Distance(transform.position, player.transform.position) <= aggroRadius) targets.Add(player);
+        }
+        foreach (GameObject destructable in destructables)
+        {
+            if(Vector3.Distance(transform.position, destructable.transform.position) <= aggroRadius && destructable.GetComponent<DestructableObject>().active) targets.Add(destructable);
         }
     }
 
-    //Checks if a player is within aggro range
+    //This has changed from the previous version. It might be obsolete, but could still be usefull in the future if the aggro behaviour is going to change.
     bool CheckAggro()
     {
-        //Check if a player is in the aggro Radius
-        foreach (GameObject player in players)
-        {
-            if(Vector3.Distance(transform.position, player.transform.position) <= aggroRadius) return true;
-        }
-        return false;
+        return targets.Count>0;
     }
 
     //Finds the nearest Target
@@ -109,18 +114,26 @@ public class MonsterController : NetworkBehaviour
         float shortestDistance = 0f;
         GameObject newTarget = null;
 
-        foreach (GameObject player in players)
+        foreach (GameObject target in targets)
         {
-            float distance = Vector3.Distance(transform.position, player.transform.position);
+            float distance = Vector3.Distance(transform.position, target.transform.position);
+            
+            if(target.tag == "Player")
+            {
+                distance = distance * playerToObjectRatio;
+            }
+            else{
+                //Debug.Log(distance <= shortestDistance && nav.CalculatePath(target.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete);
+            } 
 
             if(shortestDistance == 0) shortestDistance = distance;
 
             //if the player is reachable and the closest to the monster, the player becomes the new target
             NavMeshPath navMeshPath = new NavMeshPath();
-            if(distance <= shortestDistance && nav.CalculatePath(player.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
+            if(distance <= shortestDistance && nav.CalculatePath(target.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
             {
                 shortestDistance = distance;
-                newTarget = player;
+                newTarget = target;
             } 
         }
 
@@ -143,7 +156,14 @@ public class MonsterController : NetworkBehaviour
         {
             atkTimer = 0;
             //TODO: Attack animation
-            target.GetComponent<Health>().TakeDamage(Mathf.RoundToInt(damage)); //Health script uses int for health. Needs to be resolved  
+            if(currentTarget.tag == "Player")
+            {
+                currentTarget.GetComponent<Health>().TakeDamage(Mathf.RoundToInt(damage)); //Health script uses int for health. Needs to be resolved
+            }
+            else if(currentTarget.tag == "DestructableObject")
+            {
+                currentTarget.GetComponent<DestructableObject>().TakeDamage(damage);
+            } 
         }
     }
 
@@ -162,10 +182,10 @@ public class MonsterController : NetworkBehaviour
     //this can be used to manualy trigger monsters.
     void AggroMob(GameObject player)
     {
-        if(target == null)
+        if(currentTarget == null)
         {
             awake = true;
-            target = player;
+            currentTarget = player;
         }
     }
 
