@@ -111,7 +111,7 @@ public class MonsterController : NetworkBehaviour
     //Finds the nearest Target
     GameObject FindTarget()
     {
-        float shortestDistance = 0f;
+        float shortestDistance = aggroRadius;
         GameObject newTarget = null;
 
         foreach (GameObject target in targets)
@@ -122,13 +122,8 @@ public class MonsterController : NetworkBehaviour
             {
                 distance = distance * playerToObjectRatio;
             }
-            else{
-                //Debug.Log(distance <= shortestDistance && nav.CalculatePath(target.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete);
-            } 
 
-            if(shortestDistance == 0) shortestDistance = distance;
-
-            //if the player is reachable and the closest to the monster, the player becomes the new target
+            //if the player/object is reachable and the closest to the monster, the player/object becomes the new target
             NavMeshPath navMeshPath = new NavMeshPath();
             if(distance <= shortestDistance && nav.CalculatePath(target.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
             {
