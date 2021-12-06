@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 4592639138261043955}
   - component: {fileID: 202321335588506024}
   - component: {fileID: 1483651712877243449}
+  - component: {fileID: 6896355853710520063}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -320,6 +321,20 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   health: 100
+--- !u!136 &6896355853710520063
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2573211290775858027}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2573211291595838414
 GameObject:
   m_ObjectHideFlags: 0
