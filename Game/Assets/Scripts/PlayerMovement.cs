@@ -11,6 +11,7 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] float sprintMultiplier = 1.5f;
     [SerializeField] float gravity = 19.62f;
     [SerializeField] float jumpHeight = 2f;
+    [SerializeField] float crouchHeight = .66f;
 
     [SerializeField] float stamina = 10f;
     [SerializeField] float staminaMax = 10f;
@@ -23,8 +24,9 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] LayerMask groundMask;
 
     Vector3 velocity;
-    bool isGrounded;
-    bool isSprinting;
+    bool isGrounded = false;
+    bool isSprinting = false;
+    bool isCrouching = false;
 
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] GameObject cameraMountPoint;
@@ -54,7 +56,7 @@ public class PlayerMovement : NetworkBehaviour
         }
         else
         {
-            return (isGrounded && Input.GetAxis("Vertical") > 0 && forward.magnitude > 0.1f && Input.GetButton("Sprint") && stamina > 0);
+            return (isGrounded && !isCrouching && Input.GetAxis("Vertical") > 0 && forward.magnitude > 0.1f && Input.GetButton("Sprint") && stamina > 0);
         }
     }
 
@@ -114,11 +116,29 @@ public class PlayerMovement : NetworkBehaviour
         }
 
         Vector3 move = right + forward;
+
+        if (isCrouching)
+        {
+            move *= 0.33f;
+        }
+
         controller.Move(move * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGrounded) 
         {
             velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
+        }
+
+        if (Input.GetButtonDown("Crouch"))
+        {
+            transform.localScale += new Vector3(0f, -0.25f, 0f);
+            isCrouching = true;
+        }
+
+        if (Input.GetButtonUp("Crouch"))
+        {
+            transform.localScale += new Vector3(0f, 0.25f, 0f);
+            isCrouching = false;
         }
 
         velocity.y -= gravity * Time.deltaTime;
