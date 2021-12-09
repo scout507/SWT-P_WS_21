@@ -8,8 +8,15 @@ public class PlayerMovement : NetworkBehaviour
 
     [SerializeField] CharacterController controller;
     [SerializeField] float speed = 9f;
+    [SerializeField] float sprintMultiplier = 1.5f;
     [SerializeField] float gravity = 19.62f;
     [SerializeField] float jumpHeight = 2f;
+
+    [SerializeField] float stamina = 10f;
+    [SerializeField] float staminaMax = 10f;
+    [SerializeField] float staminaDrain = .33f;
+    [SerializeField] float staminaRegen = .01f;
+    bool staminaOnCooldown = false;
 
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundDistance = 0.4f;
@@ -17,6 +24,7 @@ public class PlayerMovement : NetworkBehaviour
 
     Vector3 velocity;
     bool isGrounded;
+    bool isSprinting;
 
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] GameObject cameraMountPoint;
@@ -26,7 +34,6 @@ public class PlayerMovement : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
-        
         Cursor.lockState = CursorLockMode.Locked;
         Transform cameraTransform = Camera.main.gameObject.transform;  //Find main camera which is part of the scene instead of the prefab
         cameraTransform.parent = cameraMountPoint.transform;  //Make the camera a child of the mount point
@@ -34,16 +41,35 @@ public class PlayerMovement : NetworkBehaviour
         cameraTransform.rotation = cameraMountPoint.transform.rotation;
     }
 
+    bool checkGrounded()
+    {
+        return Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+    }
+
+    bool checkSprinting(Vector3 forward)
+    {
+        if (staminaOnCooldown)
+        {
+            return false;
+        }
+        else
+        {
+            return (isGrounded && Input.GetAxis("Vertical") > 0 && forward.magnitude > 0.1f && Input.GetButton("Sprint") && stamina > 0);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(!isLocalPlayer){
+        if (!isLocalPlayer)
+        {
             return;
         }
 
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = checkGrounded();
 
-        if(isGrounded && velocity.y < 0) {
+        if (isGrounded && velocity.y < 0)
+        {
             velocity.y = -2f;
         }
 
@@ -56,18 +82,47 @@ public class PlayerMovement : NetworkBehaviour
         cameraMountPoint.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
 
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
+        Vector3 right = (transform.right * Input.GetAxis("Horizontal")) * speed;
+        Vector3 forward = (transform.forward * Input.GetAxis("Vertical")) * speed;
 
-        Vector3 move = transform.right * moveX + transform.forward * moveZ;
+        isSprinting = checkSprinting(forward);
+        if (isSprinting)
+        {
+            forward *= sprintMultiplier;
+            stamina -= staminaDrain * Time.deltaTime;
 
-        controller.Move(move * speed * Time.deltaTime);
+            if (stamina < 0)
+            {
+                stamina = 0;
+                staminaOnCooldown = true;
+            }
+        }
+        else
+        {
+            //forward *= speed;
+            stamina += staminaRegen * Time.deltaTime;
 
-        if(Input.GetButtonDown("Jump") && isGrounded){
+            if (stamina > staminaMax)
+            {
+                stamina = staminaMax;
+            }
+
+            if (stamina > staminaMax / 3)
+            {
+                staminaOnCooldown = false;
+            }
+        }
+
+        Vector3 move = right + forward;
+        controller.Move(move * Time.deltaTime);
+
+        if (Input.GetButtonDown("Jump") && isGrounded) 
+        {
             velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
         }
 
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
+
 }
