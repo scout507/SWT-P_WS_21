@@ -205,6 +205,7 @@ MonoBehaviour:
   sprintMultiplier: 1.5
   gravity: 19.62
   jumpHeight: 1.5
+  crouchHeight: 0.66
   stamina: 1
   staminaMax: 1
   staminaDrain: 0.33
@@ -271,7 +272,7 @@ MonoBehaviour:
   sendInterval: 0.05
   syncPosition: 1
   syncRotation: 1
-  syncScale: 0
+  syncScale: 1
   interpolatePosition: 1
   interpolateRotation: 1
   interpolateScale: 0
@@ -300,7 +301,7 @@ MonoBehaviour:
   sendInterval: 0.05
   syncPosition: 1
   syncRotation: 1
-  syncScale: 0
+  syncScale: 1
   interpolatePosition: 1
   interpolateRotation: 1
   interpolateScale: 0
