@@ -5,9 +5,7 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 using System.Collections.Generic;
 
-/// <summary>
-/// Class implements the Network Manager for the Start Lobby.
-/// </summary>
+/// <summary>Class implements the Network Manager for the Start Lobby.</summary>
 public class NetworkManagerLobby : NetworkManager
 {
     /// <summary>Specifies the minimum number of clients required.</summary>
