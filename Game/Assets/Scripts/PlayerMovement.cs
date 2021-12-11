@@ -21,12 +21,19 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] GameObject cameraMountPoint;
 
-    float xRotation = 0f;
+    public float xRotation = 0f;
+    private void Awake() {
+        Application.targetFrameRate = 120;
+    }
 
 
     public override void OnStartLocalPlayer()
     {
-        
+        gameObject.layer = 0;
+        foreach (Transform child in gameObject.transform)
+        {
+            child.gameObject.layer = 0;
+        }
         Cursor.lockState = CursorLockMode.Locked;
         Transform cameraTransform = Camera.main.gameObject.transform;  //Find main camera which is part of the scene instead of the prefab
         cameraTransform.parent = cameraMountPoint.transform;  //Make the camera a child of the mount point

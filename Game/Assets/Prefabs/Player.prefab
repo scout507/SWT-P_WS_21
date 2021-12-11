@@ -167,6 +167,8 @@ GameObject:
   - component: {fileID: 2573211290775857301}
   - component: {fileID: 2573211290775857302}
   - component: {fileID: -1610639488846107056}
+  - component: {fileID: -2859042617149504034}
+  - component: {fileID: 5194663616980765039}
   - component: {fileID: 658317854740833945}
   - component: {fileID: 1483651712877243449}
   - component: {fileID: 2573211290775857303}
@@ -262,6 +264,52 @@ MonoBehaviour:
   weaoponRange: 0
   gunEnd: {fileID: 0}
   gun: {fileID: 3485256484105351483, guid: 6ac605d192be6e342a2cb73ded1f6d61, type: 3}
+  gunMount: {fileID: 763812673904101872}
+  gunAmmo: 0
+  nextFire: 0
+  recoil: 0
+--- !u!114 &-2859042617149504034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2573211290775858027}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d256341b8aae74faf994f66dffd18f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  gunDamage: 0
+  fireRate: 0
+  weaoponRange: 0
+  gunEnd: {fileID: 0}
+  gun: {fileID: 8698056783547040552, guid: af11714765ae1b34e8b0548edb56b376, type: 3}
+  gunMount: {fileID: 763812673904101872}
+  gunAmmo: 0
+  nextFire: 0
+  recoil: 0
+--- !u!114 &5194663616980765039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2573211290775858027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05687435994ba5f4090bd6219059383d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  gunDamage: 0
+  fireRate: 0
+  weaoponRange: 0
+  gunEnd: {fileID: 0}
+  gun: {fileID: 6697091580636379084, guid: 48b79d98b6fb47b4f9aee5392e1723f3, type: 3}
   gunMount: {fileID: 763812673904101872}
   gunAmmo: 0
   nextFire: 0
