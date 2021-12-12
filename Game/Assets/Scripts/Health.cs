@@ -7,7 +7,16 @@ using Mirror;
 public class Health : NetworkBehaviour 
 {
     [SyncVar]
-    public int health = 100; // Variable for Health, synced on all Clients
+    public int maxHealth = 100; // Variable for Health, synced on all Clients
+    public int health;
+
+    public HealthBar healthBar;
+
+    void Start()
+    {
+        health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+    }
 
     /**
     Function for taking Damage, runs on Server
@@ -17,6 +26,7 @@ public class Health : NetworkBehaviour
         if(!isServer) return;
 
         health -= amount;
+        healthBar.SetHealth(health);
         TargetDamage(amount);
         if(health <= 0)
         {
