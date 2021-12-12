@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.AI;
 using Mirror;
 
+
+/// <summary>
+/// This class is responsible for handling monsters. Most code should only be run on server.
+/// </summary>
 public class MonsterController : NetworkBehaviour
 {
     public float aggroRadius;
@@ -80,7 +84,9 @@ public class MonsterController : NetworkBehaviour
         }
     }
 
-    //Makes a list containing all active players and destructable objects.
+    /// <summary>
+    ///     Makes a list containing all active players and destructable objects.
+    /// </summary>
     void FindTargets()
     {
         //Make a new list
@@ -101,14 +107,20 @@ public class MonsterController : NetworkBehaviour
             if(Vector3.Distance(transform.position, destructable.transform.position) <= aggroRadius && destructable.GetComponent<DestructableObject>().active) targets.Add(destructable);
         }
     }
-
-    //This has changed from the previous version. It might be obsolete, but could still be usefull in the future if the aggro behaviour is going to change.
+    
+    /// <summary>
+    /// This has changed from the previous version. It might be obsolete, but could still be usefull in the future if the aggro behaviour is going to change.
+    /// </summary>
+    /// <returns>Returns true when there are players or objects in aggro range</returns>
     bool CheckAggro()
     {
         return targets.Count>0;
     }
 
-    //Finds the nearest Target
+    /// <summary>
+    /// Selects a target for the monster to attack. 
+    /// </summary>
+    /// <returns>Returns the target as a GameObject.</returns>
     GameObject FindTarget()
     {
         float shortestDistance = aggroRadius;
@@ -135,6 +147,9 @@ public class MonsterController : NetworkBehaviour
         return newTarget;
     }
 
+    /// <summary>
+    /// Method to handle monster death.
+    /// </summary>
     void Die()
     {
         if(!dead)
@@ -145,6 +160,9 @@ public class MonsterController : NetworkBehaviour
         }  
     }
 
+    /// <summary>
+    /// Method responsible for attacking.
+    /// </summary>
     void Attack()
     {
         if(atkTimer >= atkCooldown)
@@ -162,7 +180,11 @@ public class MonsterController : NetworkBehaviour
         }
     }
 
-    //can be called if a player damages the monster.
+
+    /// <summary>
+    /// Can be called to damage the monster.
+    /// </summary>
+    /// <param name="dmgTaken">The amount of damage the monster is going to take.</param>
     public void TakeDamage(float dmgTaken)
     {
         if(!dead)
@@ -174,7 +196,10 @@ public class MonsterController : NetworkBehaviour
     }
 
 
-    //this can be used to manualy trigger monsters.
+    /// <summary>
+    /// Not useable yet. This method is going to be used for triggering monsters manually.
+    /// </summary>
+    /// <param name="player">The player that triggered the monster.</param>
     void AggroMob(GameObject player)
     {
         if(currentTarget == null)
