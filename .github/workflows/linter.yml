@@ -3,6 +3,7 @@ name: Lint Code Base
 on:
   workflow_call:
   push:
+    branches-ignore: main
 
 jobs:
   build:
