@@ -1,0 +1,26 @@
+name: Test Unity Project
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Test Unity Project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          lfs: true
+          
+      - uses: game-ci/unity-test-runner@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          projectPath: Game/
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: Test results
+          path: artifacts
+
