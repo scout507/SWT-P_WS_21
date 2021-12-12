@@ -21,6 +21,9 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] GameObject cameraMountPoint;
 
+    [SyncVar(hook = nameof(SwitchWeapon))]
+    private int selectedWeapon = 0;
+
     public float xRotation = 0f;
     private void Awake() {
         Application.targetFrameRate = 120;
@@ -39,6 +42,13 @@ public class PlayerMovement : NetworkBehaviour
         cameraTransform.parent = cameraMountPoint.transform;  //Make the camera a child of the mount point
         cameraTransform.position = cameraMountPoint.transform.position;  //Set position/rotation same as the mount point
         cameraTransform.rotation = cameraMountPoint.transform.rotation;
+        GetComponent<MP>().enabled = true;
+    }
+
+    private void Start() {
+        if(isLocalPlayer)
+        return;
+        GetComponent<MP>().enabled = true;
     }
 
     // Update is called once per frame
@@ -76,5 +86,86 @@ public class PlayerMovement : NetworkBehaviour
 
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        if(Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon < 5)
+        {
+            int newWeapon = selectedWeapon + 1;
+            CmdSwitchWeapon(newWeapon);
+        }
+        if(Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon > 1)
+        {
+            int newWeapon = selectedWeapon - 1;
+            CmdSwitchWeapon(newWeapon);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            CmdSwitchWeapon(1);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            CmdSwitchWeapon(2);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            CmdSwitchWeapon(3);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            CmdSwitchWeapon(4);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            CmdSwitchWeapon(5);
+        }
+    }
+
+    [Command]
+    public void CmdSwitchWeapon(int newWeapon)
+    {
+        selectedWeapon = newWeapon;
+    }
+
+    private void SwitchWeapon(int oldWeapon, int newWeapon)
+    {
+        switch(oldWeapon)
+        {   
+            case 1:
+                GetComponent<MP>().enabled = false;
+                break;
+            case 2:
+                GetComponent<Shotgun>().enabled = false;
+                break;
+            case 3:
+                GetComponent<Rifle>().enabled = false;
+                break;
+            case 4:
+                GetComponent<Pistol>().enabled = false;
+                break;
+            case 5:
+                GetComponent<Melee>().enabled = false;
+                break;
+            default:
+                break;
+        }
+        switch(newWeapon)
+        {   
+            case 1:
+                GetComponent<MP>().enabled = true;
+                break;
+            case 2:
+                GetComponent<Shotgun>().enabled = true;
+                break;
+            case 3:
+                GetComponent<Rifle>().enabled = true;
+                break;
+            case 4:
+                GetComponent<Pistol>().enabled = true;
+                break;
+            case 5:
+                GetComponent<Melee>().enabled = true;
+                break;
+            default:
+                break;
+        }
     }
 }

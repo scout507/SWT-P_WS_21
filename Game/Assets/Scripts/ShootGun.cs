@@ -17,17 +17,17 @@ public abstract class ShootGun : NetworkBehaviour
 
     // Gets called if Player is hit
     [Command]
-    public void CmdShootPlayer(GameObject player)
+    public void CmdShootPlayer(GameObject player, int damageAmount)
     {
        Debug.Log("Hit Player!");
-       player.GetComponent<Health>().TakeDamage(gunDamage);
+       player.GetComponent<Health>().TakeDamage(damageAmount);
     }
 
     // Called when monster is hit
     [Command]
-    public void CmdShootMonster(GameObject monster)
+    public void CmdShootMonster(GameObject monster, int damageAmount)
     {
-        monster.GetComponent<MonsterController>().TakeDamage(gunDamage);
+        monster.GetComponent<MonsterController>().TakeDamage(damageAmount);
     }
 
     // Function for hit on wall, can start Animation or something on point of hit
@@ -44,7 +44,14 @@ public abstract class ShootGun : NetworkBehaviour
         RpcHitWall(hit);
     }
 
+    private void OnDisable() 
+    {
+        Destroy(gunMount.GetChild(0).gameObject);
+    }
 
+    private void OnEnable() {
+        Instantiate(gun, gunMount);
+    }
     /**
     Function for shooting, casts Ray and calls functions based on object that is hit
     */

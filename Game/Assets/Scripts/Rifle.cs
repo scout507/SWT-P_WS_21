@@ -11,7 +11,6 @@ public class Rifle : ShootGun
         this.weaoponRange = 200f;
         this.gunAmmo = 4;
         this.recoil = 20f;
-        Instantiate(gun, gunMount);
     }
 
     void Update()
@@ -53,11 +52,11 @@ public class Rifle : ShootGun
             Debug.DrawLine(rayOrigin, hit.point, Color.green, 0.5f);
             if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
-                CmdShootPlayer(hit.collider.transform.root.gameObject); // Gets Parent of Collider and calls function for hit on Player
+                CmdShootPlayer(hit.collider.transform.root.gameObject, gunDamage); // Gets Parent of Collider and calls function for hit on Player
             }
             else if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Monster"))
             {
-                CmdShootMonster(hit.collider.transform.root.gameObject); // Calls TakeDamage on the monster hit
+                CmdShootMonster(hit.collider.transform.root.gameObject, gunDamage); // Calls TakeDamage on the monster hit
             }
             else
             {
