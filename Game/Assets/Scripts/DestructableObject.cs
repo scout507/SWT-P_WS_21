@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+/// <summary>
+/// Prototype script for destructable objects. 
+/// </summary>
 public class DestructableObject : NetworkBehaviour
 {
     [SerializeField] float maxHealth;
@@ -23,6 +26,10 @@ public class DestructableObject : NetworkBehaviour
         else active = true;
     }
 
+    /// <summary>
+    /// Can be called to damage the object.
+    /// </summary>
+    /// <param name="amount">Amount of damage taken.</param>
     public void TakeDamage(float amount){
         health -= amount;
     }
