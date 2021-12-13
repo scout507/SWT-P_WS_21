@@ -14,6 +14,5 @@ public class Compass : MonoBehaviour
     {
         // changes the image of the compass based on the direction the playerController is looking.
         compassImage.uvRect = new Rect(player.localEulerAngles.y / 360f, 0f, 1f , 1f);
-        //Debug.Log(player.localEulerAngles.y);
     }
 }
