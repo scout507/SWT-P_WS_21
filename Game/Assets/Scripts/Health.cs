@@ -6,10 +6,10 @@ using Mirror;
 /// <summary>
 /// The Health class manages the player's health points. It is also responsible for capturing damage and also the death of the player.
 /// </summary>
-public class Health : NetworkBehaviour 
+public class Health : NetworkBehaviour
 {
     [SyncVar]
-    public int health = 100; 
+    public int health = 100;
 
     /// <summary>
     /// The method TakeDamage is responsible for suffering damage.
@@ -17,8 +17,8 @@ public class Health : NetworkBehaviour
     /// <param name="amount">The parameter amount indicates how much damage was sustained.</param>
     public void TakeDamage(int amount)
     {
-        if(!isServer) return;
-
+        if(!isServer) 
+        return;
         health -= amount;
         TargetDamage();
         if(health <= 0)

@@ -45,7 +45,8 @@ public class PlayerMovement : NetworkBehaviour
     /// <summary>
     /// When a player prefab is spawns, this selects the first weapon.
     /// </summary>
-    private void Start() {
+    private void Start()
+    {
         selectedWeapon = 1;
         SwitchWeapon(selectedWeapon, selectedWeapon);
     }
@@ -55,13 +56,13 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     void Update()
     {
-        if(!isLocalPlayer){
+        if(!isLocalPlayer)
+        {
             return;
         }
-
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-        if(isGrounded && velocity.y < 0) {
+        if(isGrounded && velocity.y < 0)
+        {
             velocity.y = -2f;
         }
 
@@ -81,7 +82,8 @@ public class PlayerMovement : NetworkBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        if(Input.GetButtonDown("Jump") && isGrounded){
+        if(Input.GetButtonDown("Jump") && isGrounded)
+        {
             velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
         }
 

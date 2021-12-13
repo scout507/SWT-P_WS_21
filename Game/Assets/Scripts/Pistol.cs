@@ -7,7 +7,7 @@ public class Pistol : ShootGun
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// </summary>
-    private void Start() 
+    private void Start()
     {
         this.gunDamage = 10;
         this.fireRate = 0.25f;
@@ -21,17 +21,17 @@ public class Pistol : ShootGun
     /// </summary>
     void Update()
     {
-        if(!isLocalPlayer) 
+        if(!isLocalPlayer)
         {
             return;
         }
 
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire) 
+        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             if(gunAmmo > 0)
             {
-              Shoot();  
+                Shoot();
             }
             else
             {
@@ -43,7 +43,6 @@ public class Pistol : ShootGun
         {
             gunAmmo = 8;
         }
-        
     }
 
     /// <summary>
@@ -54,10 +53,8 @@ public class Pistol : ShootGun
         RaycastHit hit;
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
-
         gunAmmo--;
-        
-        if(Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0)) 
+        if(Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
         {
             Debug.Log("In Range!");
             Debug.DrawLine(rayOrigin, hit.point, Color.green, 0.5f);
@@ -74,7 +71,7 @@ public class Pistol : ShootGun
                 CmdShootWall(hit.point);
             }
         }
-        else 
+        else
         {
             Debug.Log("Out of Range!");
             Debug.DrawRay(rayOrigin, direction * weaoponRange, Color.red, 0.5f);

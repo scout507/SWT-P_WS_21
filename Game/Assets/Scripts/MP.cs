@@ -22,16 +22,16 @@ public class MP : ShootGun
     /// </summary>
     void Update()
     {
-        if(!isLocalPlayer) 
+        if(!isLocalPlayer)
         {
             return;
         }
-        if (Input.GetButton("Fire1") && Time.time > nextFire) 
+        if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             if(gunAmmo > 0)
             {
-              Shoot();  
+                Shoot();
             }
             else
             {
@@ -53,10 +53,8 @@ public class MP : ShootGun
         RaycastHit hit;
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
-
         gunAmmo--;
-        
-        if(Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0)) 
+        if(Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
         {
             Debug.Log("In Range!");
             Debug.DrawLine(rayOrigin, hit.point, Color.green, 0.5f);

@@ -15,19 +15,19 @@ public abstract class ShootGun : NetworkBehaviour
     public GameObject gun; // Prefab of gun
     public Transform gunMount; // Point where gun is loaded
     public int gunAmmo; // Ammunition of gun
-    public float nextFire; // Time of the next shot you can take 
+    public float nextFire; // Time of the next shot you can take
     public float recoil; // Set ammount of Recoil per Shot
 
     /// <summary>
-    /// Gets called when player is hit. 
+    /// Gets called when player is hit.
     /// </summary>
     /// <param name="player">Gameobject of player who is hit.</param>
     /// <param name="damageAmount">Amount of damage.</param>
     [Command]
     public void CmdShootPlayer(GameObject player, int damageAmount)
     {
-       Debug.Log("Hit Player!");
-       player.GetComponent<Health>().TakeDamage(damageAmount);
+        Debug.Log("Hit Player!");
+        player.GetComponent<Health>().TakeDamage(damageAmount);
     }
 
     /// <summary>
@@ -64,15 +64,15 @@ public abstract class ShootGun : NetworkBehaviour
     /// <summary>
     /// Destroys gameobject of gun when a new gun is equipped.
     /// </summary>
-    private void OnDisable() 
+    private void OnDisable()
     {
         Destroy(gunMount.GetChild(0).gameObject);
     }
-    
+
     /// <summary>
     /// Loads prefab of gun when this gun is equipped.
     /// </summary>
-    private void OnEnable() 
+    private void OnEnable()
     {
         Instantiate(gun, gunMount);
     }

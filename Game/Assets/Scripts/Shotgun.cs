@@ -12,7 +12,7 @@ public class Shotgun : ShootGun
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// </summary>
-    private void Start() 
+    private void Start()
     {
         this.gunDamage = 5;
         this.fireRate = 0.25f;
@@ -26,16 +26,16 @@ public class Shotgun : ShootGun
     /// </summary>
     void Update()
     {
-        if(!isLocalPlayer) 
+        if(!isLocalPlayer)
         {
             return;
         }
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire) 
+        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             if(gunAmmo > 0)
             {
-              Shoot();  
+                Shoot();
             }
             else
             {
@@ -63,7 +63,7 @@ public class Shotgun : ShootGun
 
             direction += Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.up) * Camera.main.transform.forward;
             direction += Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.right) * Camera.main.transform.forward;
-            if(Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0)) 
+            if(Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
             {
                 Debug.Log("In Range!");
                 Debug.DrawLine(rayOrigin, hit.point, Color.green, 0.5f);
@@ -80,7 +80,7 @@ public class Shotgun : ShootGun
                     CmdShootWall(hit.point);
                 }
             }
-            else 
+            else
             {
                 Debug.DrawRay(rayOrigin, direction * weaoponRange, Color.red, 0.5f);
                 Debug.Log("Out of Range!");

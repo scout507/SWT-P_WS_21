@@ -18,15 +18,14 @@ public class Melee : ShootGun
     /// </summary>
     void Update()
     {
-        if(!isLocalPlayer) 
+        if(!isLocalPlayer)
         {
             return;
         }
-
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire) 
+        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            Shoot();  
+            Shoot();
         }
     }
 
@@ -34,7 +33,7 @@ public class Melee : ShootGun
     /// A melee weapon does not shoot, so here it calls a corountin for an animation.
     /// </summary>
     public override void Shoot()
-    {   
+    {
         StartCoroutine(Hit());
     }
 
@@ -59,12 +58,12 @@ public class Melee : ShootGun
     /// This is called when a melee weapon hits a player.
     /// </summary>
     /// <param name="other">The collider of the gameobject which hit this gameobject.</param>
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other)
     {
         if(gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
-        }    
+        }
     }
 
     /// <summary>
