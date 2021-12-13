@@ -5,18 +5,71 @@ using UnityEngine;
 
 public class PlayerMovement : NetworkBehaviour
 {
-
     [SerializeField] CharacterController controller;
-    [SerializeField] float speed = 9f;
-    [SerializeField] float sprintMultiplier = 1.5f;
-    [SerializeField] float gravity = 19.62f;
-    [SerializeField] float jumpHeight = 2f;
-    [SerializeField] float crouchHeight = .66f;
 
+    /// <summary>
+    /// Prefab of the player's model
+    /// </summary>
+    [SerializeField] GameObject playerModel;
+    
+    /// <summary>
+    /// Player's movement speed
+    /// </summary>
+    [SerializeField] float speed = 9f;
+
+    /// <summary>
+    /// Sprint speed multiplier
+    /// </summary>
+    [SerializeField] float sprintSpeedMultiplier = 1.5f;
+
+    /// <summary>
+    /// Crouch speed multiplier
+    /// </summary>
+    [SerializeField] float crouchSpeedMultiplier = .33f;
+
+    /// <summary>
+    /// Gravity force to apply to the player
+    /// </summary>
+    [SerializeField] float gravity = 19.62f;
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [SerializeField] float jumpHeight = 2f;
+
+    /// <summary>
+    /// Change of height when crouching
+    /// </summary>
+    [SerializeField] float crouchHeightChange = .25f;
+
+    /// <summary>
+    /// Change of height when going prone
+    /// </summary>
+    [SerializeField] float proneHeightChange = .66f;
+
+    /// <summary>
+    /// Player's current stamina
+    /// </summary>
     [SerializeField] float stamina = 10f;
+
+    /// <summary>
+    /// Maximum stamina
+    /// </summary>
     [SerializeField] float staminaMax = 10f;
+
+    /// <summary>
+    /// Stamina to drain
+    /// </summary>
     [SerializeField] float staminaDrain = .33f;
+
+    /// <summary>
+    /// Stamina to regain
+    /// </summary>
     [SerializeField] float staminaRegen = .01f;
+
+    /// <summary>
+    /// Is the player's stamina on cooldown / is the player currently exhausted?
+    /// </summary>
     bool staminaOnCooldown = false;
 
     [SerializeField] Transform groundCheck;
@@ -24,31 +77,58 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] LayerMask groundMask;
 
     Vector3 velocity;
+
+    /// <summary>
+    /// Is the player currently on ground? 
+    /// </summary>
     bool isGrounded = false;
+
+    /// <summary>
+    /// Is the player currently sprinting?
+    /// </summary>
     bool isSprinting = false;
+
+    /// <summary>
+    /// Is the player currently crouching?
+    /// </summary>
     bool isCrouching = false;
+
+    /// <summary>
+    /// Is the player currently prone?
+    /// </summary>
+    bool isProning = false;
 
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] GameObject cameraMountPoint;
 
+    /// <summary>
+    /// Initial pitch of the player's view
+    /// </summary>
     float xRotation = 0f;
-
 
     public override void OnStartLocalPlayer()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Transform cameraTransform = Camera.main.gameObject.transform;  //Find main camera which is part of the scene instead of the prefab
-        cameraTransform.parent = cameraMountPoint.transform;  //Make the camera a child of the mount point
-        cameraTransform.position = cameraMountPoint.transform.position;  //Set position/rotation same as the mount point
+        Transform cameraTransform = Camera.main.gameObject.transform;  // Find main camera which is part of the scene instead of the prefab
+        cameraTransform.parent = cameraMountPoint.transform;  // Make the camera a child of the mount point
+        cameraTransform.position = cameraMountPoint.transform.position;  // Set position/rotation same as the mount point
         cameraTransform.rotation = cameraMountPoint.transform.rotation;
     }
 
-    bool checkGrounded()
+    /// <summary>
+    /// Checks if the player is currently on ground
+    /// </summary>
+    /// <returns>Returns true or false</returns>
+    bool CheckGrounded()
     {
         return Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
     }
 
-    bool checkSprinting(Vector3 forward)
+    /// <summary>
+    /// Checks if the player is currently on sprinting
+    /// </summary>
+    /// <returns>Returns true or false</returns>
+    bool CheckSprinting(Vector3 forward)
     {
         if (staminaOnCooldown)
         {
@@ -56,8 +136,20 @@ public class PlayerMovement : NetworkBehaviour
         }
         else
         {
-            return (isGrounded && !isCrouching && Input.GetAxis("Vertical") > 0 && forward.magnitude > 0.1f && Input.GetButton("Sprint") && stamina > 0);
+            return (isGrounded && Input.GetAxis("Vertical") > 0 && forward.magnitude > 0.1f && Input.GetButton("Sprint") && stamina > 0);
         }
+    }
+
+    void Crouch()
+    {
+        transform.localScale += new Vector3(0f, -crouchHeightChange, 0f);
+        isCrouching = true;
+    }
+
+    void Uncrouch()
+    {
+        transform.localScale += new Vector3(0f, crouchHeightChange, 0f);
+        isCrouching = false;
     }
 
     // Update is called once per frame
@@ -68,7 +160,7 @@ public class PlayerMovement : NetworkBehaviour
             return;
         }
 
-        isGrounded = checkGrounded();
+        isGrounded = CheckGrounded();
 
         if (isGrounded && velocity.y < 0)
         {
@@ -87,10 +179,15 @@ public class PlayerMovement : NetworkBehaviour
         Vector3 right = (transform.right * Input.GetAxis("Horizontal")) * speed;
         Vector3 forward = (transform.forward * Input.GetAxis("Vertical")) * speed;
 
-        isSprinting = checkSprinting(forward);
+        isSprinting = CheckSprinting(forward);
         if (isSprinting)
         {
-            forward *= sprintMultiplier;
+            if (isCrouching) 
+            {
+                Uncrouch();
+            }
+
+            forward *= sprintSpeedMultiplier;
             stamina -= staminaDrain * Time.deltaTime;
 
             if (stamina < 0)
@@ -119,7 +216,7 @@ public class PlayerMovement : NetworkBehaviour
 
         if (isCrouching)
         {
-            move *= 0.33f;
+            move *= crouchSpeedMultiplier;
         }
 
         controller.Move(move * Time.deltaTime);
@@ -131,15 +228,31 @@ public class PlayerMovement : NetworkBehaviour
 
         if (Input.GetButtonDown("Crouch"))
         {
-            transform.localScale += new Vector3(0f, -0.25f, 0f);
-            isCrouching = true;
+            if (!isCrouching)
+            {
+                Crouch();
+            }
+            else 
+            {
+                Uncrouch();
+            }
         }
 
-        if (Input.GetButtonUp("Crouch"))
+        /*if (Input.GetButtonDown("Prone"))
         {
-            transform.localScale += new Vector3(0f, 0.25f, 0f);
-            isCrouching = false;
-        }
+            if (!isProning)
+            {
+                transform.localScale += new Vector3(0f, -proneHeightChange, 0f);
+                //groundDistance = 0.05f;
+                isProning = true;
+            }
+            else 
+            {
+                transform.localScale += new Vector3(0f, proneHeightChange, 0f);
+                //groundDistance = 0.4f;
+                isProning = false;
+            }
+        }*/
 
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
