@@ -26,14 +26,14 @@ public class Shotgun : ShootGun
     /// </summary>
     void Update()
     {
-        if(!isLocalPlayer)
+        if (!isLocalPlayer)
         {
             return;
         }
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            if(gunAmmo > 0)
+            if (gunAmmo > 0)
             {
                 Shoot();
             }
@@ -58,20 +58,20 @@ public class Shotgun : ShootGun
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
         gunAmmo--;
-        for(int i = 0; i < pelletAmount; i++)
+        for (int i = 0; i < pelletAmount; i++)
         {
 
             direction += Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.up) * Camera.main.transform.forward;
             direction += Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.right) * Camera.main.transform.forward;
-            if(Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
+            if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
             {
                 Debug.Log("In Range!");
                 Debug.DrawLine(rayOrigin, hit.point, Color.green, 0.5f);
-                if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
                     CmdShootPlayer(hit.collider.transform.root.gameObject, gunDamage); // Gets Parent of Collider and calls function for hit on Player
                 }
-                else if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Monster"))
+                else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Monster"))
                 {
                     CmdShootMonster(hit.collider.transform.root.gameObject, gunDamage); // Calls TakeDamage on the monster hit
                 }

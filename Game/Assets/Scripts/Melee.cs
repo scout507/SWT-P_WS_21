@@ -18,7 +18,7 @@ public class Melee : ShootGun
     /// </summary>
     void Update()
     {
-        if(!isLocalPlayer)
+        if (!isLocalPlayer)
         {
             return;
         }
@@ -44,7 +44,7 @@ public class Melee : ShootGun
     private IEnumerator Hit()
     {
         gunMount.GetComponentInChildren<CapsuleCollider>().enabled = true;
-        for(int i = 0; i < 90; i += 2)
+        for (int i = 0; i < 90; i += 2)
         {
             gunMount.transform.localRotation = Quaternion.Euler(90f, 0f, i);
             yield return new WaitForEndOfFrame();
@@ -60,7 +60,7 @@ public class Melee : ShootGun
     /// <param name="other">The collider of the gameobject which hit this gameobject.</param>
     private void OnTriggerEnter(Collider other)
     {
-        if(gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
         }
@@ -72,11 +72,11 @@ public class Melee : ShootGun
     /// <param name="attackedOpponent"></param>
     public void meleeHit(GameObject attackedOpponent)
     {
-        if(attackedOpponent.layer == LayerMask.NameToLayer("Player"))
+        if (attackedOpponent.layer == LayerMask.NameToLayer("Player"))
         {
             CmdShootPlayer(attackedOpponent, gunDamage);
         }
-        else if(attackedOpponent.layer == LayerMask.NameToLayer("Monster"))
+        else if (attackedOpponent.layer == LayerMask.NameToLayer("Monster"))
         {
             CmdShootMonster(attackedOpponent, gunDamage);
         }

@@ -56,12 +56,12 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     void Update()
     {
-        if(!isLocalPlayer)
+        if (!isLocalPlayer)
         {
             return;
         }
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        if(isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
@@ -82,7 +82,7 @@ public class PlayerMovement : NetworkBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
         }
@@ -90,33 +90,33 @@ public class PlayerMovement : NetworkBehaviour
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        if(Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon < 5)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon < 5)
         {
             int newWeapon = selectedWeapon + 1;
             CmdSwitchWeapon(newWeapon);
         }
-        if(Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon > 1)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon > 1)
         {
             int newWeapon = selectedWeapon - 1;
             CmdSwitchWeapon(newWeapon);
         }
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             CmdSwitchWeapon(1);
         }
-        if(Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             CmdSwitchWeapon(2);
         }
-        if(Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             CmdSwitchWeapon(3);
         }
-        if(Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             CmdSwitchWeapon(4);
         }
-        if(Input.GetKeyDown(KeyCode.Alpha5))
+        if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             CmdSwitchWeapon(5);
         }
@@ -139,8 +139,8 @@ public class PlayerMovement : NetworkBehaviour
     /// <param name="newWeapon">Index of new weapon.</param>
     private void SwitchWeapon(int oldWeapon, int newWeapon)
     {
-        switch(oldWeapon)
-        {   
+        switch (oldWeapon)
+        {
             case 1:
                 GetComponent<MP>().enabled = false;
                 break;
@@ -159,8 +159,8 @@ public class PlayerMovement : NetworkBehaviour
             default:
                 break;
         }
-        switch(newWeapon)
-        {   
+        switch (newWeapon)
+        {
             case 1:
                 GetComponent<MP>().enabled = true;
                 break;

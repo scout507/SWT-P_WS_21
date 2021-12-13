@@ -17,11 +17,11 @@ public class Health : NetworkBehaviour
     /// <param name="amount">The parameter amount indicates how much damage was sustained.</param>
     public void TakeDamage(int amount)
     {
-        if(!isServer) 
+        if (!isServer)
         return;
         health -= amount;
         TargetDamage();
-        if(health <= 0)
+        if (health <= 0)
         {
             TargetDeath();
         }
