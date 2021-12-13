@@ -30,7 +30,7 @@ public class Rifle : ShootGun
             nextFire = Time.time + fireRate;
             if (gunAmmo > 0)
             {
-              Shoot();
+                Shoot();
             }
             else
             {
@@ -42,7 +42,7 @@ public class Rifle : ShootGun
             gunAmmo = 4;
         }
     }
-    
+
     /// <summary>
     /// Shoots one shot defined by the attributes of the specific gun, here it fires a single hart hitting round.
     /// </summary>

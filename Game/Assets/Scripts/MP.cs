@@ -71,7 +71,7 @@ public class MP : ShootGun
                 CmdShootWall(hit.point);
             }
         }
-        else 
+        else
         {
             Debug.Log("Out of Range!");
             Debug.DrawRay(rayOrigin, direction * weaoponRange, Color.red, 0.5f);

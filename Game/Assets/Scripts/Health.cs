@@ -18,7 +18,9 @@ public class Health : NetworkBehaviour
     public void TakeDamage(int amount)
     {
         if (!isServer)
-        return;
+        {
+            return;
+        }
         health -= amount;
         TargetDamage();
         if (health <= 0)

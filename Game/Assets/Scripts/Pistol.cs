@@ -29,7 +29,7 @@ public class Pistol : ShootGun
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            if(gunAmmo > 0)
+            if (gunAmmo > 0)
             {
                 Shoot();
             }
