@@ -14,21 +14,28 @@ public class MonsterController : NetworkBehaviour
     public float damage;
     public float hp;
     public float moveSpeed;
-    public bool awake;  //this is true when the monster gets aggro
+
+    /// <summary>True when the monster aggro is triggered </summary>
+    public bool awake;
     public float atkRange;
     public float atkCooldown;
     
-    [Range(0.1f,2)]
-    public float playerToObjectRatio; //This is used to either prefer players (<1) or destructable objects (>1)  
+    /// <summary>This is used to either prefer players (<1) or destructable objects (>1)</summary>
+    [Range(0.1f,2)] public float playerToObjectRatio;  
 
-    public List<GameObject> targets; //A list containing all possible targets
+    /// <summary>A list containing all possible targets</summary>
+    public List<GameObject> targets;
     public GameObject currentTarget;
 
     float timer;
     float atkTimer;
-    float refreshRate = 1f; //the refreshRate for target finding calculations
+    
+    /// <summary>The refreshrate for target finding calculations</summary>
+    float refreshRate = 1f;
     bool dead;
-    Vector3 home;   //stores the spawn spot
+
+    /// <summary>Stores the spawn spot</summary>
+    Vector3 home;
     NavMeshAgent nav;
 
     

@@ -10,7 +10,9 @@ public class DestructableObject : NetworkBehaviour
 {
     [SerializeField] float maxHealth;
     [SyncVar] public float health;
-    [SyncVar] public bool active; //true when hp are above 0
+    
+    /// <summary>True when hp are above 0</summary>
+    [SyncVar] public bool active; 
 
     private void Start()
     {
