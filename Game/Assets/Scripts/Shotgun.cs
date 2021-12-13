@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Shotgun implements a shotgun, inherits from ShootGun.
+/// </summary>
 public class Shotgun : ShootGun
 {
     private int pelletAmount = 15;
 
+    /// <summary>
+    /// In Start the different attributes for this gun are inizialized.
+    /// </summary>
     private void Start() 
     {
         this.gunDamage = 5;
@@ -15,6 +21,9 @@ public class Shotgun : ShootGun
         this.recoil = 10f;
     }
 
+    /// <summary>
+    /// Processes the input of the player.
+    /// </summary>
     void Update()
     {
         if(!isLocalPlayer) 
@@ -40,6 +49,9 @@ public class Shotgun : ShootGun
         }
     }
 
+    /// <summary>
+    /// Shoots one shot defined by the attributes of the specific gun, here it fires multiple rounds in a random pattern.
+    /// </summary>
     public override void Shoot()
     {
         RaycastHit hit;

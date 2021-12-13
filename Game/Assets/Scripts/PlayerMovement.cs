@@ -3,33 +3,31 @@ using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
+/// <summary>
+/// The class PlayerMovement is responsible for the movement of the player and it manages which weapon is selected.
+/// </summary>
 public class PlayerMovement : NetworkBehaviour
 {
-
     [SerializeField] CharacterController controller;
     [SerializeField] float speed = 9f;
     [SerializeField] float gravity = 19.62f;
     [SerializeField] float jumpHeight = 2f;
-
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundDistance = 0.4f;
     [SerializeField] LayerMask groundMask;
-
     Vector3 velocity;
     bool isGrounded;
-
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] GameObject cameraMountPoint;
 
     [SyncVar(hook = nameof(SwitchWeapon))]
-    private int selectedWeapon = 0;
-
+    public int selectedWeapon = 0;
     public float xRotation = 0f;
-    private void Awake() {
-        Application.targetFrameRate = 120;
-    }
 
-
+    /// <summary>
+    /// When a player starts a client and enters a game the layer of the gameObject of the local player is set to default and
+    /// set the main camera to first person view.
+    /// </summary>
     public override void OnStartLocalPlayer()
     {
         gameObject.layer = 0;
@@ -42,16 +40,19 @@ public class PlayerMovement : NetworkBehaviour
         cameraTransform.parent = cameraMountPoint.transform;  //Make the camera a child of the mount point
         cameraTransform.position = cameraMountPoint.transform.position;  //Set position/rotation same as the mount point
         cameraTransform.rotation = cameraMountPoint.transform.rotation;
-        GetComponent<MP>().enabled = true;
     }
 
+    /// <summary>
+    /// When a player prefab is spawns, this selects the first weapon.
+    /// </summary>
     private void Start() {
-        if(isLocalPlayer)
-        return;
-        GetComponent<MP>().enabled = true;
+        selectedWeapon = 1;
+        SwitchWeapon(selectedWeapon, selectedWeapon);
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// The Update methode is responsible for the movement and the changing of weapons.
+    /// </summary>
     void Update()
     {
         if(!isLocalPlayer){
@@ -119,12 +120,21 @@ public class PlayerMovement : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Switching weapons is handled by the server. This methode changes the index of the selected weapon to the new weapon.
+    /// </summary>
+    /// <param name="newWeapon">Index of new weapon which is now selected.</param>
     [Command]
     public void CmdSwitchWeapon(int newWeapon)
     {
         selectedWeapon = newWeapon;
     }
 
+    /// <summary>
+    /// Deactivates the script of the old weapon and activates the script of the new weapon.
+    /// </summary>
+    /// <param name="oldWeapon">Index of old weapon.</param>
+    /// <param name="newWeapon">Index of new weapon.</param>
     private void SwitchWeapon(int oldWeapon, int newWeapon)
     {
         switch(oldWeapon)

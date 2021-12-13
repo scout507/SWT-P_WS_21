@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Rifle : ShootGun
 {
+    /// <summary>
+    /// In Start the different attributes for this gun are inizialized.
+    /// </summary>
     void Start()
     {
         this.gunDamage = 50;
@@ -13,6 +16,9 @@ public class Rifle : ShootGun
         this.recoil = 20f;
     }
 
+    /// <summary>
+    /// Processes the input of the player.
+    /// </summary>
     void Update()
     {
         if(!isLocalPlayer) 
@@ -37,7 +43,10 @@ public class Rifle : ShootGun
             gunAmmo = 4;
         }
     }
-
+    
+    /// <summary>
+    /// Shoots one shot defined by the attributes of the specific gun, here it fires a single hart hitting round.
+    /// </summary>
     public override void Shoot()
     {
         RaycastHit hit;

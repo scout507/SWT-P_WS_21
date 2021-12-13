@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class MP : ShootGun
 {
-    // Start is called before the first frame update
+    /// <summary>
+    /// In Start the different attributes for this gun are inizialized.
+    /// </summary>
     void Start()
     {
         this.gunDamage = 5;
@@ -14,6 +16,10 @@ public class MP : ShootGun
         this.recoil = 2.5f;
     }
 
+    /// <summary>
+    /// Processes the input of the player. Because the MP is a full automatic gun, the Shoot() method is called as long as the fire button is pressed and there are rounds left in
+    /// the magazin.
+    /// </summary>
     void Update()
     {
         if(!isLocalPlayer) 
@@ -39,6 +45,9 @@ public class MP : ShootGun
         }
     }
 
+    /// <summary>
+    /// Shoots one shot defined by the attributes of the specific gun, here it fires a single round.
+    /// </summary>
     public override void Shoot()
     {
         RaycastHit hit;
