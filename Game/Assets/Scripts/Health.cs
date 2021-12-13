@@ -7,15 +7,13 @@ using Mirror;
 public class Health : NetworkBehaviour 
 {
     [SyncVar]
-    public int maxHealth = 100; // Variable for Health, synced on all Clients
-    public int health;
+    public int health = 100; // Variable for Health, synced on all Clients
 
     public HealthBar healthBar;
 
     void Start()
     {
-        health = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetMaxHealth(health);
     }
 
     /**
