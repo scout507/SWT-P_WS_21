@@ -4,24 +4,38 @@ using UnityEngine;
 using UnityEngine.AI;
 using Mirror;
 
+
+/// <summary>
+/// This class is responsible for handling monsters. Most code should only be run on server.
+/// </summary>
 public class MonsterController : NetworkBehaviour
 {
     public float aggroRadius;
     public float damage;
     public float hp;
     public float moveSpeed;
-    public bool awake;  //this is true when the monster gets aggro
+
+    /// <summary>True when the monster aggro is triggered </summary>
+    public bool awake;
     public float atkRange;
     public float atkCooldown;
+    
+    /// <summary>This is used to either prefer players (<1) or destructable objects (>1)</summary>
+    [Range(0.1f,2)] public float playerToObjectRatio;  
 
-    public List<GameObject> players;
-    public GameObject target;
+    /// <summary>A list containing all possible targets</summary>
+    public List<GameObject> targets;
+    public GameObject currentTarget;
 
     float timer;
     float atkTimer;
-    float refreshRate = 1f; //the refreshRate for target finding calculations
+    
+    /// <summary>The refreshrate for target finding calculations</summary>
+    float refreshRate = 1f;
     bool dead;
-    Vector3 home;   //stores the spawn spot
+
+    /// <summary>Stores the spawn spot</summary>
+    Vector3 home;
     NavMeshAgent nav;
 
     
@@ -32,7 +46,7 @@ public class MonsterController : NetworkBehaviour
         if(isServer)
         {
             nav = GetComponent<NavMeshAgent>();
-            FindPlayers();
+            FindTargets();
         } 
     }
 
@@ -50,15 +64,15 @@ public class MonsterController : NetworkBehaviour
             if(hp <= 0) Die();
 
             //Movement
-            if(timer >= refreshRate) FindPlayers();
+            if(timer >= refreshRate) FindTargets();
             if(!awake && timer >= refreshRate) awake = CheckAggro();
-            if(awake && timer >= refreshRate) target = FindTarget();
-            if(target != null)
+            if(awake && timer >= refreshRate) currentTarget = FindTarget();
+            if(currentTarget != null)
             {
-                if(Vector3.Distance(target.transform.position, transform.position) > atkRange)
+                if(Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
                 {
                     nav.isStopped = false;
-                    nav.SetDestination(target.transform.position);
+                    nav.SetDestination(currentTarget.transform.position);
                 }
                 else
                 {
@@ -77,56 +91,72 @@ public class MonsterController : NetworkBehaviour
         }
     }
 
-    //Makes a list containing all active players.
-    void FindPlayers()
+    /// <summary>
+    ///     Makes a list containing all active players and destructable objects.
+    /// </summary>
+    void FindTargets()
     {
         //Make a new list
-        players = new List<GameObject>();
+        targets = new List<GameObject>();
 
-        //Find all players
+        //Find all players and objects
         GameObject[] activePlayers = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] destructables = GameObject.FindGameObjectsWithTag("DestructableObject");
 
+
+        //If the player or object is within the aggro radius, it gets added to the list
         foreach (GameObject player in activePlayers)
         {
-            players.Add(player);
+            if(Vector3.Distance(transform.position, player.transform.position) <= aggroRadius) targets.Add(player);
+        }
+        foreach (GameObject destructable in destructables)
+        {
+            if(Vector3.Distance(transform.position, destructable.transform.position) <= aggroRadius && destructable.GetComponent<DestructableObject>().active) targets.Add(destructable);
         }
     }
-
-    //Checks if a player is within aggro range
+    
+    /// <summary>
+    /// This has changed from the previous version. It might be obsolete, but could still be usefull in the future if the aggro behaviour is going to change.
+    /// </summary>
+    /// <returns>Returns true when there are players or objects in aggro range</returns>
     bool CheckAggro()
     {
-        //Check if a player is in the aggro Radius
-        foreach (GameObject player in players)
-        {
-            if(Vector3.Distance(transform.position, player.transform.position) <= aggroRadius) return true;
-        }
-        return false;
+        return targets.Count>0;
     }
 
-    //Finds the nearest Target
+    /// <summary>
+    /// Selects a target for the monster to attack. 
+    /// </summary>
+    /// <returns>Returns the target as a GameObject.</returns>
     GameObject FindTarget()
     {
-        float shortestDistance = 0f;
+        float shortestDistance = aggroRadius;
         GameObject newTarget = null;
 
-        foreach (GameObject player in players)
+        foreach (GameObject target in targets)
         {
-            float distance = Vector3.Distance(transform.position, player.transform.position);
+            float distance = Vector3.Distance(transform.position, target.transform.position);
+            
+            if(target.tag == "Player")
+            {
+                distance = distance * playerToObjectRatio;
+            }
 
-            if(shortestDistance == 0) shortestDistance = distance;
-
-            //if the player is reachable and the closest to the monster, the player becomes the new target
+            //if the player/object is reachable and the closest to the monster, the player/object becomes the new target
             NavMeshPath navMeshPath = new NavMeshPath();
-            if(distance <= shortestDistance && nav.CalculatePath(player.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
+            if(distance <= shortestDistance && nav.CalculatePath(target.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
             {
                 shortestDistance = distance;
-                newTarget = player;
+                newTarget = target;
             } 
         }
 
         return newTarget;
     }
 
+    /// <summary>
+    /// Method to handle monster death.
+    /// </summary>
     void Die()
     {
         if(!dead)
@@ -137,17 +167,31 @@ public class MonsterController : NetworkBehaviour
         }  
     }
 
+    /// <summary>
+    /// Method responsible for attacking.
+    /// </summary>
     void Attack()
     {
         if(atkTimer >= atkCooldown)
         {
             atkTimer = 0;
             //TODO: Attack animation
-            target.GetComponent<Health>().TakeDamage(Mathf.RoundToInt(damage)); //Health script uses int for health. Needs to be resolved  
+            if(currentTarget.tag == "Player")
+            {
+                currentTarget.GetComponent<Health>().TakeDamage(Mathf.RoundToInt(damage)); //Health script uses int for health. Needs to be resolved
+            }
+            else if(currentTarget.tag == "DestructableObject")
+            {
+                currentTarget.GetComponent<DestructableObject>().TakeDamage(damage);
+            } 
         }
     }
 
-    //can be called if a player damages the monster.
+
+    /// <summary>
+    /// Can be called to damage the monster.
+    /// </summary>
+    /// <param name="dmgTaken">The amount of damage the monster is going to take.</param>
     public void TakeDamage(float dmgTaken)
     {
         if(!dead)
@@ -159,13 +203,16 @@ public class MonsterController : NetworkBehaviour
     }
 
 
-    //this can be used to manualy trigger monsters.
+    /// <summary>
+    /// Not useable yet. This method is going to be used for triggering monsters manually.
+    /// </summary>
+    /// <param name="player">The player that triggered the monster.</param>
     void AggroMob(GameObject player)
     {
-        if(target == null)
+        if(currentTarget == null)
         {
             awake = true;
-            target = player;
+            currentTarget = player;
         }
     }
 
