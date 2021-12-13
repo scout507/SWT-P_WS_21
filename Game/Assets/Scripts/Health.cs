@@ -47,7 +47,19 @@ public class Health : NetworkBehaviour
         Camera.main.transform.parent = null;
         Camera.main.transform.position = new Vector3(-5.8f, 84.5f, -48.3f);
         Camera.main.transform.rotation = Quaternion.Euler(51f, 0f, 0f);
-        Destroy(gameObject);
         Debug.Log("You are Dead");
+        CmdDestroyPlayer(gameObject);
+    }
+
+    [Command]
+    void CmdDestroyPlayer(GameObject character)
+    {
+        RpcDestroyPlayer(character);
+    }
+
+    [ClientRpc]
+    void RpcDestroyPlayer(GameObject character)
+    {
+        Destroy(character);
     }
 }
