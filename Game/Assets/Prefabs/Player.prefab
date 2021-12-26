@@ -230,6 +230,7 @@ MonoBehaviour:
   weaoponRange: 50
   gunEnd: {fileID: 2046544312235349952}
   gun: {fileID: 8228071114298076104}
+  gunAmmo: 8
 --- !u!114 &2573211290775857303
 MonoBehaviour:
   m_ObjectHideFlags: 0
