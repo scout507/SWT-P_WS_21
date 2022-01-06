@@ -399,8 +399,13 @@ MonoBehaviour:
   gunDamage: 10
   fireRate: 0.25
   weaoponRange: 50
+<<<<<<< HEAD
+  gunEnd: {fileID: 2046544312235349952}
+  gun: {fileID: 8228071114298076104}
+=======
   gunEnd: {fileID: 0}
   gun: {fileID: 0}
+>>>>>>> a1140ec7bd5241e96e74bbcfaf4cd232617d33bc
   gunAmmo: 8
 --- !u!114 &2573211290775857303
 MonoBehaviour:
