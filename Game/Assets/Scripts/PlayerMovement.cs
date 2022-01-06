@@ -13,7 +13,12 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] GameObject playerModel;
     
     /// <summary>
-    /// Player's movement speed
+    /// Move vector relative to the player
+    /// </summary>
+    Vector3 moveRelative;
+
+    /// <summary>
+    /// Walking speed multiplier
     /// </summary>
     [SerializeField] float speed = 9f;
 
@@ -106,6 +111,14 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     float xRotation = 0f;
 
+     /// <summary>
+    /// Returns move vector relative to player, used for animations
+    /// </summary>
+    public Vector3 GetMoveRelative() 
+    {
+        return moveRelative;
+    }
+
     public override void OnStartLocalPlayer()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -136,7 +149,7 @@ public class PlayerMovement : NetworkBehaviour
         }
         else
         {
-            return (isGrounded && Input.GetAxis("Vertical") > 0 && forward.magnitude > 0.1f && Input.GetButton("Sprint") && stamina > 0);
+            return (isGrounded && Input.GetAxis("Vertical") > 0.1f && forward.magnitude > 0.1f && Input.GetButton("Sprint") && stamina > 0);
         }
     }
 
@@ -176,8 +189,8 @@ public class PlayerMovement : NetworkBehaviour
         cameraMountPoint.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
 
-        Vector3 right = (transform.right * Input.GetAxis("Horizontal")) * speed;
-        Vector3 forward = (transform.forward * Input.GetAxis("Vertical")) * speed;
+        Vector3 right = transform.right * Input.GetAxis("Horizontal") * speed;
+        Vector3 forward = transform.forward * Input.GetAxis("Vertical") * speed;
 
         isSprinting = CheckSprinting(forward);
         if (isSprinting)
@@ -198,7 +211,6 @@ public class PlayerMovement : NetworkBehaviour
         }
         else
         {
-            //forward *= speed;
             stamina += staminaRegen * Time.deltaTime;
 
             if (stamina > staminaMax)
@@ -220,6 +232,7 @@ public class PlayerMovement : NetworkBehaviour
         }
 
         controller.Move(move * Time.deltaTime);
+        moveRelative = transform.InverseTransformDirection(move);
 
         if (Input.GetButtonDown("Jump") && isGrounded) 
         {
@@ -238,7 +251,7 @@ public class PlayerMovement : NetworkBehaviour
             }
         }
 
-        /*if (Input.GetButtonDown("Prone"))
+        if (Input.GetButtonDown("Prone"))
         {
             if (!isProning)
             {
@@ -252,10 +265,13 @@ public class PlayerMovement : NetworkBehaviour
                 //groundDistance = 0.4f;
                 isProning = false;
             }
-        }*/
+        }
 
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        Debug.Log("Move Z:" + moveRelative.z);
+        Debug.Log("Move X:" + moveRelative.x);
     }
 
 }
