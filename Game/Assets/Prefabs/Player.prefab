@@ -201,9 +201,18 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   controller: {fileID: 2573211290775857301}
-  speed: 12
+  playerModel: {fileID: 0}
+  speed: 6
+  sprintSpeedMultiplier: 1.5
+  crouchSpeedMultiplier: 0.33
   gravity: 19.62
   jumpHeight: 1.5
+  crouchHeightChange: 0.33
+  proneHeightChange: 0.66
+  stamina: 1
+  staminaMax: 1
+  staminaDrain: 0.33
+  staminaRegen: 0.2
   groundCheck: {fileID: 8337706594802313564}
   groundDistance: 0.4
   groundMask:
@@ -228,8 +237,9 @@ MonoBehaviour:
   gunDamage: 10
   fireRate: 0.25
   weaoponRange: 50
-  gunEnd: {fileID: 2046544312235349952}
-  gun: {fileID: 8228071114298076104}
+  gunEnd: {fileID: 0}
+  gun: {fileID: 0}
+  gunAmmo: 8
 --- !u!114 &2573211290775857303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,14 +271,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 1
+  clientAuthority: 0
   sendInterval: 0.05
   syncPosition: 1
   syncRotation: 1
-  syncScale: 0
+  syncScale: 1
   interpolatePosition: 1
   interpolateRotation: 1
-  interpolateScale: 0
+  interpolateScale: 1
   bufferTimeMultiplier: 1
   bufferSizeLimit: 64
   catchupThreshold: 4
@@ -290,14 +300,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 1
+  clientAuthority: 0
   sendInterval: 0.05
   syncPosition: 1
   syncRotation: 1
-  syncScale: 0
+  syncScale: 1
   interpolatePosition: 1
   interpolateRotation: 1
-  interpolateScale: 0
+  interpolateScale: 1
   bufferTimeMultiplier: 1
   bufferSizeLimit: 64
   catchupThreshold: 4
@@ -305,7 +315,7 @@ MonoBehaviour:
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
-  target: {fileID: 2573211292027365852}
+  target: {fileID: 0}
 --- !u!114 &1483651712877243449
 MonoBehaviour:
   m_ObjectHideFlags: 0
