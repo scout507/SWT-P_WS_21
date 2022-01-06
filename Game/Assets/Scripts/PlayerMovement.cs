@@ -5,76 +5,94 @@ using UnityEngine;
 
 public class PlayerMovement : NetworkBehaviour
 {
-    [SerializeField] CharacterController controller;
+    [SerializeField]
+    CharacterController controller;
 
     /// <summary>
     /// Prefab of the player's model
     /// </summary>
-    [SerializeField] GameObject playerModel;
-    
+    [SerializeField]
+    GameObject playerModel;
+
     /// <summary>
     /// Player's movement speed
     /// </summary>
-    [SerializeField] float speed = 9f;
+    [SerializeField]
+    float speed = 9f;
 
     /// <summary>
     /// Sprint speed multiplier
     /// </summary>
-    [SerializeField] float sprintSpeedMultiplier = 1.5f;
+    [SerializeField]
+    float sprintSpeedMultiplier = 1.5f;
 
     /// <summary>
     /// Crouch speed multiplier
     /// </summary>
-    [SerializeField] float crouchSpeedMultiplier = .33f;
+    [SerializeField]
+    float crouchSpeedMultiplier = .33f;
 
     /// <summary>
     /// Gravity force to apply to the player
     /// </summary>
-    [SerializeField] float gravity = 19.62f;
+    [SerializeField]
+    float gravity = 19.62f;
 
     /// <summary>
     /// 
     /// </summary>
-    [SerializeField] float jumpHeight = 2f;
+    [SerializeField]
+    float jumpHeight = 2f;
 
     /// <summary>
     /// Change of height when crouching
     /// </summary>
-    [SerializeField] float crouchHeightChange = .25f;
+    [SerializeField]
+    float crouchHeightChange = .25f;
 
     /// <summary>
     /// Change of height when going prone
     /// </summary>
-    [SerializeField] float proneHeightChange = .66f;
+    [SerializeField]
+    float proneHeightChange = .66f;
 
     /// <summary>
     /// Player's current stamina
     /// </summary>
-    [SerializeField] float stamina = 10f;
+    [SerializeField]
+    float stamina = 10f;
 
     /// <summary>
     /// Maximum stamina
     /// </summary>
-    [SerializeField] float staminaMax = 10f;
+    [SerializeField]
+    float staminaMax = 10f;
 
     /// <summary>
     /// Stamina to drain
     /// </summary>
-    [SerializeField] float staminaDrain = .33f;
+    [SerializeField]
+    float staminaDrain = .33f;
 
     /// <summary>
     /// Stamina to regain
     /// </summary>
-    [SerializeField] float staminaRegen = .01f;
+    [SerializeField]
+    float staminaRegen = .01f;
 
     /// <summary>
     /// Is the player's stamina on cooldown / is the player currently exhausted?
     /// </summary>
     bool staminaOnCooldown = false;
 
-    [SerializeField] Transform groundCheck;
-    [SerializeField] float groundDistance = 0.4f;
-    [SerializeField] LayerMask groundMask;
+    [SerializeField]
+    Transform groundCheck;
+
+    [SerializeField]
+    float groundDistance = 0.4f;
+
+    [SerializeField]
+    LayerMask groundMask;
 
     Vector3 velocity;
 
@@ -98,8 +116,11 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     bool isProning = false;
 
-    [SerializeField] float mouseSensitivity = 100f;
-    [SerializeField] GameObject cameraMountPoint;
+    [SerializeField]
+    float mouseSensitivity = 100f;
+
+    [SerializeField]
+    GameObject cameraMountPoint;
 
     /// <summary>
     /// Initial pitch of the player's view
@@ -109,9 +130,9 @@ public class PlayerMovement : NetworkBehaviour
     public override void OnStartLocalPlayer()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Transform cameraTransform = Camera.main.gameObject.transform;  // Find main camera which is part of the scene instead of the prefab
-        cameraTransform.parent = cameraMountPoint.transform;  // Make the camera a child of the mount point
-        cameraTransform.position = cameraMountPoint.transform.position;  // Set position/rotation same as the mount point
+        Transform cameraTransform = Camera.main.gameObject.transform; // Find main camera which is part of the scene instead of the prefab
+        cameraTransform.parent = cameraMountPoint.transform; // Make the camera a child of the mount point
+        cameraTransform.position = cameraMountPoint.transform.position; // Set position/rotation same as the mount point
         cameraTransform.rotation = cameraMountPoint.transform.rotation;
     }
 
@@ -136,7 +157,13 @@ public class PlayerMovement : NetworkBehaviour
         }
         else
         {
-            return (isGrounded && Input.GetAxis("Vertical") > 0 && forward.magnitude > 0.1f && Input.GetButton("Sprint") && stamina > 0);
+            return (
+                isGrounded
+                && Input.GetAxis("Vertical") > 0
+                && forward.magnitude > 0.1f
+                && Input.GetButton("Sprint")
+                && stamina > 0
+            );
         }
     }
 
@@ -182,7 +209,7 @@ public class PlayerMovement : NetworkBehaviour
         isSprinting = CheckSprinting(forward);
         if (isSprinting)
         {
-            if (isCrouching) 
+            if (isCrouching)
             {
                 Uncrouch();
             }
@@ -221,7 +248,7 @@ public class PlayerMovement : NetworkBehaviour
 
         controller.Move(move * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && isGrounded) 
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
         }
@@ -232,7 +259,7 @@ public class PlayerMovement : NetworkBehaviour
             {
                 Crouch();
             }
-            else 
+            else
             {
                 Uncrouch();
             }
@@ -257,5 +284,4 @@ public class PlayerMovement : NetworkBehaviour
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
-
 }
