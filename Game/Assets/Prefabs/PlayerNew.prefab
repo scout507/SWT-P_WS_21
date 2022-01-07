@@ -103,8 +103,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.6
+  m_Height: 1.65
+  m_Radius: 0.35
   m_SlopeLimit: 45
   m_StepOffset: 1.5
   m_SkinWidth: 0.08
@@ -307,7 +307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2573211292027365843}
   m_LocalRotation: {x: 4.2351647e-22, y: -0, z: -1.9173727e-23, w: 1}
-  m_LocalPosition: {x: 0, y: 0.56, z: 0.05}
+  m_LocalPosition: {x: 0, y: 0.756, z: 0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2573211290775857300}
@@ -857,7 +857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8775b42ec62d79145958b319bbef72bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.083
+      value: -0.92
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8775b42ec62d79145958b319bbef72bf, type: 3}
       propertyPath: m_LocalPosition.z

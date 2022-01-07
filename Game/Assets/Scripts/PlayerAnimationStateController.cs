@@ -25,5 +25,16 @@ public class PlayerAnimationStateController : MonoBehaviour
         animator.SetBool("isProne", playerMovement.GetIsProne());
         animator.SetBool("Jump", Input.GetButtonDown("Jump"));
         animator.SetBool("onGround", playerMovement.CheckGrounded());
+
+        int taunt = playerMovement.currentTaunt;
+        animator.SetInteger("Taunt", taunt);
+        if (taunt > 0)
+        {
+            animator.SetLayerWeight(2, 1);
+        }
+        else 
+        {
+            animator.SetLayerWeight(2, 0);
+        }
     }
 }

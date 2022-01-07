@@ -114,6 +114,8 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     float xRotation = 0f;
 
+    public int currentTaunt = 0;
+
     /// <summary>
     /// Returns the player's view pitch
     /// </summary>
@@ -184,13 +186,21 @@ public class PlayerMovement : NetworkBehaviour
 
     void Crouch()
     {
-        cameraMountPoint.transform.localPosition = new Vector3(0.085f, 0.16f, 0.06f);
+        controller.center = new Vector3(0, -0.1f, 0);
+        controller.radius = 0.4f;
+        controller.height = 1.35f;
+        // move ybot y to -0.824f
+        cameraMountPoint.transform.localPosition = new Vector3(0.085f, 0.26f, 0.06f);
         isCrouching = true;
     }
 
     void Uncrouch()
     {
-        cameraMountPoint.transform.localPosition = new Vector3(0f, 0.56f, 0.05f);
+        controller.center = new Vector3(0, 0, 0);
+        controller.radius = 0.35f;
+        controller.height = 1.65f;
+        // move ybot y to -0.92f
+        cameraMountPoint.transform.localPosition = new Vector3(0f, 0.756f, 0.05f);
         isCrouching = false;
     }
 
@@ -265,6 +275,7 @@ public class PlayerMovement : NetworkBehaviour
         {
             move = move.normalized;
             move *= isSprinting ? speed * sprintSpeedMultiplier : speed;
+
         }
 
         controller.Move(move * Time.deltaTime);
@@ -304,7 +315,13 @@ public class PlayerMovement : NetworkBehaviour
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        Debug.Log("Velocity:" + move.magnitude);
+        if (move.magnitude > 0.1f) currentTaunt = 0;
+        if (Input.GetKey("t")) 
+        {
+            if (Input.GetKeyDown("1")) currentTaunt = 1;
+            if (Input.GetKeyDown("2")) currentTaunt = 2;
+            if (Input.GetKeyDown("3")) currentTaunt = 3;
+        }
     }
 
 }
