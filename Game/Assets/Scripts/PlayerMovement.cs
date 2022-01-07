@@ -88,6 +88,8 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     bool isGrounded = false;
 
+    bool isInAir = false;
+
     /// <summary>
     /// Is the player currently sprinting?
     /// </summary>
@@ -97,11 +99,12 @@ public class PlayerMovement : NetworkBehaviour
     /// Is the player currently crouching?
     /// </summary>
     bool isCrouching = false;
+    bool duringCrouchAnimation = false;
 
     /// <summary>
     /// Is the player currently prone?
     /// </summary>
-    bool isProning = false;
+    bool isProne = false;
 
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] GameObject cameraMountPoint;
@@ -111,12 +114,30 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     float xRotation = 0f;
 
-     /// <summary>
+    /// <summary>
     /// Returns move vector relative to player, used for animations
     /// </summary>
     public Vector3 GetMoveRelative() 
     {
         return moveRelative;
+    }
+
+    /// <summary>
+    /// Returns if the player is crouching
+    /// </summary>
+    public bool GetIsCrouching() 
+    {
+        return isCrouching;
+    }
+
+    public bool GetIsProne() 
+    {
+        return isProne;
+    }
+
+    public bool GetIsAirborne() 
+    {
+        return isInAir;
     }
 
     public override void OnStartLocalPlayer()
@@ -155,13 +176,13 @@ public class PlayerMovement : NetworkBehaviour
 
     void Crouch()
     {
-        transform.localScale += new Vector3(0f, -crouchHeightChange, 0f);
+        //transform.localScale += new Vector3(0f, -crouchHeightChange, 0f);
         isCrouching = true;
     }
 
     void Uncrouch()
     {
-        transform.localScale += new Vector3(0f, crouchHeightChange, 0f);
+        //transform.localScale += new Vector3(0f, crouchHeightChange, 0f);
         isCrouching = false;
     }
 
@@ -178,6 +199,7 @@ public class PlayerMovement : NetworkBehaviour
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+            isInAir = false;
         }
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
@@ -236,6 +258,8 @@ public class PlayerMovement : NetworkBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded) 
         {
+            Uncrouch();
+            isInAir = true;
             velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
         }
 
@@ -251,21 +275,17 @@ public class PlayerMovement : NetworkBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Prone"))
+        /*if (Input.GetButtonDown("Prone"))
         {
-            if (!isProning)
+            if (!isProne)
             {
-                transform.localScale += new Vector3(0f, -proneHeightChange, 0f);
-                //groundDistance = 0.05f;
-                isProning = true;
+                isProne = true;
             }
             else 
             {
-                transform.localScale += new Vector3(0f, proneHeightChange, 0f);
-                //groundDistance = 0.4f;
-                isProning = false;
+                isProne = false;
             }
-        }
+        }*/
 
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
