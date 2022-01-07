@@ -115,6 +115,14 @@ public class PlayerMovement : NetworkBehaviour
     float xRotation = 0f;
 
     /// <summary>
+    /// Returns the player's view pitch
+    /// </summary>
+    public float GetPitch() 
+    {
+        return xRotation;
+    }
+
+    /// <summary>
     /// Returns move vector relative to player, used for animations
     /// </summary>
     public Vector3 GetMoveRelative() 
@@ -153,7 +161,7 @@ public class PlayerMovement : NetworkBehaviour
     /// Checks if the player is currently on ground
     /// </summary>
     /// <returns>Returns true or false</returns>
-    bool CheckGrounded()
+    public bool CheckGrounded()
     {
         return Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
     }
@@ -176,13 +184,13 @@ public class PlayerMovement : NetworkBehaviour
 
     void Crouch()
     {
-        //transform.localScale += new Vector3(0f, -crouchHeightChange, 0f);
+        cameraMountPoint.transform.localPosition = new Vector3(0.085f, 0.16f, 0.06f);
         isCrouching = true;
     }
 
     void Uncrouch()
     {
-        //transform.localScale += new Vector3(0f, crouchHeightChange, 0f);
+        cameraMountPoint.transform.localPosition = new Vector3(0f, 0.56f, 0.05f);
         isCrouching = false;
     }
 
@@ -253,6 +261,12 @@ public class PlayerMovement : NetworkBehaviour
             move *= crouchSpeedMultiplier;
         }
 
+        if ((!isSprinting && move.magnitude > speed) || (isSprinting && move.magnitude > speed * sprintSpeedMultiplier))
+        {
+            move = move.normalized;
+            move *= isSprinting ? speed * sprintSpeedMultiplier : speed;
+        }
+
         controller.Move(move * Time.deltaTime);
         moveRelative = transform.InverseTransformDirection(move);
 
@@ -290,8 +304,7 @@ public class PlayerMovement : NetworkBehaviour
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        Debug.Log("Move Z:" + moveRelative.z);
-        Debug.Log("Move X:" + moveRelative.x);
+        Debug.Log("Velocity:" + move.magnitude);
     }
 
 }

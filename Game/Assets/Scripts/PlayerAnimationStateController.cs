@@ -20,8 +20,10 @@ public class PlayerAnimationStateController : MonoBehaviour
         Vector3 velocity = playerMovement.GetMoveRelative();
         animator.SetFloat("Velocity Z", velocity.z);
         animator.SetFloat("Velocity X", velocity.x);
+        animator.SetFloat("Pitch", playerMovement.GetPitch());
         animator.SetBool("isCrouching", playerMovement.GetIsCrouching());
         animator.SetBool("isProne", playerMovement.GetIsProne());
-        animator.SetBool("isInAir", playerMovement.GetIsAirborne());
+        animator.SetBool("Jump", Input.GetButtonDown("Jump"));
+        animator.SetBool("onGround", playerMovement.CheckGrounded());
     }
 }
