@@ -322,6 +322,7 @@ public class PlayerMovement : NetworkBehaviour
             if (Input.GetKeyDown("2")) currentTaunt = 2;
             if (Input.GetKeyDown("3")) currentTaunt = 3;
         }
-    }
 
+        Debug.Log("Pitch: " + GetPitch());
+    }
 }
