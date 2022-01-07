@@ -11,6 +11,13 @@ public class Health : NetworkBehaviour
     [SyncVar]
     public int health = 100;
 
+    public HealthBar healthBar;
+
+    void Start()
+    {
+        healthBar.SetMaxHealth(health);
+    }
+
     /// <summary>
     /// The method TakeDamage is responsible for suffering damage.
     /// </summary>
@@ -22,8 +29,9 @@ public class Health : NetworkBehaviour
             return;
         }
         health -= amount;
+        healthBar.SetHealth(health);
         TargetDamage();
-        if (health <= 0)
+        if(health <= 0)
         {
             TargetDeath();
         }
