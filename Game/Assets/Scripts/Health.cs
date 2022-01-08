@@ -15,6 +15,7 @@ public class Health : NetworkBehaviour
 
     void Start()
     {
+        health = 100;
         healthBar.SetMaxHealth(health);
     }
 
