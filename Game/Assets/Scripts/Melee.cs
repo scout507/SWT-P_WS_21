@@ -60,10 +60,7 @@ public class Melee : ShootGun
     /// <param name="other">The collider of the gameobject which hit this gameobject.</param>
     private void OnTriggerEnter(Collider other)
     {
-        if (gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
-        }
+        other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
     }
 
     /// <summary>
