@@ -216,5 +216,15 @@ public class MonsterController : NetworkBehaviour
         }
     }
 
-    
+    /// <summary>
+    /// This is called when a melee weapon hits the monster.
+    /// </summary>
+    /// <param name="other">The collider of the gameobject which hit this gameobject.</param>
+    private void OnTriggerEnter(Collider other)
+    {
+        if (gameObject.layer == LayerMask.NameToLayer("Monster"))
+        {
+            other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
+        }
+    }
 }
