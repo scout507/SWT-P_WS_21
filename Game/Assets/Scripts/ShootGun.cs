@@ -87,6 +87,8 @@ public abstract class ShootGun : NetworkBehaviour
     /// </summary>
     public void Recoil()
     {
-        GetComponent<PlayerMovement>().xRotation -= recoil;
+        float xRotation = GetComponent<PlayerMovement>().GetXRotation();
+        xRotation -= recoil;
+        GetComponent<PlayerMovement>().SetXRotation(xRotation);
     }
 }

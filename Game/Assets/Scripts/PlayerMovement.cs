@@ -128,7 +128,7 @@ public class PlayerMovement : NetworkBehaviour
     /// <summary>
     /// Initial pitch of the player's view
     /// </summary>
-    public float xRotation = 0f;
+    float xRotation = 0f;
 
     [SyncVar(hook = nameof(SwitchWeapon))]
     public int selectedWeapon = 0;
@@ -201,6 +201,16 @@ public class PlayerMovement : NetworkBehaviour
     {
         transform.localScale += new Vector3(0f, crouchHeightChange, 0f);
         isCrouching = false;
+    }
+
+    public float GetXRotation()
+    {
+        return xRotation;
+    }
+
+    public void SetXRotation(float newXRotation)
+    {
+        xRotation = newXRotation;
     }
 
     /// <summary>
