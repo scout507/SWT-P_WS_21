@@ -106,7 +106,7 @@ public class TaskManager : NetworkBehaviour
     /// <summary>
     /// Used to get Information about the tasks.
     /// </summary>
-    /// <returns>Returns a list of string arrays. [0] id, [1] name, [2] description, [3] done</returns>
+    /// <returns>Returns a list of string arrays. [0] id, [1] name, [2] description, [3] bool value of done (true/false)</returns>
     public List<string[]> GetTaskInfo()
     {
         List<string[]> info = new List<string[]>();
