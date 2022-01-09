@@ -40,7 +40,7 @@ public class TaskManager : NetworkBehaviour
     /// Randomly chooses tasks from their lists and adds them to the overall tasks List
     /// </summary>
     void SpawnTasks(){
-
+        int id = 0;
         //Create list for all difficulties
         List<GameObject> simples = new List<GameObject>();
         List<GameObject> mediums = new List<GameObject>();
@@ -64,22 +64,30 @@ public class TaskManager : NetworkBehaviour
         for(int i = 0; i<amountSimple; i++)
         {
             int r = Random.Range(0,simples.Count);
+            simples[r].GetComponent<Task>().id = id;
             tasks.Add(simples[r]);
             simples.RemoveAt(r);
+            id ++;
         }
 
         for(int i = 0; i<amountMedium; i++)
         {
             int r = Random.Range(0,mediums.Count);
+            mediums[r].GetComponent<Task>().id = id;
             tasks.Add(mediums[r]);
             mediums.RemoveAt(r);
+            id++;
         }
 
         for(int i = 0; i<amountHard; i++)
         {
             int r = Random.Range(0,hards.Count);
+            hards[r].GetComponent<Task>().id = id;
             tasks.Add(hards[r]);
             hards.RemoveAt(r);
+            id++;
         }
     }
+
+    
 }
