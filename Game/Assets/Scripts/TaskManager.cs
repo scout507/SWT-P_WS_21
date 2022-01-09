@@ -23,23 +23,25 @@ public class TaskManager : NetworkBehaviour
     List<GameObject> tasks = new List<GameObject>();
 
 
-    
+
 
     void Start()
     {
-        if(!isServer) return;
+        if (!isServer) return;
+        SpawnTasks();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!isServer) return;
+        if (!isServer) return;
     }
 
     /// <summary>
     /// Randomly chooses tasks from their lists and adds them to the overall tasks List
     /// </summary>
-    void SpawnTasks(){
+    void SpawnTasks()
+    {
         int id = 0;
         //Create list for all difficulties
         List<GameObject> simples = new List<GameObject>();
@@ -47,41 +49,41 @@ public class TaskManager : NetworkBehaviour
         List<GameObject> hards = new List<GameObject>();
 
         //Add all tasks to their list
-        for(int i = 0; i<simpleTasks.Length; i++)
+        for (int i = 0; i < simpleTasks.Length; i++)
         {
             simples.Add(simpleTasks[i]);
         }
-        for(int i = 0; i<mediumTasks.Length; i++)
+        for (int i = 0; i < mediumTasks.Length; i++)
         {
             mediums.Add(mediumTasks[i]);
         }
-        for(int i = 0; i<hardTasks.Length; i++)
+        for (int i = 0; i < hardTasks.Length; i++)
         {
             hards.Add(hardTasks[i]);
         }
 
         //Randomly choose Tasks and add them to tasks list
-        for(int i = 0; i<amountSimple; i++)
+        for (int i = 0; i < amountSimple; i++)
         {
-            int r = Random.Range(0,simples.Count);
+            int r = Random.Range(0, simples.Count);
             simples[r].GetComponent<Task>().id = id;
             tasks.Add(simples[r]);
             simples.RemoveAt(r);
-            id ++;
+            id++;
         }
 
-        for(int i = 0; i<amountMedium; i++)
+        for (int i = 0; i < amountMedium; i++)
         {
-            int r = Random.Range(0,mediums.Count);
+            int r = Random.Range(0, mediums.Count);
             mediums[r].GetComponent<Task>().id = id;
             tasks.Add(mediums[r]);
             mediums.RemoveAt(r);
             id++;
         }
 
-        for(int i = 0; i<amountHard; i++)
+        for (int i = 0; i < amountHard; i++)
         {
-            int r = Random.Range(0,hards.Count);
+            int r = Random.Range(0, hards.Count);
             hards[r].GetComponent<Task>().id = id;
             tasks.Add(hards[r]);
             hards.RemoveAt(r);
@@ -89,5 +91,25 @@ public class TaskManager : NetworkBehaviour
         }
     }
 
-    
+    /// <summary>
+    /// Used to get Information about the tasks.
+    /// </summary>
+    /// <returns>Returns a list of string arrays. [0] id, [1] name, [2] description, [3] done</returns>
+    public List<string[]> GetTaskInfo()
+    {
+        List<string[]> info = new List<string[]>();
+
+        for (int i = 0; i < tasks.Count; i++)
+        {
+            string[] infoArr = new string[4];
+            Task task = tasks[i].GetComponent<Task>();
+            infoArr[0] = task.id.ToString();
+            infoArr[1] = task.name;
+            infoArr[2] = task.taskDescription;
+            infoArr[3] = task.done.ToString();
+            info.Add(infoArr);
+        }
+
+        return info;
+    }
 }
