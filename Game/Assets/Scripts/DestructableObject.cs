@@ -16,7 +16,7 @@ public class DestructableObject : NetworkBehaviour
 
     private void Start()
     {
-        health = maxHealth;
+        health = 0;
     }
 
     private void Update()
@@ -34,5 +34,13 @@ public class DestructableObject : NetworkBehaviour
     /// <param name="amount">Amount of damage taken.</param>
     public void TakeDamage(float amount){
         health -= amount;
+    }
+
+    /// <summary>
+    /// Can be called to update the health, when constructing an object.
+    /// </summary>
+    /// <param name="percent">The building progress percentage</param>
+    public void SetHealth(float percent){
+        health = maxHealth*percent;
     }
 }
