@@ -13,7 +13,7 @@ public class DestructableObject : NetworkBehaviour
     /// <summary>Current health of the object</summary>
     [SyncVar] public float health;
     /// <summary>True when hp are above 0</summary>
-    [SyncVar] public bool active; 
+    [SyncVar] public bool active;
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class DestructableObject : NetworkBehaviour
 
     private void Update()
     {
-        if(health <= 0)
+        if (health <= 0)
         {
             active = false;
         }
@@ -33,7 +33,8 @@ public class DestructableObject : NetworkBehaviour
     /// Can be called to damage the object.
     /// </summary>
     /// <param name="amount">Amount of damage taken.</param>
-    public void TakeDamage(float amount){
+    public void TakeDamage(float amount)
+    {
         health -= amount;
     }
 
@@ -41,7 +42,8 @@ public class DestructableObject : NetworkBehaviour
     /// Can be called to update the health, when constructing an object.
     /// </summary>
     /// <param name="percent">The building progress percentage</param>
-    public void SetHealth(float percent){
-        health = maxHealth*percent;
+    public void SetHealth(float percent)
+    {
+        health = maxHealth * percent;
     }
 }

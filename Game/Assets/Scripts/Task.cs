@@ -5,21 +5,26 @@ using Mirror;
 
 public class Task : NetworkBehaviour
 {
-    /// <summary>True when the task is ready to be interacted with</summary>
+    /// <summary>True when the task is ready to be interacted with.</summary>
     public bool active;
-    /// <summary>True when the task is done</summary>
+    /// <summary>True when the task is done.</summary>
     public bool done;
-    /// <summary>The place where the task should spawn</summary>
+    /// <summary>The place where the task should spawn.</summary>
     public Transform spawn;
-
+    /// <summary>Id of the task, assinged by the TaskManager. Can be used to identify the Task.</summary>
+    public int id;
+    /// <summary>Name of the task for the UI.</summary>
+    public string taskName;
+    /// <summary>Short description for the UI.</summary>
+    public string taskDescription;
 
     /// <summary>Progress in percent. 50% should be 0.5</summary>
     float progress;
     /// <summary>List of all Players within the interactable radius</summary>
     List<GameObject> players = new List<GameObject>();
-    
+
     DestructableObject dObjScript;
-    
+
     private void Start()
     {
         dObjScript = GetComponent<DestructableObject>();
@@ -49,7 +54,7 @@ public class Task : NetworkBehaviour
     /// <param name="other">Collider of the entering GameObject</param>
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player") players.Add(other.gameObject);
+        if (other.tag == "Player") players.Add(other.gameObject);
     }
 
 
@@ -59,8 +64,8 @@ public class Task : NetworkBehaviour
     /// <param name="other">Collider of the exiting GameObject</param>
     private void OnTriggerExit(Collider other)
     {
-        if(other.tag == "Player") players.Remove(other.gameObject);
+        if (other.tag == "Player") players.Remove(other.gameObject);
     }
 
-    
+
 }
