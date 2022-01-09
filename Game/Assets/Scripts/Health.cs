@@ -7,14 +7,7 @@ public class Health : NetworkBehaviour
 {
     [SyncVar]
     public int health = 100; // Variable for Health, synced on all Clients
-
-    public HealthBar healthBar;
-
-    void Start()
-    {
-        healthBar.SetMaxHealth(health);
-    }
-
+    
     /**
     Function for taking Damage, runs on Server
     */
@@ -24,7 +17,7 @@ public class Health : NetworkBehaviour
             return;
 
         health -= amount;
-        healthBar.SetHealth(health);
+        
         TargetDamage(amount);
         if (health <= 0)
         {
