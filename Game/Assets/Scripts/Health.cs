@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-
-public class Health : NetworkBehaviour 
+public class Health : NetworkBehaviour
 {
     [SyncVar]
     public int health = 100; // Variable for Health, synced on all Clients
@@ -21,12 +20,13 @@ public class Health : NetworkBehaviour
     */
     public void TakeDamage(int amount)
     {
-        if(!isServer) return;
+        if (!isServer)
+            return;
 
         health -= amount;
         healthBar.SetHealth(health);
         TargetDamage(amount);
-        if(health <= 0)
+        if (health <= 0)
         {
             TargetDeath();
         }

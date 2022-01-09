@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
-{ 
+{
     public Slider slider;
 
     // Sets the vaximum value of the healthbar slider when initialized
