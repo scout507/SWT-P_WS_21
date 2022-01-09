@@ -60,7 +60,7 @@ public class FenceInteraction : NetworkBehaviour
             brokenBoards.Clear();
 
             foreach (var item in boards)
-                if (item.GetComponent<MeshRenderer>().enabled)
+                if (!item.GetComponent<MeshRenderer>().enabled)
                     brokenBoards.Add(item);
         }
     }
