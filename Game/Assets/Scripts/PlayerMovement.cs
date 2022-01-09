@@ -114,7 +114,7 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     float xRotation = 0f;
 
-    public int currentTaunt = 0;
+    int currentTaunt = 0;
 
     /// <summary>
     /// Returns the player's view pitch
@@ -122,6 +122,11 @@ public class PlayerMovement : NetworkBehaviour
     public float GetPitch() 
     {
         return xRotation;
+    }
+
+    public int GetCurrentTaunt()
+    {
+        return currentTaunt;
     }
 
     /// <summary>

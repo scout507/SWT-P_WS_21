@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using Mirror;
 
-public class PlayerAnimationStateController : MonoBehaviour
+public class PlayerAnimationStateController : NetworkBehaviour
 {
     /// <summary>
     /// Player's Animator
@@ -32,7 +33,7 @@ public class PlayerAnimationStateController : MonoBehaviour
         animator.SetBool("Jump", Input.GetButtonDown("Jump"));
         animator.SetBool("onGround", playerMovement.CheckGrounded());
 
-        int taunt = playerMovement.currentTaunt;
+        int taunt = playerMovement.GetCurrentTaunt();
         animator.SetInteger("Taunt", taunt);
         if (taunt > 0)
         {
