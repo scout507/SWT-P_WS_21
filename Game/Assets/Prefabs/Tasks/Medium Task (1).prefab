@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 820891409545237602}
   - component: {fileID: 662513991512808079}
   - component: {fileID: 4195072039257657067}
+  - component: {fileID: -282514461695669146}
   m_Layer: 0
   m_Name: Medium Task (1)
   m_TagString: Untagged
@@ -112,7 +113,7 @@ MonoBehaviour:
   sceneId: 0
   serverOnly: 0
   visible: 0
-  m_AssetId: 
+  m_AssetId: 956dc548c9a25f24f8b27c3410b8933a
   hasSpawned: 0
 --- !u!114 &4195072039257657067
 MonoBehaviour:
@@ -131,6 +132,23 @@ MonoBehaviour:
   active: 0
   done: 0
   spawn: {x: -6.31, y: 19.03, z: -23.45}
-  id: 0
+  id: 1
   taskName: Med2
   taskDescription: Des_Med2
+--- !u!114 &-282514461695669146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6573764287478546147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a9c3a642c93f243909af9e8ee9c6fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  maxHealth: 100
+  health: 0
+  active: 0

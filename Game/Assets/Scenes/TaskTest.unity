@@ -310,9 +310,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  amountSimple: 0
-  amountMedium: 0
-  amountHard: 0
+  amountSimple: 1
+  amountMedium: 1
+  amountHard: 1
   simpleTasks:
   - {fileID: 693054728974303014, guid: 00929a45aacb6194f9ee174cf631a9db, type: 3}
   - {fileID: 3904895352147948026, guid: a8321be33a9e7c44cbbe7222a4602496, type: 3}
