@@ -5,15 +5,21 @@ using UnityEngine.UI;
 
 public class Compass : MonoBehaviour
 {
-    // the image of the compass
+    /// <summary>
+    /// sprite of teh compass directions
+    /// </summary>
     public RawImage compassImage;
 
-    // the player controller
+    /// <summary>
+    /// the players transformation info 
+    /// </summary>
     public Transform player;
 
+    /// <summary>
+    /// changes the image of the compass based on the direction the playerController is looking.
+    /// </summary>
     private void Update()
     {
-        // changes the image of the compass based on the direction the playerController is looking.
         compassImage.uvRect = new Rect(player.localEulerAngles.y / 360f, 0f, 1f, 1f);
     }
 }
