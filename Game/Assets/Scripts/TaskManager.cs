@@ -11,7 +11,6 @@ public class TaskManager : NetworkBehaviour
     [SerializeField] int amountMedium;
     /// <summary>Amount of hard tasks per game</summary>
     [SerializeField] int amountHard;
-
     /// <summary>List of simple Tasks</summary>
     [SerializeField] GameObject[] simpleTasks;
     /// <summary>List of medium Tasks</summary>
@@ -28,7 +27,7 @@ public class TaskManager : NetworkBehaviour
     void Start()
     {
         if (!isServer) return;
-        SpawnTasks();
+        ChooseTasks();
     }
 
     // Update is called once per frame
@@ -40,7 +39,7 @@ public class TaskManager : NetworkBehaviour
     /// <summary>
     /// Randomly chooses tasks from their lists and adds them to the overall tasks List
     /// </summary>
-    void SpawnTasks()
+    void ChooseTasks()
     {
         int id = 0;
         //Create list for all difficulties
