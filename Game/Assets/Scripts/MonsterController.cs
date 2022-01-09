@@ -21,7 +21,8 @@ public class MonsterController : NetworkBehaviour
     public float atkCooldown;
 
     /// <summary>This is used to either prefer players (<1) or destructable objects (>1)</summary>
-    [Range(0.1f,2)] public float playerToObjectRatio;
+    [Range(0.1f,2)]
+    public float playerToObjectRatio;
 
     /// <summary>A list containing all possible targets</summary>
     public List<GameObject> targets;
@@ -59,7 +60,8 @@ public class MonsterController : NetworkBehaviour
         timer += Time.deltaTime;
         atkTimer += Time.deltaTime;
 
-        if (!dead) {
+        if (!dead)
+        {
 
             if (hp <= 0) Die();
 
