@@ -230,6 +230,7 @@ MonoBehaviour:
   weaoponRange: 50
   gunEnd: {fileID: 2046544312235349952}
   gun: {fileID: 8228071114298076104}
+  gunAmmo: 8
 --- !u!114 &2573211290775857303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +321,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  health: 100
+  health: 0
+  healthBar: {fileID: 0}
 --- !u!136 &6896355853710520063
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -598,8 +600,8 @@ GameObject:
   - component: {fileID: 800880177183590219}
   - component: {fileID: 8479895815670171953}
   - component: {fileID: 56750366364620069}
-  m_Layer: 7
-  m_Name: Image
+  m_Layer: 5
+  m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -898,10 +900,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3140305939559907079}
+  - component: {fileID: 35586269444919471}
   - component: {fileID: 4867130365725059835}
   - component: {fileID: 4884163162363538365}
   - component: {fileID: 5909900221078904505}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -928,6 +931,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!222 &35586269444919471
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8724297588388144353}
+  m_CullTransparentMesh: 0
 --- !u!223 &4867130365725059835
 Canvas:
   m_ObjectHideFlags: 0
@@ -940,12 +951,12 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
