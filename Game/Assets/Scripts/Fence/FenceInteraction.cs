@@ -6,25 +6,26 @@ using Mirror;
 public class FenceInteraction : NetworkBehaviour
 {
     [SyncVar]
-    public GameObject[] boards;
+    public List<GameObject> boards = new List<GameObject>();
 
     [SyncVar]
-    public List<GameObject> brokenBoards;
+    public List<GameObject> brokenBoards = new List<GameObject>();
 
     [SyncVar]
     public bool used = false;
 
     [SyncVar]
-    List<GameObject> players;
+    public List<GameObject> players = new List<GameObject>();
 
-    float timer = 0;
+    public float timer = 0;
     public float timePerBoardInSeconds = 3;
-    GameObject activPlayer;
+    public GameObject activPlayer = null;
 
     void Update()
     {
         if (isLocalPlayer)
         {
+            Debug.Log("Test");
             if (players.Contains(gameObject) && !used && brokenBoards.Count > 0)
             {
                 Debug.Log("Press [E]");
@@ -67,13 +68,17 @@ public class FenceInteraction : NetworkBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "fence" && isLocalPlayer)
-            players.Add(gameObject);
+        if (other.tag == "Player" && !players.Contains(other.gameObject))
+        {
+            players.Add(other.gameObject);
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "fence" && isLocalPlayer)
-            players.Remove(gameObject);
+        if (other.tag == "Player")
+        {
+            players.Remove(other.gameObject);
+        }
     }
 }
