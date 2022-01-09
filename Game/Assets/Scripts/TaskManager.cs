@@ -28,6 +28,7 @@ public class TaskManager : NetworkBehaviour
     {
         if (!isServer) return;
         ChooseTasks();
+        SpawnTasks();
     }
 
     // Update is called once per frame
@@ -87,6 +88,18 @@ public class TaskManager : NetworkBehaviour
             tasks.Add(hards[r]);
             hards.RemoveAt(r);
             id++;
+        }
+    }
+
+    /// <summary>
+    /// Spawns tasks contained in the Tasks-List at their spawn location.
+    /// </summary>
+    void SpawnTasks()
+    {
+        foreach (GameObject task in tasks)
+        {
+            GameObject taskInstance = Instantiate(task, task.GetComponent<Task>().spawn, Quaternion.identity);
+            taskInstance.GetComponent<Task>().active = true;
         }
     }
 
