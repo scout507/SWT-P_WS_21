@@ -21,7 +21,7 @@ public class MonsterController : NetworkBehaviour
     public float atkCooldown;
 
     /// <summary>This is used to either prefer players (<1) or destructable objects (>1)</summary>
-    [Range(0.1f,2)]
+    [Range(0.1f, 2)]
     public float playerToObjectRatio;
 
     /// <summary>A list containing all possible targets</summary>
