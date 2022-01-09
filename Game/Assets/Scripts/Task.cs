@@ -9,6 +9,8 @@ public class Task : NetworkBehaviour
     public bool active;
     /// <summary>True when the task is done</summary>
     public bool done;
+    /// <summary>The place where the task should spawn</summary>
+    public Transform spawn;
 
 
     /// <summary>Progress in percent. 50% should be 0.5</summary>
@@ -22,6 +24,7 @@ public class Task : NetworkBehaviour
     {
         dObjScript = GetComponent<DestructableObject>();
     }
+
 
     /// <summary>
     /// Used to upgrade the health while building the task.
@@ -43,7 +46,7 @@ public class Task : NetworkBehaviour
     /// <summary>
     /// Adds players to the players List once they are in the interactive radius.
     /// </summary>
-    /// <param name="other"></param>
+    /// <param name="other">Collider of the entering GameObject</param>
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player") players.Add(other.gameObject);
@@ -53,7 +56,7 @@ public class Task : NetworkBehaviour
     /// <summary>
     /// Removes players from the player list when they leave the interactive radius.
     /// </summary>
-    /// <param name="other"></param>
+    /// <param name="other">Collider of the exiting GameObject</param>
     private void OnTriggerExit(Collider other)
     {
         if(other.tag == "Player") players.Remove(other.gameObject);
