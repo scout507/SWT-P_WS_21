@@ -201,9 +201,18 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   controller: {fileID: 2573211290775857301}
-  speed: 12
+  playerModel: {fileID: 0}
+  speed: 6
+  sprintSpeedMultiplier: 1.5
+  crouchSpeedMultiplier: 0.33
   gravity: 19.62
   jumpHeight: 1.5
+  crouchHeightChange: 0.33
+  proneHeightChange: 0.66
+  stamina: 1
+  staminaMax: 1
+  staminaDrain: 0.33
+  staminaRegen: 0.2
   groundCheck: {fileID: 8337706594802313564}
   groundDistance: 0.4
   groundMask:
@@ -266,10 +275,10 @@ MonoBehaviour:
   sendInterval: 0.05
   syncPosition: 1
   syncRotation: 1
-  syncScale: 0
+  syncScale: 1
   interpolatePosition: 1
   interpolateRotation: 1
-  interpolateScale: 0
+  interpolateScale: 1
   bufferTimeMultiplier: 1
   bufferSizeLimit: 64
   catchupThreshold: 4
@@ -295,10 +304,10 @@ MonoBehaviour:
   sendInterval: 0.05
   syncPosition: 1
   syncRotation: 1
-  syncScale: 0
+  syncScale: 1
   interpolatePosition: 1
   interpolateRotation: 1
-  interpolateScale: 0
+  interpolateScale: 1
   bufferTimeMultiplier: 1
   bufferSizeLimit: 64
   catchupThreshold: 4
