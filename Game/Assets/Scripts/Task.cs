@@ -10,7 +10,7 @@ public class Task : NetworkBehaviour
     /// <summary>True when the task is done.</summary>
     public bool done;
     /// <summary>The place where the task should spawn.</summary>
-    public Transform spawn;
+    public Vector3 spawn;
     /// <summary>Id of the task, assinged by the TaskManager. Can be used to identify the Task.</summary>
     public int id;
     /// <summary>Name of the task for the UI.</summary>
