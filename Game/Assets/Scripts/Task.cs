@@ -5,12 +5,17 @@ using Mirror;
 
 public class Task : NetworkBehaviour
 {
+    /// <summary>True when the task is ready to be interacted with</summary>
     public bool active;
+    /// <summary>True when the task is done</summary>
     public bool done;
 
 
-    float progress; //progress in percent. 50% should be 0.5;
+    /// <summary>Progress in percent. 50% should be 0.5</summary>
+    float progress;
+    /// <summary>List of all Players within the interactable radius</summary>
     List<GameObject> players = new List<GameObject>();
+    
     DestructableObject dObjScript;
     
     private void Start()
