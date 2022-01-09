@@ -85,6 +85,11 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     bool staminaOnCooldown = false;
 
+    /// <summary>
+    /// Is the player allowed to Move, or is he in a Vehicle
+    /// </summary>
+    public bool canMove = true;
+
     [SerializeField]
     Transform groundCheck;
 
@@ -187,101 +192,104 @@ public class PlayerMovement : NetworkBehaviour
             return;
         }
 
-        isGrounded = CheckGrounded();
-
-        if (isGrounded && velocity.y < 0)
+        if (canMove)
         {
-            velocity.y = -2f;
-        }
+            isGrounded = CheckGrounded();
 
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
-        cameraMountPoint.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * mouseX);
-
-        Vector3 right = (transform.right * Input.GetAxis("Horizontal")) * speed;
-        Vector3 forward = (transform.forward * Input.GetAxis("Vertical")) * speed;
-
-        isSprinting = CheckSprinting(forward);
-        if (isSprinting)
-        {
-            if (isCrouching)
+            if (isGrounded && velocity.y < 0)
             {
-                Uncrouch();
+                velocity.y = -2f;
             }
 
-            forward *= sprintSpeedMultiplier;
-            stamina -= staminaDrain * Time.deltaTime;
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-            if (stamina < 0)
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+            cameraMountPoint.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            transform.Rotate(Vector3.up * mouseX);
+
+            Vector3 right = (transform.right * Input.GetAxis("Horizontal")) * speed;
+            Vector3 forward = (transform.forward * Input.GetAxis("Vertical")) * speed;
+
+            isSprinting = CheckSprinting(forward);
+            if (isSprinting)
             {
-                stamina = 0;
-                staminaOnCooldown = true;
-            }
-        }
-        else
-        {
-            //forward *= speed;
-            stamina += staminaRegen * Time.deltaTime;
+                if (isCrouching)
+                {
+                    Uncrouch();
+                }
 
-            if (stamina > staminaMax)
-            {
-                stamina = staminaMax;
-            }
+                forward *= sprintSpeedMultiplier;
+                stamina -= staminaDrain * Time.deltaTime;
 
-            if (stamina > staminaMax / 3)
-            {
-                staminaOnCooldown = false;
-            }
-        }
-
-        Vector3 move = right + forward;
-
-        if (isCrouching)
-        {
-            move *= crouchSpeedMultiplier;
-        }
-
-        controller.Move(move * Time.deltaTime);
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
-        }
-
-        if (Input.GetButtonDown("Crouch"))
-        {
-            if (!isCrouching)
-            {
-                Crouch();
+                if (stamina < 0)
+                {
+                    stamina = 0;
+                    staminaOnCooldown = true;
+                }
             }
             else
             {
-                Uncrouch();
+                //forward *= speed;
+                stamina += staminaRegen * Time.deltaTime;
+
+                if (stamina > staminaMax)
+                {
+                    stamina = staminaMax;
+                }
+
+                if (stamina > staminaMax / 3)
+                {
+                    staminaOnCooldown = false;
+                }
             }
+
+            Vector3 move = right + forward;
+
+            if (isCrouching)
+            {
+                move *= crouchSpeedMultiplier;
+            }
+
+            controller.Move(move * Time.deltaTime);
+
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
+            }
+
+            if (Input.GetButtonDown("Crouch"))
+            {
+                if (!isCrouching)
+                {
+                    Crouch();
+                }
+                else
+                {
+                    Uncrouch();
+                }
+            }
+
+            /*if (Input.GetButtonDown("Prone"))
+            {
+                if (!isProning)
+                {
+                    transform.localScale += new Vector3(0f, -proneHeightChange, 0f);
+                    //groundDistance = 0.05f;
+                    isProning = true;
+                }
+                else 
+                {
+                    transform.localScale += new Vector3(0f, proneHeightChange, 0f);
+                    //groundDistance = 0.4f;
+                    isProning = false;
+                }
+            }*/
+
+            velocity.y -= gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
         }
-
-        /*if (Input.GetButtonDown("Prone"))
-        {
-            if (!isProning)
-            {
-                transform.localScale += new Vector3(0f, -proneHeightChange, 0f);
-                //groundDistance = 0.05f;
-                isProning = true;
-            }
-            else 
-            {
-                transform.localScale += new Vector3(0f, proneHeightChange, 0f);
-                //groundDistance = 0.4f;
-                isProning = false;
-            }
-        }*/
-
-        velocity.y -= gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
     }
 }
