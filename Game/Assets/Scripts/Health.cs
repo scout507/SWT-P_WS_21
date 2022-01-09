@@ -8,6 +8,9 @@ using Mirror;
 /// </summary>
 public class Health : NetworkBehaviour
 {
+    /// <summary>
+    /// Variable for Health, synced on all Clients
+    /// </summary>
     [SyncVar]
     public int health = 100;
 
@@ -30,7 +33,7 @@ public class Health : NetworkBehaviour
             return;
         }
         health -= amount;
-        healthBar.SetHealth(health);
+
         TargetDamage();
         if(health <= 0)
         {

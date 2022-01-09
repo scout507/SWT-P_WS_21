@@ -509,7 +509,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   health: 0
-  healthBar: {fileID: 6952407815072459466}
+  healthBar: {fileID: 0}
 --- !u!136 &6896355853710520063
 CapsuleCollider:
   m_ObjectHideFlags: 0
