@@ -35,7 +35,7 @@ public class Health : NetworkBehaviour
         health -= amount;
 
         TargetDamage();
-        if(health <= 0)
+        if (health <= 0)
         {
             TargetDeath();
         }

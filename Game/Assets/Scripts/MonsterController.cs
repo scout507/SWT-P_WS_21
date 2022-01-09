@@ -19,9 +19,9 @@ public class MonsterController : NetworkBehaviour
     public bool awake;
     public float atkRange;
     public float atkCooldown;
-    
+
     /// <summary>This is used to either prefer players (<1) or destructable objects (>1)</summary>
-    [Range(0.1f,2)] public float playerToObjectRatio;  
+    [Range(0.1f,2)] public float playerToObjectRatio;
 
     /// <summary>A list containing all possible targets</summary>
     public List<GameObject> targets;
@@ -29,7 +29,7 @@ public class MonsterController : NetworkBehaviour
 
     float timer;
     float atkTimer;
-    
+
     /// <summary>The refreshrate for target finding calculations</summary>
     float refreshRate = 1f;
     bool dead;
@@ -38,56 +38,56 @@ public class MonsterController : NetworkBehaviour
     Vector3 home;
     NavMeshAgent nav;
 
-    
+
 
     private void Start()
     {
         home = transform.position;
-        if(isServer)
+        if (isServer)
         {
             nav = GetComponent<NavMeshAgent>();
             FindTargets();
-        } 
+        }
     }
 
 
     void Update()
     {
         //Since the ai is only handled by the server, nobody else needs to run this code
-        if(!isServer) return;
+        if (!isServer) return;
 
         timer += Time.deltaTime;
         atkTimer += Time.deltaTime;
 
-        if(!dead){
+        if (!dead) {
 
-            if(hp <= 0) Die();
+            if (hp <= 0) Die();
 
             //Movement
-            if(timer >= refreshRate) FindTargets();
-            if(!awake && timer >= refreshRate) awake = CheckAggro();
-            if(awake && timer >= refreshRate) currentTarget = FindTarget();
-            if(currentTarget != null)
+            if (timer >= refreshRate) FindTargets();
+            if (!awake && timer >= refreshRate) awake = CheckAggro();
+            if (awake && timer >= refreshRate) currentTarget = FindTarget();
+            if (currentTarget != null)
             {
-                if(Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
+                if (Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
                 {
                     nav.isStopped = false;
                     nav.SetDestination(currentTarget.transform.position);
                 }
                 else
                 {
-                    nav.isStopped = true; 
+                    nav.isStopped = true;
                     Attack();
-                } 
+                }
             }
             else
             {
                 //if there's no legal target, the monster de-aggros and returns to it's spawn position.
                 awake = false;
-                nav.SetDestination(home); 
-            } 
+                nav.SetDestination(home);
+            }
 
-            if(timer >= refreshRate) timer = 0f;
+            if (timer >= refreshRate) timer = 0f;
         }
     }
 
@@ -107,21 +107,21 @@ public class MonsterController : NetworkBehaviour
         //If the player or object is within the aggro radius, it gets added to the list
         foreach (GameObject player in activePlayers)
         {
-            if(Vector3.Distance(transform.position, player.transform.position) <= aggroRadius) targets.Add(player);
+            if (Vector3.Distance(transform.position, player.transform.position) <= aggroRadius) targets.Add(player);
         }
         foreach (GameObject destructable in destructables)
         {
-            if(Vector3.Distance(transform.position, destructable.transform.position) <= aggroRadius && destructable.GetComponent<DestructableObject>().active) targets.Add(destructable);
+            if (Vector3.Distance(transform.position, destructable.transform.position) <= aggroRadius && destructable.GetComponent<DestructableObject>().active) targets.Add(destructable);
         }
     }
-    
+
     /// <summary>
     /// This has changed from the previous version. It might be obsolete, but could still be usefull in the future if the aggro behaviour is going to change.
     /// </summary>
     /// <returns>Returns true when there are players or objects in aggro range</returns>
     bool CheckAggro()
     {
-        return targets.Count>0;
+        return targets.Count > 0;
     }
 
     /// <summary>
@@ -136,19 +136,19 @@ public class MonsterController : NetworkBehaviour
         foreach (GameObject target in targets)
         {
             float distance = Vector3.Distance(transform.position, target.transform.position);
-            
-            if(target.tag == "Player")
+
+            if (target.tag == "Player")
             {
                 distance = distance * playerToObjectRatio;
             }
 
             //if the player/object is reachable and the closest to the monster, the player/object becomes the new target
             NavMeshPath navMeshPath = new NavMeshPath();
-            if(distance <= shortestDistance && nav.CalculatePath(target.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
+            if (distance <= shortestDistance && nav.CalculatePath(target.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
             {
                 shortestDistance = distance;
                 newTarget = target;
-            } 
+            }
         }
 
         return newTarget;
@@ -159,12 +159,12 @@ public class MonsterController : NetworkBehaviour
     /// </summary>
     void Die()
     {
-        if(!dead)
+        if (!dead)
         {
             dead = true;
             //TODO: Death-Animation
             Destroy(this.gameObject, 0.5f); // Destroys the Monster after 0.5f
-        }  
+        }
     }
 
     /// <summary>
@@ -172,18 +172,18 @@ public class MonsterController : NetworkBehaviour
     /// </summary>
     void Attack()
     {
-        if(atkTimer >= atkCooldown)
+        if (atkTimer >= atkCooldown)
         {
             atkTimer = 0;
             //TODO: Attack animation
-            if(currentTarget.tag == "Player")
+            if (currentTarget.tag == "Player")
             {
                 currentTarget.GetComponent<Health>().TakeDamage(Mathf.RoundToInt(damage)); //Health script uses int for health. Needs to be resolved
             }
-            else if(currentTarget.tag == "DestructableObject")
+            else if (currentTarget.tag == "DestructableObject")
             {
                 currentTarget.GetComponent<DestructableObject>().TakeDamage(damage);
-            } 
+            }
         }
     }
 
@@ -194,11 +194,11 @@ public class MonsterController : NetworkBehaviour
     /// <param name="dmgTaken">The amount of damage the monster is going to take.</param>
     public void TakeDamage(float dmgTaken)
     {
-        if(!dead)
+        if (!dead)
         {
             //TODO: Play damage animation & sound
             hp -= dmgTaken;
-            if(hp <= 0) Die();
+            if (hp <= 0) Die();
         }
     }
 
@@ -209,7 +209,7 @@ public class MonsterController : NetworkBehaviour
     /// <param name="player">The player that triggered the monster.</param>
     void AggroMob(GameObject player)
     {
-        if(currentTarget == null)
+        if (currentTarget == null)
         {
             awake = true;
             currentTarget = player;
