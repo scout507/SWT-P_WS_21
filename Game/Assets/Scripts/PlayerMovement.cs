@@ -101,11 +101,6 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     bool isProne = false;
 
-    /// <summary>
-    /// Is the player currently prone?
-    /// </summary>
-    bool isProning = false;
-
     [SerializeField]
     float mouseSensitivity = 100f;
 
