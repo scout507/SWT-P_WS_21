@@ -39,7 +39,6 @@ public class TaskManager : NetworkBehaviour
     void Update()
     {
         if (!isServer) return;
-        Invoke("SpawnTest", 5f);
     }
 
     /// <summary>

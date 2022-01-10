@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2359909094749990710}
   - component: {fileID: 5324876894052632234}
   - component: {fileID: 5770350946829474683}
+  - component: {fileID: 8141741013994791516}
   m_Layer: 0
   m_Name: Hard Task
   m_TagString: Untagged
@@ -135,6 +136,7 @@ MonoBehaviour:
   id: 2
   taskName: hard1
   taskDescription: Des_Hard1
+  playersCopy: []
 --- !u!114 &5770350946829474683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,3 +154,16 @@ MonoBehaviour:
   maxHealth: 100
   health: 0
   active: 0
+--- !u!135 &8141741013994791516
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6608791559642214465}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
