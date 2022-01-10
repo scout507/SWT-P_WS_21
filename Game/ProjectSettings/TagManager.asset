@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DestructableObject
   - NetworkManagerLobby
+  - NetworkManager
   layers:
   - Default
   - TransparentFX
