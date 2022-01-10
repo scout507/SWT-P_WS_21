@@ -4,8 +4,8 @@ using UnityEngine;
 using Mirror;
 using System;
 
-public class ZombieSpawner : NetworkBehaviour {
-    
+public class ZombieSpawner : NetworkBehaviour
+{
     /// <summary>
     /// Prefab of spawnable enemy
     /// </summary>
@@ -65,7 +65,7 @@ public class ZombieSpawner : NetworkBehaviour {
     {
         for (int i = 0; i < zombiesAmount; i++)
         {
-            GameObject spawnedZombie = (GameObject) Instantiate(zombie, this.gameObject.transform.position + new Vector3(i, 0, 0), Quaternion.identity);
+            GameObject spawnedZombie = (GameObject)Instantiate(zombie, this.gameObject.transform.position + new Vector3(i, 0, 0), Quaternion.identity);
             NetworkServer.Spawn(spawnedZombie);
         }
     }
@@ -77,7 +77,7 @@ public class ZombieSpawner : NetworkBehaviour {
     public string TimeToNextWaveString()
     {
         double timeToNextWave = nextWave - NetworkTime.time;
-        int minutes = (int) Math.Floor(timeToNextWave / 60);
+        int minutes = (int)Math.Floor(timeToNextWave / 60);
         int seconds = (int)Math.Floor(timeToNextWave % 60);
         return minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0');
     }
