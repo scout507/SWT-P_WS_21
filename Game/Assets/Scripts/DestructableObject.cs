@@ -16,7 +16,7 @@ public class DestructableObject : NetworkBehaviour
 
     private void Start()
     {
-        //health = maxHealth;
+        health = maxHealth;
     }
 
     private void Update()
