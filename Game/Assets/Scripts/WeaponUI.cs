@@ -5,9 +5,14 @@ using UnityEngine.UI;
 
 public class WeaponUI : MonoBehaviour
 {
-    [SerializeField] private Image icon;
-    [SerializeField] private Text magazineSizeText;
-    [SerializeField] private Text magazineCountText;
+    [SerializeField]
+    private Image icon;
+
+    [SerializeField]
+    private Text magazineSizeText;
+
+    [SerializeField]
+    private Text magazineCountText;
 
     // Function to update the info on the Weapon UI, has to be used when the weapon is changed.
     public void UpdateInfo(Sprite weaponIcon, int magazineSize, int magazineCount)
@@ -21,5 +26,4 @@ public class WeaponUI : MonoBehaviour
         //Reference to Weapon UI:
         //Player HUD script:
     }
-       
 }
