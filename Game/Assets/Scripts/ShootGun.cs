@@ -3,116 +3,92 @@ using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
-public class ShootGun : NetworkBehaviour
+/// <summary>
+/// The ShootGun class is an abstract class from which every weapon must inherit. It implements the network behavior when enemies are hit.
+/// </summary>
+public abstract class ShootGun : NetworkBehaviour
 {
-    [SerializeField] int gunDamage = 10; // Damage output for gun, maybe attached to Gun-Object later
-    [SerializeField] float fireRate = 0.25f; // Firerate for gun, maybe attached to Gun-Object later
-    [SerializeField] float weaoponRange = 50f; // Range for gun, maybe attached to Gun-Object later
-    [SerializeField] Transform gunEnd; // Gun end for Animations, maybe attached to Gun-Object later 
-    [SerializeField] GameObject gun; // Gun-Object, can change
-    [SerializeField] int gunAmmo = 8;
-    private float nextFire; // Time of the next shot you can take 
+    public int gunDamage; // Damage output for gun
+    public float fireRate; // Firerate for gun
+    public float weaoponRange; // Range for gun
+    public Transform gunEnd; // Gun end for animations
+    public GameObject gun; // Prefab of gun
+    public Transform gunMount; // Point where gun is loaded
+    public int gunAmmo; // Ammunition of gun
+    public float nextFire; // Time of the next shot you can take
+    public float recoil; // Set ammount of Recoil per Shot
 
-
-    public override void OnStartLocalPlayer()
-    {
-        gameObject.layer = 0;
-        foreach (Transform child in gameObject.transform)
-        {
-            child.gameObject.layer = 0;
-        }
-    }
-
-
-    void Update()
-    {
-        if(!isLocalPlayer) 
-        {
-            return;
-        }
-
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire) 
-        {
-            nextFire = Time.time + fireRate;
-            if(gunAmmo > 0)
-            {
-              Shoot();  
-            }
-            else
-            {
-                Debug.Log("Out of Ammo!");
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            gunAmmo = 8;
-        }
-        
-    }
-
-    // Gets called if Player is hit
+    /// <summary>
+    /// Gets called when player is hit.
+    /// </summary>
+    /// <param name="player">Gameobject of player who is hit.</param>
+    /// <param name="damageAmount">Amount of damage.</param>
     [Command]
-    void CmdShootPlayer(GameObject player)
+    public void CmdShootPlayer(GameObject player, int damageAmount)
     {
-       Debug.Log("Hit Player!");
-       player.GetComponent<Health>().TakeDamage(gunDamage);
+        Debug.Log("Hit Player!");
+        player.GetComponent<Health>().TakeDamage(damageAmount);
     }
 
-    // Called when monster is hit
+    /// <summary>
+    /// Gets called when monster is hit.
+    /// </summary>
+    /// <param name="monster">Gameobject of monster which is hit.</param>
+    /// <param name="damageAmount">Amount of damage.</param>
     [Command]
-    void CmdShootMonster(GameObject monster)
+    public void CmdShootMonster(GameObject monster, int damageAmount)
     {
-        monster.GetComponent<MonsterController>().TakeDamage(gunDamage);
+        monster.GetComponent<MonsterController>().TakeDamage(damageAmount);
     }
 
-    // Function for hit on wall, can start Animation or something on point of hit
+    /// <summary>
+    /// Function for hit on wall, can start Animation or something on point of hit.
+    /// </summary>
+    /// <param name="hit">Position of point of impact.</param>
     [ClientRpc]
-    void RpcHitWall(Vector3 hit)
+    public void RpcHitWall(Vector3 hit)
     {
         Debug.Log("Hit Wall!");
     }
 
-    // Gets called if Wall is hit
+    /// <summary>
+    /// Method for server, so it can deploy the point of impact of hit on a wall to all clients.
+    /// </summary>
+    /// <param name="hit">Position of point of impact.</param>
     [Command]
-    void CmdShootWall(Vector3 hit)
+    public void CmdShootWall(Vector3 hit)
     {
         RpcHitWall(hit);
     }
 
-
-    /**
-    Function for shooting, casts Ray and calls functions based on object that is hit
-    */
-    void Shoot()
+    /// <summary>
+    /// Destroys gameobject of gun when a new gun is equipped.
+    /// </summary>
+    private void OnDisable()
     {
-        RaycastHit hit;
-        Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
-        Vector3 direction = Camera.main.transform.forward;
-
-        gunAmmo--;
-        
-        if(Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0)) 
-        {
-            Debug.Log("In Range!");
-            if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
-            {
-                CmdShootPlayer(hit.collider.gameObject.transform.parent.gameObject); // Gets Parent of Collider and calls function for hit on Player
-            }
-            else if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Monster"))
-            {
-                CmdShootMonster(hit.collider.gameObject.transform.parent.gameObject); // Calls TakeDamage on the monster hit
-            }
-            else
-            {
-                CmdShootWall(hit.point);
-            }
-        }
-        else 
-        {
-            Debug.Log("Out of Range!");
-        }
-        
+        Destroy(gunMount.GetChild(0).gameObject);
     }
 
+    /// <summary>
+    /// Loads prefab of gun when this gun is equipped.
+    /// </summary>
+    private void OnEnable()
+    {
+        Instantiate(gun, gunMount);
+    }
+
+    /// <summary>
+    /// Implements a single shot, different for every weapon.
+    /// </summary>
+    public abstract void Shoot();
+
+    /// <summary>
+    /// Very simple recoil for better representation of gun.
+    /// </summary>
+    public void Recoil()
+    {
+        float xRotation = GetComponent<PlayerMovement>().GetXRotation();
+        xRotation -= recoil;
+        GetComponent<PlayerMovement>().SetXRotation(xRotation);
+    }
 }
