@@ -11,34 +11,16 @@ public class Health : NetworkBehaviour
     [SyncVar]
     public int health = 100;
 
-<<<<<<< HEAD
-    public HealthBar healthBar;
-
-    void Start()
-    {
-        healthBar.SetMaxHealth(health);
-    }
-
-    /**
-    Function for taking Damage, runs on Server
-    */
-=======
     /// <summary>
     /// Function for taking Damage, runs on Server
     /// </summary>
     /// <param name="amount"></param>
->>>>>>> origin/main
     public void TakeDamage(int amount)
     {
         if (!isServer)
             return;
 
         health -= amount;
-<<<<<<< HEAD
-        healthBar.SetHealth(health);
-=======
-
->>>>>>> origin/main
         TargetDamage(amount);
         if (health <= 0)
         {
