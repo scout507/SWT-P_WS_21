@@ -21,7 +21,7 @@ public class Task : NetworkBehaviour
     /// <summary>Progress in percent. 50% should be 0.5</summary>
     [SyncVar] public float progress;
     /// <summary>List of all Players within the interactable radius</summary>
-    public SyncList<uint> players = new SyncList<uint>();
+    readonly public SyncList<uint> players = new SyncList<uint>();
 
     DestructableObject dObjScript;
 
@@ -46,6 +46,8 @@ public class Task : NetworkBehaviour
     {
         active = false;
         done = true;
+        progress = 1;
+        UpdateHealth();
     }
 
     /// <summary>
