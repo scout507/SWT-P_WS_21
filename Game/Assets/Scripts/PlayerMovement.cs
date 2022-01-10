@@ -14,7 +14,7 @@ public class PlayerMovement : NetworkBehaviour
     /// Prefab of the player's model
     /// </summary>
     [SerializeField] GameObject playerModel;
-    
+
     /// <summary>
     /// Move vector relative to the player
     /// </summary>
@@ -125,7 +125,7 @@ public class PlayerMovement : NetworkBehaviour
     /// <summary>
     /// Returns the player's view pitch
     /// </summary>
-    public float GetPitch() 
+    public float GetPitch()
     {
         return xRotation;
     }
@@ -141,7 +141,7 @@ public class PlayerMovement : NetworkBehaviour
     /// <summary>
     /// Returns move vector relative to player, used for animations
     /// </summary>
-    public Vector3 GetMoveRelative() 
+    public Vector3 GetMoveRelative()
     {
         return moveRelative;
     }
@@ -149,7 +149,7 @@ public class PlayerMovement : NetworkBehaviour
     /// <summary>
     /// Getter for isGrounded
     /// </summary>
-    public bool GetIsGrounded() 
+    public bool GetIsGrounded()
     {
         return isGrounded;
     }
@@ -157,7 +157,7 @@ public class PlayerMovement : NetworkBehaviour
     /// <summary>
     /// Returns if the player is crouching
     /// </summary>
-    public bool GetIsCrouching() 
+    public bool GetIsCrouching()
     {
         return isCrouching;
     }
@@ -165,7 +165,7 @@ public class PlayerMovement : NetworkBehaviour
     /// <summary>
     /// Getter for isProne
     /// </summary>
-    public bool GetIsProne() 
+    public bool GetIsProne()
     {
         return isProne;
     }
@@ -173,7 +173,7 @@ public class PlayerMovement : NetworkBehaviour
     /// <summary>
     /// Getter for isAirborne
     /// </summary>
-    public bool GetIsAirborne() 
+    public bool GetIsAirborne()
     {
         return isAirborne;
     }
@@ -213,7 +213,7 @@ public class PlayerMovement : NetworkBehaviour
     {
         isAirborne = newIsAirborne;
     }
-    
+
     [SyncVar(hook = nameof(SwitchWeapon))]
     public int selectedWeapon = 0;
 
@@ -341,7 +341,7 @@ public class PlayerMovement : NetworkBehaviour
         isSprinting = CheckSprinting(forward);
         if (isSprinting)
         {
-            if (isCrouching) 
+            if (isCrouching)
             {
                 Uncrouch();
             }
@@ -387,7 +387,7 @@ public class PlayerMovement : NetworkBehaviour
         controller.Move(move * Time.deltaTime);
         SetMoveRelative(transform.InverseTransformDirection(move));
 
-        if (Input.GetButtonDown("Jump") && isGrounded) 
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             Uncrouch();
             SetIsAirborne(true);
@@ -400,7 +400,7 @@ public class PlayerMovement : NetworkBehaviour
             {
                 Crouch();
             }
-            else 
+            else
             {
                 Uncrouch();
             }
@@ -422,7 +422,7 @@ public class PlayerMovement : NetworkBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         if (move.magnitude > 0.1f) SetCurrentTaunt(0);
-        if (Input.GetKey("t")) 
+        if (Input.GetKey("t"))
         {
             if (Input.GetKeyDown("1")) SetCurrentTaunt(1);
             if (Input.GetKeyDown("2")) SetCurrentTaunt(2);
