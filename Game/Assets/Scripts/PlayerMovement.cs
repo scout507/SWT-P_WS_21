@@ -88,18 +88,20 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     [SyncVar] bool isGrounded = false;
 
+    /// <summary>
+    /// Is the player currently in air? 
+    /// </summary>
     [SyncVar] bool isAirborne = false;
 
     /// <summary>
     /// Is the player currently sprinting?
     /// </summary>
-    bool isSprinting = false;
+    [SyncVar] bool isSprinting = false;
 
     /// <summary>
     /// Is the player currently crouching?
     /// </summary>
     [SyncVar] bool isCrouching = false;
-    bool duringCrouchAnimation = false;
 
     /// <summary>
     /// Is the player currently prone?
@@ -114,6 +116,9 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     float xRotation = 0f;
 
+    /// <summary>
+    /// Player's current taunt (0 = none)
+    /// </summary>
     [SyncVar] int currentTaunt = 0;
 
     /// <summary>
@@ -124,6 +129,9 @@ public class PlayerMovement : NetworkBehaviour
         return xRotation;
     }
 
+    /// <summary>
+    /// Getter for the player's taunt
+    /// </summary>
     public int GetCurrentTaunt()
     {
         return currentTaunt;
@@ -138,6 +146,14 @@ public class PlayerMovement : NetworkBehaviour
     }
 
     /// <summary>
+    /// Getter for isGrounded
+    /// </summary>
+    public bool GetIsGrounded() 
+    {
+        return isGrounded;
+    }
+
+    /// <summary>
     /// Returns if the player is crouching
     /// </summary>
     public bool GetIsCrouching() 
@@ -145,34 +161,52 @@ public class PlayerMovement : NetworkBehaviour
         return isCrouching;
     }
 
+    /// <summary>
+    /// Getter for isProne
+    /// </summary>
     public bool GetIsProne() 
     {
         return isProne;
     }
 
+    /// <summary>
+    /// Getter for isAirborne
+    /// </summary>
     public bool GetIsAirborne() 
     {
         return isAirborne;
     }
 
+    /// <summary>
+    /// Sets the player's relative move vector
+    /// </summary>
     [Command]
     void SetMoveRelative(Vector3 newMoveRelative)
     {
         moveRelative = newMoveRelative;
     }
 
+    /// <summary>
+    /// Sets the player's current taunt
+    /// </summary>
     [Command]
     void SetCurrentTaunt(int taunt)
     {
         currentTaunt = taunt;
     }
 
+    /// <summary>
+    /// Sets the player's isGrounded
+    /// </summary>
     [Command]
     void SetIsGrounded(bool newIsGrounded)
     {
         isGrounded = newIsGrounded;
     }
 
+    /// <summary>
+    /// Sets the player's isAirborne
+    /// </summary>
     [Command]
     void SetIsAirborne(bool newIsAirborne)
     {
@@ -213,6 +247,9 @@ public class PlayerMovement : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Toggles player's position to crouched
+    /// </summary>
     [Command]
     void Crouch()
     {
@@ -224,6 +261,10 @@ public class PlayerMovement : NetworkBehaviour
         isCrouching = true;
     }
 
+
+    /// <summary>
+    /// Toggles player's position to uncrouched
+    /// </summary>
     [Command]
     void Uncrouch()
     {
@@ -353,7 +394,5 @@ public class PlayerMovement : NetworkBehaviour
             if (Input.GetKeyDown("2")) SetCurrentTaunt(2);
             if (Input.GetKeyDown("3")) SetCurrentTaunt(3);
         }
-
-        Debug.Log("Pitch: " + GetPitch());
     }
 }

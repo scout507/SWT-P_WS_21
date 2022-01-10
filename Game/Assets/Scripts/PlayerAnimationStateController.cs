@@ -31,7 +31,7 @@ public class PlayerAnimationStateController : NetworkBehaviour
         animator.SetBool("isCrouching", playerMovement.GetIsCrouching());
         animator.SetBool("isProne", playerMovement.GetIsProne());
         animator.SetBool("Jump", Input.GetButtonDown("Jump"));
-        animator.SetBool("onGround", playerMovement.GetIsAirborne());
+        animator.SetBool("onGround", playerMovement.CheckGrounded());
 
         int taunt = playerMovement.GetCurrentTaunt();
         animator.SetInteger("Taunt", taunt);
