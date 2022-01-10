@@ -78,7 +78,7 @@ public class ZombieSpawner : NetworkBehaviour {
     {
         double timeToNextWave = nextWave - NetworkTime.time;
         int minutes = (int) Math.Floor(timeToNextWave / 60);
-        int seconds = (int) Math.Floor(timeToNextWave % 60);
+        int seconds = (int)Math.Floor(timeToNextWave % 60);
         return minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0');
     }
 }
