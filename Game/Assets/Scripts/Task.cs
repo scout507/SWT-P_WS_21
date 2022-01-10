@@ -45,7 +45,7 @@ public class Task : NetworkBehaviour
     /// <summary>
     /// Used to finish the task.
     /// </summary>
-    private void FinishTask()
+    public void FinishTask()
     {
         active = false;
         done = true;
