@@ -347,7 +347,7 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 693054728974303014, guid: 00929a45aacb6194f9ee174cf631a9db, type: 3}
   - {fileID: 3904895352147948026, guid: a8321be33a9e7c44cbbe7222a4602496, type: 3}
-  - {fileID: 6608791559642214465, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+  - {fileID: 1977908094656156945, guid: 7705d299d67c6c44e80b89d358115360, type: 3}
   - {fileID: 6573764287478546147, guid: 956dc548c9a25f24f8b27c3410b8933a, type: 3}
   - {fileID: 5138904609520757932, guid: b65ec3e66889556448d45398c97a20b2, type: 3}
 --- !u!1 &711186915
@@ -472,7 +472,7 @@ MonoBehaviour:
   - {fileID: 6573764287478546147, guid: 956dc548c9a25f24f8b27c3410b8933a, type: 3}
   - {fileID: 5138904609520757932, guid: b65ec3e66889556448d45398c97a20b2, type: 3}
   hardTasks:
-  - {fileID: 6608791559642214465, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+  - {fileID: 1977908094656156945, guid: 7705d299d67c6c44e80b89d358115360, type: 3}
 --- !u!114 &1124543594
 MonoBehaviour:
   m_ObjectHideFlags: 0

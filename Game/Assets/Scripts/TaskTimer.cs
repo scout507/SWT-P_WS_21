@@ -11,9 +11,9 @@ public class TaskTimer : Task
 
     void Update()
     {
-        if(isLocalPlayer)
+        if(isClient)
         {
-            if(players.Contains(this.gameObject) && active)
+            if(players.Contains(NetworkClient.localPlayer.gameObject.GetComponent<NetworkIdentity>().netId) && active)
             {
                 Debug.Log("Press E");
 
