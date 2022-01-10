@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
-using Mirror;
 
-public class Healthbar : NetworkBehaviour
+public class HealthBar : MonoBehaviour
 {
-
     public Slider slider;
 
     /// <summary>
-    /// Sets the maximum value of the healthbar to scale appropriatly.
+    /// sets the max health of the slider
     /// </summary>
     /// <param name="health"></param>
     public void SetMaxHealth(int health)
@@ -20,7 +19,7 @@ public class Healthbar : NetworkBehaviour
     }
 
     /// <summary>
-    /// Sets the current health value to scale down the filling of the healthbar.
+    /// sets the current value of the slider
     /// </summary>
     /// <param name="health"></param>
     public void SetHealth(int health)
