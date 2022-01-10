@@ -46,6 +46,8 @@ public class Task : NetworkBehaviour
     {
         active = false;
         done = true;
+        progress = 1;
+        UpdateHealth();
     }
 
     /// <summary>
