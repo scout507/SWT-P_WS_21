@@ -4,19 +4,23 @@ using UnityEngine;
 using Mirror;
 
 
-public class Health : NetworkBehaviour 
+public class Health : NetworkBehaviour
 {
+    /// <summary>
+    /// Variable for health, synced on all Clients
+    /// </summary>
     [SyncVar]
-    public int health = 100; // Variable for Health, synced on all Clients
+    public int health = 100; 
     public  Healthbar healthbar;
 
     void Start()
     {
         healthbar.SetMaxHealth(health);
     }
-    /**
-    Function for taking Damage, runs on Server
-    */
+    /// <summary>
+    /// Function for taking Damage, runs on Server
+    /// </summary>
+    /// <param name="amount"></param>
     public void TakeDamage(int amount)
     {
         if(!isServer) return;
@@ -30,19 +34,20 @@ public class Health : NetworkBehaviour
         }
     }
 
-    /**
-    Function for taking Damage, runs on Client for Effects on Screen and so on
-    */
+    /// <summary>
+    /// Function for taking Damage, runs on Client for Effects on Screen and so on
+    /// </summary>
+    /// <param name="amount"></param>
     [TargetRpc]
     public void TargetDamage(int amount)
     {
         Debug.Log("Took damage:" + amount);
     }
 
-    /**
-    Death function for Client
-    Dummy at the moment
-    */
+    /// <summary>
+    /// Death function for Client
+    /// Dummy at the moment
+    /// </summary>
     [TargetRpc]
     void TargetDeath()
     {
