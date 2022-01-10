@@ -10,6 +10,9 @@ public class TaskTimer : Task
 
     bool started;
 
+    /// <summary>
+    /// Handles Client interaction. Also handles the timer on the server.
+    /// </summary>
     void Update()
     {
         if (isClient) //vvv Player interaction with the task vvv 
