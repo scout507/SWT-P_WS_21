@@ -8,7 +8,7 @@ using Mirror;
 /// </summary>
 public class DestructableObject : NetworkBehaviour
 {
-    [SerializeField] float maxHealth;
+    [SerializeField] public float maxHealth;
     [SyncVar] public float health;
     
     /// <summary>True when hp are above 0</summary>
@@ -16,7 +16,7 @@ public class DestructableObject : NetworkBehaviour
 
     private void Start()
     {
-        health = maxHealth;
+        //health = maxHealth;
     }
 
     private void Update()

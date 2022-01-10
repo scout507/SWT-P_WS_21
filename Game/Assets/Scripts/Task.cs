@@ -6,7 +6,9 @@ using Mirror;
 public class Task : NetworkBehaviour
 {
 
-    [SyncVar]Color color = Color.red;
+    [SyncVar]
+    [SerializeField]
+    Color color = Color.red;
 
 
     private bool touchedGround =false;
