@@ -399,8 +399,13 @@ MonoBehaviour:
   gunDamage: 10
   fireRate: 0.25
   weaoponRange: 50
+<<<<<<< HEAD
   gunEnd: {fileID: 0}
   gun: {fileID: 0}
+=======
+  gunEnd: {fileID: 2046544312235349952}
+  gun: {fileID: 8228071114298076104}
+>>>>>>> origin/main
   gunAmmo: 8
 --- !u!114 &2573211290775857303
 MonoBehaviour:
@@ -492,9 +497,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+<<<<<<< HEAD
   maxHealth: 100
   health: 0
   healthBar: {fileID: 6952407815072459466}
+=======
+  health: 0
+  healthBar: {fileID: 0}
+>>>>>>> origin/main
 --- !u!136 &6896355853710520063
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -769,11 +779,19 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 7656317026133995252}
   - component: {fileID: 5719823746338398869}
   - component: {fileID: 2155369898442370695}
   m_Layer: 5
   m_Name: Panel
+=======
+  - component: {fileID: 800880177183590219}
+  - component: {fileID: 8479895815670171953}
+  - component: {fileID: 56750366364620069}
+  m_Layer: 5
+  m_Name: Crosshair
+>>>>>>> origin/main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

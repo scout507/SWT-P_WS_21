@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 18f41d55dc0cb8b45aa99275f5940ada
+=======
+<<<<<<< HEAD:Game/Assets/Materials/Asphalt_materials/Scenes/Demo Scene.unity.meta
+guid: e7fc479fd3bcd4185a7aef031c7b7355
+=======
+guid: 18f41d55dc0cb8b45aa99275f5940ada
+>>>>>>> origin/main:Game/Assets/Scenes/AdvMovementTest.unity.meta
+>>>>>>> origin/main
 DefaultImporter:
   externalObjects: {}
   userData: 
