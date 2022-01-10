@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DestructableObject
   - NetworkManagerLobby
+  - NetworkManager
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Ground
   - Player
   - Monster
-  - 
+  - MeleeWeapon
   - 
   - 
   - 

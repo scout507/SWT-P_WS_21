@@ -2,29 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Mirror;
 
-public class Compass : NetworkBehaviour
+public class Compass : MonoBehaviour
 {
     /// <summary>
-    /// filling Image of the compass(the directions)
+    /// sprite of teh compass directions
     /// </summary>
     public RawImage compassImage;
+
     /// <summary>
-    /// the direction the player is looking
+    /// the players transformation info 
     /// </summary>
-    [SerializeField] private Transform player;
-
-    public override void OnStartLocalPlayer()
-    {
-        Transform player = Camera.main.gameObject.transform;  //Find main camera which is part of the scene instead of the prefab
-    }
+    public Transform player;
 
     /// <summary>
-    /// The image of teh compass filling(the letters NESW), will adjust their y-axis based on the direction the player is looking
+    /// changes the image of the compass based on the direction the playerController is looking.
     /// </summary>
     private void Update()
     {
-        compassImage.uvRect = new Rect (player.localEulerAngles.y / 360f, 0f, 1f, 1f);
+        compassImage.uvRect = new Rect(player.localEulerAngles.y / 360f, 0f, 1f, 1f);
     }
 }

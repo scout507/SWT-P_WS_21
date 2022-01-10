@@ -3,57 +3,75 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-
+/// <summary>
+/// The Health class manages the player's health points. It is also responsible for capturing damage and also the death of the player.
+/// </summary>
 public class Health : NetworkBehaviour
 {
     /// <summary>
-    /// Variable for health, synced on all Clients
+    /// Variable for Health, synced on all Clients
     /// </summary>
     [SyncVar]
-    public int health = 100; 
-    public  Healthbar healthbar;
+    public int health = 100;
+
+    public HealthBar healthBar;
 
     void Start()
     {
-        healthbar.SetMaxHealth(health);
+        health = 100;
+        healthBar.SetMaxHealth(health);
     }
+
     /// <summary>
-    /// Function for taking Damage, runs on Server
+    /// The method TakeDamage is responsible for suffering damage.
     /// </summary>
-    /// <param name="amount"></param>
+    /// <param name="amount">The parameter amount indicates how much damage was sustained.</param>
     public void TakeDamage(int amount)
     {
-        if(!isServer) return;
-
+        if (!isServer)
+        {
+            return;
+        }
         health -= amount;
-        healthbar.SetHealth(health);
-        TargetDamage(amount);
-        if(health <= 0)
+
+        TargetDamage();
+        if (health <= 0)
         {
             TargetDeath();
         }
     }
 
     /// <summary>
-    /// Function for taking Damage, runs on Client for Effects on Screen and so on
+    /// The methode TargetDamage is called when a player is hit. It can then trigger an animation or something similar.
     /// </summary>
-    /// <param name="amount"></param>
     [TargetRpc]
-    public void TargetDamage(int amount)
+    public void TargetDamage()
     {
-        Debug.Log("Took damage:" + amount);
+        Debug.Log("Took damage!");
     }
 
     /// <summary>
-    /// Death function for Client
-    /// Dummy at the moment
+    /// The methode TargetDeath is called when a player dies. It destroys the gameobject of the player and resets the main camera.
     /// </summary>
     [TargetRpc]
     void TargetDeath()
     {
-        //Debug dummy, swap with real death sequence later
-        gameObject.GetComponent<PlayerMovement>().enabled = false;
-        gameObject.GetComponent<ShootGun>().enabled = false;
+        Camera.main.transform.parent = null;
+        Camera.main.transform.position = new Vector3(-5.8f, 84.5f, -48.3f);
+        Camera.main.transform.rotation = Quaternion.Euler(51f, 0f, 0f);
         Debug.Log("You are Dead");
+        CmdDestroyPlayer(gameObject);
+    }
+
+    [Command]
+    void CmdDestroyPlayer(GameObject character)
+    {
+        RpcDestroyPlayer(character);
+    }
+
+    [ClientRpc]
+    void RpcDestroyPlayer(GameObject character)
+    {
+        Destroy(character);
     }
 }
