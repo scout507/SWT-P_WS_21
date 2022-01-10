@@ -21,7 +21,7 @@ public class Task : NetworkBehaviour
     /// <summary>Progress in percent. 50% should be 0.5</summary>
     float progress;
     /// <summary>List of all Players within the interactable radius</summary>
-    [SyncVar] List<GameObject> players = new List<GameObject>();
+    SyncList<GameObject> players = new SyncList<GameObject>();
 
     DestructableObject dObjScript;
 
@@ -54,7 +54,7 @@ public class Task : NetworkBehaviour
     /// <param name="other">Collider of the entering GameObject</param>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player") players.Add(other.gameObject);
+        if (other.tag == "Player" && isServer) players.Add(other.gameObject);
     }
 
 
@@ -64,7 +64,7 @@ public class Task : NetworkBehaviour
     /// <param name="other">Collider of the exiting GameObject</param>
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player") players.Remove(other.gameObject);
+        if (other.tag == "Player" && isServer) players.Remove(other.gameObject);
     }
 
 
