@@ -99,12 +99,12 @@ public class TaskManager : NetworkBehaviour
     {
         foreach (GameObject task in tasks)
         {
-            
+
             GameObject taskInstance = Instantiate(task, task.GetComponent<Task>().spawn, Quaternion.identity);
             taskInstance.GetComponent<Task>().active = true;
             NetworkServer.Spawn(taskInstance);
         }
-        
+
     }
 
     /// <summary>
