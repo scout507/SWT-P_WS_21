@@ -19,9 +19,9 @@ public class Task : NetworkBehaviour
     public string taskDescription;
 
     /// <summary>Progress in percent. 50% should be 0.5</summary>
-    float progress;
+    public float progress;
     /// <summary>List of all Players within the interactable radius</summary>
-    SyncList<GameObject> players = new SyncList<GameObject>();
+    public SyncList<GameObject> players = new SyncList<GameObject>();
 
     DestructableObject dObjScript;
 
