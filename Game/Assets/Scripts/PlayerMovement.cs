@@ -15,7 +15,7 @@ public class PlayerMovement : NetworkBehaviour
     /// <summary>
     /// Move vector relative to the player
     /// </summary>
-    Vector3 moveRelative;
+    [SyncVar] Vector3 moveRelative;
 
     /// <summary>
     /// Walking speed multiplier
@@ -86,9 +86,9 @@ public class PlayerMovement : NetworkBehaviour
     /// <summary>
     /// Is the player currently on ground? 
     /// </summary>
-    bool isGrounded = false;
+    [SyncVar] bool isGrounded = false;
 
-    bool isInAir = false;
+    [SyncVar] bool isAirborne = false;
 
     /// <summary>
     /// Is the player currently sprinting?
@@ -98,7 +98,7 @@ public class PlayerMovement : NetworkBehaviour
     /// <summary>
     /// Is the player currently crouching?
     /// </summary>
-    bool isCrouching = false;
+    [SyncVar] bool isCrouching = false;
     bool duringCrouchAnimation = false;
 
     /// <summary>
@@ -114,7 +114,7 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     float xRotation = 0f;
 
-    int currentTaunt = 0;
+    [SyncVar] int currentTaunt = 0;
 
     /// <summary>
     /// Returns the player's view pitch
@@ -152,7 +152,31 @@ public class PlayerMovement : NetworkBehaviour
 
     public bool GetIsAirborne() 
     {
-        return isInAir;
+        return isAirborne;
+    }
+
+    [Command]
+    void SetMoveRelative(Vector3 newMoveRelative)
+    {
+        moveRelative = newMoveRelative;
+    }
+
+    [Command]
+    void SetCurrentTaunt(int taunt)
+    {
+        currentTaunt = taunt;
+    }
+
+    [Command]
+    void SetIsGrounded(bool newIsGrounded)
+    {
+        isGrounded = newIsGrounded;
+    }
+
+    [Command]
+    void SetIsAirborne(bool newIsAirborne)
+    {
+        isAirborne = newIsAirborne;
     }
 
     public override void OnStartLocalPlayer()
@@ -189,6 +213,7 @@ public class PlayerMovement : NetworkBehaviour
         }
     }
 
+    [Command]
     void Crouch()
     {
         controller.center = new Vector3(0, -0.1f, 0);
@@ -199,6 +224,7 @@ public class PlayerMovement : NetworkBehaviour
         isCrouching = true;
     }
 
+    [Command]
     void Uncrouch()
     {
         controller.center = new Vector3(0, 0, 0);
@@ -217,12 +243,12 @@ public class PlayerMovement : NetworkBehaviour
             return;
         }
 
-        isGrounded = CheckGrounded();
+        SetIsGrounded(CheckGrounded());
 
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
-            isInAir = false;
+            SetIsAirborne(false);
         }
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
@@ -284,12 +310,12 @@ public class PlayerMovement : NetworkBehaviour
         }
 
         controller.Move(move * Time.deltaTime);
-        moveRelative = transform.InverseTransformDirection(move);
+        SetMoveRelative(transform.InverseTransformDirection(move));
 
         if (Input.GetButtonDown("Jump") && isGrounded) 
         {
             Uncrouch();
-            isInAir = true;
+            SetIsAirborne(true);
             velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
         }
 
@@ -320,12 +346,12 @@ public class PlayerMovement : NetworkBehaviour
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        if (move.magnitude > 0.1f) currentTaunt = 0;
+        if (move.magnitude > 0.1f) SetCurrentTaunt(0);
         if (Input.GetKey("t")) 
         {
-            if (Input.GetKeyDown("1")) currentTaunt = 1;
-            if (Input.GetKeyDown("2")) currentTaunt = 2;
-            if (Input.GetKeyDown("3")) currentTaunt = 3;
+            if (Input.GetKeyDown("1")) SetCurrentTaunt(1);
+            if (Input.GetKeyDown("2")) SetCurrentTaunt(2);
+            if (Input.GetKeyDown("3")) SetCurrentTaunt(3);
         }
 
         Debug.Log("Pitch: " + GetPitch());

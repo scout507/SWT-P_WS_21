@@ -1096,7 +1096,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   controller: {fileID: 8853732361934627213}
-  playerModel: {fileID: 0}
+  playerModel: {fileID: 5665192318611215006}
   speed: 6
   sprintSpeedMultiplier: 1.5
   crouchSpeedMultiplier: 0.33
