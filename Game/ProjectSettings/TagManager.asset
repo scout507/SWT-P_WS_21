@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DestructableObject
   - NetworkManagerLobby
+  - Fence
   - NetworkManager
   layers:
   - Default
