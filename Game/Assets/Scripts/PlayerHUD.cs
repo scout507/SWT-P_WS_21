@@ -2,26 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Mirror; 
 
-public class PlayerHUD : MonoBehaviour
+public class PlayerHUD : NetworkBehaviour
 {
-    [SerializeField] private Slider slider;
-    [SerializeField] private WeaponUI weaponUI;
+    private Slider slider;
+    private WeaponUI weaponUI;
 
-    // Set the maximum value of the healthbar to scale appropriatly.
+    /// <summary>
+    /// Set the maximum value of the healthbar to scale appropriatly.
+    /// </summary>
+    /// <param name="health"></param>
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health;
         slider.value = health;
     }
 
-    // Set the current health value to scale down the filling of the healthbar.
+    /// <summary>
+    /// Set the current health value to scale down the filling of the healthbar.
+    /// </summary>
+    /// <param name="health"></param>
     public void SetHealth(int health)
     {
         slider.value = health;
     }
 
-    // public void UpadteWeaponUI(ShootGun newShootgun)
+    /// Has to be implemented later, when connecting the system to the weapons.
+    /// // public void UpadteWeaponUI(ShootGun newShootgun)
     // {
     //     weaponUI.UpdateInfo(newShootgun.icon, newShootgunn.magazineSize, newShootgun.magazineCount);
     // }
