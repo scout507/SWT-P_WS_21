@@ -416,12 +416,11 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   used: 0
-  test:
+  planksInspector:
   - {fileID: 3851346003312465049}
   - {fileID: 3851346001704149647}
   - {fileID: 3851346002536045100}
-  timer: 0
-  timePerBoardInSeconds: 3
+  timePerPlankInSeconds: 3
   activPlayer: 0
 --- !u!65 &3851346002618079165
 BoxCollider:
