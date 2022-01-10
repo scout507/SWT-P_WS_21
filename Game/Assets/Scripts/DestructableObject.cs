@@ -15,11 +15,17 @@ public class DestructableObject : NetworkBehaviour
     /// <summary>True when hp are above 0</summary>
     [SyncVar] public bool active;
 
+    /// <summary>
+    /// Sets starting health
+    /// </summary>
     private void Start()
     {
         health = 0;
     }
 
+    /// <summary>
+    /// Used for checking if health drops below 0.
+    /// </summary>
     private void Update()
     {
         if (health <= 0)

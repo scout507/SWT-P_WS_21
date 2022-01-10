@@ -25,6 +25,9 @@ public class Task : NetworkBehaviour
 
     DestructableObject dObjScript;
 
+    /// <summary>
+    /// Gets all dependencies
+    /// </summary>
     private void Start()
     {
         dObjScript = GetComponent<DestructableObject>();
