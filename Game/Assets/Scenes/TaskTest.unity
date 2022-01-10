@@ -345,11 +345,11 @@ MonoBehaviour:
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs:
-  - {fileID: 3904895352147948026, guid: a8321be33a9e7c44cbbe7222a4602496, type: 3}
   - {fileID: 693054728974303014, guid: 00929a45aacb6194f9ee174cf631a9db, type: 3}
+  - {fileID: 3904895352147948026, guid: a8321be33a9e7c44cbbe7222a4602496, type: 3}
   - {fileID: 6608791559642214465, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
-  - {fileID: 5138904609520757932, guid: b65ec3e66889556448d45398c97a20b2, type: 3}
   - {fileID: 6573764287478546147, guid: 956dc548c9a25f24f8b27c3410b8933a, type: 3}
+  - {fileID: 5138904609520757932, guid: b65ec3e66889556448d45398c97a20b2, type: 3}
 --- !u!1 &711186915
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +473,6 @@ MonoBehaviour:
   - {fileID: 5138904609520757932, guid: b65ec3e66889556448d45398c97a20b2, type: 3}
   hardTasks:
   - {fileID: 6608791559642214465, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
-  networkManager: {fileID: 0}
 --- !u!114 &1124543594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 666489656
-  serverOnly: 1
+  serverOnly: 0
   visible: 0
   m_AssetId: 
   hasSpawned: 0
