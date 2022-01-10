@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 693054728974303008}
   - component: {fileID: 693054728974303015}
   - component: {fileID: 1970472002757278915}
+  - component: {fileID: 6817829019746909314}
   m_Layer: 0
   m_Name: Easy Task (1)
   m_TagString: Untagged
@@ -135,6 +136,7 @@ MonoBehaviour:
   id: 0
   taskName: Easy2
   taskDescription: Des_Easy2
+  playersCopy: []
 --- !u!114 &1970472002757278915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,3 +154,16 @@ MonoBehaviour:
   maxHealth: 100
   health: 0
   active: 0
+--- !u!135 &6817829019746909314
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693054728974303014}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}

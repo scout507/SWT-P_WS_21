@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 662513991512808079}
   - component: {fileID: 4195072039257657067}
   - component: {fileID: -282514461695669146}
+  - component: {fileID: 8869675850667552674}
   m_Layer: 0
   m_Name: Medium Task (1)
   m_TagString: Untagged
@@ -135,6 +136,7 @@ MonoBehaviour:
   id: 1
   taskName: Med2
   taskDescription: Des_Med2
+  playersCopy: []
 --- !u!114 &-282514461695669146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,3 +154,16 @@ MonoBehaviour:
   maxHealth: 100
   health: 0
   active: 0
+--- !u!135 &8869675850667552674
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6573764287478546147}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}

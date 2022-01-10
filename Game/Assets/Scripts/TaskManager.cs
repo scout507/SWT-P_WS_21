@@ -21,13 +21,17 @@ public class TaskManager : NetworkBehaviour
     /// <summary>All tasks active this game</summary>
     List<GameObject> tasks = new List<GameObject>();
 
+    public NetworkManager networkManager;
 
 
 
     void Start()
     {
         if (!isServer) return;
+
+        networkManager = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<NetworkManager>();
         ChooseTasks();
+        RegisterPrefabs();
         SpawnTasks();
     }
 
@@ -91,6 +95,19 @@ public class TaskManager : NetworkBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Registers the choosen tasks in the NetworkManagers spawnable prefabs.
+    /// </summary>
+    void RegisterPrefabs()
+    {
+        foreach (GameObject task in tasks)
+        {
+            networkManager.spawnPrefabs.Add(task);
+        }
+        
+    }
+
     /// <summary>
     /// Spawns tasks contained in the Tasks-List at their spawn location.
     /// </summary>
@@ -98,9 +115,12 @@ public class TaskManager : NetworkBehaviour
     {
         foreach (GameObject task in tasks)
         {
+            
             GameObject taskInstance = Instantiate(task, task.GetComponent<Task>().spawn, Quaternion.identity);
             taskInstance.GetComponent<Task>().active = true;
+            NetworkServer.Spawn(taskInstance);
         }
+        
     }
 
     /// <summary>
