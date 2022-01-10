@@ -23,19 +23,14 @@ public class TaskManager : NetworkBehaviour
 
 
 
-
+    /// <summary>
+    /// Used for choosing and spawning tasks
+    /// </summary>
     void Start()
     {
         if (!isServer) return;
         ChooseTasks();
         SpawnTasks();
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!isServer) return;
     }
 
     /// <summary>
