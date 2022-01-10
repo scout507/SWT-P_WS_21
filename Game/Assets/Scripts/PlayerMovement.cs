@@ -46,16 +46,6 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] float jumpHeight = 2f;
 
     /// <summary>
-    /// Change of height when crouching
-    /// </summary>
-    [SerializeField] float crouchHeightChange = .25f;
-
-    /// <summary>
-    /// Change of height when going prone
-    /// </summary>
-    [SerializeField] float proneHeightChange = .66f;
-
-    /// <summary>
     /// Player's current stamina
     /// </summary>
     [SerializeField] float stamina = 10f;
@@ -258,7 +248,7 @@ public class PlayerMovement : NetworkBehaviour
     /// Checks if the player is currently on ground
     /// </summary>
     /// <returns>Returns true or false</returns>
-    bool CheckGrounded()
+    public bool CheckGrounded()
     {
         return Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
     }
@@ -438,7 +428,7 @@ public class PlayerMovement : NetworkBehaviour
             if (Input.GetKeyDown("2")) SetCurrentTaunt(2);
             if (Input.GetKeyDown("3")) SetCurrentTaunt(3);
         }
-        
+
         if (Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon < 5)
         {
             int newWeapon = selectedWeapon + 1;
