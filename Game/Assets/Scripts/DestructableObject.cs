@@ -9,7 +9,7 @@ using Mirror;
 public class DestructableObject : NetworkBehaviour
 {
     /// <summary>Maximum Health of the object</summary>
-    [SerializeField] float maxHealth;
+    [SerializeField] public float maxHealth;
     /// <summary>Current health of the object</summary>
     [SyncVar] public float health;
     /// <summary>True when hp are above 0</summary>
