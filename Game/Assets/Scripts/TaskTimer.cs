@@ -5,21 +5,22 @@ using Mirror;
 
 public class TaskTimer : Task
 {
+    /// <summary>Timer in seconds</summary>
     [SerializeField] float timer;
 
     bool started;
 
     void Update()
     {
-        if(isClient)
+        if(isClient) //vvv Player interaction with the task vvv 
         {
-            if(players.Contains(NetworkClient.localPlayer.gameObject.GetComponent<NetworkIdentity>().netId) && active)
+            if(players.Contains(NetworkClient.localPlayer.gameObject.GetComponent<NetworkIdentity>().netId) && active) //Checks if the player is in range
             {
                 Debug.Log("Press E");
 
                 if(Input.GetKeyDown(KeyCode.E))
                 {
-                    StartCountdown();
+                    CmdStartCountdown();
                 }
             }
         }
@@ -39,9 +40,11 @@ public class TaskTimer : Task
         }
     }
 
-
-    [Command]
-    void StartCountdown()
+    /// <summary>
+    /// Used to start the Countdown by the players.
+    /// </summary>
+    [Command(requiresAuthority = false)]
+    void CmdStartCountdown()
     {
         started = true;
     }

@@ -433,7 +433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 0
+  clientAuthority: 1
   sendInterval: 0.05
   syncPosition: 1
   syncRotation: 1
@@ -462,7 +462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 0
+  clientAuthority: 1
   sendInterval: 0.05
   syncPosition: 1
   syncRotation: 1
@@ -477,7 +477,7 @@ MonoBehaviour:
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
-  target: {fileID: 0}
+  target: {fileID: 2573211292027365852}
 --- !u!114 &1483651712877243449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,7 +493,6 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   health: 0
-  healthBar: {fileID: 0}
 --- !u!136 &6896355853710520063
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -768,9 +767,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 800880177183590219}
-  - component: {fileID: 8479895815670171953}
-  - component: {fileID: 56750366364620069}
+  - component: {fileID: 7656317026133995252}
+  - component: {fileID: 5719823746338398869}
+  - component: {fileID: 2155369898442370695}
   m_Layer: 5
   m_Name: Crosshair
   m_TagString: Untagged
