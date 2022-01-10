@@ -21,7 +21,7 @@ public class Task : NetworkBehaviour
     /// <summary>Progress in percent. 50% should be 0.5</summary>
     float progress;
     /// <summary>List of all Players within the interactable radius</summary>
-    List<GameObject> players = new List<GameObject>();
+    [SyncVar] List<GameObject> players = new List<GameObject>();
 
     DestructableObject dObjScript;
 
