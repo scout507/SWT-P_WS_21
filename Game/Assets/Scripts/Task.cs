@@ -6,9 +6,9 @@ using Mirror;
 public class Task : NetworkBehaviour
 {
     /// <summary>True when the task is ready to be interacted with.</summary>
-    public bool active;
+    [SyncVar] public bool active;
     /// <summary>True when the task is done.</summary>
-    public bool done;
+    [SyncVar] public bool done;
     /// <summary>The place where the task should spawn.</summary>
     public Vector3 spawn;
     /// <summary>Id of the task, assinged by the TaskManager. Can be used to identify the Task.</summary>
@@ -19,9 +19,9 @@ public class Task : NetworkBehaviour
     public string taskDescription;
 
     /// <summary>Progress in percent. 50% should be 0.5</summary>
-    float progress;
+    [SyncVar] public float progress;
     /// <summary>List of all Players within the interactable radius</summary>
-    SyncList<GameObject> players = new SyncList<GameObject>();
+    public SyncList<GameObject> players = new SyncList<GameObject>();
 
     DestructableObject dObjScript;
 
