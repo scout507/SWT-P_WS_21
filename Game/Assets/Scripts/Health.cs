@@ -21,7 +21,6 @@ public class Health : NetworkBehaviour
             return;
 
         health -= amount;
-
         TargetDamage(amount);
         if (health <= 0)
         {
