@@ -12,26 +12,26 @@ public class TaskTimer : Task
 
     void Update()
     {
-        if(isClient) //vvv Player interaction with the task vvv 
+        if (isClient) //vvv Player interaction with the task vvv 
         {
-            if(players.Contains(NetworkClient.localPlayer.gameObject.GetComponent<NetworkIdentity>().netId) && active) //Checks if the player is in range
+            if (players.Contains(NetworkClient.localPlayer.gameObject.GetComponent<NetworkIdentity>().netId) && active) //Checks if the player is in range
             {
                 Debug.Log("Press E");
 
-                if(Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     CmdStartCountdown();
                 }
             }
         }
 
-        if(isServer)
+        if (isServer)
         {
-            if(started && active)
+            if (started && active)
             {
                 timer -= Time.deltaTime;
 
-                if(timer <= 0)
+                if (timer <= 0)
                 {
                     FinishTask();
                     Debug.Log("Finished!!");
