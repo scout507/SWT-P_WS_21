@@ -174,6 +174,14 @@ public class PlayerMovement : NetworkBehaviour
     }
 
     /// <summary>
+    /// Getter for currently selected weapon (id)
+    /// </summary>
+    public int GetSelectedWeapon()
+    {
+        return selectedWeapon;
+    }
+
+    /// <summary>
     /// Sets the player's relative move vector
     /// </summary>
     [Command]

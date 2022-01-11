@@ -28,6 +28,10 @@ public class PlayerAnimationStateController : NetworkBehaviour
         animator.SetFloat("Velocity Z", velocity.z);
         animator.SetFloat("Velocity X", velocity.x);
         animator.SetFloat("Pitch", playerMovement.GetPitch());
+
+        int selectedWeapon = playerMovement.GetSelectedWeapon();
+        animator.SetInteger("selectedWeapon", selectedWeapon);
+
         animator.SetBool("isCrouching", playerMovement.GetIsCrouching());
         animator.SetBool("isProne", playerMovement.GetIsProne());
         animator.SetBool("Jump", Input.GetButtonDown("Jump"));
@@ -43,7 +47,7 @@ public class PlayerAnimationStateController : NetworkBehaviour
         else 
         {
             animator.SetLayerWeight(2, 0);
-            rig.weight = 1;
+            rig.weight = selectedWeapon == 4 ? 1 : 0;
         }
     }
 }
