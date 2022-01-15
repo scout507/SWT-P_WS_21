@@ -16,6 +16,11 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] GameObject playerModel;
 
     /// <summary>
+    /// Inventory Component of the GUI
+    /// </summary>
+    [SerializeField] PlayerCanvas inventory;
+
+    /// <summary>
     /// Move vector relative to the player
     /// </summary>
     [SyncVar] Vector3 moveRelative;
@@ -497,18 +502,48 @@ public class PlayerMovement : NetworkBehaviour
         {
             case 1:
                 GetComponent<MP>().enabled = true;
+                UpdateInventory(1);
                 break;
             case 2:
                 GetComponent<Shotgun>().enabled = true;
+                UpdateInventory(2);
                 break;
             case 3:
                 GetComponent<Rifle>().enabled = true;
+                UpdateInventory(3);
                 break;
             case 4:
                 GetComponent<Pistol>().enabled = true;
+                UpdateInventory(4);
                 break;
             case 5:
                 GetComponent<Melee>().enabled = true;
+                UpdateInventory(5);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void UpdateInventory(int newWeapon)
+    {
+        switch (newWeapon)
+        {
+            case 1:
+                MP test = GetComponent<MP>().Instantiate;
+                inventory.UpdateWeaponUI(test);
+                break;
+            case 2:
+                //inventory.UpdateWeaponUI(GetComponent<Shotgun>());
+                break;
+            case 3:
+                //inventory.UpdateWeaponUI(GetComponent<Shotgun>());
+                break;
+            case 4:
+                //inventory.UpdateWeaponUI(GetComponent<Shotgun>());
+                break;
+            case 5:
+                //inventory.UpdateWeaponUI(GetComponent<Shotgun>());
                 break;
             default:
                 break;

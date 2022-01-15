@@ -7,7 +7,7 @@ using Mirror;
 public class PlayerHUD : NetworkBehaviour
 {
     private Slider slider;
-    private WeaponUI weaponUI;
+    private Inventory inventory;
 
     /// <summary>
     /// Set the maximum value of the healthbar to scale appropriatly.

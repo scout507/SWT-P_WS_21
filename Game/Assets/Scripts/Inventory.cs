@@ -4,20 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
 
-public class WeaponUI : NetworkBehaviour
+public class Inventory : NetworkBehaviour
 {
     /// <summary>
     /// Weapon Icon-Image
     /// </summary>
-    private Image icon;
+    public Image icon;
     /// <summary>
     /// ammount of ammo in a magazine
     /// </summary>
-    private Text magazineSizeText;
+    public Text magazineSizeText;
     /// <summary>
     /// amoutn of magazines per weapon
     /// </summary>
-    private Text magazineCountText;
+    public Text magazineCountText;
 
     /// <summary>
     /// Function to update the info on the Weapon UI, has to be used when the weapon is changed.
