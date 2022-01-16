@@ -2,6 +2,8 @@ name: Documentation
 
 on:
   workflow_dispatch:
+  push:
+    branches: main
     
 jobs:
   build-documentation:
@@ -15,15 +17,10 @@ jobs:
     - name: Doxygen Action
       uses: mattnotmitt/doxygen-action@v1.1.0
       with:
-          doxyfile-path: Doxyfile
-          working-directory: Game/Assets
+          doxyfile-path: ./Doxyfile
     
     - name: GH Pages Deployment
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: Docs/html/
-        enable_jekyll: false
-        allow_empty_commit: false
-        force_orphan: true
-        publish_branch: gh-pages
+        publish_dir: ./public/html/

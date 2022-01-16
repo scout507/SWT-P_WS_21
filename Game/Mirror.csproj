@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{ad5c2d2a-713a-3536-a18e-0bb86350d38c}</ProjectGuid>
+    <ProjectGuid>{2a8a6e47-1f00-2113-c40a-1452a67f07f6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Mirror.Components</AssemblyName>
+    <AssemblyName>Mirror</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -29,7 +29,6 @@
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoConfig>true</NoConfig>
     <NoStdLib>true</NoStdLib>
     <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
@@ -37,41 +36,93 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Mirror\Components\NetworkTransform2k\NetworkTransformChild.cs" />
-     <Compile Include="Assets\Mirror\Components\Discovery\NetworkDiscoveryHUD.cs" />
-     <Compile Include="Assets\Mirror\Components\NetworkLobbyPlayer.cs" />
-     <Compile Include="Assets\Mirror\Components\NetworkTransform2k\NetworkTransformBase.cs" />
-     <Compile Include="Assets\Mirror\Components\Experimental\NetworkTransformChild.cs" />
-     <Compile Include="Assets\Mirror\Components\InterestManagement\SpatialHashing\Grid2D.cs" />
-     <Compile Include="Assets\Mirror\Components\Discovery\NetworkDiscoveryBase.cs" />
-     <Compile Include="Assets\Mirror\Components\NetworkOwnerChecker.cs" />
-     <Compile Include="Assets\Mirror\Components\NetworkMatch.cs" />
-     <Compile Include="Assets\Mirror\Components\Discovery\ServerRequest.cs" />
-     <Compile Include="Assets\Mirror\Components\Experimental\NetworkTransformBase.cs" />
-     <Compile Include="Assets\Mirror\Components\Experimental\NetworkLerpRigidbody.cs" />
-     <Compile Include="Assets\Mirror\Components\NetworkLobbyManager.cs" />
-     <Compile Include="Assets\Mirror\Components\InterestManagement\Match\MatchInterestManagement.cs" />
-     <Compile Include="Assets\Mirror\Components\InterestManagement\Distance\DistanceInterestManagementCustomRange.cs" />
-     <Compile Include="Assets\Mirror\Components\Discovery\NetworkDiscovery.cs" />
-     <Compile Include="Assets\Mirror\Components\Experimental\NetworkTransform.cs" />
-     <Compile Include="Assets\Mirror\Components\InterestManagement\Scene\SceneInterestManagement.cs" />
-     <Compile Include="Assets\Mirror\Components\InterestManagement\Distance\DistanceInterestManagement.cs" />
-     <Compile Include="Assets\Mirror\Components\Discovery\ServerResponse.cs" />
-     <Compile Include="Assets\Mirror\Components\NetworkTransform2k\NetworkTransformSnapshot.cs" />
-     <Compile Include="Assets\Mirror\Components\GUIConsole.cs" />
-     <Compile Include="Assets\Mirror\Components\NetworkProximityChecker.cs" />
-     <Compile Include="Assets\Mirror\Components\AssemblyInfo.cs" />
-     <Compile Include="Assets\Mirror\Components\NetworkSceneChecker.cs" />
-     <Compile Include="Assets\Mirror\Components\NetworkTransform2k\NetworkTransform.cs" />
-     <Compile Include="Assets\Mirror\Components\NetworkRoomPlayer.cs" />
-     <Compile Include="Assets\Mirror\Components\NetworkPingDisplay.cs" />
-     <Compile Include="Assets\Mirror\Components\Experimental\NetworkRigidbody2D.cs" />
-     <Compile Include="Assets\Mirror\Components\NetworkMatchChecker.cs" />
-     <Compile Include="Assets\Mirror\Components\NetworkRoomManager.cs" />
-     <Compile Include="Assets\Mirror\Components\Experimental\NetworkRigidbody.cs" />
-     <Compile Include="Assets\Mirror\Components\NetworkAnimator.cs" />
-     <Compile Include="Assets\Mirror\Components\InterestManagement\SpatialHashing\SpatialHashingInterestManagement.cs" />
-     <None Include="Assets\Mirror\Components\Mirror.Components.asmdef" />
+     <Compile Include="Assets\Mirror\Runtime\Transport\KCP\MirrorTransport\KcpTransport.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Batching\Unbatcher.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Logging\NetworkLogSettings.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkBehaviour.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkClient.cs" />
+     <Compile Include="Assets\Mirror\Runtime\AssemblyInfo.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\FallbackTransport.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkLoop.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Transport\LatencySimulation.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Transport\Telepathy\TelepathyTransport.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkWriter.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\LogFilter.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkWriterPool.cs" />
+     <Compile Include="Assets\Mirror\Runtime\InterestManagement.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Attributes.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\InstantiateNetworkManager.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkReader.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkConnection.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\IUnityEqualCheck.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Extensions.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Utils.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkDiagnostics.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\Events.cs" />
+     <Compile Include="Assets\Mirror\Runtime\ExponentialMovingAverage.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Logging\LogSettings.cs" />
+     <Compile Include="Assets\Mirror\Runtime\SyncObject.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkVisibility.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\QuitButtonHUD.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\StringHash.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkStartPosition.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkAuthenticator.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Logging\EditorLogSettingsLoader.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Transport\Transport.cs" />
+     <Compile Include="Assets\Mirror\Runtime\SyncList.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\IRequestCreator.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\JsonStructs.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkMessage.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\NetworkManagerListServerPong.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Transport\MultiplexTransport.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkServer.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Compression.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\Extensions.cs" />
+     <Compile Include="Assets\Mirror\Runtime\LocalConnections.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkManager.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\ListServerJson.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Mathd.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\ListServerClientApi.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\LogFactory.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\NetworkManagerListServer.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\ServerListManager.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Messages.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\ClientScene.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\BaseApi.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\ApiUpdater.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\Logger.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\ListServerServerApi.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Logging\NetworkHeadlessLogger.cs" />
+     <Compile Include="Assets\Mirror\Runtime\SnapshotInterpolation\SnapshotInterpolation.cs" />
+     <Compile Include="Assets\Mirror\Runtime\MessagePacking.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\RequestCreator.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Batching\Batcher.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\DotNetCompatibility.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Transport\MiddlewareTransport.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\Player.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Pool.cs" />
+     <Compile Include="Assets\Mirror\Runtime\RemoteCallHelper.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkConnectionToServer.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkConnectionToClient.cs" />
+     <Compile Include="Assets\Mirror\Runtime\SnapshotInterpolation\Snapshot.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\ListServerBaseApi.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\Ball.cs" />
+     <Compile Include="Assets\Mirror\Runtime\SyncSet.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkIdentity.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkTime.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\ServerListUI.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\ApiConnector.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\BallManager.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkManagerHUD.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\ListServer.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Logging\LogFactory.cs" />
+     <Compile Include="Assets\Mirror\Runtime\NetworkReaderPool.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\ICoroutineRunner.cs" />
+     <Compile Include="Assets\Mirror\Runtime\SyncDictionary.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\QuickListServerDebug.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Cloud\ServerListUIItem.cs" />
+     <Compile Include="Assets\Mirror\Runtime\Empty\Logging\ConsoleColorLogHandler.cs" />
+     <None Include="Assets\Mirror\Runtime\Mirror.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -672,19 +723,25 @@
     <Reference Include="System.Xml.Serialization">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.UI">
+        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Mirror.csproj">
-      <Project>{2a8a6e47-1f00-2113-c40a-1452a67f07f6}</Project>
-      <Name>Mirror</Name>
+    <ProjectReference Include="Mirror.CompilerSymbols.csproj">
+      <Project>{9c08a357-8149-b0b5-493a-98f129c669df}</Project>
+      <Name>Mirror.CompilerSymbols</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{f1d9886d-be9c-ee22-62f1-ab7d8769dc30}</Project>
-      <Name>UnityEditor.UI</Name>
+    <ProjectReference Include="Telepathy.csproj">
+      <Project>{5f3fde7c-e47b-3505-3344-1046b0f6dbbb}</Project>
+      <Name>Telepathy</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{d60743d0-64a2-da82-da61-003196db8069}</Project>
-      <Name>UnityEngine.UI</Name>
+    <ProjectReference Include="kcp2k.csproj">
+      <Project>{b69753e8-bf1e-2851-f263-76b77bd1fe11}</Project>
+      <Name>kcp2k</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
