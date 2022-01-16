@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{ada1be41-fc36-20c6-9b27-cfd9dd0a34a8}</ProjectGuid>
+    <ProjectGuid>{aa005b74-ef80-fcca-1a4d-cda382c6c3e7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Unity.Mirror.CodeGen</AssemblyName>
+    <AssemblyName>Unity.VisualStudio.Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -26,7 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -37,47 +37,46 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Mirror\Editor\Weaver\Processors\SyncVarAttributeProcessor.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Readers.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Processors\SyncObjectInitializer.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Processors\TargetRpcProcessor.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\EntryPointILPostProcessor\ILPostProcessorReflectionImporter.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Empty\SyncDictionaryProcessor.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\EntryPointILPostProcessor\ILPostProcessorHook.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Processors\ServerClientAttributeProcessor.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Extensions.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Processors\NetworkBehaviourProcessor.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\SyncVarAccessLists.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Writers.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\EntryPointILPostProcessor\ILPostProcessorAssemblyResolver.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\EntryPoint\CompilationFinishedHook.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Processors\MethodProcessor.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\AssemblyInfo.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Weaver.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\WeaverTypes.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Processors\CommandProcessor.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Processors\SyncObjectProcessor.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Empty\SyncEventProcessor.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Processors\MonoBehaviourProcessor.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Processors\SyncVarAttributeAccessReplacer.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Resolvers.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Processors\ReaderWriterProcessor.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\TypeReferenceComparer.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Empty\SyncListProcessor.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\EntryPoint\EnterPlayModeHook.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Logger.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Empty\Program.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\EntryPointILPostProcessor\ILPostProcessorLogger.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\EntryPoint\CompilationFinishedLogger.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Empty\GenericArgumentResolver.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\EntryPointILPostProcessor\ILPostProcessorReflectionImporterProvider.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\EntryPointILPostProcessor\ILPostProcessorFromFile.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Processors\RpcProcessor.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Helpers.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\EntryPointILPostProcessor\CompiledAssemblyFromFile.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\WeaverExceptions.cs" />
-     <Compile Include="Assets\Mirror\Editor\Weaver\Empty\MessageClassProcessor.cs" />
-     <None Include="Assets\Mirror\Editor\Weaver\Unity.Mirror.CodeGen.asmdef" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\ProjectGeneration\ProjectGenerationFlag.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\VisualStudioIntegration.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\UnityInstallation.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\KnownAssemblies.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\UsageUtility.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Messaging\Deserializer.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Testing\TestRunnerApiListener.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Testing\TestResultAdaptor.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Messaging\ExceptionEventArgs.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\ProjectGeneration\ProjectGeneration.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\SolutionProjectEntry.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Messaging\UdpSocket.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\VisualStudioInstallation.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Messaging\MessageEventArgs.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Symbols.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\VisualStudioEditor.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\VersionPair.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Cli.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\FileUtility.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\ProjectGeneration\AssemblyNameProvider.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\SolutionProperties.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Messaging\MessageType.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\AssemblyInfo.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\SolutionParser.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Messaging\Messenger.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Messaging\Serializer.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Messaging\TcpListener.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Messaging\TcpClient.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Image.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Solution.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\ProjectGeneration\ProjectProperties.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\ProjectGeneration\FileIOProvider.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\ProjectGeneration\GUIDProvider.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Testing\TestStatusAdaptor.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Messaging\Message.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\AsyncOperation.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Discovery.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Testing\TestRunnerCallbacks.cs" />
+     <Compile Include="Packages\com.unity.ide.visualstudio\Editor\Testing\TestAdaptor.cs" />
+     <None Include="Packages\com.unity.ide.visualstudio\Editor\com.unity.ide.visualstudio.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -305,12 +304,6 @@
     </Reference>
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.CecilX">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.CecilX.Rocks">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
         <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
@@ -663,14 +656,23 @@
     <Reference Include="System.Xml.XPath.XDocument">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.CompilationPipeline.Common">
-        <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Data\Managed\Unity.CompilationPipeline.Common.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Mirror.csproj">
-      <Project>{2a8a6e47-1f00-2113-c40a-1452a67f07f6}</Project>
-      <Name>Mirror</Name>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{f1d9886d-be9c-ee22-62f1-ab7d8769dc30}</Project>
+      <Name>UnityEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.UI.csproj">
+      <Project>{d60743d0-64a2-da82-da61-003196db8069}</Project>
+      <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.TestRunner.csproj">
+      <Project>{178e766a-8168-c584-0092-9c11be3b1449}</Project>
+      <Name>UnityEngine.TestRunner</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.TestRunner.csproj">
+      <Project>{2b743b91-9b68-7ee3-aba0-c9c69ec9d379}</Project>
+      <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
