@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+  <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
@@ -29,6 +30,7 @@
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoConfig>true</NoConfig>
     <NoStdLib>true</NoStdLib>
     <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
@@ -677,59 +679,12 @@
     <Reference Include="System.Xml.Serialization">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="ParrelSync">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\ParrelSync.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Editor">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Animation.Rigging.Editor">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\Unity.Animation.Rigging.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Animation.Rigging">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\Unity.Animation.Rigging.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="ParrelSync.csproj">
+      <Project>{e91c2fbc-1b48-5f92-073a-a66e752785cf}</Project>
+      <Name>ParrelSync</Name>
+    </ProjectReference>
     <ProjectReference Include="Mirror.csproj">
       <Project>{2a8a6e47-1f00-2113-c40a-1452a67f07f6}</Project>
       <Name>Mirror</Name>
@@ -737,6 +692,42 @@
     <ProjectReference Include="kcp2k.csproj">
       <Project>{b69753e8-bf1e-2851-f263-76b77bd1fe11}</Project>
       <Name>kcp2k</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Burst.csproj">
+      <Project>{71f44ece-62d9-0414-b2eb-772e8d6aef06}</Project>
+      <Name>Unity.Burst</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VSCode.Editor.csproj">
+      <Project>{5963faf2-817d-8527-e899-dc738b0bcdbc}</Project>
+      <Name>Unity.VSCode.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
+      <Project>{bfdee384-55a9-74da-de13-c4861fee2c61}</Project>
+      <Name>Unity.TextMeshPro.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualStudio.Editor.csproj">
+      <Project>{aa005b74-ef80-fcca-1a4d-cda382c6c3e7}</Project>
+      <Name>Unity.VisualStudio.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Timeline.Editor.csproj">
+      <Project>{3ffc1559-776e-9341-8b3d-443bbb8717b0}</Project>
+      <Name>Unity.Timeline.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Timeline.csproj">
+      <Project>{01ae4245-d205-ebf1-4dfe-a328e69a0ddc}</Project>
+      <Name>Unity.Timeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.csproj">
+      <Project>{fbd93769-cd8f-f6c0-be4f-4a48c1459cbd}</Project>
+      <Name>Unity.TextMeshPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Mathematics.Editor.csproj">
+      <Project>{8846de52-bd87-eaa8-8bc9-f2db6b0b12c6}</Project>
+      <Name>Unity.Mathematics.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Burst.Editor.csproj">
+      <Project>{6ff26565-3a1f-9eb7-ee8c-c5e39d889b08}</Project>
+      <Name>Unity.Burst.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.CompilerSymbols.csproj">
       <Project>{9c08a357-8149-b0b5-493a-98f129c669df}</Project>
@@ -758,6 +749,26 @@
       <Project>{a065e778-7eef-3a7d-534d-120f8082c909}</Project>
       <Name>where-allocations</Name>
     </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{f1d9886d-be9c-ee22-62f1-ab7d8769dc30}</Project>
+      <Name>UnityEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Rider.Editor.csproj">
+      <Project>{6ff9474e-248a-f29f-8ba6-c1c20e23b7e4}</Project>
+      <Name>Unity.Rider.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Animation.Rigging.Editor.csproj">
+      <Project>{9681d66e-4382-220b-43ea-bb4c8172201a}</Project>
+      <Name>Unity.Animation.Rigging.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.UI.csproj">
+      <Project>{d60743d0-64a2-da82-da61-003196db8069}</Project>
+      <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.PlasticSCM.Editor.csproj">
+      <Project>{968c526d-4352-64a9-92a3-78b71126bd4c}</Project>
+      <Name>Unity.PlasticSCM.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="SimpleWebTransport.csproj">
       <Project>{45f198c1-b604-626a-44d2-401c38145a64}</Project>
       <Name>SimpleWebTransport</Name>
@@ -765,6 +776,14 @@
     <ProjectReference Include="Mirror.Components.csproj">
       <Project>{ad5c2d2a-713a-3536-a18e-0bb86350d38c}</Project>
       <Name>Mirror.Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Animation.Rigging.csproj">
+      <Project>{7244cf8c-d571-95ed-ef29-629c4a5f4b30}</Project>
+      <Name>Unity.Animation.Rigging</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Mathematics.csproj">
+      <Project>{c620d840-0e58-c6d7-c5b0-e21e0f2eb07e}</Project>
+      <Name>Unity.Mathematics</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

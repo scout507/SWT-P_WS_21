@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{163382f0-090c-c9f9-4069-ccfa3a8b5c9b}</ProjectGuid>
+    <ProjectGuid>{7244cf8c-d571-95ed-ef29-629c4a5f4b30}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Mirror.Authenticators</AssemblyName>
+    <AssemblyName>Unity.Animation.Rigging</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -26,7 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -37,9 +37,63 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Mirror\Authenticators\TimeoutAuthenticator.cs" />
-     <Compile Include="Assets\Mirror\Authenticators\BasicAuthenticator.cs" />
-     <None Include="Assets\Mirror\Authenticators\Mirror.Authenticators.asmdef" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\Rig.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\Constraints\TwistChainConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\AnimationJobCache.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\Effectors\RigEffectorData.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\IAnimatableProperty.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\IAnimationJobBinder.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\Effectors\IRigEffectorHolder.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\TwistCorrectionJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\MultiReferentialConstraintJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\Constraints\MultiReferentialConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\WeightedTransform.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\Constraints\MultiAimConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AssemblyInfo.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\MultiParentConstraintJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\Constraints\MultiParentConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\MultiRotationConstraintJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\RigBuilder.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\RigBuilderUtils.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\Constraints\DampedTransform.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\IRigLayer.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\Utils\QuaternionExt.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\OverrideRigConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\Utils\AffineTransform.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\Utils\BoneRenderer.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\IWeightedAnimationJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\Constraints\TwoBoneIKConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\MultiPositionConstraintJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\RigLayer.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\DampedTransformJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\ChainIKConstraintJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\Utils\ConstraintsUtils.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\BlendConstraintJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\RigTransform.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\RigConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\Constraints\ChainIKConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\Attributes\SyncSceneToStreamAttribute.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\Constraints\MultiPositionConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\OverrideRigLayer.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\Constraints\OverrideTransform.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\SyncSceneToStreamLayer.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\TwistChainConstraintJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\IAnimationJobData.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\WeightedTransformArray.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\RigUtils.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\Utils\AnimationRuntimeUtils.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\TransformHandle.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\TwoBoneIKConstraintJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\Utils\Vector3Bool.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\Constraints\BlendConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\WeightedTransformArrayBinder.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\Constraints\MultiRotationConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\RigSyncSceneToStreamJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\MultiAimConstraintJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\Constraints\TwistCorrection.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationJobs\OverrideTransformJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Runtime\AnimationRig\IRigConstraint.cs" />
+     <None Include="Packages\com.unity.animation.rigging\Runtime\Unity.Animation.Rigging.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -642,9 +696,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Mirror.csproj">
-      <Project>{2a8a6e47-1f00-2113-c40a-1452a67f07f6}</Project>
-      <Name>Mirror</Name>
+    <ProjectReference Include="Unity.Burst.csproj">
+      <Project>{71f44ece-62d9-0414-b2eb-772e8d6aef06}</Project>
+      <Name>Unity.Burst</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{f1d9886d-be9c-ee22-62f1-ab7d8769dc30}</Project>
