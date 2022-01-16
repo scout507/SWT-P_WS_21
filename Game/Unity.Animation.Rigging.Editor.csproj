@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{9c08a357-8149-b0b5-493a-98f129c669df}</ProjectGuid>
+    <ProjectGuid>{9681d66e-4382-220b-43ea-bb4c8172201a}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Mirror.CompilerSymbols</AssemblyName>
+    <AssemblyName>Unity.Animation.Rigging.Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -36,8 +36,62 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Mirror\CompilerSymbols\PreprocessorDefine.cs" />
-     <None Include="Assets\Mirror\CompilerSymbols\Mirror.CompilerSymbols.asmdef" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Effectors\RigEffectorRenderer.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Utils\BoneRendererUtils.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\Constraints\MultiRotationConstraintEditor.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\InverseSolve\AnimationJobs\TwoBoneIKInverseConstraintJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\InverseSolve\Constraints\MultiParentInverseConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\InverseSolve\Constraints\TwistChainInverseConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\Constraints\TwoBoneIKConstraintEditor.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\InverseSolve\AnimationJobs\MultiReferentialInverseConstraintJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\InverseSolve\AnimationJobs\MultiPositionInverseConstraintJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Utils\AnimationWindowUtils.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\WeightedTransformDrawer.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Effectors\IRigEffectorOverlay.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\InverseSolve\AnimationJobs\MultiAimInverseConstraintJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\Constraints\OverrideTransformEditor.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\Constraints\MultiReferentialConstraintEditor.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\InverseSolve\AnimationJobs\TwistChainInverseConstraintJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Effectors\RigEffectorOverlay.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\RigEditor.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\InverseSolve\Constraints\MultiRotationInverseConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Effectors\RigEffectorWizard.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\Constraints\ChainIKConstraintEditor.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Effectors\IRigEffector.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\RigTransformEditor.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\Constraints\MultiParentConstraintEditor.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Utils\SceneViewOverlay.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\InverseSolve\AnimationJobs\MultiRotationInverseConstraintJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Attributes\InverseRigConstraintAttribute.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\InverseSolve\AnimationJobs\MultiParentInverseConstraintJob.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Attributes\BakeParametersAttribute.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\Constraints\TwistChainConstraintEditor.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Utils\BakeUtils.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\RigLayerDrawer.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AssemblyInfo.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Utils\BoneRendererEditor.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\InverseSolve\Constraints\MultiAimInverseConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\Constraints\MultiPositionConstraintEditor.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Utils\Preferences.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\InverseSolve\Constraints\MultiReferentialInverseConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Utils\EditorHelpers.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Utils\AnimationRiggingContextMenus.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\Constraints\DampedTransformEditor.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\Constraints\MultiAimConstraintEditor.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\InverseSolve\Constraints\TwoBoneIKInverseConstraint.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\Constraints\BlendConstraintEditor.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Utils\EditorCurveBindingUtils.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Attributes\CustomOverlayAttribute.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Utils\Vector3BoolDrawer.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Utils\AnimationRiggingMenu.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\RigBuilderEditor.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Effectors\RigEffector.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\Utils\AnimationRiggingEditorUtils.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\AnimationRig\Constraints\TwistCorrectionEditor.cs" />
+     <Compile Include="Packages\com.unity.animation.rigging\Editor\InverseSolve\Constraints\MultiPositionInverseConstraint.cs" />
+     <None Include="Packages\com.unity.animation.rigging\Editor\Shaders\BoneHandles.shader" />
+     <None Include="Packages\com.unity.animation.rigging\Editor\Shaders\RigEffector.shader" />
+     <None Include="Packages\com.unity.animation.rigging\Editor\Unity.Animation.Rigging.Editor.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -646,6 +700,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Unity.Animation.Rigging.csproj">
+      <Project>{7244cf8c-d571-95ed-ef29-629c4a5f4b30}</Project>
+      <Name>Unity.Animation.Rigging</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Burst.csproj">
+      <Project>{71f44ece-62d9-0414-b2eb-772e8d6aef06}</Project>
+      <Name>Unity.Burst</Name>
+    </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{f1d9886d-be9c-ee22-62f1-ab7d8769dc30}</Project>
       <Name>UnityEditor.UI</Name>
