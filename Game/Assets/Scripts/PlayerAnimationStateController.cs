@@ -21,6 +21,11 @@ public class PlayerAnimationStateController : NetworkBehaviour
     /// </summary>
     [SerializeField] Rig rig;
 
+    /// <summary>
+    /// Placeholder for player's melee weapon, this should be replaced with a guns script / manager
+    /// </summary>
+    [SerializeField] Melee melee;
+
     // Update is called once per frame
     void Update()
     {
@@ -36,6 +41,7 @@ public class PlayerAnimationStateController : NetworkBehaviour
         animator.SetBool("isProne", playerMovement.GetIsProne());
         animator.SetBool("Jump", Input.GetButtonDown("Jump"));
         animator.SetBool("onGround", playerMovement.CheckGrounded());
+        animator.SetBool("MeleeInAttack", melee.inAttack);
 
         int taunt = playerMovement.GetCurrentTaunt();
         animator.SetInteger("Taunt", taunt);

@@ -431,36 +431,38 @@ public class PlayerMovement : NetworkBehaviour
             if (Input.GetKeyDown("2")) SetCurrentTaunt(2);
             if (Input.GetKeyDown("3")) SetCurrentTaunt(3);
         }
-
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon < 5)
+        else
         {
-            int newWeapon = selectedWeapon + 1;
-            CmdSwitchWeapon(newWeapon);
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon > 1)
-        {
-            int newWeapon = selectedWeapon - 1;
-            CmdSwitchWeapon(newWeapon);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            CmdSwitchWeapon(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            CmdSwitchWeapon(2);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            CmdSwitchWeapon(3);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            CmdSwitchWeapon(4);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            CmdSwitchWeapon(5);
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon < 5)
+            {
+                int newWeapon = selectedWeapon + 1;
+                CmdSwitchWeapon(newWeapon);
+            }
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon > 1)
+            {
+                int newWeapon = selectedWeapon - 1;
+                CmdSwitchWeapon(newWeapon);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                CmdSwitchWeapon(1);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                CmdSwitchWeapon(2);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                CmdSwitchWeapon(3);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                CmdSwitchWeapon(4);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                CmdSwitchWeapon(5);
+            }
         }
     }
 
