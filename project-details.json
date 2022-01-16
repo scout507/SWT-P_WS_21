@@ -1,0 +1,17 @@
+{
+  "name": "Sample Project",
+  "version": "1.0.0",
+  "description": "This is a short description of the project",
+  "license": "MIT",
+  "keywords": [
+    "sample",
+    "keys",
+    "for",
+    "search",
+    "engine",
+    "optimization"
+  ],
+  "author": "Your Name Here",
+  "copyrightYear": "2020",
+  "favicon": "https://openclipart.org/image/400px/svg_to_png/203766/dog.png"
+}
