@@ -20,19 +20,19 @@ public class WaveMonster : MonsterController
 
 
     void Start()
-    {   
-        if(!isServer) return;
+    {
+        if (!isServer) return;
 
         FindBuildings();
         nav = GetComponent<NavMeshAgent>();
-        
+
     }
 
     void Update()
     {
-        if(!isServer) return;
+        if (!isServer) return;
 
-        if(!dead)
+        if (!dead)
         {
             if (hp <= 0) Die();
 
@@ -45,7 +45,7 @@ public class WaveMonster : MonsterController
                 FindPlayers();
             }
             if (timer >= refreshRate) currentTarget = ChooseTarget();
-            
+
             if (currentTarget != null)
             {
                 if (Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
@@ -77,9 +77,10 @@ public class WaveMonster : MonsterController
 
         foreach (GameObject destructable in destructables)
         {
-            if(destructable.GetComponent<DestructableObject>().active) buildingTargets.Add(destructable);
+            if (destructable.GetComponent<DestructableObject>().active) buildingTargets.Add(destructable);
         }
     }
+
 
     /// <summary>
     /// Selects a target for the monster to attack. 
@@ -87,10 +88,10 @@ public class WaveMonster : MonsterController
     /// <returns>Returns the target as a GameObject.</returns>
     GameObject ChooseTarget()
     {
-        
+
         GameObject newTarget = null;
 
-        if(players.Count > 0)
+        if (players.Count > 0)
         {
             float shortestDistance = aggroRadius;
 
@@ -111,7 +112,7 @@ public class WaveMonster : MonsterController
         {
             Debug.Log("hallo");
             float shortestDistance = Vector3.Distance(this.transform.position, buildingTargets[0].transform.position);
-            
+
             foreach (GameObject target in buildingTargets)
             {
                 float distance = Vector3.Distance(transform.position, target.transform.position);

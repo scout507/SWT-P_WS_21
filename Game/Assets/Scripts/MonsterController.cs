@@ -19,20 +19,17 @@ public class MonsterController : NetworkBehaviour
     public float atkCooldown;
     public bool dead;
 
-    /// <summary>This is used to either prefer players (<1) or destructable objects (>1)</summary>
-    [Range(0.1f, 2)]
-    public float playerToObjectRatio;
-
     /// <summary>A list containing all possible targets</summary>
     public List<GameObject> players;
     public GameObject currentTarget;
 
     public float atkTimer;
-    
+
 
     /// <summary>Stores the spawn spot</summary>
     Vector3 home;
     NavMeshAgent navAgent;
+
 
 
     /// <summary>
@@ -50,13 +47,14 @@ public class MonsterController : NetworkBehaviour
         //If the player or object is within the aggro radius, it gets added to the list
         foreach (GameObject player in activePlayers)
         {
-            if (Vector3.Distance(transform.position, player.transform.position) <= aggroRadius){
+            if (Vector3.Distance(transform.position, player.transform.position) <= aggroRadius)
+            {
                 NavMeshPath navMeshPath = new NavMeshPath();
-                if(navAgent.CalculatePath(player.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
+                if (navAgent.CalculatePath(player.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
                 {
                     players.Add(player);
                 }
-            } 
+            }
         }
     }
 
