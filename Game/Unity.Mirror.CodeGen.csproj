@@ -306,13 +306,13 @@
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Mono.CecilX">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll</HintPath>
+        <HintPath>C:\Users\Dominik\Desktop\SWTP\Clone#2\SWT-P_WS_21\Game\Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll</HintPath>
     </Reference>
     <Reference Include="Mono.CecilX.Rocks">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Rocks.dll</HintPath>
+        <HintPath>C:\Users\Dominik\Desktop\SWTP\Clone#2\SWT-P_WS_21\Game\Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-        <HintPath>C:\Daten\Dokumente\Uni\5. Semester\SWTP\SWT-P_WS_21\Game\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
+        <HintPath>C:\Users\Dominik\Desktop\SWTP\Clone#2\SWT-P_WS_21\Game\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
