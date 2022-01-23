@@ -21,7 +21,7 @@ public class RoamingMonster : MonsterController
     float deAggroTimer;
 
     NavMeshAgent nav;
-
+    Vector3 patrolTarget;
 
 
 
@@ -29,6 +29,7 @@ public class RoamingMonster : MonsterController
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
+        patrolTarget = transform.position;
     }
 
     // Update is called once per frame
@@ -42,6 +43,11 @@ public class RoamingMonster : MonsterController
             FindPlayers();
             DetectPlayers();
             detectionTimer = 0;
+        }
+
+        if(detectedPlayer && !aggro)
+        {
+            nav.isStopped = true;
         }
 
         if (aggro)
@@ -68,6 +74,13 @@ public class RoamingMonster : MonsterController
                     Attack();
                 }
             }
+        }
+
+        if(!aggro && !detectedPlayer)
+        {
+            nav.isStopped = false;
+            if(Vector3.Distance(transform.position, patrolTarget) <= 0.5f) patrolTarget = GetPatrollTarget();
+            nav.SetDestination(patrolTarget);
         }    
     }
 
@@ -83,8 +96,6 @@ public class RoamingMonster : MonsterController
             {
                 Vector3 directionToTarget = (player.transform.position - transform.position).normalized;
                 RaycastHit hit;
-
-                Debug.Log(directionToTarget);
                 if (Vector3.Angle(transform.forward, directionToTarget) < detectionAngle / 2)
                 {
 
@@ -108,6 +119,10 @@ public class RoamingMonster : MonsterController
         {
             if (detectedPlayer) aggro = true;
             else detectedPlayer = true;
+        }
+        else
+        {
+            detectedPlayer = false;
         }
     }
 
@@ -135,6 +150,15 @@ public class RoamingMonster : MonsterController
             }
         }
         return newTarget;
+    }
+
+    Vector3 GetPatrollTarget()
+    {
+        Vector3 pTarget = new Vector3(transform.position.x + Random.Range(-5,6), transform.position.y, transform.position.z + Random.Range(-5,6));
+        NavMeshPath navMeshPath = new NavMeshPath();
+
+        if(nav.CalculatePath(pTarget, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete) return pTarget;
+        else return transform.position;
     }
 
 }
