@@ -8,9 +8,13 @@ public class RoamingMonster : MonsterController
 {
 
     public float detectionRate;
-    float detectionTimer;
+    public float deAggroRate;
+
     public bool detectedPlayer;
     public bool aggro;
+
+    float detectionTimer;
+    float deAggroTimer;
 
     [Range(0, 360)]
     public float angle;
@@ -39,9 +43,15 @@ public class RoamingMonster : MonsterController
 
         if (aggro)
         {
-            
+            deAggroTimer += Time.deltaTime;
+            if(deAggroTimer >= deAggroRate)
+            {
+                aggro = false;
+                deAggroTimer = 0;
+            }
         }
 
+        
 
 
     }
