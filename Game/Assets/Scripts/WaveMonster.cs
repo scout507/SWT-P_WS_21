@@ -110,7 +110,6 @@ public class WaveMonster : MonsterController
         }
         else
         {
-            Debug.Log("hallo");
             float shortestDistance = Vector3.Distance(this.transform.position, buildingTargets[0].transform.position);
 
             foreach (GameObject target in buildingTargets)
@@ -121,7 +120,6 @@ public class WaveMonster : MonsterController
                 NavMeshPath navMeshPath = new NavMeshPath();
                 if (distance <= shortestDistance && nav.CalculatePath(target.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
                 {
-                    Debug.Log("hallo2");
                     shortestDistance = distance;
                     newTarget = target;
                 }

@@ -9,23 +9,26 @@ public class RoamingMonster : MonsterController
 
     public float detectionRate;
     public float deAggroRate;
-
     public bool detectedPlayer;
     public bool aggro;
+
+    [Range(0, 360)]
+    public float detectionAngle;
+
+    public List<GameObject> targets = new List<GameObject>();
 
     float detectionTimer;
     float deAggroTimer;
 
-    [Range(0, 360)]
-    public float angle;
+    NavMeshAgent nav;
 
-    public List<GameObject> targets = new List<GameObject>();
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-
-
+        nav = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -49,11 +52,23 @@ public class RoamingMonster : MonsterController
                 aggro = false;
                 deAggroTimer = 0;
             }
-        }
-
-        
-
-
+            
+            currentTarget = ChooseTarget();
+            
+            if (currentTarget != null)
+            {
+                if (Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
+                {
+                    nav.isStopped = false;
+                    nav.SetDestination(currentTarget.transform.position);
+                }
+                else
+                {
+                    nav.isStopped = true;
+                    Attack();
+                }
+            }
+        }    
     }
 
 
@@ -70,7 +85,7 @@ public class RoamingMonster : MonsterController
                 RaycastHit hit;
 
                 Debug.Log(directionToTarget);
-                if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
+                if (Vector3.Angle(transform.forward, directionToTarget) < detectionAngle / 2)
                 {
 
                     if (Physics.Raycast(transform.position, directionToTarget, out hit, aggroRadius))
@@ -94,6 +109,32 @@ public class RoamingMonster : MonsterController
             if (detectedPlayer) aggro = true;
             else detectedPlayer = true;
         }
+    }
+
+
+    GameObject ChooseTarget()
+    {
+
+        GameObject newTarget = null;
+
+        if (players.Count > 0)
+        {
+            float shortestDistance = aggroRadius;
+
+            foreach (GameObject target in players)
+            {
+                float distance = Vector3.Distance(transform.position, target.transform.position);
+
+                //if the player is reachable and the closest to the monster, the player becomes the new target
+                NavMeshPath navMeshPath = new NavMeshPath();
+                if (distance <= shortestDistance && nav.CalculatePath(target.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
+                {
+                    shortestDistance = distance;
+                    newTarget = target;
+                }
+            }
+        }
+        return newTarget;
     }
 
 }
