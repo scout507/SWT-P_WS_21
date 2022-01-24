@@ -4,6 +4,8 @@ using UnityEngine;
 using Mirror;
 using System;
 
+/* created by: SWT-P_WS_21/22 */
+
 public class FenceInteraction : NetworkBehaviour
 {
     /// <summary>
