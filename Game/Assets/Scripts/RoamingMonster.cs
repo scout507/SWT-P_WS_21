@@ -62,7 +62,7 @@ public class RoamingMonster : MonsterController
             detectionTimer = 0;
         }
 
-        if(detectedPlayer && !aggro)
+        if (detectedPlayer && !aggro)
         {
             nav.isStopped = true;
         }
@@ -70,14 +70,14 @@ public class RoamingMonster : MonsterController
         if (aggro)
         {
             deAggroTimer += Time.deltaTime;
-            if(deAggroTimer >= deAggroRate)
+            if (deAggroTimer >= deAggroRate)
             {
                 aggro = false;
                 deAggroTimer = 0;
             }
-            
+
             currentTarget = ChooseTarget();
-            
+
             if (currentTarget != null)
             {
                 if (Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
@@ -93,19 +93,19 @@ public class RoamingMonster : MonsterController
             }
         }
 
-        if(!aggro && !detectedPlayer)
+        if (!aggro && !detectedPlayer)
         {
             patrolTimer += Time.deltaTime;
             nav.isStopped = false;
 
-            if(patrolTimer >= nextPatrolTime)
+            if (patrolTimer >= nextPatrolTime)
             {
-                if(Vector3.Distance(transform.position, patrolTarget) <= 0.5f) patrolTarget = GetPatrollTarget();
+                if (Vector3.Distance(transform.position, patrolTarget) <= 0.5f) patrolTarget = GetPatrollTarget();
                 nav.SetDestination(patrolTarget);
-                nextPatrolTime = Random.Range(0,10);
+                nextPatrolTime = Random.Range(0, 10);
                 patrolTimer = 0;
             }
-        }    
+        }
     }
 
     /// <summary>
@@ -190,10 +190,10 @@ public class RoamingMonster : MonsterController
     /// <returns>The new target as Vector3</returns>
     Vector3 GetPatrollTarget()
     {
-        Vector3 pTarget = new Vector3(transform.position.x + Random.Range(-10,11), transform.position.y, transform.position.z + Random.Range(-10,11));
+        Vector3 pTarget = new Vector3(transform.position.x + Random.Range(-10, 11), transform.position.y, transform.position.z + Random.Range(-10, 11));
         NavMeshPath navMeshPath = new NavMeshPath();
 
-        if(nav.CalculatePath(pTarget, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete) return pTarget;
+        if (nav.CalculatePath(pTarget, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete) return pTarget;
         else return transform.position;
     }
 
