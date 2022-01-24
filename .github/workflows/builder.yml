@@ -1,13 +1,12 @@
-name: Build Project
+name: Lint Code Base
 
 on:
   workflow_dispatch:
   
- jobs:
+jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
-    
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
