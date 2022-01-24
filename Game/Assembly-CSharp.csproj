@@ -39,8 +39,10 @@
      <Compile Include="Assets\Scripts\Task.cs" />
      <Compile Include="Assets\Scripts\ShootGun.cs" />
      <Compile Include="Assets\Scripts\Pistol.cs" />
+     <Compile Include="Assets\Scripts\RoamingMonster.cs" />
      <Compile Include="Assets\Scripts\Shotgun.cs" />
      <Compile Include="Assets\Scripts\Lobby\NetworkRoomPlayer.cs" />
+     <Compile Include="Assets\Scripts\WaveMonster.cs" />
      <Compile Include="Assets\Scripts\Lobby\NetworkManagerLobby.cs" />
      <Compile Include="Assets\Scripts\Lobby\PlayerNameInput.cs" />
      <Compile Include="Assets\Scripts\DestructableObject.cs" />
@@ -62,8 +64,6 @@
      <Compile Include="Assets\Scripts\ZombieSpawner.cs" />
      <Compile Include="Assets\Scripts\Fence\FenceInteraction.cs" />
      <Compile Include="Assets\Scripts\Compass.cs" />
-     <Compile Include="Assets\Scripts\RoamingMonster.cs" />
-     <Compile Include="Assets\Scripts\WaveMonster.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\ScriptTemplates\51-Mirror__Network Authenticator-NewNetworkAuthenticator.cs.txt" />
