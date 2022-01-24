@@ -40,7 +40,6 @@ public class Melee : ShootGun
     public override void Shoot()
     {
         this.inAttack = true;
-        //StartCoroutine(Hit());
     }
 
     /// <summary>
