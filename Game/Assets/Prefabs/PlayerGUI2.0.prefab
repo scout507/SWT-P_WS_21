@@ -89,8 +89,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3669428971865614294}
   - component: {fileID: 7686171840897815411}
-  - component: {fileID: 2458779488405940328}
   - component: {fileID: 6863836379640657602}
+  - component: {fileID: 476819211288701357}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -170,21 +170,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2458779488405940328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 393641877677853340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59cb65d08254e14448e89223e35c5c0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  slider: {fileID: 7686171840897815411}
 --- !u!114 &6863836379640657602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +187,19 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 97f15c96b42663840abde055ce185cf1
   hasSpawned: 0
+--- !u!114 &476819211288701357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393641877677853340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aada89e0ae6fee84e86a6ce93dfe1e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 7686171840897815411}
 --- !u!1 &417030558928304098
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,7 +787,6 @@ GameObject:
   - component: {fileID: 2573211290775857300}
   - component: {fileID: 2573211290775857301}
   - component: {fileID: 2573211290775857302}
-  - component: {fileID: 658317854740833945}
   - component: {fileID: 2573211290775857303}
   - component: {fileID: 4592639138261043955}
   - component: {fileID: 202321335588506024}
@@ -854,9 +851,16 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   controller: {fileID: 2573211290775857301}
+  playerModel: {fileID: 0}
   speed: 12
+  sprintSpeedMultiplier: 1.5
+  crouchSpeedMultiplier: 0.33
   gravity: 19.62
   jumpHeight: 1.5
+  stamina: 10
+  staminaMax: 10
+  staminaDrain: 0.33
+  staminaRegen: 0.01
   groundCheck: {fileID: 8337706594802313564}
   groundDistance: 0.4
   groundMask:
@@ -864,26 +868,7 @@ MonoBehaviour:
     m_Bits: 64
   mouseSensitivity: 2000
   cameraMountPoint: {fileID: 2573211292027365843}
---- !u!114 &658317854740833945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2573211290775858027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d64c72ae49d9b1544aff678da230f919, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  gunDamage: 10
-  fireRate: 0.25
-  weaoponRange: 50
-  gunEnd: {fileID: 2046544312235349952}
-  gun: {fileID: 8228071114298076104}
-  gunAmmo: 8
+  selectedWeapon: 0
 --- !u!114 &2573211290775857303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -975,7 +960,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   health: 100
-  healthbar: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!136 &6896355853710520063
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2076,8 +2061,8 @@ GameObject:
   - component: {fileID: 9181762002185854002}
   - component: {fileID: 5681548321512148022}
   - component: {fileID: 4314413704774774050}
-  - component: {fileID: 6245600935830888810}
   - component: {fileID: 1602402685909233376}
+  - component: {fileID: 289284736728143461}
   m_Layer: 5
   m_Name: CompassDir
   m_TagString: Untagged
@@ -2139,22 +2124,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &6245600935830888810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7214297046125454987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 487dd0dcbbf5f6541b5ccf571ab045b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  compassImage: {fileID: 4314413704774774050}
-  player: {fileID: 0}
 --- !u!114 &1602402685909233376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2172,6 +2141,20 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 97f15c96b42663840abde055ce185cf1
   hasSpawned: 0
+--- !u!114 &289284736728143461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7214297046125454987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88664cecd8c4e3f478a98ea96324aee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  compassImage: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &7241529294202544493
 GameObject:
   m_ObjectHideFlags: 0
