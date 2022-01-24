@@ -237,7 +237,12 @@ MonoBehaviour:
   atkRange: 2
   atkCooldown: 1
   dead: 0
-  height: 0
   players: []
   currentTarget: {fileID: 0}
-  atkTimer: 0
+  atkTimer: 1
+  detectionRate: 2
+  deAggroRate: 5
+  detectedPlayer: 0
+  aggro: 0
+  detectionAngle: 160
+  targets: []

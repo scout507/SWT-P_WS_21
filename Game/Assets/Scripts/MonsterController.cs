@@ -24,10 +24,6 @@ public class MonsterController : NetworkBehaviour
     public GameObject currentTarget;
 
     public float atkTimer;
-
-
-    /// <summary>Stores the spawn spot</summary>
-    Vector3 home;
     NavMeshAgent navAgent;
 
 
@@ -113,7 +109,7 @@ public class MonsterController : NetworkBehaviour
     /// Not useable yet. This method is going to be used for triggering monsters manually.
     /// </summary>
     /// <param name="player">The player that triggered the monster.</param>
-    void AggroMob(GameObject player)
+    public void AggroMob(GameObject player)
     {
         if (currentTarget == null || currentTarget.tag != "Player")
         {

@@ -19,20 +19,20 @@ public class RoamingMonster : MonsterController
 
     float detectionTimer;
     float deAggroTimer;
+    float patrolTimer;
+    float nextPatrolTime = 0;
 
     NavMeshAgent nav;
     Vector3 patrolTarget;
 
 
 
-    // Start is called before the first frame update
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
         patrolTarget = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!isServer) return;
@@ -78,9 +78,16 @@ public class RoamingMonster : MonsterController
 
         if(!aggro && !detectedPlayer)
         {
+            patrolTimer += Time.deltaTime;
             nav.isStopped = false;
-            if(Vector3.Distance(transform.position, patrolTarget) <= 0.5f) patrolTarget = GetPatrollTarget();
-            nav.SetDestination(patrolTarget);
+
+            if(patrolTimer >= nextPatrolTime)
+            {
+                if(Vector3.Distance(transform.position, patrolTarget) <= 0.5f) patrolTarget = GetPatrollTarget();
+                nav.SetDestination(patrolTarget);
+                nextPatrolTime = Random.Range(0,10);
+                patrolTimer = 0;
+            }
         }    
     }
 
@@ -154,7 +161,7 @@ public class RoamingMonster : MonsterController
 
     Vector3 GetPatrollTarget()
     {
-        Vector3 pTarget = new Vector3(transform.position.x + Random.Range(-5,6), transform.position.y, transform.position.z + Random.Range(-5,6));
+        Vector3 pTarget = new Vector3(transform.position.x + Random.Range(-10,11), transform.position.y, transform.position.z + Random.Range(-10,11));
         NavMeshPath navMeshPath = new NavMeshPath();
 
         if(nav.CalculatePath(pTarget, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete) return pTarget;

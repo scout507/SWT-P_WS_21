@@ -230,13 +230,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  aggroRadius: 100
+  aggroRadius: 10
   damage: 1
   hp: 100
   moveSpeed: 5
   atkRange: 2
   atkCooldown: 1
   dead: 0
-  playerToObjectRatio: 0
   players: []
   currentTarget: {fileID: 0}
+  atkTimer: 0
