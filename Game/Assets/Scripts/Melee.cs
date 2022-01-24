@@ -28,7 +28,7 @@ public class Melee : ShootGun
             nextFire = Time.time + fireRate;
             Shoot();
         }
-        else 
+        else
         {
             this.inAttack = false;
         }

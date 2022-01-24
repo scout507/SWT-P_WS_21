@@ -50,7 +50,7 @@ public class PlayerAnimationStateController : NetworkBehaviour
             animator.SetLayerWeight(2, 1);
             rig.weight = 0;
         }
-        else 
+        else
         {
             animator.SetLayerWeight(2, 0);
             rig.weight = selectedWeapon == 4 ? 1 : 0;
