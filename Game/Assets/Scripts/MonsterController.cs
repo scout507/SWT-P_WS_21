@@ -10,20 +10,30 @@ using Mirror;
 /// </summary>
 public class MonsterController : NetworkBehaviour
 {
+    /// <summary>Aggro radius of the monster</summary>
     public float aggroRadius;
+    /// <summary>Damage the monster does in one hit</summary>
     public float damage;
+    /// <summary>The monsters Hp</summary>
     public float hp;
+    /// <summary>The monsters movementspeed</summary>
     public float moveSpeed;
 
+    /// <summary>Range for a melee Attack</summary>
     public float atkRange;
+    /// <summary>Cooldown between Attacks</summary>
     public float atkCooldown;
+    /// <summary>Wether or not this monster is dead</summary>
     public bool dead;
 
     /// <summary>A list containing all possible targets</summary>
     public List<GameObject> players;
+    /// <summary>The current Target the monster is focused on</summary>
     public GameObject currentTarget;
 
+    /// <summary>Timer for attacking</summary>
     public float atkTimer;
+    /// <summary>NavMeshAgent for navigation</summary>
     NavMeshAgent navAgent;
 
 

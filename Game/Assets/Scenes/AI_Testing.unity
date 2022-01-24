@@ -427,7 +427,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   maxHealth: 100
-  health: 0
+  health: 100
   active: 0
 --- !u!114 &594922552
 MonoBehaviour:

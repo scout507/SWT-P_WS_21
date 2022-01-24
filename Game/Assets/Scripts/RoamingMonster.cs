@@ -1,38 +1,55 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using Mirror;
 
+/// <summary>
+/// This class contains spefic target detection for Roaming Monsters. Inherits from MonsterController.
+/// </summary>
 public class RoamingMonster : MonsterController
 {
-
+    /// <summary>The rate for detection checks in seconds</summary>   
     public float detectionRate;
+    /// <summary>Time it takes for the monster do de-aggro</summary>
     public float deAggroRate;
+    /// <summary>Wether or not the monster sees a player</summary>
     public bool detectedPlayer;
+    /// <summary>If the monster is aggroed by a player</summary>
     public bool aggro;
 
+
     [Range(0, 360)]
+    /// <summary>Angle in witch the monster can 'see'</summary>
     public float detectionAngle;
+    /// <summary>List of all posible Targets</summary>
+    List<GameObject> targets = new List<GameObject>();
 
-    public List<GameObject> targets = new List<GameObject>();
-
+    /// <summary>Timer for detection</summary>
     float detectionTimer;
+    /// <summary>Timer for de-agrro</summary>
     float deAggroTimer;
+    /// <summary>Timer for patrolling</summary>
     float patrolTimer;
+    /// <summary>Time for the next patrol-step</summary>
     float nextPatrolTime = 0;
 
+    /// <summary>NavMeshAgent for navigation</summary>
     NavMeshAgent nav;
+    /// <summary>The destination for the next patrol-step</summary>
     Vector3 patrolTarget;
 
 
-
+    /// <summary>
+    /// Gets Components.
+    /// </summary>
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
         patrolTarget = transform.position;
     }
 
+    /// <summary>
+    /// Responsible for the ai behaviour.
+    /// </summary>
     void Update()
     {
         if (!isServer) return;
@@ -91,7 +108,10 @@ public class RoamingMonster : MonsterController
         }    
     }
 
-
+    /// <summary>
+    /// This method is responsible for checking if players are within eyesight of the monster.
+    /// It checks all players within aggro range, and adds them to targets if they are visible.
+    /// </summary>
     private void DetectPlayers()
     {
         targets.Clear();
@@ -124,6 +144,7 @@ public class RoamingMonster : MonsterController
 
         if (targets.Count > 0)
         {
+            //TODO: Add some sound/animation to show that the monster is seeing the player.
             if (detectedPlayer) aggro = true;
             else detectedPlayer = true;
         }
@@ -133,7 +154,10 @@ public class RoamingMonster : MonsterController
         }
     }
 
-
+    /// <summary>
+    /// Finds the closest player (that is reachable) within the possible targets.
+    /// </summary>
+    /// <returns>The target (player) GameObject</returns>
     GameObject ChooseTarget()
     {
 
@@ -159,6 +183,11 @@ public class RoamingMonster : MonsterController
         return newTarget;
     }
 
+
+    /// <summary>
+    /// Randomly chooses a new Vector3 coordinate for the AI to patrol towards. Only returns reachable targets.
+    /// </summary>
+    /// <returns>The new target as Vector3</returns>
     Vector3 GetPatrollTarget()
     {
         Vector3 pTarget = new Vector3(transform.position.x + Random.Range(-10,11), transform.position.y, transform.position.z + Random.Range(-10,11));

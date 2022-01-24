@@ -6,19 +6,25 @@ using Mirror;
 
 
 
-
+/// <summary>
+/// This class contains specific target finding for the WaveMonsters.
+/// </summary>
 public class WaveMonster : MonsterController
 {
     /// <summary>A list containing all attackable Objects (no players)</summary>
     List<GameObject> buildingTargets = new List<GameObject>();
+    /// <summary>NavMeshAgent for navigation</summary>
     NavMeshAgent nav;
 
+    /// <summary>Timer for target finding</summary>
     float timer;
     /// <summary>The refreshrate for target finding calculations</summary>
     float refreshRate = 2f;
 
 
-
+    /// <summary>
+    /// Initial FindBuildings.
+    /// </summary>
     void Start()
     {
         if (!isServer) return;
@@ -28,6 +34,9 @@ public class WaveMonster : MonsterController
 
     }
 
+    /// <summary>
+    /// Handling the target finding
+    /// </summary>
     void Update()
     {
         if (!isServer) return;
@@ -85,7 +94,7 @@ public class WaveMonster : MonsterController
     /// <summary>
     /// Selects a target for the monster to attack. 
     /// </summary>
-    /// <returns>Returns the target as a GameObject.</returns>
+    /// <returns>Returns the target as a GameObject or null if there is no possible target</returns>
     GameObject ChooseTarget()
     {
 
