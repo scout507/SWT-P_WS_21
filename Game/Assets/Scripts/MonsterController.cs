@@ -39,7 +39,20 @@ public class MonsterController : NetworkBehaviour
     Vector3 home;
     NavMeshAgent nav;
 
+    /// <summary>Used to ground the monster</summary>
+    [Header("Grounding")]
+    [SerializeField] Transform groundCheck;
+    [SerializeField] float groundDistance = 0.4f;
+    [SerializeField] LayerMask groundMask;
 
+    /// <summary>
+    /// Checks if the monster is currently on ground
+    /// </summary>
+    /// <returns>Returns true or false</returns>
+    public bool CheckGrounded()
+    {
+        return Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+    }
 
     private void Start()
     {
