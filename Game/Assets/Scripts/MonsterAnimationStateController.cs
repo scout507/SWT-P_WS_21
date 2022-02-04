@@ -13,9 +13,14 @@ public class MonsterAnimationStateController : NetworkBehaviour
     [SerializeField] Animator animator;
 
     /// <summary>
-    /// Player's Movement Script
+    /// Monsters's Nav Mesh Agent
     /// </summary>
     [SerializeField] NavMeshAgent navMeshAgent;
+    
+    /// <summary>
+    /// Monsters's Controller
+    /// </summary>
+    [SerializeField] MonsterController monsterController;
 
     // Update is called once per frame
     void Update()
@@ -23,5 +28,8 @@ public class MonsterAnimationStateController : NetworkBehaviour
         Vector3 velocity = navMeshAgent.transform.InverseTransformDirection(navMeshAgent.velocity);
         animator.SetFloat("Velocity Z", velocity.z);
         animator.SetFloat("Velocity X", velocity.x);
+
+        animator.SetBool("inAttack", monsterController.attack);
+        animator.SetBool("isDead", monsterController.dead);
     }
 }

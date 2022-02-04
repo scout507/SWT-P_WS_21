@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations;
 using Mirror;
 
 
@@ -30,10 +31,12 @@ public class MonsterController : NetworkBehaviour
 
     float timer;
     float atkTimer;
+    public bool attack;
 
     /// <summary>The refreshrate for target finding calculations</summary>
     float refreshRate = 1f;
-    bool dead;
+    public bool dead;
+    public bool damageTaken;
 
     /// <summary>Stores the spawn spot</summary>
     Vector3 home;
@@ -44,6 +47,12 @@ public class MonsterController : NetworkBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundDistance = 0.4f;
     [SerializeField] LayerMask groundMask;
+
+    /// <summary>The monster's animator</summary>
+    [SerializeField] Animator animator;
+
+     /// <summary>Player's melee collider</summary>
+    [SerializeField] CapsuleCollider collider;
 
     /// <summary>
     /// Checks if the monster is currently on ground
@@ -75,6 +84,8 @@ public class MonsterController : NetworkBehaviour
 
         if (!dead)
         {
+            damageTaken = false;
+            attack = false;
 
             if (hp <= 0) Die();
 
@@ -82,6 +93,7 @@ public class MonsterController : NetworkBehaviour
             if (timer >= refreshRate) FindTargets();
             if (!awake && timer >= refreshRate) awake = CheckAggro();
             if (awake && timer >= refreshRate) currentTarget = FindTarget();
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Attack") || animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Damage")) nav.isStopped = true;
             if (currentTarget != null)
             {
                 if (Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
@@ -177,8 +189,8 @@ public class MonsterController : NetworkBehaviour
         if (!dead)
         {
             dead = true;
-            //TODO: Death-Animation
-            Destroy(this.gameObject, 0.5f); // Destroys the Monster after 0.5f
+            collider.enabled = false;
+            Destroy(this.gameObject, 300f); // Destroys the Monster after 5 minutes
         }
     }
 
@@ -189,8 +201,8 @@ public class MonsterController : NetworkBehaviour
     {
         if (atkTimer >= atkCooldown)
         {
+            attack = true;
             atkTimer = 0;
-            //TODO: Attack animation
             if (currentTarget.tag == "Player")
             {
                 currentTarget.GetComponent<Health>().TakeDamage(Mathf.RoundToInt(damage)); //Health script uses int for health. Needs to be resolved
@@ -211,7 +223,7 @@ public class MonsterController : NetworkBehaviour
     {
         if (!dead)
         {
-            //TODO: Play damage animation & sound
+            animator.SetTrigger("hasTakenDamage");
             hp -= dmgTaken;
             if (hp <= 0) Die();
         }
