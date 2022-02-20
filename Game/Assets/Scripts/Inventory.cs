@@ -13,11 +13,11 @@ public class Inventory : NetworkBehaviour
     /// <summary>
     /// ammount of ammo in a magazine
     /// </summary>
-    public Text magazineSizeText;
+    public Text currentAmmo;
     /// <summary>
     /// amoutn of magazines per weapon
     /// </summary>
-    public Text magazineCountText;
+    public Text totalAmmo;
 
     /// <summary>
     /// Function to update the info on the Weapon UI, has to be used when the weapon is changed.
@@ -29,11 +29,10 @@ public class Inventory : NetworkBehaviour
     /// <param name="weaponIcon"></param>
     /// <param name="magazineSize"></param>
     /// <param name="magazineCount"></param>
-    public void UpdateInfo(Sprite weaponIcon, int magazineSize, int magazineCount)
+    public void UpdateInfo(Sprite weaponIcon, int newCurrentAmmo, int newTotalAmmo)
     {
         icon.sprite = weaponIcon;
-        magazineSizeText.text = magazineSize.ToString();
-        int magazineCountAmount = magazineSize * magazineCount;
-        magazineCountText.text = magazineCountAmount.ToString();     
+        currentAmmo.text = newCurrentAmmo.ToString();
+        totalAmmo.text = newTotalAmmo.ToString();     
     }
 }

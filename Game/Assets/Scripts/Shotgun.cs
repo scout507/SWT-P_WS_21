@@ -58,6 +58,7 @@ public class Shotgun : ShootGun
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
         gunAmmo--;
+        inventory.UpdateInfo(this.icon,this.gunAmmo,0);
         for (int i = 0; i < pelletAmount; i++)
         {
 
