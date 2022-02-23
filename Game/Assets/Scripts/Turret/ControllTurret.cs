@@ -27,7 +27,7 @@ public class ControllTurret : NetworkBehaviour
     /// checks which weapon script is active
     /// 0 = Pistol; 1 = MP ; 2 = Shotgun ; 3 = Melee ; 4 = Rifle
     /// </summary>
-    private int [] weaponScriptActive = new int[5];
+    private int[] weaponScriptActive = new int[5];
 
     /// <summary>
     /// Checks if the Player is in the Turret
@@ -114,8 +114,8 @@ public class ControllTurret : NetworkBehaviour
                 inVehicle = false;
                 gameObject.GetComponent<PlayerMovement>().enabled = true;
 
-                
-                if(weaponScriptActive[0] == 1)
+
+                if (weaponScriptActive[0] == 1)
                 {
                     gameObject.GetComponent<Pistol>().enabled = true;
                 }
