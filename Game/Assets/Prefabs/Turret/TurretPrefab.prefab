@@ -422,7 +422,7 @@ MonoBehaviour:
   cameraMountPoint: {fileID: 3252366866473779411}
   fireRate: 0.25
   turretDamage: 20
-  weaoponRange: 50
+  weaoponRange: 30
   shotflash: {fileID: 1517711786379090832}
 --- !u!65 &850727861660227241
 BoxCollider:

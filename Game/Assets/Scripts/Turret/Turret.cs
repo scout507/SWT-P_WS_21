@@ -1,6 +1,13 @@
 using UnityEngine;
 using Mirror;
 
+
+/* created by: SWT-P_WS_21/22 */
+
+
+/// <summary>
+/// Script on the Turret 
+/// </summary>
 public class Turret : NetworkBehaviour
 {
 
@@ -49,7 +56,7 @@ public class Turret : NetworkBehaviour
     /// <summary>
     /// Shooting range of the Turret
     /// </summary>
-    [SerializeField] float weaoponRange = 10f;
+    [SerializeField] float weaoponRange = 30f;
 
     /// <summary>
     /// Particle system used when on Shot
@@ -90,11 +97,12 @@ public class Turret : NetworkBehaviour
 
         RaycastHit hit;
         Vector3 rayOrigin = gameObject.transform.position;
-        Vector3 direction = gameObject.transform.right;
+        Vector3 direction = gameObject.transform.GetChild(0).forward;
 
         rpcturretFireAnimationn();
-        if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange))
+        if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
         {
+            Debug.DrawRay(rayOrigin, direction * weaoponRange, Color.green, 10);
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 CmdShootPlayer(hit.collider.gameObject.transform.parent.gameObject);
@@ -110,7 +118,8 @@ public class Turret : NetworkBehaviour
         }
         else
         {
-            Debug.Log("Out of Range!");
+            Debug.DrawRay(rayOrigin, direction * weaoponRange, Color.red, 10);
+            Debug.Log("Turret: Out of Range!");
         }
 
     }
@@ -133,7 +142,7 @@ public class Turret : NetworkBehaviour
     [ClientRpc]
     void RpcHitWall(Vector3 hit)
     {
-        Debug.Log("Hit Wall!");
+        Debug.Log("Turret: Hit Wall!");
     }
 
     /// <summary>
@@ -154,7 +163,7 @@ public class Turret : NetworkBehaviour
     [Command]
     void CmdShootPlayer(GameObject player)
     {
-        Debug.Log("Hit Player!");
+        Debug.Log("Turret: Hit Player!");
         player.GetComponent<Health>().TakeDamage(turretDamage);
     }
 

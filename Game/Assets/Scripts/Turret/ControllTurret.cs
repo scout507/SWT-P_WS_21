@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+/* created by: SWT-P_WS_21/22 */
+
+
+/// <summary>
+/// Script to interact with the Turret
+/// </summary>
 public class ControllTurret : NetworkBehaviour
 {
-
 
     /// <summary>
     /// Reference to the Turret Gameobject
@@ -16,6 +21,13 @@ public class ControllTurret : NetworkBehaviour
     /// Reference to the Player Camera Mount
     /// </summary>
     [SerializeField] GameObject cameraMount;
+
+
+    /// <summary>
+    /// checks which weapon script is active
+    /// 0 = Pistol; 1 = MP ; 2 = Shotgun ; 3 = Melee ; 4 = Rifle
+    /// </summary>
+    private int [] weaponScriptActive = new int[5];
 
     /// <summary>
     /// Checks if the Player is in the Turret
@@ -58,7 +70,32 @@ public class ControllTurret : NetworkBehaviour
                 inVehicle = true;
 
                 gameObject.GetComponent<PlayerMovement>().enabled = false;
-                gameObject.GetComponent<ShootGun>().enabled = false;
+                // 0 = Pistol; 1 = MP ; 2 = Shotgun ; 3 = Melee ; 4 = Rifle
+                if (gameObject.GetComponent<Pistol>().enabled == true)
+                {
+                    weaponScriptActive[0] = 1;
+                    gameObject.GetComponent<Pistol>().enabled = false;
+                }
+                if (gameObject.GetComponent<MP>().enabled == true)
+                {
+                    weaponScriptActive[1] = 1;
+                    gameObject.GetComponent<MP>().enabled = false;
+                }
+                if (gameObject.GetComponent<Shotgun>().enabled == true)
+                {
+                    weaponScriptActive[2] = 1;
+                    gameObject.GetComponent<Shotgun>().enabled = false;
+                }
+                if (gameObject.GetComponent<Melee>().enabled == true)
+                {
+                    weaponScriptActive[3] = 1;
+                    gameObject.GetComponent<Melee>().enabled = false;
+                }
+                if (gameObject.GetComponent<Rifle>().enabled == true)
+                {
+                    weaponScriptActive[4] = 1;
+                    gameObject.GetComponent<Rifle>().enabled = false;
+                }
             }
 
             if (inVehicle)
@@ -76,7 +113,29 @@ public class ControllTurret : NetworkBehaviour
 
                 inVehicle = false;
                 gameObject.GetComponent<PlayerMovement>().enabled = true;
-                gameObject.GetComponent<ShootGun>().enabled = true;
+
+                
+                if(weaponScriptActive[0] == 1)
+                {
+                    gameObject.GetComponent<Pistol>().enabled = true;
+                }
+                if (weaponScriptActive[1] == 1)
+                {
+                    gameObject.GetComponent<MP>().enabled = true;
+                }
+                if (weaponScriptActive[2] == 1)
+                {
+                    gameObject.GetComponent<Shotgun>().enabled = true;
+                }
+                if (weaponScriptActive[3] == 1)
+                {
+                    gameObject.GetComponent<Melee>().enabled = true;
+                }
+                if (weaponScriptActive[4] == 1)
+                {
+                    gameObject.GetComponent<Rifle>().enabled = true;
+                }
+
                 turret.exitVehicle();
             }
 
