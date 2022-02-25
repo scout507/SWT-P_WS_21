@@ -15,11 +15,15 @@ var searchData=
   ['playerspawnmethod_12',['playerSpawnMethod',['../class_mirror_1_1_network_manager.html#ae6167e3960b1a34e09ea97868d1cc60e',1,'Mirror::NetworkManager']]],
   ['playertoobjectratio_13',['playerToObjectRatio',['../class_monster_controller.html#aa74a32a39d639860fba84e929e8426b0',1,'MonsterController']]],
   ['pool_14',['Pool',['../classkcp2k_1_1_pool.html',1,'kcp2k.Pool&lt; T &gt;'],['../class_mirror_1_1_pool.html',1,'Mirror.Pool&lt; T &gt;'],['../class_telepathy_1_1_pool.html',1,'Telepathy.Pool&lt; T &gt;']]],
-  ['poolednetworkreader_15',['PooledNetworkReader',['../class_mirror_1_1_pooled_network_reader.html',1,'Mirror']]],
-  ['poolednetworkwriter_16',['PooledNetworkWriter',['../class_mirror_1_1_pooled_network_writer.html',1,'Mirror']]],
-  ['position_17',['Position',['../class_mirror_1_1_network_reader.html#a8c3a88c7273f1f31e96935e80768b1a1',1,'Mirror.NetworkReader.Position()'],['../class_mirror_1_1_network_writer.html#ac70038113ba5ddc857ea0c187b5eac16',1,'Mirror.NetworkWriter.Position()']]],
-  ['processclientrequest_18',['ProcessClientRequest',['../class_mirror_1_1_discovery_1_1_network_discovery_base.html#afd12e333f578fb4d3c0b615b980ca8dd',1,'Mirror::Discovery::NetworkDiscoveryBase']]],
-  ['processrequest_19',['ProcessRequest',['../class_mirror_1_1_discovery_1_1_network_discovery.html#a102b884161ed3cfbc83bbddd31aab504',1,'Mirror.Discovery.NetworkDiscovery.ProcessRequest()'],['../class_mirror_1_1_discovery_1_1_network_discovery_base.html#a08b153629b2e2074f10472875be470d0',1,'Mirror.Discovery.NetworkDiscoveryBase.ProcessRequest()']]],
-  ['processresponse_20',['ProcessResponse',['../class_mirror_1_1_discovery_1_1_network_discovery.html#a015a04e33084dd1d065f897ff2322ecd',1,'Mirror.Discovery.NetworkDiscovery.ProcessResponse()'],['../class_mirror_1_1_discovery_1_1_network_discovery_base.html#a681d1d1d8095ace1946b3a99bba14b44',1,'Mirror.Discovery.NetworkDiscoveryBase.ProcessResponse()']]],
-  ['progress_21',['progress',['../class_task.html#a156373f99c36bcc2c1a58d565283f835',1,'Task']]]
+  ['pool_3c_20byte_5b_5d_3e_15',['Pool&lt; byte[]&gt;',['../class_telepathy_1_1_pool.html',1,'Telepathy']]],
+  ['pool_3c_20mirror_3a_3apoolednetworkreader_20_3e_16',['Pool&lt; Mirror::PooledNetworkReader &gt;',['../class_mirror_1_1_pool.html',1,'Mirror']]],
+  ['pool_3c_20mirror_3a_3apoolednetworkwriter_20_3e_17',['Pool&lt; Mirror::PooledNetworkWriter &gt;',['../class_mirror_1_1_pool.html',1,'Mirror']]],
+  ['pool_3c_20segment_20_3e_18',['Pool&lt; Segment &gt;',['../classkcp2k_1_1_pool.html',1,'kcp2k']]],
+  ['poolednetworkreader_19',['PooledNetworkReader',['../class_mirror_1_1_pooled_network_reader.html',1,'Mirror']]],
+  ['poolednetworkwriter_20',['PooledNetworkWriter',['../class_mirror_1_1_pooled_network_writer.html',1,'Mirror']]],
+  ['position_21',['Position',['../class_mirror_1_1_network_reader.html#a8c3a88c7273f1f31e96935e80768b1a1',1,'Mirror.NetworkReader.Position()'],['../class_mirror_1_1_network_writer.html#ac70038113ba5ddc857ea0c187b5eac16',1,'Mirror.NetworkWriter.Position()']]],
+  ['processclientrequest_22',['ProcessClientRequest',['../class_mirror_1_1_discovery_1_1_network_discovery_base.html#afd12e333f578fb4d3c0b615b980ca8dd',1,'Mirror::Discovery::NetworkDiscoveryBase']]],
+  ['processrequest_23',['ProcessRequest',['../class_mirror_1_1_discovery_1_1_network_discovery.html#a102b884161ed3cfbc83bbddd31aab504',1,'Mirror.Discovery.NetworkDiscovery.ProcessRequest()'],['../class_mirror_1_1_discovery_1_1_network_discovery_base.html#a08b153629b2e2074f10472875be470d0',1,'Mirror.Discovery.NetworkDiscoveryBase.ProcessRequest()']]],
+  ['processresponse_24',['ProcessResponse',['../class_mirror_1_1_discovery_1_1_network_discovery.html#a015a04e33084dd1d065f897ff2322ecd',1,'Mirror.Discovery.NetworkDiscovery.ProcessResponse()'],['../class_mirror_1_1_discovery_1_1_network_discovery_base.html#a681d1d1d8095ace1946b3a99bba14b44',1,'Mirror.Discovery.NetworkDiscoveryBase.ProcessResponse()']]],
+  ['progress_25',['progress',['../class_task.html#a156373f99c36bcc2c1a58d565283f835',1,'Task']]]
 ];

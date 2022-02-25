@@ -17,5 +17,6 @@ var searchData=
   ['getstartposition_14',['GetStartPosition',['../class_mirror_1_1_network_manager.html#a555e63cea31781669d25d5c361ec0320',1,'Mirror::NetworkManager']]],
   ['gettaskinfo_15',['GetTaskInfo',['../class_task_manager.html#adc5e56e136f64982ab30e176284d557f',1,'TaskManager']]],
   ['grid2d_16',['Grid2D',['../class_mirror_1_1_grid2_d.html',1,'Mirror']]],
-  ['guiconsole_17',['GUIConsole',['../class_mirror_1_1_g_u_i_console.html',1,'Mirror']]]
+  ['grid2d_3c_20mirror_3a_3anetworkconnection_20_3e_17',['Grid2D&lt; Mirror::NetworkConnection &gt;',['../class_mirror_1_1_grid2_d.html',1,'Mirror']]],
+  ['guiconsole_18',['GUIConsole',['../class_mirror_1_1_g_u_i_console.html',1,'Mirror']]]
 ];
