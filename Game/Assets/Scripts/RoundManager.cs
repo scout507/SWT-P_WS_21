@@ -43,7 +43,7 @@ public class RoundManager : NetworkBehaviour
    float prepTimer; 
    float gameTimer = 0;
    bool ready;
-
+   bool started;
 
    void Start()
    {
@@ -64,16 +64,21 @@ public class RoundManager : NetworkBehaviour
            if(joinedPlayers == totalPlayers) InitGame();
            else return;
        }
-       
+
+       if(!started)
+       {
+          prepTimer -= Time.deltaTime;
+          if(prepTimer <= 0) StartGame();
+          else return;
+       }
+
        gameTimer += Time.deltaTime;
-       prepTimer -= Time.deltaTime;
        playerRefreshTimer -= Time.deltaTime;
 
        if(playerRefreshTimer <= 0)
        {
-           //players = GetAllPlayers();
+           activePlayers = GetAllPlayers();
            playerRefreshTimer = playerRefreshTime;
-           Debug.Log(players.Count);
        }
 
 
@@ -110,6 +115,7 @@ public class RoundManager : NetworkBehaviour
 
    void ChooseWinner()
    {
+        //TODO: Add endgame-screen or something.
         if(gameTimer >= timePerRound)
         {
             //Everyone loses the game
@@ -145,10 +151,14 @@ public class RoundManager : NetworkBehaviour
     {
         ChooseImpostor();
         activePlayers = GetAllPlayers();
+        zombieSpawner.InitialSpawn();
+        taskManager.
         ready = true;
+        //TODO: start some Countdown on the HUD
     }
 
-   
-
-
+    void StartGame()
+    {
+        //TODO: Open doors and maybe some other stuff
+    }
 }
