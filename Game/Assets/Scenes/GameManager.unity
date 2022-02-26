@@ -27616,7 +27616,7 @@ MonoBehaviour:
   roamingZombie: {fileID: 4889826601512724900, guid: f67da8ceb9fb66c4cb481736f464d50b, type: 3}
   timeBetweenWave: 600
   zombiesAmount: 10
-  roamerAmount: 1
+  roamerAmount: 10
   waveSpawns:
   - {fileID: 1372488436}
   roamerSpawns:
