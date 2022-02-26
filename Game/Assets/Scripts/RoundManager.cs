@@ -16,6 +16,8 @@ public class RoundManager : NetworkBehaviour
    GameObject impostor;
    [SerializeField]
    GameObject playerSpawn;
+   float playerRefreshTime = 1f;
+   float playerRefreshTimer;
 
 
     //NPC-related
@@ -40,6 +42,8 @@ public class RoundManager : NetworkBehaviour
 
    void Start()
    {
+       if(!isServer) return;
+
        zombieSpawner = GetComponent<ZombieSpawner>();
        taskManager = GetComponent<TaskManager>();
 
@@ -51,10 +55,23 @@ public class RoundManager : NetworkBehaviour
 
    void Update()
    {
+       if(!isServer) return;
+
        //Timers
        gameTimer += Time.deltaTime;
-       prepTimer -= Time.deltaTime; 
+       prepTimer -= Time.deltaTime;
+       playerRefreshTimer -= Time.deltaTime;
 
+       if(playerRefreshTimer <= 0)
+       {
+           players = GetAllPlayers();
+           playerRefreshTimer = playerRefreshTime;
+           Debug.Log(players.Count);
+       }
+
+
+
+       if(CheckGameOver()) ChooseWinner(); 
    }
 
 
@@ -101,14 +118,13 @@ public class RoundManager : NetworkBehaviour
             {
                 if(players.Contains(impostor))
                 {
-                    //impostor wins
+                    //Impostor wins
                 }
                 else
                 {
-                    //team wins
+                    //Team wins
                 }
             }
-
         }
    }
 
