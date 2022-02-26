@@ -101,7 +101,8 @@ public class RoundManager : NetworkBehaviour
 
    void ChooseImpostor()
    {
-       int r = Random.Range(0, players.Count);
+       impostor = players[Random.Range(0, players.Count)];
+       Debug.Log(impostor.ToString() + " is the impostor");
    }
 
    bool CheckGameOver()
@@ -138,14 +139,6 @@ public class RoundManager : NetworkBehaviour
         }
    }
 
-   void Register(GameObject player)
-   {
-       player.transform.position = playerSpawn.transform.position;
-       joinedPlayers++;
-       players.Add(player.GetComponent<NetworkIdentity>().netId);
-       JoinMessage(player.GetComponent<NetworkIdentity>().netId.ToString()); 
-   }
-
     void InitGame()
     {
         ChooseImpostor();
@@ -158,14 +151,31 @@ public class RoundManager : NetworkBehaviour
 
     void StartGame()
     {
+        started = true;
         //TODO: Open doors and maybe some other stuff
-        Debug.Log("The Game has started. " + impostor.ToString() + " is the impostor");
+        Debug.Log("The Game has started.");
+        Debug.Log(taskManager.GetTaskInfo());
     }
 
+    public void Register(GameObject player)
+   {
+       joinedPlayers++;
+       players.Add(player.GetComponent<NetworkIdentity>().netId);
+       RpcJoinMessage(player.GetComponent<NetworkIdentity>().netId.ToString());
+       TargetRpcMoveToSpawn(player.GetComponent<NetworkIdentity>().connectionToClient, player); 
+   }
+
+
     [ClientRpc]
-    void JoinMessage(string playerName)
+    void RpcJoinMessage(string playerName)
     {   
         //TODO: Replace with actual UI message
         Debug.Log(playerName + " has joined the game!");
+    }
+
+    [TargetRpc]
+    void TargetRpcMoveToSpawn(NetworkConnection target, GameObject player)
+    {
+        player.transform.position = playerSpawn.transform.position;
     }
 }
