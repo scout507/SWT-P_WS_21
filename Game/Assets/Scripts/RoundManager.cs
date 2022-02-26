@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+/* created by: SWT-P_WS_21/22 */
 
 /// <summary>
 /// This class handles the background work for round management.
@@ -25,9 +26,6 @@ public class RoundManager : NetworkBehaviour
 
 
     //NPC-related
-   [SerializeField] 
-   float timeBetweenWaves;
-   float waveTimer;
    ZombieSpawner zombieSpawner; 
    
 
@@ -144,7 +142,8 @@ public class RoundManager : NetworkBehaviour
    {
        player.transform.position = playerSpawn.transform.position;
        joinedPlayers++;
-       players.Add(player.GetComponent<NetworkIdentity>().netId); 
+       players.Add(player.GetComponent<NetworkIdentity>().netId);
+       JoinMessage(player.GetComponent<NetworkIdentity>().netId.ToString()); 
    }
 
     void InitGame()
@@ -152,7 +151,7 @@ public class RoundManager : NetworkBehaviour
         ChooseImpostor();
         activePlayers = GetAllPlayers();
         zombieSpawner.InitialSpawn();
-        taskManager.
+        taskManager.InitTasks();
         ready = true;
         //TODO: start some Countdown on the HUD
     }
@@ -160,5 +159,13 @@ public class RoundManager : NetworkBehaviour
     void StartGame()
     {
         //TODO: Open doors and maybe some other stuff
+        Debug.Log("The Game has started. " + impostor.ToString() + " is the impostor");
+    }
+
+    [ClientRpc]
+    void JoinMessage(string playerName)
+    {   
+        //TODO: Replace with actual UI message
+        Debug.Log(playerName + " has joined the game!");
     }
 }

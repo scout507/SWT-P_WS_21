@@ -24,18 +24,6 @@ public class TaskManager : NetworkBehaviour
     /// <summary>All tasks active this game</summary>
     List<GameObject> tasks = new List<GameObject>();
 
-
-
-    /// <summary>
-    /// Used for choosing and spawning tasks
-    /// </summary>
-    void Start()
-    {
-        if (!isServer) return;
-        ChooseTasks();
-        SpawnTasks();
-    }
-
     /// <summary>
     /// Randomly chooses tasks from their lists and adds them to the overall tasks List
     /// </summary>
@@ -136,4 +124,13 @@ public class TaskManager : NetworkBehaviour
         return true;
     }
     
+    
+    /// <summary>
+    /// Used for choosing and spawning tasks
+    /// </summary>
+    public void InitTasks()
+    {
+        ChooseTasks();
+        SpawnTasks();
+    }
 }

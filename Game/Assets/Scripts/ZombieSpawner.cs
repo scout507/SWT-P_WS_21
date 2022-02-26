@@ -81,7 +81,6 @@ public class ZombieSpawner : NetworkBehaviour
                 nextWave = NetworkTime.time + timeBetweenWave;
             }
         }
-        Debug.Log(TimeToNextWaveString());
     }
 
     /// <summary>
