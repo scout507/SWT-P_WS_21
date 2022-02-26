@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
-using System;
 
 /* created by: SWT-P_WS_21/22 */
 
@@ -14,6 +13,13 @@ public class ZombieSpawner : NetworkBehaviour
     /// </summary>
     [SerializeField]
     GameObject waveZombie;
+
+
+    /// <summary>
+    /// Prefab of roaming zombies.
+    /// </summary>
+    [SerializeField]
+    GameObject roamingZombie;
 
     /// <summary>
     /// Seconds to next wave
@@ -33,9 +39,21 @@ public class ZombieSpawner : NetworkBehaviour
     [SerializeField]
     int zombiesAmount = 10;
 
+    /// <summary>
+    /// Number of roaming zombies
+    /// </summary>
+    [SerializeField]
+    int roamerAmount = 15;
+
+    /// <summary>
+    /// All places where a wave can spawn
+    /// </summary>
     [SerializeField]
     GameObject[] waveSpawns;
 
+    /// <summary>
+    /// All spawing positions for roaming zombies
+    /// </summary>
     [SerializeField]
     GameObject[] roamerSpawns;
 
@@ -46,7 +64,6 @@ public class ZombieSpawner : NetworkBehaviour
     {
         if (isServer)
         {
-            SpawnWave();
             nextWave = NetworkTime.time + timeBetweenWave;
         }
     }
@@ -74,7 +91,8 @@ public class ZombieSpawner : NetworkBehaviour
     {
         for (int i = 0; i < zombiesAmount; i++)
         {
-            GameObject spawnedZombie = (GameObject)Instantiate(waveZombie, this.gameObject.transform.position + new Vector3(i, 0, 0), Quaternion.identity);
+            GameObject spawn = waveSpawns[Random.Range(0,waveSpawns.Length)];
+            GameObject spawnedZombie = (GameObject)Instantiate(waveZombie, spawn.transform.position + new Vector3(i, 0, 0), Quaternion.identity);
             NetworkServer.Spawn(spawnedZombie);
         }
     }
@@ -85,9 +103,25 @@ public class ZombieSpawner : NetworkBehaviour
     /// <returns>String of remaining time</returns>
     public string TimeToNextWaveString()
     {
-        double timeToNextWave = nextWave - NetworkTime.time;
-        int minutes = (int)Math.Floor(timeToNextWave / 60);
-        int seconds = (int)Math.Floor(timeToNextWave % 60);
+        float timeToNextWave = (float) (nextWave - NetworkTime.time);
+        int minutes = (int)Mathf.Floor(timeToNextWave / 60);
+        int seconds = (int)Mathf.Floor(timeToNextWave % 60);
         return minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0');
+    }
+
+    /// <summary>
+    /// Used to spawn the inital roaming zombies and setting the first wave-timer
+    /// </summary>
+    public void InitialSpawn()
+    {
+        for (int i = 0; i < roamerAmount; i++)
+        {
+            GameObject spawn = roamerSpawns[Random.Range(0,waveSpawns.Length)];
+            GameObject spawnedZombie = (GameObject)Instantiate(roamingZombie, spawn.transform.position + new Vector3(i, 0, 0), Quaternion.identity);
+            NetworkServer.Spawn(spawnedZombie);
+        }
+
+        nextWave = NetworkTime.time + timeBetweenWave;
+
     }
 }
