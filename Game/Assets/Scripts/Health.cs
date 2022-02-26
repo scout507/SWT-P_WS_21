@@ -21,10 +21,10 @@ public class Health : NetworkBehaviour
 
     void Start()
     {
-        
+
         health = 100;
         //healthBar.SetMaxHealth(health);
-        if(!isLocalPlayer) return;
+        if (!isLocalPlayer) return;
         CmdRegisterPlayer();
     }
 

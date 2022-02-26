@@ -12,122 +12,122 @@ public class RoundManager : NetworkBehaviour
 {
 
     // Player-related
-   public int totalPlayers;
-   /// <summary>A list containing all players </summary>//  
-   List<uint> players = new List<uint>();
-   List<uint> activePlayers = new List<uint>();
-   uint impostor;
-   [SerializeField]
-   GameObject playerSpawn;
-   float playerRefreshTime = 1f;
-   float playerRefreshTimer;
+    public int totalPlayers;
+    /// <summary>A list containing all players </summary>//  
+    List<uint> players = new List<uint>();
+    List<uint> activePlayers = new List<uint>();
+    uint impostor;
+    [SerializeField]
+    GameObject playerSpawn;
+    float playerRefreshTime = 1f;
+    float playerRefreshTimer;
 
-   int joinedPlayers; 
+    int joinedPlayers;
 
 
     //NPC-related
-   ZombieSpawner zombieSpawner; 
-   
+    ZombieSpawner zombieSpawner;
+
 
     // Task-related
-   int finishedTasks;
-   int totalTasks;
-   TaskManager taskManager;
+    int finishedTasks;
+    int totalTasks;
+    TaskManager taskManager;
 
     //Game-related
-   [SerializeField] 
-   float timePerRound;
-   [SerializeField]
-   float prepTimer; 
-   float gameTimer = 0;
-   bool ready;
-   bool started;
+    [SerializeField]
+    float timePerRound;
+    [SerializeField]
+    float prepTimer;
+    float gameTimer = 0;
+    bool ready;
+    bool started;
 
-   void Start()
-   {
-       if(!isServer) return;
+    void Start()
+    {
+        if (!isServer) return;
 
-       zombieSpawner = GetComponent<ZombieSpawner>();
-       taskManager = GetComponent<TaskManager>();
-   }
-
-
-   void Update()
-   {
-       if(!isServer) return;
-
-       //Timers
-       if(!ready)
-       {
-           if(joinedPlayers == totalPlayers) InitGame();
-           else return;
-       }
-
-       if(!started)
-       {
-          prepTimer -= Time.deltaTime;
-          if(prepTimer <= 0) StartGame();
-          else return;
-       }
-
-       gameTimer += Time.deltaTime;
-       playerRefreshTimer -= Time.deltaTime;
-
-       if(playerRefreshTimer <= 0)
-       {
-           activePlayers = GetAllPlayers();
-           playerRefreshTimer = playerRefreshTime;
-       }
+        zombieSpawner = GetComponent<ZombieSpawner>();
+        taskManager = GetComponent<TaskManager>();
+    }
 
 
+    void Update()
+    {
+        if (!isServer) return;
 
-       if(CheckGameOver()) ChooseWinner(); 
-   }
+        //Timers
+        if (!ready)
+        {
+            if (joinedPlayers == totalPlayers) InitGame();
+            else return;
+        }
+
+        if (!started)
+        {
+            prepTimer -= Time.deltaTime;
+            if (prepTimer <= 0) StartGame();
+            else return;
+        }
+
+        gameTimer += Time.deltaTime;
+        playerRefreshTimer -= Time.deltaTime;
+
+        if (playerRefreshTimer <= 0)
+        {
+            activePlayers = GetAllPlayers();
+            playerRefreshTimer = playerRefreshTime;
+        }
 
 
-   List<uint> GetAllPlayers()
-   {
-       List<uint> newPlayerList = new List<uint>();
-       GameObject[] playersArray = GameObject.FindGameObjectsWithTag("Player");
-       
-       foreach (GameObject player in playersArray)
-       {
-           newPlayerList.Add(player.GetComponent<NetworkIdentity>().netId);
-       }
 
-       return newPlayerList;
-   }
+        if (CheckGameOver()) ChooseWinner();
+    }
 
 
-   void ChooseImpostor()
-   {
-       impostor = players[Random.Range(0, players.Count)];
-       Debug.Log(impostor.ToString() + " is the impostor");
-   }
+    List<uint> GetAllPlayers()
+    {
+        List<uint> newPlayerList = new List<uint>();
+        GameObject[] playersArray = GameObject.FindGameObjectsWithTag("Player");
 
-   bool CheckGameOver()
-   {
-       if(gameTimer >= timePerRound) return true;
-       else if(activePlayers.Count == 0) return true;
-       else return taskManager.CheckAllFinished(); 
-   }
+        foreach (GameObject player in playersArray)
+        {
+            newPlayerList.Add(player.GetComponent<NetworkIdentity>().netId);
+        }
 
-   void ChooseWinner()
-   {
+        return newPlayerList;
+    }
+
+
+    void ChooseImpostor()
+    {
+        impostor = players[Random.Range(0, players.Count)];
+        Debug.Log(impostor.ToString() + " is the impostor");
+    }
+
+    bool CheckGameOver()
+    {
+        if (gameTimer >= timePerRound) return true;
+        else if (activePlayers.Count == 0) return true;
+        else return taskManager.CheckAllFinished();
+    }
+
+    void ChooseWinner()
+    {
         //TODO: Add endgame-screen or something.
-        if(gameTimer >= timePerRound)
+        if (gameTimer >= timePerRound)
         {
             //Everyone loses the game
         }
-        else if(taskManager.CheckAllFinished())
+        else if (taskManager.CheckAllFinished())
         {
-            if(activePlayers.Count > 1)
+            if (activePlayers.Count > 1)
             {
                 //Team wins
             }
             else
             {
-                if(activePlayers.Contains(impostor))
+                if (activePlayers.Contains(impostor))
                 {
                     //Impostor wins
                 }
@@ -137,7 +137,7 @@ public class RoundManager : NetworkBehaviour
                 }
             }
         }
-   }
+    }
 
     void InitGame()
     {
@@ -158,17 +158,17 @@ public class RoundManager : NetworkBehaviour
     }
 
     public void Register(GameObject player)
-   {
-       joinedPlayers++;
-       players.Add(player.GetComponent<NetworkIdentity>().netId);
-       RpcJoinMessage(player.GetComponent<NetworkIdentity>().netId.ToString());
-       TargetRpcMoveToSpawn(player.GetComponent<NetworkIdentity>().connectionToClient, player); 
-   }
+    {
+        joinedPlayers++;
+        players.Add(player.GetComponent<NetworkIdentity>().netId);
+        RpcJoinMessage(player.GetComponent<NetworkIdentity>().netId.ToString());
+        TargetRpcMoveToSpawn(player.GetComponent<NetworkIdentity>().connectionToClient, player);
+    }
 
 
     [ClientRpc]
     void RpcJoinMessage(string playerName)
-    {   
+    {
         //TODO: Replace with actual UI message
         Debug.Log(playerName + " has joined the game!");
     }
