@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+/* created by: SWT-P_WS_21/22 */
+
+
 public class TaskManager : NetworkBehaviour
 {
     /// <summary>Amount of simple tasks per game</summary>
