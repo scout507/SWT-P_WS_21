@@ -15,12 +15,13 @@ var searchData=
   ['removeclientauthority_12',['RemoveClientAuthority',['../class_mirror_1_1_network_identity.html#ab1c34c695ff0a05c3e81d2c530da822f',1,'Mirror::NetworkIdentity']]],
   ['reset_13',['Reset',['../class_mirror_1_1_network_writer.html#a245c2e89decd8bc2bfc88c0108776070',1,'Mirror.NetworkWriter.Reset()'],['../class_mirror_1_1_sync_i_dictionary.html#a40e85b1cdd111b1a2844d8d9a5042e2e',1,'Mirror.SyncIDictionary.Reset()'],['../class_mirror_1_1_sync_list.html#a4a628419df7dbf0e2abecaeb4d7929d1',1,'Mirror.SyncList.Reset()'],['../class_mirror_1_1_sync_object.html#ab00d34b1d9958da3665fbaab17892e12',1,'Mirror.SyncObject.Reset()'],['../class_mirror_1_1_sync_set.html#a6ab71512b1c2d4357ab604524148dfd2',1,'Mirror.SyncSet.Reset()']]],
   ['resetnextnetworkid_14',['ResetNextNetworkId',['../class_mirror_1_1_network_identity.html#af6af44b5090bf3d6e146440262b12d0f',1,'Mirror::NetworkIdentity']]],
-  ['resettrigger_15',['ResetTrigger',['../class_mirror_1_1_network_animator.html#a7b2c9b67e77adddde574c308c642724a',1,'Mirror.NetworkAnimator.ResetTrigger(string triggerName)'],['../class_mirror_1_1_network_animator.html#aac71f49201f88d825455f6b8790cefc9',1,'Mirror.NetworkAnimator.ResetTrigger(int hash)']]],
+  ['resettrigger_15',['ResetTrigger',['../class_mirror_1_1_network_animator.html#aac71f49201f88d825455f6b8790cefc9',1,'Mirror.NetworkAnimator.ResetTrigger(int hash)'],['../class_mirror_1_1_network_animator.html#a7b2c9b67e77adddde574c308c642724a',1,'Mirror.NetworkAnimator.ResetTrigger(string triggerName)']]],
   ['rifle_16',['Rifle',['../class_rifle.html',1,'']]],
-  ['roomplayers_17',['roomPlayers',['../class_network_manager_lobby.html#a69de78ac448a1ee9c0dc537d5589ca9c',1,'NetworkManagerLobby']]],
-  ['roomscene_18',['RoomScene',['../class_mirror_1_1_network_room_manager.html#a998f09664331ad69ba3095b3e8fe6988',1,'Mirror::NetworkRoomManager']]],
-  ['roomslots_19',['roomSlots',['../class_mirror_1_1_network_room_manager.html#a28a644a2350cb014129a58bd6d320084',1,'Mirror::NetworkRoomManager']]],
-  ['rpchitwall_20',['RpcHitWall',['../class_shoot_gun.html#abde6eda8ded50337b59a519bc9549b50',1,'ShootGun']]],
-  ['rpcmessage_21',['RpcMessage',['../struct_mirror_1_1_rpc_message.html',1,'Mirror']]],
-  ['runinbackground_22',['runInBackground',['../class_mirror_1_1_network_manager.html#ac3bbfc101e99f8a857f6dfa584f6156f',1,'Mirror::NetworkManager']]]
+  ['roamingmonster_17',['RoamingMonster',['../class_roaming_monster.html',1,'']]],
+  ['roomplayers_18',['roomPlayers',['../class_network_manager_lobby.html#a69de78ac448a1ee9c0dc537d5589ca9c',1,'NetworkManagerLobby']]],
+  ['roomscene_19',['RoomScene',['../class_mirror_1_1_network_room_manager.html#a998f09664331ad69ba3095b3e8fe6988',1,'Mirror::NetworkRoomManager']]],
+  ['roomslots_20',['roomSlots',['../class_mirror_1_1_network_room_manager.html#a28a644a2350cb014129a58bd6d320084',1,'Mirror::NetworkRoomManager']]],
+  ['rpchitwall_21',['RpcHitWall',['../class_shoot_gun.html#abde6eda8ded50337b59a519bc9549b50',1,'ShootGun']]],
+  ['rpcmessage_22',['RpcMessage',['../struct_mirror_1_1_rpc_message.html',1,'Mirror']]],
+  ['runinbackground_23',['runInBackground',['../class_mirror_1_1_network_manager.html#ac3bbfc101e99f8a857f6dfa584f6156f',1,'Mirror::NetworkManager']]]
 ];
