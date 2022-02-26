@@ -10,7 +10,7 @@ public class ZombieSpawner : NetworkBehaviour
     /// Prefab of spawnable enemy
     /// </summary>
     [SerializeField]
-    GameObject zombie;
+    GameObject waveZombie;
 
     /// <summary>
     /// Seconds to next wave
@@ -29,6 +29,12 @@ public class ZombieSpawner : NetworkBehaviour
     /// </summary>
     [SerializeField]
     int zombiesAmount = 10;
+
+    [SerializeField]
+    GameObject[] waveSpawns;
+
+    [SerializeField]
+    GameObject[] roamerSpawns;
 
     /// <summary>
     /// Spawns first wave at start of game
@@ -65,7 +71,7 @@ public class ZombieSpawner : NetworkBehaviour
     {
         for (int i = 0; i < zombiesAmount; i++)
         {
-            GameObject spawnedZombie = (GameObject)Instantiate(zombie, this.gameObject.transform.position + new Vector3(i, 0, 0), Quaternion.identity);
+            GameObject spawnedZombie = (GameObject)Instantiate(waveZombie, this.gameObject.transform.position + new Vector3(i, 0, 0), Quaternion.identity);
             NetworkServer.Spawn(spawnedZombie);
         }
     }

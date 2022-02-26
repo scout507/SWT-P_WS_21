@@ -123,4 +123,13 @@ public class TaskManager : NetworkBehaviour
 
         return info;
     }
+
+    public bool CheckAllFinished()
+    {
+        for(int i = 0; i<tasks.Count; i++){
+            if(!tasks[i].GetComponent<Task>().done) return false;
+        }
+
+        return true;
+    }
 }
