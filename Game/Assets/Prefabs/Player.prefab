@@ -403,8 +403,6 @@ MonoBehaviour:
   crouchSpeedMultiplier: 0.33
   gravity: 19.62
   jumpHeight: 1.5
-  crouchHeightChange: 0.33
-  proneHeightChange: 0.66
   stamina: 1
   staminaMax: 1
   staminaDrain: 0.33
@@ -508,7 +506,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   health: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 6952407815072459466}
 --- !u!136 &6896355853710520063
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -546,6 +544,8 @@ MonoBehaviour:
   gunAmmo: 0
   nextFire: 0
   recoil: 0
+  icon: {fileID: 0}
+  inventory: {fileID: 0}
 --- !u!114 &6871522370115226598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,6 +569,8 @@ MonoBehaviour:
   gunAmmo: 0
   nextFire: 0
   recoil: 0
+  icon: {fileID: 0}
+  inventory: {fileID: 0}
 --- !u!114 &6806833817984724905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,6 +594,8 @@ MonoBehaviour:
   gunAmmo: 0
   nextFire: 0
   recoil: 0
+  icon: {fileID: 0}
+  inventory: {fileID: 0}
 --- !u!114 &3248878015747566184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,6 +619,8 @@ MonoBehaviour:
   gunAmmo: 0
   nextFire: 0
   recoil: 0
+  icon: {fileID: 0}
+  inventory: {fileID: 0}
 --- !u!114 &7274144793029159478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,6 +644,8 @@ MonoBehaviour:
   gunAmmo: 0
   nextFire: 0
   recoil: 0
+  icon: {fileID: 0}
+  inventory: {fileID: 0}
 --- !u!1 &2573211291595838414
 GameObject:
   m_ObjectHideFlags: 0
