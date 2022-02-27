@@ -115,6 +115,10 @@ public class TaskManager : NetworkBehaviour
         return info;
     }
 
+    /// <summary>
+    /// Can be called to check wether all tasks are finished yet.
+    /// </summary>
+    /// <returns>True if all tasks are finished</returns>
     public bool CheckAllFinished()
     {
         for(int i = 0; i<tasks.Count; i++){

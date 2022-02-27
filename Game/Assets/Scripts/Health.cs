@@ -81,6 +81,10 @@ public class Health : NetworkBehaviour
         Destroy(character);
     }
 
+
+    /// <summary>
+    /// Calls the RoundManager to register the player upon joining the game.
+    /// </summary>
     [Command]
     void CmdRegisterPlayer()
     {
