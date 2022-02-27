@@ -403,8 +403,6 @@ MonoBehaviour:
   crouchSpeedMultiplier: 0.33
   gravity: 19.62
   jumpHeight: 1.5
-  crouchHeightChange: 0.33
-  proneHeightChange: 0.66
   stamina: 1
   staminaMax: 1
   staminaDrain: 0.33
@@ -508,7 +506,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   health: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 2360637705366795656}
 --- !u!136 &6896355853710520063
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -929,7 +927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8491583963656370028}
   - component: {fileID: 3734046711149512547}
-  - component: {fileID: 6952407815072459466}
+  - component: {fileID: 2360637705366795656}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -1008,7 +1006,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6952407815072459466
+--- !u!114 &2360637705366795656
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
