@@ -10,6 +10,9 @@ using UnityEngine;
 /// </summary>
 public class Shotgun : ShootGun
 {
+
+    private AudioController audioController; // Audio Script that controlls Gun Sound
+
     private int pelletAmount = 15;
 
     /// <summary>
@@ -22,6 +25,8 @@ public class Shotgun : ShootGun
         this.weaoponRange = 50f;
         this.gunAmmo = 8;
         this.recoil = 10f;
+
+        audioController = this.GetComponent<AudioController>();
     }
 
     /// <summary>
@@ -61,6 +66,7 @@ public class Shotgun : ShootGun
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
         gunAmmo--;
+        audioController.PlayGunSound(2);
         for (int i = 0; i < pelletAmount; i++)
         {
 

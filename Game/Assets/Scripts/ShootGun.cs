@@ -21,6 +21,14 @@ public abstract class ShootGun : NetworkBehaviour
     public float nextFire; // Time of the next shot you can take
     public float recoil; // Set ammount of Recoil per Shot
 
+
+    private AudioController audioController; // Audio Script that controlls Gun Sound
+
+    private void Start()
+    {
+        audioController = this.GetComponent<AudioController>();
+    }
+
     /// <summary>
     /// Gets called when player is hit.
     /// </summary>
@@ -94,4 +102,5 @@ public abstract class ShootGun : NetworkBehaviour
         xRotation -= recoil;
         GetComponent<PlayerMovement>().SetXRotation(xRotation);
     }
+
 }
