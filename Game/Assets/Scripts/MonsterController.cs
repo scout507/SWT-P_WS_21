@@ -5,162 +5,73 @@ using UnityEngine;
 using UnityEngine.AI;
 using Mirror;
 
+/* created by: SWT-P_WS_21/22 */
+
 
 /// <summary>
 /// This class is responsible for handling monsters. Most code should only be run on server.
 /// </summary>
 public class MonsterController : NetworkBehaviour
 {
+    /// <summary>Aggro radius of the monster</summary>
     public float aggroRadius;
+    /// <summary>Damage the monster does in one hit</summary>
     public float damage;
+    /// <summary>The monsters Hp</summary>
     public float hp;
+    /// <summary>The monsters movementspeed</summary>
     public float moveSpeed;
 
-    /// <summary>True when the monster aggro is triggered </summary>
-    public bool awake;
+    /// <summary>Range for a melee Attack</summary>
     public float atkRange;
+    /// <summary>Cooldown between Attacks</summary>
     public float atkCooldown;
-
-    /// <summary>This is used to either prefer players (<1) or destructable objects (>1)</summary>
-    [Range(0.1f, 2)]
-    public float playerToObjectRatio;
+    /// <summary>Wether or not this monster is dead</summary>
+    public bool dead;
 
     /// <summary>A list containing all possible targets</summary>
-    public List<GameObject> targets;
+    public List<GameObject> players;
+    /// <summary>The current Target the monster is focused on</summary>
     public GameObject currentTarget;
 
-    float timer;
-    float atkTimer;
-
-    /// <summary>The refreshrate for target finding calculations</summary>
-    float refreshRate = 1f;
-    bool dead;
-
-    /// <summary>Stores the spawn spot</summary>
-    Vector3 home;
-    NavMeshAgent nav;
+    /// <summary>Timer for attacking</summary>
+    public float atkTimer;
+    /// <summary>NavMeshAgent for navigation</summary>
+    NavMeshAgent navAgent;
 
 
-
-    private void Start()
-    {
-        home = transform.position;
-        if (isServer)
-        {
-            nav = GetComponent<NavMeshAgent>();
-            FindTargets();
-        }
-    }
-
-
-    void Update()
-    {
-        //Since the ai is only handled by the server, nobody else needs to run this code
-        if (!isServer) return;
-
-        timer += Time.deltaTime;
-        atkTimer += Time.deltaTime;
-
-        if (!dead)
-        {
-
-            if (hp <= 0) Die();
-
-            //Movement
-            if (timer >= refreshRate) FindTargets();
-            if (!awake && timer >= refreshRate) awake = CheckAggro();
-            if (awake && timer >= refreshRate) currentTarget = FindTarget();
-            if (currentTarget != null)
-            {
-                if (Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
-                {
-                    nav.isStopped = false;
-                    nav.SetDestination(currentTarget.transform.position);
-                }
-                else
-                {
-                    nav.isStopped = true;
-                    Attack();
-                }
-            }
-            else
-            {
-                //if there's no legal target, the monster de-aggros and returns to it's spawn position.
-                awake = false;
-                nav.SetDestination(home);
-            }
-
-            if (timer >= refreshRate) timer = 0f;
-        }
-    }
 
     /// <summary>
-    ///     Makes a list containing all active players and destructable objects.
+    ///  Makes a list containing all active players within aggro-radius.
     /// </summary>
-    void FindTargets()
+    public void FindPlayers()
     {
         //Make a new list
-        targets = new List<GameObject>();
+        players = new List<GameObject>();
+        navAgent = GetComponent<NavMeshAgent>();
 
         //Find all players and objects
         GameObject[] activePlayers = GameObject.FindGameObjectsWithTag("Player");
-        GameObject[] destructables = GameObject.FindGameObjectsWithTag("DestructableObject");
-
 
         //If the player or object is within the aggro radius, it gets added to the list
         foreach (GameObject player in activePlayers)
         {
-            if (Vector3.Distance(transform.position, player.transform.position) <= aggroRadius) targets.Add(player);
-        }
-        foreach (GameObject destructable in destructables)
-        {
-            if (Vector3.Distance(transform.position, destructable.transform.position) <= aggroRadius && destructable.GetComponent<DestructableObject>().active) targets.Add(destructable);
-        }
-    }
-
-    /// <summary>
-    /// This has changed from the previous version. It might be obsolete, but could still be usefull in the future if the aggro behaviour is going to change.
-    /// </summary>
-    /// <returns>Returns true when there are players or objects in aggro range</returns>
-    bool CheckAggro()
-    {
-        return targets.Count > 0;
-    }
-
-    /// <summary>
-    /// Selects a target for the monster to attack. 
-    /// </summary>
-    /// <returns>Returns the target as a GameObject.</returns>
-    GameObject FindTarget()
-    {
-        float shortestDistance = aggroRadius;
-        GameObject newTarget = null;
-
-        foreach (GameObject target in targets)
-        {
-            float distance = Vector3.Distance(transform.position, target.transform.position);
-
-            if (target.tag == "Player")
+            if (Vector3.Distance(transform.position, player.transform.position) <= aggroRadius)
             {
-                distance = distance * playerToObjectRatio;
-            }
-
-            //if the player/object is reachable and the closest to the monster, the player/object becomes the new target
-            NavMeshPath navMeshPath = new NavMeshPath();
-            if (distance <= shortestDistance && nav.CalculatePath(target.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
-            {
-                shortestDistance = distance;
-                newTarget = target;
+                NavMeshPath navMeshPath = new NavMeshPath();
+                if (navAgent.CalculatePath(player.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
+                {
+                    players.Add(player);
+                }
             }
         }
-
-        return newTarget;
     }
+
 
     /// <summary>
     /// Method to handle monster death.
     /// </summary>
-    void Die()
+    public void Die()
     {
         if (!dead)
         {
@@ -173,8 +84,9 @@ public class MonsterController : NetworkBehaviour
     /// <summary>
     /// Method responsible for attacking.
     /// </summary>
-    void Attack()
+    public void Attack()
     {
+        Debug.Log("ATTK");
         if (atkTimer >= atkCooldown)
         {
             atkTimer = 0;
@@ -210,11 +122,10 @@ public class MonsterController : NetworkBehaviour
     /// Not useable yet. This method is going to be used for triggering monsters manually.
     /// </summary>
     /// <param name="player">The player that triggered the monster.</param>
-    void AggroMob(GameObject player)
+    public void AggroMob(GameObject player)
     {
-        if (currentTarget == null)
+        if (currentTarget == null || currentTarget.tag != "Player")
         {
-            awake = true;
             currentTarget = player;
         }
     }

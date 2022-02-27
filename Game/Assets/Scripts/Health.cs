@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+/* created by: SWT-P_WS_21/22 */
+
+
 /// <summary>
 /// The Health class manages the player's health points. It is also responsible for capturing damage and also the death of the player.
 /// </summary>

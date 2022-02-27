@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using Mirror;
 using TMPro;
 
+/* created by: SWT-P_WS_21/22 */
+
+
 /// <summary>This class is needed for the prefab of a client in the lobby.</summary>
 public class NetworkRoomPlayer : NetworkBehaviour
 {

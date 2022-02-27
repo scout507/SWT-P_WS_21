@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* created by: SWT-P_WS_21/22 */
+
+
 /// <summary>
 /// Shotgun implements a shotgun, inherits from ShootGun.
 /// </summary>
