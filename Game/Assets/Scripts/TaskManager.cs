@@ -121,14 +121,15 @@ public class TaskManager : NetworkBehaviour
     /// <returns>True if all tasks are finished</returns>
     public bool CheckAllFinished()
     {
-        for(int i = 0; i<tasks.Count; i++){
-            if(!tasks[i].GetComponent<Task>().done) return false;
+        for (int i = 0; i < tasks.Count; i++)
+        {
+            if (!tasks[i].GetComponent<Task>().done) return false;
         }
 
         return true;
     }
-    
-    
+
+
     /// <summary>
     /// Used for choosing and spawning tasks
     /// </summary>
