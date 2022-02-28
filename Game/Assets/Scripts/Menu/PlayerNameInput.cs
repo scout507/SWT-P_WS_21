@@ -5,7 +5,6 @@ using TMPro;
 
 /* created by: SWT-P_WS_21/22 */
 
-
 /// <summary>This class is needed to validate the name input in the lobby UI.</summary>
 public class PlayerNameInput : MonoBehaviour
 {

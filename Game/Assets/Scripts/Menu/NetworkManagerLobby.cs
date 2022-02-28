@@ -12,24 +12,37 @@ using System.Collections.Generic;
 public class NetworkManagerLobby : NetworkManager
 {
     /// <summary>Specifies the minimum number of clients required.</summary>
-    [SerializeField] private int minPlayers = 2;
+    [SerializeField]
+    private int minPlayers = 2;
 
     /// <summary>Specifies the name of the menue scene.</summary>
-    [Scene] [SerializeField] private string menuScene = "";
+    [Scene]
+    [SerializeField]
+    private string menuScene = "";
 
     [Header("Room")]
     /// <summary>Specifies which prefab is to be used for the clients.</summary>
-    [SerializeField] private NetworkRoomPlayer roomPlayerPrefab = null;
+    [SerializeField]
+    private NetworkRoomPlayer roomPlayerPrefab = null;
 
-    /// <summary>Holds the object of all clients' prefabs, as a list.</summary>
-    [SerializeField] public List<NetworkRoomPlayer> roomPlayers = new List<NetworkRoomPlayer>();
+    [Header("Game")]
+    /// <summary>Specifies which prefab is to be used for the clients in the game.</summary>
+    [SerializeField]
+    private NetworkGamePlayer gamePlayerPrefab = null;
+
+    /// <summary>Holds the object of all clients prefabs, as a list.</summary>
+    [SerializeField]
+    public List<NetworkRoomPlayer> roomPlayers = new List<NetworkRoomPlayer>();
+
+    /// <summary>Holds the object of all clients ingame prefabs, as a list.</summary>
+    [SerializeField]
+    public List<NetworkGamePlayer> gamePlayers = new List<NetworkGamePlayer>();
 
     /// <summary>Holds methods defined by the class "JoinLobbyMenu".</summary>
     public static event Action OnClientConnected;
 
     /// <summary>Holds methods defined by the class "JoinLobbyMenu".</summary>
     public static event Action OnClientDisconnected;
-
 
     /// <summary>
     /// Loads all available prefabs when the host server is started.
@@ -164,10 +177,51 @@ public class NetworkManagerLobby : NetworkManager
     /// </returns>
     public bool isReadyToStart()
     {
-        if (numPlayers < minPlayers) return false;
+        if (numPlayers < minPlayers)
+            return false;
 
-        foreach (var player in roomPlayers) if (!player.isReady) return false;
+        foreach (var player in roomPlayers)
+            if (!player.isReady)
+                return false;
 
         return true;
+    }
+
+    /// <summary>
+    /// Starts the game from the host.
+    /// Starts only when all players are ready.
+    /// </summary>
+    public void startGame()
+    {
+        if (SceneManager.GetActiveScene().path == menuScene)
+        {
+            if (!isReadyToStart())
+                return;
+
+            ServerChangeScene("Blockout");
+        }
+    }
+
+    /// <summary>
+    /// Changes the scene from the server and all clients to the game scene.
+    /// Changes the prefabs from the players to the prefabs for the game.
+    /// </summary>
+    /// <param name="newSceneName">Requires the name of the scene to be loaded.</param>
+    public override void ServerChangeScene(string newSceneName)
+    {
+        if (SceneManager.GetActiveScene().path == menuScene && newSceneName.StartsWith("Blockout"))
+        {
+            for (int i = roomPlayers.Count - 1; i >= 0; i--)
+            {
+                var conn = roomPlayers[i].connectionToClient;
+                var gamePlayerInstance = Instantiate(gamePlayerPrefab);
+                gamePlayerInstance.SetDisplayName(roomPlayers[i].displayName);
+
+                NetworkServer.Destroy(conn.identity.gameObject);
+
+                NetworkServer.ReplacePlayerForConnection(conn, gamePlayerInstance.gameObject, true);
+            }
+        }
+        base.ServerChangeScene(newSceneName);
     }
 }
