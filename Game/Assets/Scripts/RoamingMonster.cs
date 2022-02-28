@@ -57,6 +57,8 @@ public class RoamingMonster : MonsterController
         if (!isServer) return;
 
         detectionTimer += Time.deltaTime;
+        atkTimer += Time.deltaTime;
+
         if (detectionTimer >= detectionRate && !aggro)
         {
             FindPlayers();
@@ -102,7 +104,7 @@ public class RoamingMonster : MonsterController
 
             if (patrolTimer >= nextPatrolTime)
             {
-                if (Vector3.Distance(transform.position, patrolTarget) <= 0.5f) patrolTarget = GetPatrollTarget();
+                if (Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(patrolTarget.x, 0, patrolTarget.z)) <= 0.5f) patrolTarget = GetPatrollTarget();
                 nav.SetDestination(patrolTarget);
                 nextPatrolTime = Random.Range(0, 10);
                 patrolTimer = 0;
