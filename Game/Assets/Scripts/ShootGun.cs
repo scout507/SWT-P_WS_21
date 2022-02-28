@@ -34,6 +34,18 @@ public abstract class ShootGun : NetworkBehaviour
     }
 
     /// <summary>
+    /// Gets called when player is hit.
+    /// </summary>
+    /// <param name="player">Gameobject of player who is hit.</param>
+    /// <param name="damageAmount">Amount of damage.</param>
+    [Command]
+    public void CmdShootDevice(GameObject device, int damageAmount)
+    {
+        Debug.Log("Hit Device!");
+        device.GetComponent<Device>().TakeDamage(damageAmount);
+    }
+
+    /// <summary>
     /// Gets called when monster is hit.
     /// </summary>
     /// <param name="monster">Gameobject of monster which is hit.</param>
