@@ -14,7 +14,7 @@ public class Health : NetworkBehaviour
     [SyncVar]
     public int health = 100;
 
-    public Healthbar healthBar;
+    public HealthBar healthBar;
 
     void Start()
     {

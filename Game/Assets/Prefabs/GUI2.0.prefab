@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 6896355853710520063}
   - component: {fileID: 6573055307861218065}
   m_Layer: 7
-  m_Name: GUI2
+  m_Name: GUI2.0
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -961,7 +961,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   health: 100
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 6580873039176376194}
 --- !u!136 &6896355853710520063
 CapsuleCollider:
   m_ObjectHideFlags: 0

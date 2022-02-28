@@ -1420,7 +1420,7 @@ GameObject:
   - component: {fileID: 8475464423882432632}
   - component: {fileID: 3002332266708351450}
   - component: {fileID: 2047878828542107620}
-  - component: {fileID: 4067442427784728408}
+  - component: {fileID: 757747506079844165}
   m_Layer: 5
   m_Name: CompassDir
   m_TagString: Untagged
@@ -1482,7 +1482,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &4067442427784728408
+--- !u!114 &757747506079844165
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1491,7 +1491,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5557159277969574945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 487dd0dcbbf5f6541b5ccf571ab045b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 88664cecd8c4e3f478a98ea96324aee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   compassImage: {fileID: 2047878828542107620}
@@ -2285,7 +2285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4299515961253951566}
   - component: {fileID: 987317141469230385}
-  - component: {fileID: 6218310836007027439}
+  - component: {fileID: 3779272916186578725}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -2365,7 +2365,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6218310836007027439
+--- !u!114 &3779272916186578725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2374,11 +2374,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8729463684228014573}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59cb65d08254e14448e89223e35c5c0a, type: 3}
+  m_Script: {fileID: 11500000, guid: aada89e0ae6fee84e86a6ce93dfe1e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
   slider: {fileID: 987317141469230385}
 --- !u!1 &8820314210690724434
 GameObject:
@@ -2391,14 +2389,13 @@ GameObject:
   - component: {fileID: 2841541002940977438}
   - component: {fileID: 6107382536897620641}
   - component: {fileID: 327824700078655163}
-  - component: {fileID: 8640221009772733059}
   - component: {fileID: 2638998671536449855}
   - component: {fileID: 4347419723697737921}
   - component: {fileID: 1864762767284813903}
   - component: {fileID: 775065069394659797}
   - component: {fileID: 2607574173273058961}
   m_Layer: 7
-  m_Name: GUI1
+  m_Name: GUI1.0
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2456,9 +2453,16 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   controller: {fileID: 6107382536897620641}
+  playerModel: {fileID: 0}
   speed: 12
+  sprintSpeedMultiplier: 1.5
+  crouchSpeedMultiplier: 0.33
   gravity: 19.62
   jumpHeight: 1.5
+  stamina: 10
+  staminaMax: 10
+  staminaDrain: 0.33
+  staminaRegen: 0.01
   groundCheck: {fileID: 4904352995673163615}
   groundDistance: 0.4
   groundMask:
@@ -2466,26 +2470,7 @@ MonoBehaviour:
     m_Bits: 64
   mouseSensitivity: 2000
   cameraMountPoint: {fileID: 7241106288721932592}
---- !u!114 &8640221009772733059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8820314210690724434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d64c72ae49d9b1544aff678da230f919, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  gunDamage: 10
-  fireRate: 0.25
-  weaoponRange: 50
-  gunEnd: {fileID: 5448892555349486221}
-  gun: {fileID: 2595704690766298542}
-  gunAmmo: 8
+  selectedWeapon: 0
 --- !u!114 &2638998671536449855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2577,7 +2562,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   health: 100
-  healthbar: {fileID: 6218310836007027439}
+  healthBar: {fileID: 3779272916186578725}
 --- !u!136 &2607574173273058961
 CapsuleCollider:
   m_ObjectHideFlags: 0
