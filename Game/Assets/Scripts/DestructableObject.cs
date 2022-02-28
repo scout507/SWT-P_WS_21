@@ -1,7 +1,11 @@
+/* created by: SWT-P_SW_21/22 */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+
+/* created by: SWT-P_WS_21/22 */
+
 
 /// <summary>
 /// Prototype script for destructable objects. 
@@ -14,14 +18,6 @@ public class DestructableObject : NetworkBehaviour
     [SyncVar] public float health;
     /// <summary>True when hp are above 0</summary>
     [SyncVar] public bool active;
-
-    /// <summary>
-    /// Sets starting health
-    /// </summary>
-    private void Start()
-    {
-        health = 0;
-    }
 
     /// <summary>
     /// Used for checking if health drops below 0.

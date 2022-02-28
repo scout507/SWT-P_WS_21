@@ -1,6 +1,10 @@
+/* created by: SWT-P_SW_21/22*/ 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+/* created by: SWT-P_WS_21/22 */
+
 
 public class Pistol : ShootGun
 {

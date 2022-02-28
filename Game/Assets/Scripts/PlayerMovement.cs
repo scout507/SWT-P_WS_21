@@ -1,7 +1,11 @@
+/* created by: SWT-P_SW_21/22 */
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
+
+/* created by: SWT-P_WS_21/22 */
+
 
 /// <summary>
 /// The class PlayerMovement is responsible for the movement of the player and it manages which weapon is selected.
