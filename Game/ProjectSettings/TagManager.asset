@@ -8,6 +8,7 @@ TagManager:
   - NetworkManagerLobby
   - Fence
   - NetworkManager
+  - Manager
   layers:
   - Default
   - TransparentFX
