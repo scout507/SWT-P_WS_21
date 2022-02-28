@@ -16,6 +16,7 @@ var searchData=
   ['timetonextwavestring_13',['TimeToNextWaveString',['../class_zombie_spawner.html#afe72b50c38caa1887415dde673481b3e',1,'ZombieSpawner']]],
   ['toarray_14',['ToArray',['../class_mirror_1_1_network_writer.html#a8733cfcd6790a709b020dcde9050a9a9',1,'Mirror::NetworkWriter']]],
   ['toarraysegment_15',['ToArraySegment',['../class_mirror_1_1_network_writer.html#a789cf8dce88b8036d8aa99571991a087',1,'Mirror::NetworkWriter']]],
-  ['transport_16',['Transport',['../class_mirror_1_1_transport.html',1,'Mirror']]],
-  ['typereferencecomparer_17',['TypeReferenceComparer',['../class_mirror_1_1_weaver_1_1_type_reference_comparer.html',1,'Mirror::Weaver']]]
+  ['totalplayers_16',['totalPlayers',['../class_round_manager.html#a11d22c2c18ed59a69bee5663e79c5037',1,'RoundManager']]],
+  ['transport_17',['Transport',['../class_mirror_1_1_transport.html',1,'Mirror']]],
+  ['typereferencecomparer_18',['TypeReferenceComparer',['../class_mirror_1_1_weaver_1_1_type_reference_comparer.html',1,'Mirror::Weaver']]]
 ];
