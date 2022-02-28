@@ -19,7 +19,7 @@ public class IQCam : NetworkBehaviour
 
     [SerializeField]
     private int setCamerasCount = 0;
-    
+
     [SerializeField]
     private int lastActiveCam = 0;
     public Transform cameraMountPoint;
@@ -52,27 +52,12 @@ public class IQCam : NetworkBehaviour
                 GetComponent<PlayerMovement>().enabled = false;
                 GetComponent<IQ>().enabled = false;
                 isInCams = true;
-                activeCam = cameras[lastActiveCam].gameObject.GetComponent<CamController>();
-                activeCam.CmdSetActive();
                 Camera.main.nearClipPlane = 0.01f;
-                Transform cameraTransform = Camera.main.gameObject.transform; // Find main camera which is part of the scene instead of the prefab
-                cameraMountPoint = activeCam.transform;
-                cameraTransform.parent = activeCam.cameraMount.transform; // Make the camera a child of the mount point
-                cameraTransform.position = activeCam.cameraMount.transform.position; // Set position/rotation same as the mount point
-                cameraTransform.rotation = activeCam.cameraMount.transform.rotation;
+                GetInCam();
             }
             else if (isInCams)
             {
-                GetComponent<PlayerMovement>().enabled = true;
-                GetComponent<IQ>().enabled = true;
-                isInCams = false;
-                activeCam.CmdSetActive();
-                Camera.main.nearClipPlane = 0.3f;
-                PlayerMovement player = GetComponent<PlayerMovement>();
-                Transform cameraTransform = Camera.main.gameObject.transform;
-                cameraTransform.parent = player.cameraMountPoint.transform;
-                cameraTransform.position = player.cameraMountPoint.transform.position; // Set position/rotation same as the mount point
-                cameraTransform.rotation = player.cameraMountPoint.transform.rotation;
+                ReturnToPlayer();
             }
         }
         if (isInCams)
@@ -83,28 +68,27 @@ public class IQCam : NetworkBehaviour
                 {
                     activeCam.CmdSetActive();
                     lastActiveCam += 1;
-                    activeCam = cameras[lastActiveCam].gameObject.GetComponent<CamController>();
-                    activeCam.CmdSetActive();
-                    Transform cameraTransform = Camera.main.gameObject.transform; // Find main camera which is part of the scene instead of the prefab
-                    cameraMountPoint = activeCam.transform;
-                    cameraTransform.parent = activeCam.cameraMount.transform; // Make the camera a child of the mount point
-                    cameraTransform.position = activeCam.cameraMount.transform.position; // Set position/rotation same as the mount point
-                    cameraTransform.rotation = activeCam.cameraMount.transform.rotation;
+                    GetInCam();
                 }
                 else
                 {
                     activeCam.CmdSetActive();
                     lastActiveCam = 0;
-                    activeCam = cameras[lastActiveCam].gameObject.GetComponent<CamController>();
-                    activeCam.CmdSetActive();
-                    Transform cameraTransform = Camera.main.gameObject.transform; // Find main camera which is part of the scene instead of the prefab
-                    cameraMountPoint = activeCam.transform;
-                    cameraTransform.parent = activeCam.cameraMount.transform; // Make the camera a child of the mount point
-                    cameraTransform.position = activeCam.cameraMount.transform.position; // Set position/rotation same as the mount point
-                    cameraTransform.rotation = activeCam.cameraMount.transform.rotation;
+                    GetInCam();
                 }
             }
         }
+    }
+
+    public void GetInCam()
+    {
+        activeCam = cameras[lastActiveCam].gameObject.GetComponent<CamController>();
+        activeCam.CmdSetActive();
+        Transform cameraTransform = Camera.main.gameObject.transform; // Find main camera which is part of the scene instead of the prefab
+        cameraMountPoint = activeCam.transform;
+        cameraTransform.parent = activeCam.cameraMount.transform; // Make the camera a child of the mount point
+        cameraTransform.position = activeCam.cameraMount.transform.position; // Set position/rotation same as the mount point
+        cameraTransform.rotation = activeCam.cameraMount.transform.rotation;
     }
 
     public void ReturnToPlayer()
@@ -112,6 +96,8 @@ public class IQCam : NetworkBehaviour
         GetComponent<PlayerMovement>().enabled = true;
         GetComponent<IQ>().enabled = true;
         isInCams = false;
+        activeCam.CmdSetActive();
+        Camera.main.nearClipPlane = 0.3f;
         PlayerMovement player = GetComponent<PlayerMovement>();
         Transform cameraTransform = Camera.main.gameObject.transform;
         cameraTransform.parent = player.cameraMountPoint.transform;
@@ -121,64 +107,41 @@ public class IQCam : NetworkBehaviour
 
     public void RemoveDevice(int number)
     {
-        if(number == 0)
+        if (number == 0)
         {
-            if(setCamerasCount == 2)
+            if (setCamerasCount == 2)
             {
                 cameras[0] = cameras[1];
                 cameras[0].GetComponent<CamController>().CmdSetNumber(0);
             }
-            else if(setCamerasCount == 3)
+            else if (setCamerasCount == 3)
             {
                 cameras[0] = cameras[1];
                 cameras[1] = cameras[2];
                 cameras[0].GetComponent<CamController>().CmdSetNumber(0);
                 cameras[1].GetComponent<CamController>().CmdSetNumber(1);
             }
-            setCamerasCount -= 1;
-            switch (lastActiveCam)
-            {
-                case 1:
-                    lastActiveCam = 0;
-                    break;
-                case 2: 
-                    lastActiveCam = 1;
-                    break;
-                default:
-                    break;
-            }
         }
-        if(number == 1)
+        if (number == 1)
         {
-            if(setCamerasCount > 2)
+            if (setCamerasCount > 2)
             {
                 cameras[1] = cameras[2];
                 cameras[1].GetComponent<CamController>().CmdSetNumber(1);
             }
-            setCamerasCount -= 1;
-            switch (lastActiveCam)
-            {
-                case 1:
-                    lastActiveCam = 0;
-                    break;
-                case 2: 
-                    lastActiveCam = 1;
-                    break;
-                default:
-                    break;
-            }
+
         }
-        if(number == 2)
+        setCamerasCount -= 1;
+        switch (lastActiveCam)
         {
-            setCamerasCount -= 1;
-            switch (lastActiveCam)
-            {
-                case 2: 
-                    lastActiveCam = 1;
-                    break;
-                default:
-                    break;
-            }
+            case 1:
+                lastActiveCam = 0;
+                break;
+            case 2:
+                lastActiveCam = 1;
+                break;
+            default:
+                break;
         }
     }
 
@@ -191,7 +154,7 @@ public class IQCam : NetworkBehaviour
             cameras[setCamerasCount] = spawnedCamera;
             setCamerasCount++;
         }
-        else 
+        else
         {
             cameras[setCamerasCount - 1] = spawnedCamera;
         }
@@ -199,7 +162,7 @@ public class IQCam : NetworkBehaviour
 
     [Command]
     void CmdSetNewCam(Vector3 direction)
-    { 
+    {
         GameObject spawnedCamera = (GameObject)Instantiate(cam, throwPoint.position, Quaternion.identity);
         NetworkServer.Spawn(spawnedCamera);
         spawnedCamera.GetComponent<NetworkIdentity>().AssignClientAuthority(GetComponent<NetworkIdentity>().connectionToClient);
