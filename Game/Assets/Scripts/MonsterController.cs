@@ -79,37 +79,6 @@ public class MonsterController : NetworkBehaviour
     {
         dead = newDead;
     }
-    
-    public float GetVelocityX() {
-        return velocityX;
-    }
-
-    public float GetVelocityZ() {
-        return velocityZ;
-    }
-
-    /// <summary>
-    /// Set monsters's velocity
-    /// </summary>
-    [Command]
-    void SetVelocityX(float newVelocityX)
-    {
-        //Vector3 velocity = nav.transform.InverseTransformDirection(nav.velocity);
-        velocityX = newVelocityX;
-        //Debug.Log("Set Velocity X: " + velocityX);
-    }
-
-    /// <summary>
-    /// Set monsters's velocity
-    /// </summary>
-    [Command]
-    void SetVelocityZ(float newVelocityZ)
-    {
-        //Vector3 velocity = nav.transform.InverseTransformDirection(nav.velocity);
-
-        velocityZ = newVelocityZ;
-        //Debug.Log("Set Velocity Z: " + velocityZ);
-    }
 
     private void Start()
     {
@@ -126,7 +95,7 @@ public class MonsterController : NetworkBehaviour
     {
         //Since the ai is only handled by the server, nobody else needs to run this code
         if (!isServer) return;
-        Debug.Log("Monster Update!");
+
         Vector3 velocity = nav.transform.InverseTransformDirection(nav.velocity);
         velocityX = velocity.x;
         velocityZ = velocity.z;
