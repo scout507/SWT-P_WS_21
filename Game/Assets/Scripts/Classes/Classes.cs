@@ -6,6 +6,7 @@ using UnityEngine;
 /* edited by: SWT-P_WS_21/22*/
 public abstract class Classes : NetworkBehaviour
 {
+    public int newWeapon = 0;
 
     [SyncVar(hook = nameof(SwitchWeapon))]
     public int selectedWeapon = 0;
@@ -19,28 +20,6 @@ public abstract class Classes : NetworkBehaviour
         SwitchWeapon(selectedWeapon, selectedWeapon);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon < 2)
-        {
-            int newWeapon = selectedWeapon + 1;
-            CmdSwitchWeapon(newWeapon);
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon > 1)
-        {
-            int newWeapon = selectedWeapon - 1;
-            CmdSwitchWeapon(newWeapon);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            CmdSwitchWeapon(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            CmdSwitchWeapon(2);
-        }
-    }
 
     /// <summary>
     /// Switching weapons is handled by the server. This methode changes the index of the selected weapon to the new weapon.

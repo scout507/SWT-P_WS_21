@@ -19,9 +19,9 @@ TagManager:
   - Player
   - Monster
   - MeleeWeapon
-  - 
-  - 
-  - 
+  - Wall
+  - Celling
+  - Device
   - 
   - 
   - 

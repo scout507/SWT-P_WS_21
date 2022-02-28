@@ -5,6 +5,28 @@ using UnityEngine;
 /* edited by: SWT-P_WS_21/22*/
 public class Hunter : Classes
 {
+     void Update()
+    {
+        if(!isLocalPlayer) return;
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon < 2)
+        {
+            newWeapon = selectedWeapon + 1;
+            CmdSwitchWeapon(newWeapon);
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon > 1)
+        {
+            newWeapon = selectedWeapon - 1;
+            CmdSwitchWeapon(newWeapon);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            CmdSwitchWeapon(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            CmdSwitchWeapon(2);
+        }
+    }
     public override void SwitchWeapon(int oldWeapon, int newWeapon)
     {
         switch (oldWeapon)
