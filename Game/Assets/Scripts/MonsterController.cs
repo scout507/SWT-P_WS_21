@@ -93,28 +93,38 @@ public class MonsterController : NetworkBehaviour
             if (timer >= refreshRate) FindTargets();
             if (!awake && timer >= refreshRate) awake = CheckAggro();
             if (awake && timer >= refreshRate) currentTarget = FindTarget();
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Attack") || animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Damage")) nav.isStopped = true;
-            if (currentTarget != null)
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Attack") || 
+                animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Damage") ||  
+                animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Dying")) 
             {
-                if (Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
+                nav.isStopped = true;
+            }
+            else {
+                if (currentTarget != null)
                 {
-                    nav.isStopped = false;
-                    nav.SetDestination(currentTarget.transform.position);
+                    if (Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
+                    {
+                        nav.isStopped = false;
+                        nav.SetDestination(currentTarget.transform.position);
+                    }
+                    else
+                    {
+                        nav.isStopped = true;
+                        Attack();
+                    }
                 }
                 else
                 {
-                    nav.isStopped = true;
-                    Attack();
+                    //if there's no legal target, the monster de-aggros and returns to it's spawn position.
+                    awake = false;
+                    nav.SetDestination(home);
                 }
-            }
-            else
-            {
-                //if there's no legal target, the monster de-aggros and returns to it's spawn position.
-                awake = false;
-                nav.SetDestination(home);
             }
 
             if (timer >= refreshRate) timer = 0f;
+        }
+        else {
+            nav.isStopped = true;
         }
     }
 
