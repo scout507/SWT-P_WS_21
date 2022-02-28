@@ -6,9 +6,9 @@ using UnityEngine;
 public class Hunter : Classes
 {
     bool isInZoom = false;
-     void Update()
+    void Update()
     {
-        if(!isLocalPlayer) return;
+        if (!isLocalPlayer) return;
         if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon < 2)
         {
             newWeapon = selectedWeapon + 1;
@@ -29,7 +29,7 @@ public class Hunter : Classes
         }
         if (Input.GetButtonDown("Fire2") && selectedWeapon == 1)
         {
-            if(isInZoom)
+            if (isInZoom)
             {
                 Camera.main.fieldOfView = 60f;
                 isInZoom = false;
@@ -47,7 +47,7 @@ public class Hunter : Classes
         {
             case 1:
                 GetComponent<Rifle>().enabled = false;
-                if(isInZoom) 
+                if (isInZoom)
                 {
                     Camera.main.fieldOfView = 60f;
                     isInZoom = false;
