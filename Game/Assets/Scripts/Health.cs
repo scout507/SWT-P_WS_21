@@ -17,13 +17,13 @@ public class Health : NetworkBehaviour
     [SyncVar]
     public int health = 100;
 
-    //public HealthBar healthBar;
+    public HealthBar healthBar;
 
     void Start()
     {
 
         health = 100;
-        //healthBar.SetMaxHealth(health);
+        healthBar.SetMaxHealth(health);
         if (!isLocalPlayer) return;
         CmdRegisterPlayer();
     }
