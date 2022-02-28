@@ -7,7 +7,7 @@ public class Doc : Classes
 {
     void Update()
     {
-        if(!isLocalPlayer) return;
+        if (!isLocalPlayer) return;
         if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon < 3)
         {
             newWeapon = selectedWeapon + 1;
