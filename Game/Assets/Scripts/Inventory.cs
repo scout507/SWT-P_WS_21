@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
 
-public class Inventory : NetworkBehaviour
+/* created by: SWT-P_WS_21/22 */
+
+
+public class WeaponUI : NetworkBehaviour
 {
     /// <summary>
     /// Weapon Icon-Image

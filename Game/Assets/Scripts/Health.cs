@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+/* created by: SWT-P_WS_21/22 */
+
+
 /// <summary>
 /// The Health class manages the player's health points. It is also responsible for capturing damage and also the death of the player.
 /// </summary>
@@ -18,8 +21,11 @@ public class Health : NetworkBehaviour
 
     void Start()
     {
+
         health = 100;
         healthBar.SetMaxHealth(health);
+        if (!isLocalPlayer) return;
+        CmdRegisterPlayer();
     }
 
     /// <summary>
@@ -73,5 +79,15 @@ public class Health : NetworkBehaviour
     void RpcDestroyPlayer(GameObject character)
     {
         Destroy(character);
+    }
+
+
+    /// <summary>
+    /// Calls the RoundManager to register the player upon joining the game.
+    /// </summary>
+    [Command]
+    void CmdRegisterPlayer()
+    {
+        GameObject.FindGameObjectWithTag("Manager").GetComponent<RoundManager>().Register(this.gameObject);
     }
 }

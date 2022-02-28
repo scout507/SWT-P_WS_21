@@ -1420,7 +1420,7 @@ GameObject:
   - component: {fileID: 8475464423882432632}
   - component: {fileID: 3002332266708351450}
   - component: {fileID: 2047878828542107620}
-  - component: {fileID: 757747506079844165}
+  - component: {fileID: 8110420769601821264}
   m_Layer: 5
   m_Name: CompassDir
   m_TagString: Untagged
@@ -1482,7 +1482,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &757747506079844165
+--- !u!114 &8110420769601821264
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2285,7 +2285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4299515961253951566}
   - component: {fileID: 987317141469230385}
-  - component: {fileID: 3779272916186578725}
+  - component: {fileID: 7407380879698054301}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -2365,7 +2365,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3779272916186578725
+--- !u!114 &7407380879698054301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2562,7 +2562,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   health: 100
-  healthBar: {fileID: 3779272916186578725}
+  healthBar: {fileID: 7407380879698054301}
 --- !u!136 &2607574173273058961
 CapsuleCollider:
   m_ObjectHideFlags: 0

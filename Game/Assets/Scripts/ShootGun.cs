@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
+/* created by: SWT-P_WS_21/22 */
+
+
 /// <summary>
 /// The ShootGun class is an abstract class from which every weapon must inherit. It implements the network behavior when enemies are hit.
 /// </summary>

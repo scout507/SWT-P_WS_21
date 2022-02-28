@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 3669428971865614294}
   - component: {fileID: 7686171840897815411}
   - component: {fileID: 6863836379640657602}
-  - component: {fileID: 6580873039176376194}
+  - component: {fileID: 8153789434361921934}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -187,7 +187,7 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 97f15c96b42663840abde055ce185cf1
   hasSpawned: 0
---- !u!114 &6580873039176376194
+--- !u!114 &8153789434361921934
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -961,7 +961,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   health: 100
-  healthBar: {fileID: 6580873039176376194}
+  healthBar: {fileID: 8153789434361921934}
 --- !u!136 &6896355853710520063
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2093,6 +2093,7 @@ GameObject:
   - component: {fileID: 5681548321512148022}
   - component: {fileID: 4314413704774774050}
   - component: {fileID: 1602402685909233376}
+  - component: {fileID: 7889234302925423288}
   m_Layer: 5
   m_Name: CompassDir
   m_TagString: Untagged
@@ -2171,6 +2172,20 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 97f15c96b42663840abde055ce185cf1
   hasSpawned: 0
+--- !u!114 &7889234302925423288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7214297046125454987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88664cecd8c4e3f478a98ea96324aee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  compassImage: {fileID: 4314413704774774050}
+  player: {fileID: 2573211290775857300}
 --- !u!1 &7241529294202544493
 GameObject:
   m_ObjectHideFlags: 0
