@@ -35,7 +35,13 @@ public class Health : NetworkBehaviour
         {
             return;
         }
-        health -= amount;
+        if(amount < 0 && health - amount > 100)
+        {
+            health = 100;
+        }
+        else{
+            health -= amount;
+        }
 
         TargetDamage();
         if (health <= 0)

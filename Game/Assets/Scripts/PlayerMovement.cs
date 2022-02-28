@@ -109,7 +109,7 @@ public class PlayerMovement : NetworkBehaviour
     float mouseSensitivity = 100f;
 
     [SerializeField]
-    GameObject cameraMountPoint;
+    public GameObject cameraMountPoint;
 
     /// <summary>
     /// Initial pitch of the player's view
