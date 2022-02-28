@@ -16,6 +16,9 @@ public class MonsterController : NetworkBehaviour
     public float hp;
     public float moveSpeed;
 
+    [SyncVar] float velocityX;
+    [SyncVar] float velocityZ;
+
     /// <summary>True when the monster aggro is triggered </summary>
     public bool awake;
     public float atkRange;
@@ -35,7 +38,7 @@ public class MonsterController : NetworkBehaviour
 
     /// <summary>The refreshrate for target finding calculations</summary>
     float refreshRate = 1f;
-    public bool dead;
+    [SyncVar] public bool dead;
     public bool damageTaken;
 
     /// <summary>Stores the spawn spot</summary>
@@ -51,6 +54,11 @@ public class MonsterController : NetworkBehaviour
     /// <summary>The monster's animator</summary>
     [SerializeField] Animator animator;
 
+    /// <summary>
+    /// Monster's network Animator
+    /// </summary>
+    [SerializeField] NetworkAnimator networkAnimator;
+
      /// <summary>Player's melee collider</summary>
     [SerializeField] CapsuleCollider collider;
 
@@ -61,6 +69,46 @@ public class MonsterController : NetworkBehaviour
     public bool CheckGrounded()
     {
         return Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+    }
+
+    /// <summary>
+    /// Set monster status to dead
+    /// </summary>
+    [Command]
+    void SetDead(bool newDead)
+    {
+        dead = newDead;
+    }
+    
+    public float GetVelocityX() {
+        return velocityX;
+    }
+
+    public float GetVelocityZ() {
+        return velocityZ;
+    }
+
+    /// <summary>
+    /// Set monsters's velocity
+    /// </summary>
+    [Command]
+    void SetVelocityX(float newVelocityX)
+    {
+        //Vector3 velocity = nav.transform.InverseTransformDirection(nav.velocity);
+        velocityX = newVelocityX;
+        //Debug.Log("Set Velocity X: " + velocityX);
+    }
+
+    /// <summary>
+    /// Set monsters's velocity
+    /// </summary>
+    [Command]
+    void SetVelocityZ(float newVelocityZ)
+    {
+        //Vector3 velocity = nav.transform.InverseTransformDirection(nav.velocity);
+
+        velocityZ = newVelocityZ;
+        //Debug.Log("Set Velocity Z: " + velocityZ);
     }
 
     private void Start()
@@ -78,7 +126,10 @@ public class MonsterController : NetworkBehaviour
     {
         //Since the ai is only handled by the server, nobody else needs to run this code
         if (!isServer) return;
-
+        Debug.Log("Monster Update!");
+        Vector3 velocity = nav.transform.InverseTransformDirection(nav.velocity);
+        velocityX = velocity.x;
+        velocityZ = velocity.z;
         timer += Time.deltaTime;
         atkTimer += Time.deltaTime;
 
@@ -234,6 +285,8 @@ public class MonsterController : NetworkBehaviour
         if (!dead)
         {
             animator.SetTrigger("hasTakenDamage");
+            networkAnimator.SetTrigger("hasTakenDamage");
+
             hp -= dmgTaken;
             if (hp <= 0) Die();
         }
