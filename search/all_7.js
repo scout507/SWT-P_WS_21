@@ -7,5 +7,6 @@ var searchData=
   ['health_4',['Health',['../class_health.html',1,'']]],
   ['health_5',['health',['../class_destructable_object.html#a26afd09e0071aab6f19430e8746610ba',1,'DestructableObject.health()'],['../class_health.html#a3a88c607ce77007b4f46ee774629309e',1,'Health.health()']]],
   ['healthbar_6',['HealthBar',['../class_health_bar.html',1,'']]],
-  ['hp_7',['hp',['../class_monster_controller.html#ae8519979affca84c50b31edbaf91333e',1,'MonsterController']]]
+  ['host_7',['host',['../class_menu.html#a76696f055531f5e3cb341100143043db',1,'Menu']]],
+  ['hp_8',['hp',['../class_monster_controller.html#ae8519979affca84c50b31edbaf91333e',1,'MonsterController']]]
 ];

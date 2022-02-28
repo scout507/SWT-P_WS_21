@@ -14,5 +14,6 @@ var searchData=
   ['distanceinterestmanagement_11',['DistanceInterestManagement',['../class_mirror_1_1_distance_interest_management.html',1,'Mirror']]],
   ['distanceinterestmanagementcustomrange_12',['DistanceInterestManagementCustomRange',['../class_mirror_1_1_distance_interest_management_custom_range.html',1,'Mirror']]],
   ['done_13',['done',['../class_task.html#ad490836f8e9454ed8e3a7d59aa282696',1,'Task']]],
-  ['dontdestroyonload_14',['dontDestroyOnLoad',['../class_mirror_1_1_network_manager.html#a9a27bfac207d46188c6940155800c4ba',1,'Mirror::NetworkManager']]]
+  ['dontdestroyonload_14',['dontDestroyOnLoad',['../class_mirror_1_1_network_manager.html#a9a27bfac207d46188c6940155800c4ba',1,'Mirror::NetworkManager']]],
+  ['dropdown_15',['dropdown',['../class_menu.html#a59402c0e7773462f128db97c663cd206',1,'Menu']]]
 ];

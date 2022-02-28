@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['meleehit_0',['meleeHit',['../class_melee.html#a16a526df7a9eb6ed8f6340ac3cd040bf',1,'Melee']]]
+  ['joinlobby_0',['JoinLobby',['../class_join_lobby_menu.html#ae8fd5c76e8f5bfe85463d5493e12aefe',1,'JoinLobbyMenu']]]
 ];

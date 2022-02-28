@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['indexchanged_0',['IndexChanged',['../class_mirror_1_1_network_room_player.html#aa4c4da4eef51d0d9b5df6d4d8b55df0a',1,'Mirror::NetworkRoomPlayer']]],
-  ['initialspawn_1',['InitialSpawn',['../class_zombie_spawner.html#a714744de0d542293282049ad11000422',1,'ZombieSpawner']]],
-  ['inittasks_2',['InitTasks',['../class_task_manager.html#a2c594222916b7f0d33ac1a4a65837626',1,'TaskManager']]],
-  ['isreadytostart_3',['isReadyToStart',['../class_network_manager_lobby.html#a5295cf80d34f1b922a83b0233d299549',1,'NetworkManagerLobby']]]
+  ['handledisplaynamechanged_0',['handleDisplayNameChanged',['../class_network_room_player.html#ad91b698a1338ab01861807754272f7c4',1,'NetworkRoomPlayer']]],
+  ['handlereadystatuschanged_1',['handleReadyStatusChanged',['../class_network_room_player.html#a1ec3542859bd332b9a499959663c972c',1,'NetworkRoomPlayer']]],
+  ['handlereadytostart_2',['handleReadyToStart',['../class_network_room_player.html#a32176847b11a339cc65055f5e26892a1',1,'NetworkRoomPlayer']]],
+  ['host_3',['host',['../class_menu.html#a76696f055531f5e3cb341100143043db',1,'Menu']]]
 ];
