@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class Rifle : ShootGun
 {
-    bool isInZoom = false;
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// </summary>
@@ -39,19 +38,6 @@ public class Rifle : ShootGun
             else
             {
                 Debug.Log("Out of Ammo!");
-            }
-        }
-        if (Input.GetButtonDown("Fire2"))
-        {
-            if(isInZoom)
-            {
-                Camera.main.fieldOfView = 60f;
-                isInZoom = false;
-            }
-            else
-            {
-                Camera.main.fieldOfView = 20f;
-                isInZoom = true;
             }
         }
         if (Input.GetKeyDown(KeyCode.R))
