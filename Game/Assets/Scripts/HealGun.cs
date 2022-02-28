@@ -2,21 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/* created by: SWT-P_WS_21/22 */
-
-
-public class Pistol : ShootGun
+public class HealGun : ShootGun
 {
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// </summary>
     private void Start()
     {
-        this.gunDamage = 10;
+        this.gunDamage = -15;
         this.fireRate = 0.25f;
-        this.weaoponRange = 50f;
-        this.gunAmmo = 8;
-        this.recoil = 3f;
+        this.weaoponRange = 5f;
+        this.gunAmmo = 1;
+        this.recoil = 0f;
     }
 
     /// <summary>
@@ -41,10 +38,22 @@ public class Pistol : ShootGun
                 Debug.Log("Out of Ammo!");
             }
         }
+        if(Input.GetButtonDown("Fire3") && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            if (gunAmmo > 0)
+            {
+                CmdShootPlayer(this.gameObject, gunDamage);
+            }
+            else
+            {
+                Debug.Log("Out of Ammo!");
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            gunAmmo = 8;
+            gunAmmo = 1;
         }
     }
 
@@ -64,14 +73,6 @@ public class Pistol : ShootGun
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 CmdShootPlayer(hit.collider.transform.root.gameObject, gunDamage); // Gets Parent of Collider and calls function for hit on Player
-            }
-            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Monster"))
-            {
-                CmdShootMonster(hit.collider.transform.root.gameObject, gunDamage); // Calls TakeDamage on the monster hit
-            }
-            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Device"))
-            {
-                CmdShootDevice(hit.collider.transform.root.gameObject, gunDamage); // Calls TakeDamage on the device hit
             }
             else
             {
