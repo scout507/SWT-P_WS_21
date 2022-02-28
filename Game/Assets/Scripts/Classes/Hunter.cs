@@ -5,6 +5,7 @@ using UnityEngine;
 /* edited by: SWT-P_WS_21/22*/
 public class Hunter : Classes
 {
+    bool isInZoom = false;
      void Update()
     {
         if(!isLocalPlayer) return;
@@ -26,6 +27,19 @@ public class Hunter : Classes
         {
             CmdSwitchWeapon(2);
         }
+        if (Input.GetButtonDown("Fire2") && selectedWeapon == 1)
+        {
+            if(isInZoom)
+            {
+                Camera.main.fieldOfView = 60f;
+                isInZoom = false;
+            }
+            else
+            {
+                Camera.main.fieldOfView = 20f;
+                isInZoom = true;
+            }
+        }
     }
     public override void SwitchWeapon(int oldWeapon, int newWeapon)
     {
@@ -33,6 +47,11 @@ public class Hunter : Classes
         {
             case 1:
                 GetComponent<Rifle>().enabled = false;
+                if(isInZoom) 
+                {
+                    Camera.main.fieldOfView = 60f;
+                    isInZoom = false;
+                }
                 break;
             case 2:
                 GetComponent<Pistol>().enabled = false;
