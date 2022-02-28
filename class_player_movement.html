@@ -124,9 +124,6 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>GetXRotation</b> ()<
 <tr class="memitem:a3f43e9fd4a334c56110cd568954efb9f"><td class="memItemLeft" align="right" valign="top"><a id="a3f43e9fd4a334c56110cd568954efb9f" name="a3f43e9fd4a334c56110cd568954efb9f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>SetXRotation</b> (float newXRotation)</td></tr>
 <tr class="separator:a3f43e9fd4a334c56110cd568954efb9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a579edcdf985834eaa997de0ffe941da4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_movement.html#a579edcdf985834eaa997de0ffe941da4">CmdSwitchWeapon</a> (int newWeapon)</td></tr>
-<tr class="memdesc:a579edcdf985834eaa997de0ffe941da4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switching weapons is handled by the server. This methode changes the index of the selected weapon to the new weapon.  <a href="class_player_movement.html#a579edcdf985834eaa997de0ffe941da4">More...</a><br /></td></tr>
-<tr class="separator:a579edcdf985834eaa997de0ffe941da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_mirror_1_1_network_behaviour"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_mirror_1_1_network_behaviour')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_mirror_1_1_network_behaviour.html">Mirror.NetworkBehaviour</a></td></tr>
 <tr class="memitem:a1ab0ad06e8cb2e7833852077042c8550 inherit pub_methods_class_mirror_1_1_network_behaviour"><td class="memItemLeft" align="right" valign="top"><a id="a1ab0ad06e8cb2e7833852077042c8550" name="a1ab0ad06e8cb2e7833852077042c8550"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSyncVarDirtyBit</b> (ulong dirtyBit)</td></tr>
@@ -179,9 +176,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnStopAuthori
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a2cc8961f6e9a0ee36c23159f1a3a47ff"><td class="memItemLeft" align="right" valign="top"><a id="a2cc8961f6e9a0ee36c23159f1a3a47ff" name="a2cc8961f6e9a0ee36c23159f1a3a47ff"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>selectedWeapon</b> = 0</td></tr>
-<tr class="separator:a2cc8961f6e9a0ee36c23159f1a3a47ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afce3b9efbea72bfa3129c72feecf2ab2"><td class="memItemLeft" align="right" valign="top"><a id="afce3b9efbea72bfa3129c72feecf2ab2" name="afce3b9efbea72bfa3129c72feecf2ab2"></a>
+GameObject&#160;</td><td class="memItemRight" valign="bottom"><b>cameraMountPoint</b></td></tr>
+<tr class="separator:afce3b9efbea72bfa3129c72feecf2ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_mirror_1_1_network_behaviour"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_mirror_1_1_network_behaviour')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_mirror_1_1_network_behaviour.html">Mirror.NetworkBehaviour</a></td></tr>
 <tr class="memitem:acf0616ac2f967bdd47bf0f579cefe8a7 inherit pub_attribs_class_mirror_1_1_network_behaviour"><td class="memItemLeft" align="right" valign="top"><a id="acf0616ac2f967bdd47bf0f579cefe8a7" name="acf0616ac2f967bdd47bf0f579cefe8a7"></a>
 SyncMode&#160;</td><td class="memItemRight" valign="bottom"><b>syncMode</b> = SyncMode.Observers</td></tr>
@@ -330,32 +327,6 @@ ulong&#160;</td><td class="memItemRight" valign="bottom"><b>syncVarDirtyBits</b>
 
 <p>Checks if the player is currently on ground </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true or false</dd></dl>
-
-</div>
-</div>
-<a id="a579edcdf985834eaa997de0ffe941da4" name="a579edcdf985834eaa997de0ffe941da4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a579edcdf985834eaa997de0ffe941da4">&#9670;&nbsp;</a></span>CmdSwitchWeapon()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PlayerMovement.CmdSwitchWeapon </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>newWeapon</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Switching weapons is handled by the server. This methode changes the index of the selected weapon to the new weapon. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">newWeapon</td><td>Index of new weapon which is now selected.</td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

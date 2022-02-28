@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['takedamage_0',['TakeDamage',['../class_monster_controller.html#a8381ac0ef11f07043bbb5f0d50ebf2e0',1,'MonsterController.TakeDamage()'],['../class_health.html#a6d0b05e55f62a4bdbd0d9049834ec5fe',1,'Health.TakeDamage()'],['../class_destructable_object.html#aa764eee03b1db058eb62ddf036da83e4',1,'DestructableObject.TakeDamage()']]],
+  ['takedamage_0',['TakeDamage',['../class_monster_controller.html#a8381ac0ef11f07043bbb5f0d50ebf2e0',1,'MonsterController.TakeDamage()'],['../class_health.html#a6d0b05e55f62a4bdbd0d9049834ec5fe',1,'Health.TakeDamage()'],['../class_device.html#a0d03f9599814d1f09f0f967b2f647941',1,'Device.TakeDamage()'],['../class_destructable_object.html#aa764eee03b1db058eb62ddf036da83e4',1,'DestructableObject.TakeDamage()']]],
   ['targetdamage_1',['TargetDamage',['../class_health.html#a2c71af798c6185e71f4f999a3818ddb9',1,'Health']]],
   ['targetrpcattribute_2',['TargetRpcAttribute',['../class_mirror_1_1_target_rpc_attribute.html',1,'Mirror']]],
   ['task_3',['Task',['../class_task.html',1,'']]],

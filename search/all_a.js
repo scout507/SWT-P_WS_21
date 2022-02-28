@@ -11,5 +11,6 @@ var searchData=
   ['kcpserverconnection_8',['KcpServerConnection',['../classkcp2k_1_1_kcp_server_connection.html',1,'kcp2k']]],
   ['kcpserverconnectionnonalloc_9',['KcpServerConnectionNonAlloc',['../classkcp2k_1_1_kcp_server_connection_non_alloc.html',1,'kcp2k']]],
   ['kcpservernonalloc_10',['KcpServerNonAlloc',['../classkcp2k_1_1_kcp_server_non_alloc.html',1,'kcp2k']]],
-  ['kcptransport_11',['KcpTransport',['../classkcp2k_1_1_kcp_transport.html',1,'kcp2k']]]
+  ['kcptransport_11',['KcpTransport',['../classkcp2k_1_1_kcp_transport.html',1,'kcp2k']]],
+  ['knut_12',['Knut',['../class_knut.html',1,'']]]
 ];

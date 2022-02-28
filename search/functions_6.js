@@ -12,5 +12,6 @@ var searchData=
   ['getrequest_9',['GetRequest',['../class_mirror_1_1_discovery_1_1_network_discovery.html#a837135f42c819dfc2617aac49603651d',1,'Mirror.Discovery.NetworkDiscovery.GetRequest()'],['../class_mirror_1_1_discovery_1_1_network_discovery_base.html#ad2a17bc656a6ef5ca35e6120eaefac60',1,'Mirror.Discovery.NetworkDiscoveryBase.GetRequest()']]],
   ['getsceneidentity_10',['GetSceneIdentity',['../class_mirror_1_1_network_identity.html#a030154e28b95e17a15de62707f0006e3',1,'Mirror::NetworkIdentity']]],
   ['getstartposition_11',['GetStartPosition',['../class_mirror_1_1_network_manager.html#a555e63cea31781669d25d5c361ec0320',1,'Mirror::NetworkManager']]],
-  ['gettaskinfo_12',['GetTaskInfo',['../class_task_manager.html#adc5e56e136f64982ab30e176284d557f',1,'TaskManager']]]
+  ['gettaskinfo_12',['GetTaskInfo',['../class_task_manager.html#adc5e56e136f64982ab30e176284d557f',1,'TaskManager']]],
+  ['gothealed_13',['GotHealed',['../class_health.html#a9767f521bb5acd0c12d3fef5164e39f3',1,'Health']]]
 ];

@@ -8,12 +8,14 @@ var searchData=
   ['detectedplayer_5',['detectedPlayer',['../class_roaming_monster.html#ad94bb11dca56c0bd55a69a655e522a69',1,'RoamingMonster']]],
   ['detectionangle_6',['detectionAngle',['../class_roaming_monster.html#a13f2060c9a1d38a6561c49b291616d0a',1,'RoamingMonster']]],
   ['detectionrate_7',['detectionRate',['../class_roaming_monster.html#a7ad97f342549995c371bb589aef8c49f',1,'RoamingMonster']]],
-  ['die_8',['Die',['../class_monster_controller.html#ad73c69b84e444b3734b200a88c306c46',1,'MonsterController']]],
-  ['disconnect_9',['Disconnect',['../class_mirror_1_1_local_connection_to_client.html#ac7ddca70d1dfa2c146761f1e7215f653',1,'Mirror.LocalConnectionToClient.Disconnect()'],['../class_mirror_1_1_local_connection_to_server.html#a8a51b61b1ffcbcc7be5f02698b77319c',1,'Mirror.LocalConnectionToServer.Disconnect()'],['../class_mirror_1_1_network_connection.html#a2d3402195c717ebf2c45874b4f3c17bf',1,'Mirror.NetworkConnection.Disconnect()'],['../class_mirror_1_1_network_connection_to_client.html#a578cd702f7b9a289d9f0b04c2e4978e2',1,'Mirror.NetworkConnectionToClient.Disconnect()'],['../class_mirror_1_1_network_connection_to_server.html#afa1f2d6f6515a8c345df425b8c04ed8d',1,'Mirror.NetworkConnectionToServer.Disconnect()']]],
-  ['displayname_10',['displayName',['../class_network_room_player.html#a345352de635d2e47ed77490ca13e694d',1,'NetworkRoomPlayer']]],
-  ['distanceinterestmanagement_11',['DistanceInterestManagement',['../class_mirror_1_1_distance_interest_management.html',1,'Mirror']]],
-  ['distanceinterestmanagementcustomrange_12',['DistanceInterestManagementCustomRange',['../class_mirror_1_1_distance_interest_management_custom_range.html',1,'Mirror']]],
-  ['done_13',['done',['../class_task.html#ad490836f8e9454ed8e3a7d59aa282696',1,'Task']]],
-  ['dontdestroyonload_14',['dontDestroyOnLoad',['../class_mirror_1_1_network_manager.html#a9a27bfac207d46188c6940155800c4ba',1,'Mirror::NetworkManager']]],
-  ['dropdown_15',['dropdown',['../class_menu.html#a59402c0e7773462f128db97c663cd206',1,'Menu']]]
+  ['device_8',['Device',['../class_device.html',1,'']]],
+  ['die_9',['Die',['../class_monster_controller.html#ad73c69b84e444b3734b200a88c306c46',1,'MonsterController']]],
+  ['disconnect_10',['Disconnect',['../class_mirror_1_1_local_connection_to_client.html#ac7ddca70d1dfa2c146761f1e7215f653',1,'Mirror.LocalConnectionToClient.Disconnect()'],['../class_mirror_1_1_local_connection_to_server.html#a8a51b61b1ffcbcc7be5f02698b77319c',1,'Mirror.LocalConnectionToServer.Disconnect()'],['../class_mirror_1_1_network_connection.html#a2d3402195c717ebf2c45874b4f3c17bf',1,'Mirror.NetworkConnection.Disconnect()'],['../class_mirror_1_1_network_connection_to_client.html#a578cd702f7b9a289d9f0b04c2e4978e2',1,'Mirror.NetworkConnectionToClient.Disconnect()'],['../class_mirror_1_1_network_connection_to_server.html#afa1f2d6f6515a8c345df425b8c04ed8d',1,'Mirror.NetworkConnectionToServer.Disconnect()']]],
+  ['displayname_11',['displayName',['../class_network_room_player.html#a345352de635d2e47ed77490ca13e694d',1,'NetworkRoomPlayer']]],
+  ['distanceinterestmanagement_12',['DistanceInterestManagement',['../class_mirror_1_1_distance_interest_management.html',1,'Mirror']]],
+  ['distanceinterestmanagementcustomrange_13',['DistanceInterestManagementCustomRange',['../class_mirror_1_1_distance_interest_management_custom_range.html',1,'Mirror']]],
+  ['doc_14',['Doc',['../class_doc.html',1,'']]],
+  ['done_15',['done',['../class_task.html#ad490836f8e9454ed8e3a7d59aa282696',1,'Task']]],
+  ['dontdestroyonload_16',['dontDestroyOnLoad',['../class_mirror_1_1_network_manager.html#a9a27bfac207d46188c6940155800c4ba',1,'Mirror::NetworkManager']]],
+  ['dropdown_17',['dropdown',['../class_menu.html#a59402c0e7773462f128db97c663cd206',1,'Menu']]]
 ];

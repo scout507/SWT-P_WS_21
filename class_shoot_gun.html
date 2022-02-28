@@ -78,12 +78,13 @@ Inheritance diagram for ShootGun:</div>
  <div class="center">
   <img src="class_shoot_gun.png" usemap="#ShootGun_map" alt=""/>
   <map id="ShootGun_map" name="ShootGun_map">
-<area href="class_mirror_1_1_network_behaviour.html" title="Base class for networked components." alt="Mirror.NetworkBehaviour" shape="rect" coords="332,56,488,80"/>
-<area href="class_m_p.html" alt="MP" shape="rect" coords="0,168,156,192"/>
-<area href="class_melee.html" alt="Melee" shape="rect" coords="166,168,322,192"/>
-<area href="class_pistol.html" alt="Pistol" shape="rect" coords="332,168,488,192"/>
-<area href="class_rifle.html" alt="Rifle" shape="rect" coords="498,168,654,192"/>
-<area href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun." alt="Shotgun" shape="rect" coords="664,168,820,192"/>
+<area href="class_mirror_1_1_network_behaviour.html" title="Base class for networked components." alt="Mirror.NetworkBehaviour" shape="rect" coords="415,56,571,80"/>
+<area href="class_heal_gun.html" alt="HealGun" shape="rect" coords="0,168,156,192"/>
+<area href="class_m_p.html" alt="MP" shape="rect" coords="166,168,322,192"/>
+<area href="class_melee.html" alt="Melee" shape="rect" coords="332,168,488,192"/>
+<area href="class_pistol.html" alt="Pistol" shape="rect" coords="498,168,654,192"/>
+<area href="class_rifle.html" alt="Rifle" shape="rect" coords="664,168,820,192"/>
+<area href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun." alt="Shotgun" shape="rect" coords="830,168,986,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -92,6 +93,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a12eb93c9ece8726e2a53a94d9e85e9b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_gun.html#a12eb93c9ece8726e2a53a94d9e85e9b2">CmdShootPlayer</a> (GameObject player, int damageAmount)</td></tr>
 <tr class="memdesc:a12eb93c9ece8726e2a53a94d9e85e9b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called when player is hit.  <a href="class_shoot_gun.html#a12eb93c9ece8726e2a53a94d9e85e9b2">More...</a><br /></td></tr>
 <tr class="separator:a12eb93c9ece8726e2a53a94d9e85e9b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad383aa661a46d2ebb18db79db23db3ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_gun.html#ad383aa661a46d2ebb18db79db23db3ac">CmdShootDevice</a> (GameObject device, int damageAmount)</td></tr>
+<tr class="memdesc:ad383aa661a46d2ebb18db79db23db3ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called when player is hit.  <a href="class_shoot_gun.html#ad383aa661a46d2ebb18db79db23db3ac">More...</a><br /></td></tr>
+<tr class="separator:ad383aa661a46d2ebb18db79db23db3ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87b1537424f3bc8b224765ba3f5a71d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_gun.html#a87b1537424f3bc8b224765ba3f5a71d6">CmdShootMonster</a> (GameObject monster, int damageAmount)</td></tr>
 <tr class="memdesc:a87b1537424f3bc8b224765ba3f5a71d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called when monster is hit.  <a href="class_shoot_gun.html#a87b1537424f3bc8b224765ba3f5a71d6">More...</a><br /></td></tr>
 <tr class="separator:a87b1537424f3bc8b224765ba3f5a71d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -318,6 +322,43 @@ ulong&#160;</td><td class="memItemRight" valign="bottom"><b>syncVarDirtyBits</b>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="class_shoot_gun.html" title="The ShootGun class is an abstract class from which every weapon must inherit. It implements the netwo...">ShootGun</a> class is an abstract class from which every weapon must inherit. It implements the network behavior when enemies are hit. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad383aa661a46d2ebb18db79db23db3ac" name="ad383aa661a46d2ebb18db79db23db3ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad383aa661a46d2ebb18db79db23db3ac">&#9670;&nbsp;</a></span>CmdShootDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ShootGun.CmdShootDevice </td>
+          <td>(</td>
+          <td class="paramtype">GameObject&#160;</td>
+          <td class="paramname"><em>device</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>damageAmount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets called when player is hit. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player</td><td>Gameobject of player who is hit.</td></tr>
+    <tr><td class="paramname">damageAmount</td><td>Amount of damage.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a87b1537424f3bc8b224765ba3f5a71d6" name="a87b1537424f3bc8b224765ba3f5a71d6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a87b1537424f3bc8b224765ba3f5a71d6">&#9670;&nbsp;</a></span>CmdShootMonster()</h2>
 
@@ -469,7 +510,7 @@ ulong&#160;</td><td class="memItemRight" valign="bottom"><b>syncVarDirtyBits</b>
 
 <p>Implements a single shot, different for every weapon. </p>
 
-<p>Implemented in <a class="el" href="class_melee.html#a8bcf494a532877b632960f639272e650">Melee</a>, <a class="el" href="class_m_p.html#aaef6d83b1e57e6d575b6f67fa2fcb71d">MP</a>, <a class="el" href="class_pistol.html#aeb832d762f903cc3696472d0c887f35e">Pistol</a>, <a class="el" href="class_rifle.html#a257c4dab246e32be367f74d65c8fc43a">Rifle</a>, and <a class="el" href="class_shotgun.html#a9737237930b171e07950982e5a7ae14b">Shotgun</a>.</p>
+<p>Implemented in <a class="el" href="class_heal_gun.html#a442f35cdcc89f9ab335a1e39964d5152">HealGun</a>, <a class="el" href="class_melee.html#a8bcf494a532877b632960f639272e650">Melee</a>, <a class="el" href="class_m_p.html#aaef6d83b1e57e6d575b6f67fa2fcb71d">MP</a>, <a class="el" href="class_pistol.html#aeb832d762f903cc3696472d0c887f35e">Pistol</a>, <a class="el" href="class_rifle.html#a257c4dab246e32be367f74d65c8fc43a">Rifle</a>, and <a class="el" href="class_shotgun.html#a9737237930b171e07950982e5a7ae14b">Shotgun</a>.</p>
 
 </div>
 </div>
