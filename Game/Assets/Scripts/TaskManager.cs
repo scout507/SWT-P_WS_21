@@ -8,6 +8,8 @@ using Mirror;
 
 public class TaskManager : NetworkBehaviour
 {
+    /// <summary>True when tasks are created and spawned</summary>
+    [SyncVar] public bool tasksCreated;
     /// <summary>Amount of simple tasks per game</summary>
     [SerializeField] int amountSimple;
     /// <summary>Amount of medium tasks per game</summary>
@@ -21,8 +23,12 @@ public class TaskManager : NetworkBehaviour
     /// <summary>List of hard Tasks</summary>
     [SerializeField] GameObject[] hardTasks;
 
-    /// <summary>All tasks active this game</summary>
+    /// <summary>List of all tasks to spawn</summary>
     List<GameObject> tasks = new List<GameObject>();
+    /// <summary>List of all task instances in the game</summary>
+    List<GameObject> activeTasks = new List<GameObject>();
+    
+    List<GameObject> clientList = new List<GameObject>();
 
     /// <summary>
     /// Randomly chooses tasks from their lists and adds them to the overall tasks List
@@ -85,10 +91,10 @@ public class TaskManager : NetworkBehaviour
     {
         foreach (GameObject task in tasks)
         {
-
             GameObject taskInstance = Instantiate(task, task.GetComponent<Task>().spawn, Quaternion.identity);
             taskInstance.GetComponent<Task>().active = true;
             NetworkServer.Spawn(taskInstance);
+            activeTasks.Add(taskInstance);
         }
 
     }
@@ -101,15 +107,31 @@ public class TaskManager : NetworkBehaviour
     {
         List<string[]> info = new List<string[]>();
 
-        for (int i = 0; i < tasks.Count; i++)
+        if(!isServer)
         {
-            string[] infoArr = new string[4];
-            Task task = tasks[i].GetComponent<Task>();
-            infoArr[0] = task.id.ToString();
-            infoArr[1] = task.name;
-            infoArr[2] = task.taskDescription;
-            infoArr[3] = task.done.ToString();
-            info.Add(infoArr);
+            for (int i = 0; i < clientList.Count; i++)
+            {
+                string[] infoArr = new string[4];
+                Task task = clientList[i].GetComponent<Task>();
+                infoArr[0] = task.id.ToString();
+                infoArr[1] = task.name;
+                infoArr[2] = task.taskDescription;
+                infoArr[3] = task.done.ToString();
+                info.Add(infoArr);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < activeTasks.Count; i++)
+            {
+                string[] infoArr = new string[4];
+                Task task = activeTasks[i].GetComponent<Task>();
+                infoArr[0] = task.id.ToString();
+                infoArr[1] = task.name;
+                infoArr[2] = task.taskDescription;
+                infoArr[3] = task.done.ToString();
+                info.Add(infoArr);
+            }
         }
 
         return info;
@@ -121,9 +143,9 @@ public class TaskManager : NetworkBehaviour
     /// <returns>True if all tasks are finished</returns>
     public bool CheckAllFinished()
     {
-        for (int i = 0; i < tasks.Count; i++)
+        for (int i = 0; i < activeTasks.Count; i++)
         {
-            if (!tasks[i].GetComponent<Task>().done) return false;
+            if (!activeTasks[i].GetComponent<Task>().done) return false;
         }
 
         return true;
@@ -137,5 +159,23 @@ public class TaskManager : NetworkBehaviour
     {
         ChooseTasks();
         SpawnTasks();
+        tasksCreated = true;
+        RpcSyncList(activeTasks);
     }
+
+    public void SyncList()
+    {
+        RpcSyncList(activeTasks);
+    }
+
+    [ClientRpc]
+    void RpcSyncList(List<GameObject> list)
+    {
+        clientList = new List<GameObject>();
+        foreach (GameObject task in list)
+        {
+            clientList.Add(task);
+        }
+    }
+
 }
