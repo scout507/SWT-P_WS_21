@@ -39,9 +39,16 @@ public class Health : NetworkBehaviour
         {
             return;
         }
-        health -= amount;
-
-        TargetDamage();
+        if (amount < 0 && health - amount > 100)
+        {
+            health = 100;
+        }
+        else
+        {
+            health -= amount;
+        }
+        if (amount > 0) TargetDamage();
+        else GotHealed();
         if (health <= 0)
         {
             TargetDeath();
@@ -55,6 +62,15 @@ public class Health : NetworkBehaviour
     public void TargetDamage()
     {
         Debug.Log("Took damage!");
+    }
+
+    /// <summary>
+    /// The methode GotHealed is called when a player is healed. It can then trigger an animation or something similar.
+    /// </summary>
+    [TargetRpc]
+    public void GotHealed()
+    {
+        Debug.Log("Got healed!");
     }
 
     /// <summary>

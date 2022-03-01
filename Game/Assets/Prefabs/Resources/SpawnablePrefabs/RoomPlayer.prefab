@@ -310,7 +310,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6369713485113490369}
         m_TargetAssemblyTypeName: NetworkRoomPlayer, Assembly-CSharp
-        m_MethodName: stopGame
+        m_MethodName: leave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2529,7 +2529,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 32526865860201089}
   m_OnClick:
     m_PersistentCalls:
@@ -2758,13 +2758,6 @@ MonoBehaviour:
   - {fileID: 8341707743010488251}
   - {fileID: 512283679959752461}
   - {fileID: 1491225729713935075}
-  playerReadyToggles:
-  - {fileID: 4752205682393961185}
-  - {fileID: 1448113386047975099}
-  - {fileID: 4755511642588893892}
-  - {fileID: 3121670983177889881}
-  - {fileID: 1627515168756211922}
-  - {fileID: 3487583914252843839}
   startGameButton: {fileID: 5467915313102375733}
   canvas: {fileID: 2153790569780937124}
   displayName: Loading...
