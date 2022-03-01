@@ -20,6 +20,9 @@ public abstract class ShootGun : NetworkBehaviour
     public int gunAmmo; // Ammunition of gun
     public float nextFire; // Time of the next shot you can take
     public float recoil; // Set ammount of Recoil per Shot
+    public Sprite icon; //Icon of the Weapon
+    public Inventory inventory; //Weapon-Inventory of the Player
+
 
     /// <summary>
     /// Gets called when player is hit.
