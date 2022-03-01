@@ -2,14 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Mirror; 
+using Mirror;
 
 /* created by: SWT-P_WS_21/22 */
 
 
 public class PlayerHUD : NetworkBehaviour
 {
+    /// <summary>
+    /// The Health SLider can change size
+    /// </summary>
     private Slider slider;
+    /// <summary>
+    /// The inventory of the Weapon loadout
+    /// </summary>
     private WeaponUI weaponUI;
 
     /// <summary>

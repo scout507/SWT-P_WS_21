@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class Compass : MonoBehaviour
 {
     /// <summary>
-    /// sprite of teh compass directions
+    /// sprite of the compass directions
     /// </summary>
     public RawImage compassImage;
 

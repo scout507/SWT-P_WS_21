@@ -8,7 +8,7 @@ using Mirror;
 public class Inventory : NetworkBehaviour
 {
     /// <summary>
-    /// Weapon Icon-Image
+    /// weapon Icon-Image
     /// </summary>
     public Image icon;
     /// <summary>
@@ -16,16 +16,13 @@ public class Inventory : NetworkBehaviour
     /// </summary>
     public Text currentAmmo;
     /// <summary>
-    /// amoutn of magazines per weapon
+    /// amount of magazines per weapon
     /// </summary>
     public Text totalAmmo;
 
     /// <summary>
     /// Function to update the info on the Weapon UI, has to be used when the weapon is changed.
-    /// when you change the weapon, Update the UI:
-    /// Update weapon:
-    /// Reference to Weapon UI:
-    /// Player HUD script:
+    /// When you change the weapon, update the UI.
     /// </summary>
     /// <param name="weaponIcon"></param>
     /// <param name="magazineSize"></param>

@@ -11,17 +11,50 @@ using UnityEngine;
 /// </summary>
 public abstract class ShootGun : NetworkBehaviour
 {
-    public int gunDamage; // Damage output for gun
-    public float fireRate; // Firerate for gun
-    public float weaoponRange; // Range for gun
-    public Transform gunEnd; // Gun end for animations
-    public GameObject gun; // Prefab of gun
-    public Transform gunMount; // Point where gun is loaded
-    public int gunAmmo; // Ammunition of gun
-    public float nextFire; // Time of the next shot you can take
-    public float recoil; // Set ammount of Recoil per Shot
-    public Sprite icon; //Icon of the Weapon
-    public Inventory inventory; //Weapon-Inventory of the Player
+    /// <summary>
+    /// Damage output for gun
+    /// </summary>
+    public int gunDamage;
+    /// <summary>
+    /// Firerate for gun
+    /// </summary>
+    public float fireRate;
+    /// <summary>
+    /// Range for gun
+    /// </summary>
+    public float weaoponRange;
+    /// <summary>
+    /// Gun end for animations
+    /// </summary>
+    public Transform gunEnd;
+    /// <summary>
+    /// Prefab of gun
+    /// </summary>
+    public GameObject gun;
+    /// <summary>
+    /// Point where gun is loaded
+    /// </summary>
+    public Transform gunMount;
+    /// <summary>
+    /// Ammunition of gun
+    /// </summary>
+    public int gunAmmo;
+    /// <summary>
+    /// Time of the next shot you can take
+    /// </summary>
+    public float nextFire;
+    /// <summary>
+    /// Set ammount of Recoil per Shot
+    /// </summary>
+    public float recoil;
+    /// <summary>
+    /// Icon of the Weapon
+    /// </summary>
+    public Sprite icon;
+    /// <summary>
+    /// Weapon-Inventory of the Player
+    /// </summary>
+    public Inventory inventory;
 
 
     /// <summary>

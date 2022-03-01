@@ -6,9 +6,18 @@ using Mirror;
 
 public class PlayerCanvas : NetworkBehaviour
 {
+    /// <summary>
+    /// the canvas on the player model.
+    /// </summary>
     public GameObject PlayerCanvasObject;
+    /// <summary>
+    /// the weapon loadout of the player.
+    /// </summary>
     private Inventory inventory;
-    // Start is called before the first frame update
+
+    /// <summary>
+    /// Start is called before the first frame update
+    /// </summary>
     void Start()
     {
         if (isLocalPlayer)
@@ -18,7 +27,7 @@ public class PlayerCanvas : NetworkBehaviour
     }
 
     /// <summary>
-    /// Updates the current inventory text and icon to the currently wielded weapon
+    /// updates the current inventory text and icon to the currently wielded weapon
     /// </summary>
     /// <param name="newWeapon"></param>
     public void UpdateWeaponUI(ShootGun newWeapon)
