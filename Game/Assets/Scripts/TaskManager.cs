@@ -163,11 +163,18 @@ public class TaskManager : NetworkBehaviour
         RpcSyncList(activeTasks);
     }
 
+    /// <summary>
+    /// Called for synchronising the task list for clients.
+    /// </summary>
     public void SyncList()
     {
         RpcSyncList(activeTasks);
     }
 
+    /// <summary>
+    /// Syncronises the task list on the client.
+    /// </summary>
+    /// <param name="list">Task List of the server</param>
     [ClientRpc]
     void RpcSyncList(List<GameObject> list)
     {
