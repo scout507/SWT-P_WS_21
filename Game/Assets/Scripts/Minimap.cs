@@ -12,7 +12,7 @@ public class Minimap : MonoBehaviour
     /// <summary>
     /// update at the end of a frame
     /// </summary>
-    void LateUpdate ()
+    void LateUpdate()
     {
         Vector3 newPosition = player.position;
         newPosition.y = transform.position.y;
