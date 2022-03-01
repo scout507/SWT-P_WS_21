@@ -106,32 +106,20 @@ public class TaskManager : NetworkBehaviour
     public List<string[]> GetTaskInfo()
     {
         List<string[]> info = new List<string[]>();
+        List<GameObject> listToCheck;
 
-        if (!isServer)
+        if (!isServer) listToCheck = clientList;
+        else listToCheck = activeTasks;
+
+        for (int i = 0; i < listToCheck.Count; i++)
         {
-            for (int i = 0; i < clientList.Count; i++)
-            {
-                string[] infoArr = new string[4];
-                Task task = clientList[i].GetComponent<Task>();
-                infoArr[0] = task.id.ToString();
-                infoArr[1] = task.name;
-                infoArr[2] = task.taskDescription;
-                infoArr[3] = task.done.ToString();
-                info.Add(infoArr);
-            }
-        }
-        else
-        {
-            for (int i = 0; i < activeTasks.Count; i++)
-            {
-                string[] infoArr = new string[4];
-                Task task = activeTasks[i].GetComponent<Task>();
-                infoArr[0] = task.id.ToString();
-                infoArr[1] = task.name;
-                infoArr[2] = task.taskDescription;
-                infoArr[3] = task.done.ToString();
-                info.Add(infoArr);
-            }
+            string[] infoArr = new string[4];
+            Task task = listToCheck[i].GetComponent<Task>();
+            infoArr[0] = task.id.ToString();
+            infoArr[1] = task.name;
+            infoArr[2] = task.taskDescription;
+            infoArr[3] = task.done.ToString();
+            info.Add(infoArr);
         }
 
         return info;
