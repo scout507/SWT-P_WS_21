@@ -506,7 +506,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   health: 0
-  healthBar: {fileID: 6952407815072459466}
+  healthBar: {fileID: 29987019709876093}
 --- !u!136 &6896355853710520063
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -937,7 +937,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8491583963656370028}
   - component: {fileID: 3734046711149512547}
-  - component: {fileID: 6952407815072459466}
+  - component: {fileID: 29987019709876093}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -1016,7 +1016,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6952407815072459466
+--- !u!114 &29987019709876093
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1025,7 +1025,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4013062625664216930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aada89e0ae6fee84e86a6ce93dfe1e11, type: 3}
+  m_Script: {fileID: 11500000, guid: 704ad5770471be645a8683ed9f4a3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 3734046711149512547}
