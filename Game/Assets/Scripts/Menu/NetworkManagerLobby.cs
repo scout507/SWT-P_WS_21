@@ -30,6 +30,9 @@ public class NetworkManagerLobby : NetworkManager
     [SerializeField]
     private NetworkGamePlayer gamePlayerPrefab = null;
 
+    [SerializeField]
+    private GameObject playerSpawnSystem = null;
+
     /// <summary>Holds the object of all clients prefabs, as a list.</summary>
     [SerializeField]
     public List<NetworkRoomPlayer> roomPlayers = new List<NetworkRoomPlayer>();
@@ -43,6 +46,8 @@ public class NetworkManagerLobby : NetworkManager
 
     /// <summary>Holds methods defined by the class "JoinLobbyMenu".</summary>
     public static event Action OnClientDisconnected;
+
+    public static event Action<NetworkConnection> OnServerReadied;
 
     /// <summary>
     /// Loads all available prefabs when the host server is started.
@@ -198,7 +203,7 @@ public class NetworkManagerLobby : NetworkManager
             if (!isReadyToStart())
                 return;
 
-            ServerChangeScene("Blockout");
+            ServerChangeScene("Test");
         }
     }
 
@@ -209,7 +214,7 @@ public class NetworkManagerLobby : NetworkManager
     /// <param name="newSceneName">Requires the name of the scene to be loaded.</param>
     public override void ServerChangeScene(string newSceneName)
     {
-        if (SceneManager.GetActiveScene().path == menuScene && newSceneName.StartsWith("Blockout"))
+        if (SceneManager.GetActiveScene().path == menuScene && newSceneName.StartsWith("Test"))
         {
             for (int i = roomPlayers.Count - 1; i >= 0; i--)
             {
@@ -223,5 +228,22 @@ public class NetworkManagerLobby : NetworkManager
             }
         }
         base.ServerChangeScene(newSceneName);
+    }
+
+    public override void OnServerChangeScene(string newSceneName)
+    {
+        if (newSceneName.StartsWith("Test"))
+        {
+            GameObject playerSpawnSystemInstance = Instantiate(playerSpawnSystem);
+            NetworkServer.Spawn(playerSpawnSystemInstance);
+        }
+        base.OnServerChangeScene(newSceneName);
+    }
+
+    public override void OnServerReady(NetworkConnection conn)
+    {
+        base.OnServerReady(conn);
+
+        OnServerReadied?.Invoke(conn);
     }
 }
