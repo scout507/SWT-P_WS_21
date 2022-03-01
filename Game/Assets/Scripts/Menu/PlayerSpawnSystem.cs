@@ -4,24 +4,20 @@ using UnityEngine;
 using Mirror;
 using System.Linq;
 
+/// <summary>
+/// Needed to spawn players when transitioning from the menu to the game.
+/// </summary>
 public class PlayerSpawnSystem : NetworkBehaviour
 {
 
+    /// <summary>
+    /// Holds the prefab for the player that will be spawned.
+    /// </summary>
     [SerializeField] private GameObject playerPrefab = null;
 
-    private static List<Transform> spawnPoints = new List<Transform>();
-
-    private int nextIndex = 0;
-
-    public static void AddSpawnPoint(Transform transform)
-    {
-        spawnPoints.Add(transform);
-
-        spawnPoints = spawnPoints.OrderBy(x => x.GetSiblingIndex()).ToList();
-    }
-
-    public static void RemoveSpawnPoint(Transform transform) => spawnPoints.Remove(transform);
-
+    /// <summary>
+    /// Add the Function "SpawnPlayer()" to the Networkmanager.
+    /// </summary>
     public override void OnStartServer()
     {
         NetworkManagerLobby.OnServerReadied += SpawnPlayer;
@@ -34,18 +30,10 @@ public class PlayerSpawnSystem : NetworkBehaviour
     [Server]
     public void SpawnPlayer(NetworkConnection conn)
     {
-        Transform spawnPoint = spawnPoints.ElementAtOrDefault(nextIndex);
 
-        if (spawnPoint == null)
-        {
-            Debug.LogError("Missing spawn point for player " + nextIndex);
-            return;
-        }
-
-        GameObject playerInstance = Instantiate(playerPrefab, spawnPoints[nextIndex].position, spawnPoints[nextIndex].rotation);
-        NetworkServer.Spawn(playerInstance, conn);
-
-        nextIndex++;
+        GameObject playerInstance = Instantiate(playerPrefab);
+        //NetworkServer.Spawn(playerInstance, conn);
+        NetworkServer.ReplacePlayerForConnection(conn, playerInstance.gameObject, true);
     }
 
 
