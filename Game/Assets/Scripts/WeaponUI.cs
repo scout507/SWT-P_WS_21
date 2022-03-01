@@ -37,6 +37,6 @@ public class WeaponUI : NetworkBehaviour
         icon.sprite = weaponIcon;
         magazineSizeText.text = magazineSize.ToString();
         int magazineCountAmount = magazineSize * magazineCount;
-        magazineCountText.text = magazineCountAmount.ToString();     
+        magazineCountText.text = magazineCountAmount.ToString();
     }
 }

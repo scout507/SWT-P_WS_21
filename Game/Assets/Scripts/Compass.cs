@@ -14,7 +14,7 @@ public class Compass : MonoBehaviour
     public RawImage compassImage;
 
     /// <summary>
-    /// the players transformation info 
+    /// the players transformation info
     /// </summary>
     public Transform player;
 

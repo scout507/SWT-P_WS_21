@@ -34,6 +34,6 @@ public class Inventory : NetworkBehaviour
     {
         icon.sprite = weaponIcon;
         currentAmmo.text = newCurrentAmmo.ToString();
-        totalAmmo.text = newTotalAmmo.ToString();     
+        totalAmmo.text = newTotalAmmo.ToString();
     }
 }
