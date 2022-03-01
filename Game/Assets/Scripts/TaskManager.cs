@@ -27,7 +27,7 @@ public class TaskManager : NetworkBehaviour
     List<GameObject> tasks = new List<GameObject>();
     /// <summary>List of all task instances in the game</summary>
     List<GameObject> activeTasks = new List<GameObject>();
-    
+
     List<GameObject> clientList = new List<GameObject>();
 
     /// <summary>
@@ -107,7 +107,7 @@ public class TaskManager : NetworkBehaviour
     {
         List<string[]> info = new List<string[]>();
 
-        if(!isServer)
+        if (!isServer)
         {
             for (int i = 0; i < clientList.Count; i++)
             {

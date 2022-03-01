@@ -40,20 +40,20 @@ public class PlayerTasksUI : NetworkBehaviour
     /// </summary>
     void Update()
     {
-        if(!isLocalPlayer) return;
+        if (!isLocalPlayer) return;
 
         updateTimer -= Time.deltaTime;
-        if(taskManager.tasksCreated && !created)
+        if (taskManager.tasksCreated && !created)
         {
             createUIList();
             created = true;
         }
 
-        if(created && updateTimer <= 0)
+        if (created && updateTimer <= 0)
         {
             UpdateTaskUI();
             updateTimer = updateInterval;
-        } 
+        }
     }
 
     /// <summary>
@@ -62,21 +62,21 @@ public class PlayerTasksUI : NetworkBehaviour
     /// </summary>
     void createUIList()
     {
-        if(!isServer) CmdSyncList();
+        if (!isServer) CmdSyncList();
         taskList = taskManager.GetTaskInfo();
-        
-        
-        for(int i = 0; i < taskList.Count; i++)
+
+
+        for (int i = 0; i < taskList.Count; i++)
         {
 
             GameObject panel = Instantiate(new GameObject(), transform.position, Quaternion.identity);
             TextMeshProUGUI textElement = panel.AddComponent<TextMeshProUGUI>();
             panel.transform.SetParent(taskUI.transform);
-            string textSting = (i+1).ToString() + ". " + taskList[i][1] + " - " + taskList[i][2];
+            string textSting = (i + 1).ToString() + ". " + taskList[i][1] + " - " + taskList[i][2];
             textElement.text = textSting;
             textElement.enableAutoSizing = true;
             textElement.color = Color.black;
-            
+
             taskListUI.Add(panel);
         }
     }
@@ -88,17 +88,17 @@ public class PlayerTasksUI : NetworkBehaviour
     void UpdateTaskUI()
     {
         taskList = taskManager.GetTaskInfo();
-        for(int i = 0; i < taskList.Count; i++)
+        for (int i = 0; i < taskList.Count; i++)
         {
-            if(taskList[i][3] == "True")
+            if (taskList[i][3] == "True")
             {
                 taskListUI[i].GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Strikethrough;
             }
             else
             {
                 taskListUI[i].GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Bold;
-            } 
-        }    
+            }
+        }
     }
 
     /// <summary>
