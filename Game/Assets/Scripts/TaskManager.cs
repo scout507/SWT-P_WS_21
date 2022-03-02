@@ -27,7 +27,7 @@ public class TaskManager : NetworkBehaviour
     List<GameObject> tasks = new List<GameObject>();
     /// <summary>List of all task instances in the game</summary>
     List<GameObject> activeTasks = new List<GameObject>();
-
+    /// <summary>Copy of activeList for client availability</summary>
     List<GameObject> clientList = new List<GameObject>();
 
     /// <summary>
