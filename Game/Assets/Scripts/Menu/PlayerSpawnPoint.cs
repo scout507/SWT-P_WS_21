@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>Needed for a spawn point in the scene, indicates in which direction this looks.</summary>
 public class PlayerSpawnPoint : MonoBehaviour
 {
+    /// <summary>
+    /// In the editor, draw an outline for the game object and 
+    /// a line in which direction it is facing.
+    /// </summary>
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;

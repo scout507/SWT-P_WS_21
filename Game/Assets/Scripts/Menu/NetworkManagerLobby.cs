@@ -230,6 +230,10 @@ public class NetworkManagerLobby : NetworkManager
         base.ServerChangeScene(newSceneName);
     }
 
+    /// <summary>
+    /// Spawns the spawn manager for each player, at scene change.
+    /// </summary>
+    /// <param name="newSceneName">Name of the scene to switch to.</param>
     public override void OnServerChangeScene(string newSceneName)
     {
         if (newSceneName.StartsWith("Test"))
@@ -240,6 +244,11 @@ public class NetworkManagerLobby : NetworkManager
         base.OnServerChangeScene(newSceneName);
     }
 
+    /// <summary>
+    /// Calls the spawn method from the spawn manager, 
+    /// for each client, when the client has loaded the new scene.
+    /// </summary>
+    /// <param name="conn">Network connection to the client.</param>
     public override void OnServerReady(NetworkConnection conn)
     {
         base.OnServerReady(conn);
