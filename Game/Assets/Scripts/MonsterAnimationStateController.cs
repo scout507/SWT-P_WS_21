@@ -16,7 +16,7 @@ public class MonsterAnimationStateController : NetworkBehaviour
     /// Monsters's Nav Mesh Agent
     /// </summary>
     [SerializeField] NavMeshAgent navMeshAgent;
-    
+
     /// <summary>
     /// Monsters's Controller
     /// </summary>
@@ -26,7 +26,7 @@ public class MonsterAnimationStateController : NetworkBehaviour
     void Update()
     {
         animator.SetFloat("Velocity Z", monsterController.GetVelocityZ());
-        animator.SetFloat("Velocity X",  monsterController.GetVelocityX());
+        animator.SetFloat("Velocity X", monsterController.GetVelocityX());
         animator.SetBool("inAttack", monsterController.attack);
         animator.SetBool("isDead", monsterController.dead);
     }
