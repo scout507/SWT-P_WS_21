@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+/* created by: SWT-P_WS_21/22 */
+
+
 public class GameManager : NetworkBehaviour
 {
     public static GameManager Instance;

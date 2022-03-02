@@ -5,21 +5,27 @@ using UnityEngine.UI;
 using Mirror;
 using TMPro;
 
+/* created by: SWT-P_WS_21/22 */
+
 /// <summary>This class is needed for the prefab of a client in the lobby.</summary>
 public class NetworkRoomPlayer : NetworkBehaviour
 {
     [Header("UI")]
     /// <summary>Contains all playernems text UI elements.</summary>
-    [SerializeField] private TMP_Text[] playerNameTexts;
+    [SerializeField]
+    private TMP_Text[] playerNameTexts;
 
     /// <summary>Contains all ready text UI elements.</summary>
-    [SerializeField] private TMP_Text[] playerReadyTexts;
+    [SerializeField]
+    private TMP_Text[] playerReadyTexts;
 
     /// <summary>Holds the UI start button.</summary>
-    [SerializeField] private Button startGameButton;
+    [SerializeField]
+    private Button startGameButton;
 
     /// <summary>Contains the Canvas of the prefab.</summary>
-    [SerializeField] private GameObject canvas;
+    [SerializeField]
+    private GameObject canvas;
 
     /// <summary>A synchronised variable containing the name of the player or a placeholder.</summary>
     [SyncVar(hook = nameof(handleDisplayNameChanged))]
@@ -75,7 +81,8 @@ public class NetworkRoomPlayer : NetworkBehaviour
     {
         get
         {
-            if (room != null) return room;
+            if (room != null)
+                return room;
             return room = NetworkManager.singleton as NetworkManagerLobby;
         }
     }
@@ -97,7 +104,8 @@ public class NetworkRoomPlayer : NetworkBehaviour
     public override void OnStartClient()
     {
         Room.roomPlayers.Add(this);
-        if (hasAuthority) canvas.SetActive(true);
+        if (hasAuthority)
+            canvas.SetActive(true);
         UpdateDisplay();
     }
 
@@ -140,8 +148,15 @@ public class NetworkRoomPlayer : NetworkBehaviour
         for (int i = 0; i < Room.roomPlayers.Count; i++)
         {
             playerNameTexts[i].text = Room.roomPlayers[i].displayName;
-            playerReadyTexts[i].text = Room.roomPlayers[i].isReady ? "<color=green>Ready</color>" : "<color=red>Not Ready</color>";
+            playerReadyTexts[i].text = Room.roomPlayers[i].isReady
+                ? "<color=green>Ready</color>"
+                : "<color=red>Not Ready</color>";
         }
+    }
+
+    public void leave()
+    {
+        Room.StopHost();
     }
 
     /// <summary>
@@ -150,7 +165,8 @@ public class NetworkRoomPlayer : NetworkBehaviour
     /// <param name="readyToStart"></param>
     public void handleReadyToStart(bool readyToStart)
     {
-        if (!isLeader) return;
+        if (!isLeader)
+            return;
         startGameButton.interactable = readyToStart;
     }
 
@@ -182,7 +198,9 @@ public class NetworkRoomPlayer : NetworkBehaviour
     [Command]
     public void CmdStartGame()
     {
-        if (Room.roomPlayers[0].connectionToClient != connectionToClient) return;
-    }
+        if (Room.roomPlayers[0].connectionToClient != connectionToClient)
+            return;
 
+        Room.startGame();
+    }
 }

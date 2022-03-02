@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+/* created by: SWT-P_WS_21/22 */
+
+
 public class TaskManager : NetworkBehaviour
 {
     /// <summary>Amount of simple tasks per game</summary>
@@ -20,18 +23,6 @@ public class TaskManager : NetworkBehaviour
 
     /// <summary>All tasks active this game</summary>
     List<GameObject> tasks = new List<GameObject>();
-
-
-
-    /// <summary>
-    /// Used for choosing and spawning tasks
-    /// </summary>
-    void Start()
-    {
-        if (!isServer) return;
-        ChooseTasks();
-        SpawnTasks();
-    }
 
     /// <summary>
     /// Randomly chooses tasks from their lists and adds them to the overall tasks List
@@ -122,5 +113,29 @@ public class TaskManager : NetworkBehaviour
         }
 
         return info;
+    }
+
+    /// <summary>
+    /// Can be called to check wether all tasks are finished yet.
+    /// </summary>
+    /// <returns>True if all tasks are finished</returns>
+    public bool CheckAllFinished()
+    {
+        for (int i = 0; i < tasks.Count; i++)
+        {
+            if (!tasks[i].GetComponent<Task>().done) return false;
+        }
+
+        return true;
+    }
+
+
+    /// <summary>
+    /// Used for choosing and spawning tasks
+    /// </summary>
+    public void InitTasks()
+    {
+        ChooseTasks();
+        SpawnTasks();
     }
 }

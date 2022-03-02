@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* created by: SWT-P_WS_21/22 */
+
+
 public class Melee : ShootGun
 {
     /// <summary>
@@ -84,6 +87,10 @@ public class Melee : ShootGun
         else if (attackedOpponent.layer == LayerMask.NameToLayer("Monster"))
         {
             CmdShootMonster(attackedOpponent, gunDamage);
+        }
+        else if (attackedOpponent.layer == LayerMask.NameToLayer("Device"))
+        {
+            CmdShootDevice(attackedOpponent, gunDamage);
         }
     }
 
