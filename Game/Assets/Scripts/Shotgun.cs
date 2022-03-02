@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* created by: SWT-P_WS_21/22 */
+
+
 /// <summary>
 /// Shotgun implements a shotgun, inherits from ShootGun.
 /// </summary>
@@ -74,6 +77,10 @@ public class Shotgun : ShootGun
                 else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Monster"))
                 {
                     CmdShootMonster(hit.collider.transform.root.gameObject, gunDamage); // Calls TakeDamage on the monster hit
+                }
+                else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Device"))
+                {
+                    CmdShootDevice(hit.collider.transform.root.gameObject, gunDamage); // Calls TakeDamage on the device hit
                 }
                 else
                 {
