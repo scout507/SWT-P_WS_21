@@ -54,6 +54,7 @@ public abstract class ShootGun : NetworkBehaviour
     [Command]
     public void CmdShootMonster(GameObject monster, int damageAmount)
     {
+        Debug.Log("CMDShootMonster!");
         monster.GetComponent<MonsterController>().TakeDamage(damageAmount);
     }
 

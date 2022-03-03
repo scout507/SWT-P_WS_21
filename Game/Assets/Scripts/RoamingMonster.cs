@@ -56,6 +56,10 @@ public class RoamingMonster : MonsterController
     {
         if (!isServer) return;
 
+        Vector3 velocity = nav.transform.InverseTransformDirection(nav.velocity);
+        SetVelocityX(velocity.x);
+        SetVelocityZ(velocity.z);
+
         detectionTimer += Time.deltaTime;
         atkTimer += Time.deltaTime;
 

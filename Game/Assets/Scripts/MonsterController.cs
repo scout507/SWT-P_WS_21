@@ -61,7 +61,7 @@ public class MonsterController : NetworkBehaviour
     [SerializeField] LayerMask groundMask;
 
     /// <summary>The monster's animator</summary>
-    [SerializeField] Animator animator;
+    [SerializeField] public Animator animator;
 
     /// <summary>
     /// Monster's network Animator
@@ -89,15 +89,35 @@ public class MonsterController : NetworkBehaviour
         dead = newDead;
     }
     
+    /// <summary>
+    /// Get the monster's sideways velocity
+    /// </summary>
     public float GetVelocityX() {
         return velocityX;
     }
 
+    /// <summary>
+    /// Set the monster's sideways velocity variable
+    /// </summary>    
+    public void SetVelocityX(float velocityX) {
+        this.velocityX = velocityX;
+    }
+
+    /// <summary>
+    /// Get the monster's forwards velocity
+    /// </summary>
     public float GetVelocityZ() {
         return velocityZ;
     }
+    
+    /// <summary>
+    /// Set the monster's forwards velocity variable
+    /// </summary>    
+    public void SetVelocityZ(float velocityZ) {
+        this.velocityZ = velocityZ;
+    }
 
-    private void Start()
+    /*private void Start()
     {
         home = transform.position;
         if (isServer)
@@ -105,10 +125,10 @@ public class MonsterController : NetworkBehaviour
             nav = GetComponent<NavMeshAgent>();
             FindTargets();
         }
-    }
+    }*/
 
 
-    void Update()
+    /*void Update()
     {
         //Since the ai is only handled by the server, nobody else needs to run this code
         if (!isServer) return;
@@ -163,7 +183,7 @@ public class MonsterController : NetworkBehaviour
         else {
             nav.isStopped = true;
         }
-    }
+    }*/
 
     /// <summary>NavMeshAgent for navigation</summary>
     NavMeshAgent navAgent;
@@ -238,8 +258,10 @@ public class MonsterController : NetworkBehaviour
     /// <param name="dmgTaken">The amount of damage the monster is going to take.</param>
     public void TakeDamage(float dmgTaken)
     {
+        Debug.Log("TAKEN DAMAGE");
         if (!dead)
         {
+            Debug.Log("TAKEN DAMAGE");
             animator.SetTrigger("hasTakenDamage");
             networkAnimator.SetTrigger("hasTakenDamage");
 

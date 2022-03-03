@@ -182,7 +182,8 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     public int GetSelectedWeapon()
     {
-        return selectedWeapon;
+        //return selectedWeapon;
+        return 0;
     }
 
     /// <summary>

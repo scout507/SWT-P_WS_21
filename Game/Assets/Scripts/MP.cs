@@ -67,6 +67,7 @@ public class MP : ShootGun
             }
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Monster"))
             {
+                Debug.Log("Shoot() Layer = Monster");
                 CmdShootMonster(hit.collider.transform.root.gameObject, gunDamage); // Calls TakeDamage on the monster hit
             }
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Device"))

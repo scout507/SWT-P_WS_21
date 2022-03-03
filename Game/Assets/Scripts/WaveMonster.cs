@@ -42,8 +42,15 @@ public class WaveMonster : MonsterController
     {
         if (!isServer) return;
 
+        Vector3 velocity = nav.transform.InverseTransformDirection(nav.velocity);
+        SetVelocityX(velocity.x);
+        SetVelocityZ(velocity.z);
+
         if (!dead)
         {
+            damageTaken = false;
+            attack = false;
+
             if (hp <= 0) Die();
 
             timer += Time.deltaTime;
@@ -54,9 +61,17 @@ public class WaveMonster : MonsterController
                 FindBuildings();
                 FindPlayers();
             }
+
             if (timer >= refreshRate) currentTarget = ChooseTarget();
 
-            if (currentTarget != null)
+
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Attack") || 
+                animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Damage") ||  
+                animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Dying")) 
+            {
+                nav.isStopped = true;
+            }
+            else if (currentTarget != null)
             {
                 if (Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
                 {
