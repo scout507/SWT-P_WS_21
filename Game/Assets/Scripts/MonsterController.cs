@@ -70,6 +70,9 @@ public class MonsterController : NetworkBehaviour
 
      /// <summary>Player's melee collider</summary>
     [SerializeField] CapsuleCollider collider;
+     
+    /// <summary>NavMeshAgent for navigation</summary>
+    NavMeshAgent navAgent;
 
     /// <summary>
     /// Checks if the monster is currently on ground
@@ -116,79 +119,6 @@ public class MonsterController : NetworkBehaviour
     public void SetVelocityZ(float velocityZ) {
         this.velocityZ = velocityZ;
     }
-
-    /*private void Start()
-    {
-        home = transform.position;
-        if (isServer)
-        {
-            nav = GetComponent<NavMeshAgent>();
-            FindTargets();
-        }
-    }*/
-
-
-    /*void Update()
-    {
-        //Since the ai is only handled by the server, nobody else needs to run this code
-        if (!isServer) return;
-
-        Vector3 velocity = nav.transform.InverseTransformDirection(nav.velocity);
-        velocityX = velocity.x;
-        velocityZ = velocity.z;
-        timer += Time.deltaTime;
-        atkTimer += Time.deltaTime;
-
-        if (!dead)
-        {
-            damageTaken = false;
-            attack = false;
-
-            if (hp <= 0) Die();
-
-            //Movement
-            if (timer >= refreshRate) FindTargets();
-            if (!awake && timer >= refreshRate) awake = CheckAggro();
-            if (awake && timer >= refreshRate) currentTarget = FindTarget();
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Attack") || 
-                animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Damage") ||  
-                animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Dying")) 
-            {
-                nav.isStopped = true;
-            }
-            else {
-                if (currentTarget != null)
-                {
-                    if (Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
-                    {
-                        nav.isStopped = false;
-                        nav.SetDestination(currentTarget.transform.position);
-                    }
-                    else
-                    {
-                        nav.isStopped = true;
-                        Attack();
-                    }
-                }
-                else
-                {
-                    //if there's no legal target, the monster de-aggros and returns to it's spawn position.
-                    awake = false;
-                    nav.SetDestination(home);
-                }
-            }
-
-            if (timer >= refreshRate) timer = 0f;
-        }
-        else {
-            nav.isStopped = true;
-        }
-    }*/
-
-    /// <summary>NavMeshAgent for navigation</summary>
-    NavMeshAgent navAgent;
-
-
 
     /// <summary>
     ///  Makes a list containing all active players within aggro-radius.
@@ -258,10 +188,8 @@ public class MonsterController : NetworkBehaviour
     /// <param name="dmgTaken">The amount of damage the monster is going to take.</param>
     public void TakeDamage(float dmgTaken)
     {
-        Debug.Log("TAKEN DAMAGE");
         if (!dead)
         {
-            Debug.Log("TAKEN DAMAGE");
             animator.SetTrigger("hasTakenDamage");
             networkAnimator.SetTrigger("hasTakenDamage");
 

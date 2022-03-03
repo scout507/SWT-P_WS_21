@@ -63,6 +63,9 @@ public class RoamingMonster : MonsterController
         detectionTimer += Time.deltaTime;
         atkTimer += Time.deltaTime;
 
+        damageTaken = false;
+        attack = false;
+
         if (detectionTimer >= detectionRate && !aggro)
         {
             FindPlayers();
@@ -75,43 +78,51 @@ public class RoamingMonster : MonsterController
             nav.isStopped = true;
         }
 
-        if (aggro)
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Attack") || 
+            animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Damage") ||  
+            animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Dying")) 
         {
-            deAggroTimer += Time.deltaTime;
-            if (deAggroTimer >= deAggroRate)
-            {
-                aggro = false;
-                deAggroTimer = 0;
-            }
-
-            currentTarget = ChooseTarget();
-
-            if (currentTarget != null)
-            {
-                if (Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
-                {
-                    nav.isStopped = false;
-                    nav.SetDestination(currentTarget.transform.position);
-                }
-                else
-                {
-                    nav.isStopped = true;
-                    Attack();
-                }
-            }
+            nav.isStopped = true;
         }
-
-        if (!aggro && !detectedPlayer)
-        {
-            patrolTimer += Time.deltaTime;
-            nav.isStopped = false;
-
-            if (patrolTimer >= nextPatrolTime)
+        else {
+            if (aggro)
             {
-                if (Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(patrolTarget.x, 0, patrolTarget.z)) <= 0.5f) patrolTarget = GetPatrollTarget();
-                nav.SetDestination(patrolTarget);
-                nextPatrolTime = Random.Range(0, 10);
-                patrolTimer = 0;
+                deAggroTimer += Time.deltaTime;
+                if (deAggroTimer >= deAggroRate)
+                {
+                    aggro = false;
+                    deAggroTimer = 0;
+                }
+
+                currentTarget = ChooseTarget();
+
+                if (currentTarget != null)
+                {
+                    if (Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
+                    {
+                        nav.isStopped = false;
+                        nav.SetDestination(currentTarget.transform.position);
+                    }
+                    else
+                    {
+                        nav.isStopped = true;
+                        Attack();
+                    }
+                }
+            }
+
+            if (!aggro && !detectedPlayer)
+            {
+                patrolTimer += Time.deltaTime;
+                nav.isStopped = false;
+
+                if (patrolTimer >= nextPatrolTime)
+                {
+                    if (Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(patrolTarget.x, 0, patrolTarget.z)) <= 0.5f) patrolTarget = GetPatrollTarget();
+                    nav.SetDestination(patrolTarget);
+                    nextPatrolTime = Random.Range(0, 10);
+                    patrolTimer = 0;
+                }
             }
         }
     }
