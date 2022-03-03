@@ -19,6 +19,10 @@ public class Health : NetworkBehaviour
 
     public HealthBar healthBar;
 
+    public GameObject deadPlayerPrefab = null;
+
+    public GameObject spectatorPlayerPrefab = null;
+
     void Start()
     {
 
@@ -88,7 +92,13 @@ public class Health : NetworkBehaviour
     [Command]
     void CmdDestroyPlayer(GameObject character)
     {
+        GameObject deadPlayer = Instantiate(deadPlayerPrefab, transform.position, transform.rotation);
+        GameObject spectator = Instantiate(spectatorPlayerPrefab, transform.position + Vector3.up * 5, transform.rotation);
+
+        NetworkServer.Spawn(deadPlayer);
         RpcDestroyPlayer(character);
+        Debug.Log(connectionToClient);
+        NetworkServer.ReplacePlayerForConnection(connectionToClient, spectator.gameObject, true);
     }
 
     [ClientRpc]
