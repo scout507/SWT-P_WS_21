@@ -44,7 +44,7 @@ public class MonsterController : NetworkBehaviour
     float timer;
     /// <summary>Timer for attacking</summary>
     public float atkTimer;
-     [SyncVar] public bool attack;
+    [SyncVar] public bool attack;
 
     /// <summary>The refreshrate for target finding calculations</summary>
     float refreshRate = 1f;
@@ -68,9 +68,9 @@ public class MonsterController : NetworkBehaviour
     /// </summary>
     [SerializeField] NetworkAnimator networkAnimator;
 
-     /// <summary>Player's melee collider</summary>
+    /// <summary>Player's melee collider</summary>
     [SerializeField] CapsuleCollider collider;
-     
+
     /// <summary>NavMeshAgent for navigation</summary>
     NavMeshAgent navAgent;
 
@@ -92,32 +92,36 @@ public class MonsterController : NetworkBehaviour
     {
         dead = newDead;
     }
-    
+
     /// <summary>
     /// Get the monster's sideways velocity
     /// </summary>
-    public float GetVelocityX() {
+    public float GetVelocityX()
+    {
         return velocityX;
     }
 
     /// <summary>
     /// Set the monster's sideways velocity variable
     /// </summary>    
-    public void SetVelocityX(float velocityX) {
+    public void SetVelocityX(float velocityX)
+    {
         this.velocityX = velocityX;
     }
 
     /// <summary>
     /// Get the monster's forwards velocity
     /// </summary>
-    public float GetVelocityZ() {
+    public float GetVelocityZ()
+    {
         return velocityZ;
     }
-    
+
     /// <summary>
     /// Set the monster's forwards velocity variable
     /// </summary>    
-    public void SetVelocityZ(float velocityZ) {
+    public void SetVelocityZ(float velocityZ)
+    {
         this.velocityZ = velocityZ;
     }
 
