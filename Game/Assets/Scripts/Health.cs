@@ -23,6 +23,8 @@ public class Health : NetworkBehaviour
 
     public GameObject spectatorPlayerPrefab = null;
 
+    bool isDead = false;
+
     void Start()
     {
 
@@ -52,8 +54,9 @@ public class Health : NetworkBehaviour
         }
         if (amount > 0) TargetDamage();
         else GotHealed();
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
+            isDead = true;
             TargetDeath();
         }
     }
@@ -82,9 +85,6 @@ public class Health : NetworkBehaviour
     [TargetRpc]
     void TargetDeath()
     {
-        Camera.main.transform.parent = null;
-        Camera.main.transform.position = new Vector3(-5.8f, 84.5f, -48.3f);
-        Camera.main.transform.rotation = Quaternion.Euler(51f, 0f, 0f);
         Debug.Log("You are Dead");
         CmdDestroyPlayer(gameObject);
     }
@@ -97,14 +97,13 @@ public class Health : NetworkBehaviour
 
         NetworkServer.Spawn(deadPlayer);
         RpcDestroyPlayer(character);
-        Debug.Log(connectionToClient);
         NetworkServer.ReplacePlayerForConnection(connectionToClient, spectator.gameObject, true);
     }
 
     [ClientRpc]
     void RpcDestroyPlayer(GameObject character)
     {
-        Destroy(character);
+        gameObject.SetActive(false);
     }
 
 
