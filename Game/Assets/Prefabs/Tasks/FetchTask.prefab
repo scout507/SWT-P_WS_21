@@ -74,6 +74,10 @@ MonoBehaviour:
   progress: 0
   fetchItems:
   - {fileID: 2628754406361024064, guid: c99631e2f75d9234fb645037a093f881, type: 3}
+  - {fileID: 2628754406361024064, guid: b0d02c03cd1eaca4ca4b8698d4011655, type: 3}
+  - {fileID: 2628754406361024064, guid: 7b128325fa2166b40b2f01e7367eea30, type: 3}
+  - {fileID: 2628754406361024064, guid: 30e2efa01426bba41a49574feca11b73, type: 3}
+  - {fileID: 2628754406361024064, guid: efe149dd004197f40b54d4980903ba9a, type: 3}
   maxItems: 3
 --- !u!65 &8694061900490047702
 BoxCollider:

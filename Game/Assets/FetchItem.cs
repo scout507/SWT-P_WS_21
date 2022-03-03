@@ -13,25 +13,24 @@ public class FetchItem : NetworkBehaviour
     public bool lightOn = true;
     //GameObject player;
 
+
+    /// <summary>
+    /// Used for player-object interaction.
+    /// </summary>
     void Update()
     {
-        
-        if(isClient)
+
+        if (isClient)
         {
-            if(!used && playersClient.Contains(NetworkClient.localPlayer.gameObject.GetComponent<NetworkIdentity>().netId) && Input.GetKeyDown(KeyCode.E))
+            if (!used && playersClient.Contains(NetworkClient.localPlayer.gameObject.GetComponent<NetworkIdentity>().netId) && Input.GetKeyDown(KeyCode.E))
             {
                 CmdPickUp(NetworkClient.localPlayer.gameObject);
-                
+
             }
-            else if(used && usedBy == NetworkClient.localPlayer.gameObject.GetComponent<NetworkIdentity>().netId && Input.GetKeyDown(KeyCode.E))
+            else if (used && usedBy == NetworkClient.localPlayer.gameObject.GetComponent<NetworkIdentity>().netId && Input.GetKeyDown(KeyCode.E))
             {
                 CmdLetGo();
             }
-        }
-
-        if(isServer && used)
-        {
-            //gameObject.transform.position = new Vector3(player.transform.position.x +0.5f, player.transform.position.y, player.transform.position.z);
         }
     }
 
@@ -59,14 +58,17 @@ public class FetchItem : NetworkBehaviour
         {
             players.Remove(other.GetComponent<NetworkIdentity>().netId);
             RpcSyncList(players);
-        } 
+        }
     }
 
-
+    /// <summary>
+    /// Binds the Item to the player and prevents others from picking it up
+    /// </summary>
+    /// <param name="player">The player that picked up the item</param>
     [Command(requiresAuthority = false)]
     void CmdPickUp(GameObject player)
     {
-        gameObject.transform.rotation = Quaternion.Euler(0,0,0);
+        gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         gameObject.transform.SetParent(player.transform);
         usedBy = player.GetComponent<NetworkIdentity>().netId;
         used = true;
@@ -74,6 +76,9 @@ public class FetchItem : NetworkBehaviour
         RpcSetParent(player);
     }
 
+    /// <summary>
+    /// Used for unbinding the item from the player.
+    /// </summary>
     [Command(requiresAuthority = false)]
     void CmdLetGo()
     {
@@ -84,8 +89,12 @@ public class FetchItem : NetworkBehaviour
         GetComponent<Rigidbody>().isKinematic = false;
     }
 
+    /// <summary>
+    /// Used for syncing the list of nearby players to the clients.
+    /// </summary>
+    /// <param name="serverList"></param>
     [ClientRpc]
-    void RpcSyncList(List<uint>serverList)
+    void RpcSyncList(List<uint> serverList)
     {
         playersClient = new List<uint>();
         foreach (uint player in serverList)
@@ -94,14 +103,21 @@ public class FetchItem : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Binds the item to the player on the client-side.
+    /// </summary>
+    /// <param name="player">Player that picked up the item</param>
     [ClientRpc]
     void RpcSetParent(GameObject player)
     {
-        gameObject.transform.rotation = Quaternion.Euler(0,0,0);
+        gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         gameObject.transform.SetParent(player.transform);
         GetComponent<Rigidbody>().isKinematic = true;
     }
 
+    /// <summary>
+    /// Unbinds the item from the player on client-side.
+    /// </summary>
     [ClientRpc]
     void RpcRemoveParent()
     {
