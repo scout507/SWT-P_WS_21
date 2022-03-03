@@ -44,7 +44,7 @@ public class MonsterController : NetworkBehaviour
     float timer;
     /// <summary>Timer for attacking</summary>
     public float atkTimer;
-    public bool attack;
+     [SyncVar] public bool attack;
 
     /// <summary>The refreshrate for target finding calculations</summary>
     float refreshRate = 1f;
@@ -82,6 +82,7 @@ public class MonsterController : NetworkBehaviour
     {
         return Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
     }
+
 
     /// <summary>
     /// Set monster status to dead
