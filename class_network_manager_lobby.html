@@ -123,6 +123,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>startGame</b> ()</td>
 <tr class="memitem:a401b2414ea4e901cd4565c5b3c98ad45"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_manager_lobby.html#a401b2414ea4e901cd4565c5b3c98ad45">ServerChangeScene</a> (string newSceneName)</td></tr>
 <tr class="memdesc:a401b2414ea4e901cd4565c5b3c98ad45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the scene from the server and all clients to the game scene. Changes the prefabs from the players to the prefabs for the game.  <a href="class_network_manager_lobby.html#a401b2414ea4e901cd4565c5b3c98ad45">More...</a><br /></td></tr>
 <tr class="separator:a401b2414ea4e901cd4565c5b3c98ad45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad22bde6456466da9fdf40f44899c963f"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_manager_lobby.html#ad22bde6456466da9fdf40f44899c963f">OnServerChangeScene</a> (string newSceneName)</td></tr>
+<tr class="memdesc:ad22bde6456466da9fdf40f44899c963f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawns the spawn manager for each player, at scene change.  <a href="class_network_manager_lobby.html#ad22bde6456466da9fdf40f44899c963f">More...</a><br /></td></tr>
+<tr class="separator:ad22bde6456466da9fdf40f44899c963f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fbb5e9b88afe6bb16577d3c84300a53"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_manager_lobby.html#a3fbb5e9b88afe6bb16577d3c84300a53">OnServerReady</a> (<a class="el" href="class_mirror_1_1_network_connection.html">NetworkConnection</a> conn)</td></tr>
+<tr class="memdesc:a3fbb5e9b88afe6bb16577d3c84300a53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the spawn method from the spawn manager, for each client, when the client has loaded the new scene.  <a href="class_network_manager_lobby.html#a3fbb5e9b88afe6bb16577d3c84300a53">More...</a><br /></td></tr>
+<tr class="separator:a3fbb5e9b88afe6bb16577d3c84300a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_mirror_1_1_network_manager"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_mirror_1_1_network_manager')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_mirror_1_1_network_manager.html">Mirror.NetworkManager</a></td></tr>
 <tr class="memitem:a7d659b2c87f79a99e7faaf3d015e49e7 inherit pub_methods_class_mirror_1_1_network_manager"><td class="memItemLeft" align="right" valign="top"><a id="a7d659b2c87f79a99e7faaf3d015e49e7" name="a7d659b2c87f79a99e7faaf3d015e49e7"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnValidate</b> ()</td></tr>
@@ -200,9 +206,8 @@ Transform&#160;</td><td class="memItemRight" valign="bottom"><b>GetStartPosition
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnServerError</b> (<a class="el" href="class_mirror_1_1_network_connection.html">NetworkConnection</a> conn, Exception exception)</td></tr>
 <tr class="memdesc:a34f8843f44e012bb65cb816655680c03 inherit pub_methods_class_mirror_1_1_network_manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on server when transport raises an exception. <a class="el" href="class_mirror_1_1_network_connection.html" title="Base NetworkConnection class for server-to-client and client-to-server connection.">NetworkConnection</a> may be null.<br /></td></tr>
 <tr class="separator:a34f8843f44e012bb65cb816655680c03 inherit pub_methods_class_mirror_1_1_network_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a328c8da98050688b524106c828bafdb8 inherit pub_methods_class_mirror_1_1_network_manager"><td class="memItemLeft" align="right" valign="top"><a id="a328c8da98050688b524106c828bafdb8" name="a328c8da98050688b524106c828bafdb8"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnServerChangeScene</b> (string newSceneName)</td></tr>
-<tr class="memdesc:a328c8da98050688b524106c828bafdb8 inherit pub_methods_class_mirror_1_1_network_manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called from ServerChangeScene immediately before SceneManager.LoadSceneAsync is executed<br /></td></tr>
+<tr class="memitem:a328c8da98050688b524106c828bafdb8 inherit pub_methods_class_mirror_1_1_network_manager"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mirror_1_1_network_manager.html#a328c8da98050688b524106c828bafdb8">OnServerChangeScene</a> (string newSceneName)</td></tr>
+<tr class="memdesc:a328c8da98050688b524106c828bafdb8 inherit pub_methods_class_mirror_1_1_network_manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called from ServerChangeScene immediately before SceneManager.LoadSceneAsync is executed <a href="class_mirror_1_1_network_manager.html#a328c8da98050688b524106c828bafdb8">More...</a><br /></td></tr>
 <tr class="separator:a328c8da98050688b524106c828bafdb8 inherit pub_methods_class_mirror_1_1_network_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93ae8a9ca02afa60598d464779e1bca5 inherit pub_methods_class_mirror_1_1_network_manager"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mirror_1_1_network_manager.html#a93ae8a9ca02afa60598d464779e1bca5">OnServerSceneChanged</a> (string sceneName)</td></tr>
 <tr class="memdesc:a93ae8a9ca02afa60598d464779e1bca5 inherit pub_methods_class_mirror_1_1_network_manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on server after a scene load with <a class="el" href="class_mirror_1_1_network_manager.html#ae428a9f79881585ef5fef880f6c923ad" title="Change the server scene and all client&#39;s scenes across the network.">ServerChangeScene()</a> is completed. <a href="class_mirror_1_1_network_manager.html#a93ae8a9ca02afa60598d464779e1bca5">More...</a><br /></td></tr>
@@ -327,6 +332,9 @@ static Action&#160;</td><td class="memItemRight" valign="bottom"><b>OnClientConn
 static Action&#160;</td><td class="memItemRight" valign="bottom"><b>OnClientDisconnected</b></td></tr>
 <tr class="memdesc:a89daffe57d342d65422e1b908dcdfb2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds methods defined by the class "JoinLobbyMenu".<br /></td></tr>
 <tr class="separator:a89daffe57d342d65422e1b908dcdfb2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca8443854be4b2bbd59b11ba877e2a88"><td class="memItemLeft" align="right" valign="top"><a id="aca8443854be4b2bbd59b11ba877e2a88" name="aca8443854be4b2bbd59b11ba877e2a88"></a>
+static Action&lt; <a class="el" href="class_mirror_1_1_network_connection.html">NetworkConnection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>OnServerReadied</b></td></tr>
+<tr class="separator:aca8443854be4b2bbd59b11ba877e2a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -515,6 +523,42 @@ static string&#160;</td><td class="memItemRight" valign="bottom"><b>networkScene
 
 </div>
 </div>
+<a id="ad22bde6456466da9fdf40f44899c963f" name="ad22bde6456466da9fdf40f44899c963f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad22bde6456466da9fdf40f44899c963f">&#9670;&nbsp;</a></span>OnServerChangeScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">override void NetworkManagerLobby.OnServerChangeScene </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>newSceneName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Spawns the spawn manager for each player, at scene change. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newSceneName</td><td>Name of the scene to switch to.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="class_mirror_1_1_network_manager.html#a328c8da98050688b524106c828bafdb8">Mirror.NetworkManager</a>.</p>
+
+</div>
+</div>
 <a id="a03dade20972d921dd031a168cad5bf73" name="a03dade20972d921dd031a168cad5bf73"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a03dade20972d921dd031a168cad5bf73">&#9670;&nbsp;</a></span>OnServerConnect()</h2>
 
@@ -584,6 +628,42 @@ static string&#160;</td><td class="memItemRight" valign="bottom"><b>networkScene
 </dl>
 
 <p>Reimplemented from <a class="el" href="class_mirror_1_1_network_manager.html#a54d039ac0bb7d8504b3424a73e53b328">Mirror.NetworkManager</a>.</p>
+
+</div>
+</div>
+<a id="a3fbb5e9b88afe6bb16577d3c84300a53" name="a3fbb5e9b88afe6bb16577d3c84300a53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fbb5e9b88afe6bb16577d3c84300a53">&#9670;&nbsp;</a></span>OnServerReady()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">override void NetworkManagerLobby.OnServerReady </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_mirror_1_1_network_connection.html">NetworkConnection</a>&#160;</td>
+          <td class="paramname"><em>conn</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calls the spawn method from the spawn manager, for each client, when the client has loaded the new scene. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conn</td><td>Network connection to the client.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="class_mirror_1_1_network_manager.html#a7ebf77a6a7d8ef3d92bf06a51fe1583b">Mirror.NetworkManager</a>.</p>
 
 </div>
 </div>
