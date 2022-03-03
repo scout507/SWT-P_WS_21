@@ -2289,7 +2289,7 @@ GameObject:
   - component: {fileID: 6726831642852333111}
   - component: {fileID: 386149115403895629}
   m_Layer: 0
-  m_Name: GamePlayer
+  m_Name: GamePlayer 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2353,8 +2353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7d05e5ec4308b4d94a7b167571202d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
   menuCanvas: {fileID: 6082957381142349206}
 --- !u!1 &4086646315645904214
 GameObject:

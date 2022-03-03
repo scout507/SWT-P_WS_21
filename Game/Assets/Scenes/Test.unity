@@ -27672,6 +27672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  tasksCreated: 0
   amountSimple: 1
   amountMedium: 1
   amountHard: 1
