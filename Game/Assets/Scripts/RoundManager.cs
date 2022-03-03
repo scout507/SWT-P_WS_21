@@ -111,7 +111,8 @@ public class RoundManager : NetworkBehaviour
 
         foreach (GameObject player in playersArray)
         {
-            newPlayerList.Add(player.GetComponent<NetworkIdentity>().netId);
+            if (!player.GetComponent<Health>().isDead)
+                newPlayerList.Add(player.GetComponent<NetworkIdentity>().netId);
         }
 
         return newPlayerList;
