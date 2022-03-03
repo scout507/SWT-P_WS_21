@@ -23,7 +23,7 @@ public class Health : NetworkBehaviour
 
     public GameObject spectatorPlayerPrefab = null;
 
-    bool isDead = false;
+    public bool isDead = false;
 
     void Start()
     {
