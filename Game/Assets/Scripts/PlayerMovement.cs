@@ -6,6 +6,7 @@ using UnityEngine;
 /* created by: SWT-P_WS_21/22 */
 
 
+/* edited by: SWT-P_WS_21/22*/
 /// <summary>
 /// The class PlayerMovement is responsible for the movement of the player and it manages which weapon is selected.
 /// </summary>
@@ -108,7 +109,7 @@ public class PlayerMovement : NetworkBehaviour
     float mouseSensitivity = 100f;
 
     [SerializeField]
-    GameObject cameraMountPoint;
+    public GameObject cameraMountPoint;
 
     /// <summary>
     /// Initial pitch of the player's view
@@ -212,9 +213,6 @@ public class PlayerMovement : NetworkBehaviour
         isAirborne = newIsAirborne;
     }
 
-    [SyncVar(hook = nameof(SwitchWeapon))]
-    public int selectedWeapon = 0;
-
     /// <summary>
     /// When a player starts a client and enters a game the layer of the gameObject of the local player is set to default and
     /// set the main camera to first person view.
@@ -231,15 +229,6 @@ public class PlayerMovement : NetworkBehaviour
         cameraTransform.parent = cameraMountPoint.transform; // Make the camera a child of the mount point
         cameraTransform.position = cameraMountPoint.transform.position; // Set position/rotation same as the mount point
         cameraTransform.rotation = cameraMountPoint.transform.rotation;
-    }
-
-    /// <summary>
-    /// When a player prefab is spawns, this selects the first weapon.
-    /// </summary>
-    private void Start()
-    {
-        selectedWeapon = 1;
-        SwitchWeapon(selectedWeapon, selectedWeapon);
     }
 
     /// <summary>
@@ -426,95 +415,6 @@ public class PlayerMovement : NetworkBehaviour
             if (Input.GetKeyDown("2")) SetCurrentTaunt(2);
             if (Input.GetKeyDown("3")) SetCurrentTaunt(3);
         }
-
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon < 5)
-        {
-            int newWeapon = selectedWeapon + 1;
-            CmdSwitchWeapon(newWeapon);
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon > 1)
-        {
-            int newWeapon = selectedWeapon - 1;
-            CmdSwitchWeapon(newWeapon);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            CmdSwitchWeapon(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            CmdSwitchWeapon(2);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            CmdSwitchWeapon(3);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            CmdSwitchWeapon(4);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            CmdSwitchWeapon(5);
-        }
     }
 
-    /// <summary>
-    /// Switching weapons is handled by the server. This methode changes the index of the selected weapon to the new weapon.
-    /// </summary>
-    /// <param name="newWeapon">Index of new weapon which is now selected.</param>
-    [Command]
-    public void CmdSwitchWeapon(int newWeapon)
-    {
-        selectedWeapon = newWeapon;
-    }
-
-    /// <summary>
-    /// Deactivates the script of the old weapon and activates the script of the new weapon.
-    /// </summary>
-    /// <param name="oldWeapon">Index of old weapon.</param>
-    /// <param name="newWeapon">Index of new weapon.</param>
-    private void SwitchWeapon(int oldWeapon, int newWeapon)
-    {
-        switch (oldWeapon)
-        {
-            case 1:
-                GetComponent<MP>().enabled = false;
-                break;
-            case 2:
-                GetComponent<Shotgun>().enabled = false;
-                break;
-            case 3:
-                GetComponent<Rifle>().enabled = false;
-                break;
-            case 4:
-                GetComponent<Pistol>().enabled = false;
-                break;
-            case 5:
-                GetComponent<Melee>().enabled = false;
-                break;
-            default:
-                break;
-        }
-        switch (newWeapon)
-        {
-            case 1:
-                GetComponent<MP>().enabled = true;
-                break;
-            case 2:
-                GetComponent<Shotgun>().enabled = true;
-                break;
-            case 3:
-                GetComponent<Rifle>().enabled = true;
-                break;
-            case 4:
-                GetComponent<Pistol>().enabled = true;
-                break;
-            case 5:
-                GetComponent<Melee>().enabled = true;
-                break;
-            default:
-                break;
-        }
-    }
 }

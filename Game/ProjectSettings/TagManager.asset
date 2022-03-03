@@ -8,6 +8,7 @@ TagManager:
   - NetworkManagerLobby
   - Fence
   - NetworkManager
+  - Manager
   layers:
   - Default
   - TransparentFX
@@ -19,9 +20,9 @@ TagManager:
   - Player
   - Monster
   - MeleeWeapon
-  - 
-  - 
-  - 
+  - Wall
+  - Celling
+  - Device
   - 
   - 
   - 

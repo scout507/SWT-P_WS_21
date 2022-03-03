@@ -69,6 +69,10 @@ public class Pistol : ShootGun
             {
                 CmdShootMonster(hit.collider.transform.root.gameObject, gunDamage); // Calls TakeDamage on the monster hit
             }
+            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Device"))
+            {
+                CmdShootDevice(hit.collider.transform.root.gameObject, gunDamage); // Calls TakeDamage on the device hit
+            }
             else
             {
                 CmdShootWall(hit.point);

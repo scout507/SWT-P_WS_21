@@ -83,5 +83,9 @@ public class Melee : ShootGun
         {
             CmdShootMonster(attackedOpponent, gunDamage);
         }
+        else if (attackedOpponent.layer == LayerMask.NameToLayer("Device"))
+        {
+            CmdShootDevice(attackedOpponent, gunDamage);
+        }
     }
 }
