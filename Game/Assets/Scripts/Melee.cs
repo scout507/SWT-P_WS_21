@@ -25,10 +25,15 @@ public class Melee : ShootGun
         {
             return;
         }
+
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             Shoot();
+        }
+        else
+        {
+            this.inAttack = false;
         }
     }
 
@@ -37,7 +42,7 @@ public class Melee : ShootGun
     /// </summary>
     public override void Shoot()
     {
-        StartCoroutine(Hit());
+        this.inAttack = true;
     }
 
     /// <summary>
@@ -87,5 +92,14 @@ public class Melee : ShootGun
         {
             CmdShootDevice(attackedOpponent, gunDamage);
         }
+    }
+
+    /// <summary>
+    /// Getter for the melee's collider
+    /// </summary>
+    /// <returns>BoxCollider of the melee weapon's head</returns>
+    public BoxCollider GetCollider()
+    {
+        return gunMount.GetComponentInChildren<BoxCollider>();
     }
 }
