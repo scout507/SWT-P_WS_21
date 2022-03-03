@@ -19,7 +19,7 @@ public class IngameMenu : NetworkBehaviour
     void Update()
     {
         if (isLocalPlayer)
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Escape))
                 toggleMenu();
     }
 
