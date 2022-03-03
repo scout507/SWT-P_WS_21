@@ -7445,14 +7445,15 @@ MonoBehaviour:
   networkAddress: localhost
   maxConnections: 100
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 2573211290775858027, guid: 2913425d01e4cf14390847478ea5153a, type: 3}
+  playerPrefab: {fileID: 2573211290775858027, guid: 99356a60abdba8f4f91f646df1ebee47, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs:
   - {fileID: 1977908094656156945, guid: 7705d299d67c6c44e80b89d358115360, type: 3}
   - {fileID: 4889826601512724900, guid: f67da8ceb9fb66c4cb481736f464d50b, type: 3}
   - {fileID: 4889826601512724900, guid: bf3fba80a360c5a4e887eb555264717e, type: 3}
-  - {fileID: 0}
+  - {fileID: 8694061900490047699, guid: d1f7961bf0bf9e24f9f1a9817a4e0572, type: 3}
+  - {fileID: 2628754406361024064, guid: c99631e2f75d9234fb645037a093f881, type: 3}
 --- !u!4 &426394632
 Transform:
   m_ObjectHideFlags: 0
@@ -27571,7 +27572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  totalPlayers: 2
+  totalPlayers: 1
   playerSpawn: {fileID: 2060053450}
   timePerRound: 1800
   prepTimer: 30
@@ -27589,11 +27590,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  tasksCreated: 0
   amountSimple: 1
   amountMedium: 1
   amountHard: 1
   simpleTasks:
-  - {fileID: 1977908094656156945, guid: 7705d299d67c6c44e80b89d358115360, type: 3}
+  - {fileID: 8694061900490047699, guid: d1f7961bf0bf9e24f9f1a9817a4e0572, type: 3}
   mediumTasks:
   - {fileID: 1977908094656156945, guid: 7705d299d67c6c44e80b89d358115360, type: 3}
   hardTasks:
@@ -27616,7 +27618,7 @@ MonoBehaviour:
   roamingZombie: {fileID: 4889826601512724900, guid: f67da8ceb9fb66c4cb481736f464d50b, type: 3}
   timeBetweenWave: 600
   zombiesAmount: 10
-  roamerAmount: 10
+  roamerAmount: 0
   waveSpawns:
   - {fileID: 1372488436}
   roamerSpawns:
