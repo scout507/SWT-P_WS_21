@@ -5,7 +5,6 @@ using Mirror;
 
 public class Spectator : NetworkBehaviour
 {
-
     public float movementSpeed = 1;
 
     public float speedM = 2;
@@ -14,7 +13,8 @@ public class Spectator : NetworkBehaviour
     private float yaw = 0;
     private float pitch = 0;
 
-    void Start() { 
+    void Start()
+    {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -24,16 +24,18 @@ public class Spectator : NetworkBehaviour
         if (!isLocalPlayer)
             return;
 
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        if (!FindObjectOfType<IngameMenu>().menuCanvas.enabled)
+        {
+            float h = Input.GetAxis("Horizontal");
+            float v = Input.GetAxis("Vertical");
 
-        yaw += speedM * Input.GetAxis("Mouse X");
-        pitch -= speedV * Input.GetAxis("Mouse Y");
+            yaw += speedM * Input.GetAxis("Mouse X");
+            pitch -= speedV * Input.GetAxis("Mouse Y");
 
-        transform.eulerAngles = new Vector3(pitch, yaw, 0);
-        transform.position += transform.TransformDirection(Vector3.forward)*v + transform.TransformDirection(Vector3.right)*h;
-
-
-
+            transform.eulerAngles = new Vector3(pitch, yaw, 0);
+            transform.position +=
+                transform.TransformDirection(Vector3.forward) * v
+                + transform.TransformDirection(Vector3.right) * h;
+        }
     }
 }
