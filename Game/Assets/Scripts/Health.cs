@@ -21,8 +21,11 @@ public class Health : NetworkBehaviour
 
     void Start()
     {
+
         health = 100;
         healthBar.SetMaxHealth(health);
+        if (!isLocalPlayer) return;
+        CmdRegisterPlayer();
     }
 
     /// <summary>
@@ -35,9 +38,16 @@ public class Health : NetworkBehaviour
         {
             return;
         }
-        health -= amount;
-
-        TargetDamage();
+        if (amount < 0 && health - amount > 100)
+        {
+            health = 100;
+        }
+        else
+        {
+            health -= amount;
+        }
+        if (amount > 0) TargetDamage();
+        else GotHealed();
         if (health <= 0)
         {
             TargetDeath();
@@ -51,6 +61,15 @@ public class Health : NetworkBehaviour
     public void TargetDamage()
     {
         Debug.Log("Took damage!");
+    }
+
+    /// <summary>
+    /// The methode GotHealed is called when a player is healed. It can then trigger an animation or something similar.
+    /// </summary>
+    [TargetRpc]
+    public void GotHealed()
+    {
+        Debug.Log("Got healed!");
     }
 
     /// <summary>
@@ -76,5 +95,15 @@ public class Health : NetworkBehaviour
     void RpcDestroyPlayer(GameObject character)
     {
         Destroy(character);
+    }
+
+
+    /// <summary>
+    /// Calls the RoundManager to register the player upon joining the game.
+    /// </summary>
+    [Command]
+    void CmdRegisterPlayer()
+    {
+        GameObject.FindGameObjectWithTag("Manager").GetComponent<RoundManager>().Register(this.gameObject);
     }
 }

@@ -394,6 +394,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5441599316888739996, guid: 68f10966afebe874ca67bf8ad8dc80e9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5939580658276169288, guid: 68f10966afebe874ca67bf8ad8dc80e9, type: 3}
       propertyPath: m_Name
       value: Zombie Spawner
@@ -630,11 +634,12 @@ MonoBehaviour:
   networkAddress: localhost
   maxConnections: 100
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 2573211290775858027, guid: 2913425d01e4cf14390847478ea5153a, type: 3}
+  playerPrefab: {fileID: 2931126524512888549, guid: 94c6d17d2918b7a4f84fc3de5c786c96, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs:
   - {fileID: 4889826601512724900, guid: 74ff9c01870e1674ba2dceb08be40b7a, type: 3}
+  - {fileID: 7041521826398166441, guid: 0626f0694f83d654a9022d15c7f94db1, type: 3}
 --- !u!4 &2079814448
 Transform:
   m_ObjectHideFlags: 0
