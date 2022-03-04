@@ -13,6 +13,8 @@ public class Spectator : NetworkBehaviour
     private float yaw = 0;
     private float pitch = 0;
 
+    public bool active = true;
+
     public override void OnStartLocalPlayer()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -28,7 +30,7 @@ public class Spectator : NetworkBehaviour
         if (!isLocalPlayer)
             return;
 
-        if (!FindObjectOfType<IngameMenu>().menuCanvas.enabled)
+        if (active)
         {
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");

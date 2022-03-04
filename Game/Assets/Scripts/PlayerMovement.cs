@@ -137,6 +137,8 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     float xRotation = 0f;
 
+    public bool active = true;
+
     /// <summary>
     /// Player's current taunt (0 = none)
     /// </summary>
@@ -341,7 +343,7 @@ public class PlayerMovement : NetworkBehaviour
             return;
         }
 
-        if (!FindObjectOfType<IngameMenu>().menuCanvas.enabled)
+        if (active)
         {
             SetIsGrounded(CheckGrounded());
 
