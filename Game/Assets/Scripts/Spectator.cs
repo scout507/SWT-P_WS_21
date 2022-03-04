@@ -13,12 +13,14 @@ public class Spectator : NetworkBehaviour
     private float yaw = 0;
     private float pitch = 0;
 
-    void Start()
+    public override void OnStartLocalPlayer()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        if (!isLocalPlayer)
-            Destroy(gameObject);
+        Transform cameraTransform = Camera.main.gameObject.transform;
+        cameraTransform.parent = transform;
+        cameraTransform.position = transform.position;
+        cameraTransform.rotation = transform.rotation;
     }
 
     void Update()
