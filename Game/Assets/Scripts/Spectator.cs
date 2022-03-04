@@ -17,6 +17,8 @@ public class Spectator : NetworkBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        if (!isLocalPlayer)
+            Destroy(gameObject);
     }
 
     void Update()
