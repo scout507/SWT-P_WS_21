@@ -45,7 +45,7 @@ public class Health : NetworkBehaviour
         else
         {
             health -= amount;
-            if (health>0)
+            if (health > 0)
             {
                 healthBar.SetHealth(health);
             }
