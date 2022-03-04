@@ -200,6 +200,15 @@ public class PlayerMovement : NetworkBehaviour
     }
 
     /// <summary>
+    /// Getter for currently selected weapon (id)
+    /// </summary>
+    public int GetSelectedWeapon()
+    {
+        // This needs to return the player's selectedWeapon via their class script
+        return 0;
+    }
+
+    /// <summary>
     /// Sets the player's relative move vector
     /// </summary>
     [Command]
@@ -424,20 +433,8 @@ public class PlayerMovement : NetworkBehaviour
                 }
             }
 
-            /*if (Input.GetButtonDown("Prone"))
-        {
-            if (!isProne)
-            {
-                isProne = true;
-            }
-            else 
-            {
-                isProne = false;
-            }
-        }*/
-
-            velocity.y -= gravity * Time.deltaTime;
-            controller.Move(velocity * Time.deltaTime);
+        velocity.y -= gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
 
             if (move.magnitude > 0.1f)
                 SetCurrentTaunt(0);
