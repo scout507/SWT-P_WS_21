@@ -9952,8 +9952,8 @@ MonoBehaviour:
   runInBackground: 1
   autoStartServerBuild: 1
   serverTickRate: 30
-  offlineScene: Assets/Scenes/Menu.unity
-  onlineScene: Assets/Scenes/Menu.unity
+  offlineScene: 
+  onlineScene: 
   transport: {fileID: 1763231319}
   networkAddress: localhost
   maxConnections: 6
