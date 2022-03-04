@@ -234,7 +234,7 @@ public class NetworkManagerLobby : NetworkManager
     /// Spawns the spawn manager for each player, at scene change.
     /// </summary>
     /// <param name="newSceneName">Name of the scene to switch to.</param>
-    public override void OnServerChangeScene(string newSceneName)
+    public override void OnServerSceneChanged (string newSceneName)
     {
         if (newSceneName.StartsWith("Test"))
         {
