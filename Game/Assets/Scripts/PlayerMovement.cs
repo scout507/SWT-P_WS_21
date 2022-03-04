@@ -183,6 +183,7 @@ public class PlayerMovement : NetworkBehaviour
     public int GetSelectedWeapon()
     {
         //return selectedWeapon;
+        // This needs to return the player's selectedWeapon via their class script
         return 0;
     }
 
@@ -401,18 +402,6 @@ public class PlayerMovement : NetworkBehaviour
                 Uncrouch();
             }
         }
-
-        /*if (Input.GetButtonDown("Prone"))
-        {
-            if (!isProne)
-            {
-                isProne = true;
-            }
-            else 
-            {
-                isProne = false;
-            }
-        }*/
 
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
