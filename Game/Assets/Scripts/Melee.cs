@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class Melee : ShootGun
 {
+
+    private AudioController audioController; // Audio Script that controlls Gun Sound
+
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// </summary>
@@ -14,6 +17,8 @@ public class Melee : ShootGun
     {
         this.gunDamage = 100;
         this.fireRate = 0.5f;
+
+        audioController = this.GetComponent<AudioController>();
     }
 
     /// <summary>
@@ -42,6 +47,7 @@ public class Melee : ShootGun
     /// </summary>
     public override void Shoot()
     {
+        audioController.PlayGunSound(3);
         this.inAttack = true;
     }
 
