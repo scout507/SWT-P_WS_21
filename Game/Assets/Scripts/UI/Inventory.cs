@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
 
-public class Inventory : NetworkBehaviour
+public class Inventory : MonoBehaviour
 {
     /// <summary>
     /// weapon Icon-Image

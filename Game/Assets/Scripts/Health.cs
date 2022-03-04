@@ -25,7 +25,7 @@ public class Health : NetworkBehaviour
         health = 100;
         healthBar.SetMaxHealth(health);
         if (!isLocalPlayer) return;
-        CmdRegisterPlayer();
+        //CmdRegisterPlayer();
     }
 
     /// <summary>
@@ -45,6 +45,14 @@ public class Health : NetworkBehaviour
         else
         {
             health -= amount;
+            if (health>0)
+            {
+                healthBar.SetHealth(health);
+            }
+            else
+            {
+                healthBar.SetHealth(0);
+            }
         }
         if (amount > 0) TargetDamage();
         else GotHealed();
