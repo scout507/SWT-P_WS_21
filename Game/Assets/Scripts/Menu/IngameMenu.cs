@@ -29,6 +29,8 @@ public class IngameMenu : NetworkBehaviour
     public void toggleMenu()
     {
         menuCanvas.enabled = !menuCanvas.enabled;
+        Cursor.visible = menuCanvas.enabled;
+        Cursor.lockState = menuCanvas.enabled ? CursorLockMode.Confined : CursorLockMode.Locked;
     }
 
     /// <summary>

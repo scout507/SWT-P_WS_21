@@ -506,6 +506,8 @@ MonoBehaviour:
   syncInterval: 0.1
   health: 0
   healthBar: {fileID: 6952407815072459466}
+  deadPlayerPrefab: {fileID: 8853732361934627443, guid: 118d57744739ef043ad07562fdba7fba, type: 3}
+  spectatorPlayerPrefab: {fileID: 4639899495843315192, guid: 49a5a51195366c64a807c02c4307d16d, type: 3}
 --- !u!136 &6896355853710520063
 CapsuleCollider:
   m_ObjectHideFlags: 0
