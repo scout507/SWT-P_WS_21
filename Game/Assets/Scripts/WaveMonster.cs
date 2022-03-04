@@ -65,9 +65,9 @@ public class WaveMonster : MonsterController
             if (timer >= refreshRate) currentTarget = ChooseTarget();
 
 
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Attack") || 
-                animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Damage") ||  
-                animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Dying")) 
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Attack") ||
+                animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Damage") ||
+                animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Dying"))
             {
                 nav.isStopped = true;
             }
