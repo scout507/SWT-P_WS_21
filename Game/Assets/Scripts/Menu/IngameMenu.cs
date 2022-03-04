@@ -18,9 +18,11 @@ public class IngameMenu : NetworkBehaviour
     /// </summary>
     void Update()
     {
-        if (isLocalPlayer)
-            if (Input.GetKeyDown(KeyCode.Escape))
-                toggleMenu();
+        if (!isLocalPlayer)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.Escape) && FindObjectOfType<RoundManager>().hasWon == Winner.None)
+            toggleMenu();
     }
 
     /// <summary>
