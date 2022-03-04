@@ -177,7 +177,7 @@ public class RoundManager : NetworkBehaviour
         //TODO: Add endgame-screen or something.
         if (gameTimer >= timePerRound)
         {
-            //Everyone loses the game
+            hasWon = Winner.Nobody;
         }
         else if (taskManager.CheckAllFinished())
         {

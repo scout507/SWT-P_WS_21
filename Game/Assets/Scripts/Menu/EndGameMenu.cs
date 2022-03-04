@@ -54,8 +54,9 @@ public class EndGameMenu : NetworkBehaviour
     {
         if (winner == Winner.Team)
             title.text = "Team wins";
-        else
+        else if (winner == Winner.Imposter)
             title.text = "Imposter wins";
+        else title.text = "All lose";
 
         impostorText.text = FindObjectOfType<RoundManager>().imposterNames;
         endGameCanvas.enabled = true;
