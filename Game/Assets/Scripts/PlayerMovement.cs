@@ -433,8 +433,8 @@ public class PlayerMovement : NetworkBehaviour
                 }
             }
 
-        velocity.y -= gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+            velocity.y -= gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
 
             if (move.magnitude > 0.1f)
                 SetCurrentTaunt(0);

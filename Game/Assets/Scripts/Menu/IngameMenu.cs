@@ -30,7 +30,7 @@ public class IngameMenu : NetworkBehaviour
     {
         menuCanvas.enabled = !menuCanvas.enabled;
         Cursor.visible = menuCanvas.enabled;
-        Cursor.lockState =  menuCanvas.enabled ? CursorLockMode.Confined : CursorLockMode.Locked;
+        Cursor.lockState = menuCanvas.enabled ? CursorLockMode.Confined : CursorLockMode.Locked;
     }
 
     /// <summary>
