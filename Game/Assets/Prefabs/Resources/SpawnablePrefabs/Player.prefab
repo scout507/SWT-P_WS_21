@@ -338,6 +338,7 @@ GameObject:
   - component: {fileID: 6806833817984724905}
   - component: {fileID: 3248878015747566184}
   - component: {fileID: 7274144793029159478}
+  - component: {fileID: 8924540365084395033}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -508,6 +509,7 @@ MonoBehaviour:
   healthBar: {fileID: 6952407815072459466}
   deadPlayerPrefab: {fileID: 8853732361934627443, guid: 118d57744739ef043ad07562fdba7fba, type: 3}
   spectatorPlayerPrefab: {fileID: 4639899495843315192, guid: 49a5a51195366c64a807c02c4307d16d, type: 3}
+  isDead: 0
 --- !u!136 &6896355853710520063
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -545,6 +547,7 @@ MonoBehaviour:
   gunAmmo: 0
   nextFire: 0
   recoil: 0
+  inAttack: 0
 --- !u!114 &6871522370115226598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,6 +571,7 @@ MonoBehaviour:
   gunAmmo: 0
   nextFire: 0
   recoil: 0
+  inAttack: 0
 --- !u!114 &6806833817984724905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,6 +595,7 @@ MonoBehaviour:
   gunAmmo: 0
   nextFire: 0
   recoil: 0
+  inAttack: 0
 --- !u!114 &3248878015747566184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,6 +619,7 @@ MonoBehaviour:
   gunAmmo: 0
   nextFire: 0
   recoil: 0
+  inAttack: 0
 --- !u!114 &7274144793029159478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,6 +643,20 @@ MonoBehaviour:
   gunAmmo: 0
   nextFire: 0
   recoil: 0
+  inAttack: 0
+--- !u!114 &8924540365084395033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2573211290775858027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae41d263bf8af243a7b4e512c02563a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: 
 --- !u!1 &2573211291595838414
 GameObject:
   m_ObjectHideFlags: 0
