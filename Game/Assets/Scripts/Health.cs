@@ -96,8 +96,8 @@ public class Health : NetworkBehaviour
         GameObject spectator = Instantiate(spectatorPlayerPrefab, transform.position + Vector3.up * 5, transform.rotation);
 
         NetworkServer.Spawn(deadPlayer);
-        RpcDestroyPlayer(character);
         NetworkServer.ReplacePlayerForConnection(connectionToClient, spectator.gameObject, true);
+        RpcDestroyPlayer(character);
     }
 
     [ClientRpc]
