@@ -60,6 +60,8 @@ public class PlayerSpawnSystem : NetworkBehaviour
             playerPrefabs.RemoveAt(index);
         }
 
+        playerInstance.GetComponent<Player>().displayName = conn.identity.GetComponent<NetworkGamePlayer>().displayName;
+
         NetworkServer.ReplacePlayerForConnection(conn, playerInstance.gameObject, true);
     }
 }
