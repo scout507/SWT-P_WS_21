@@ -29,6 +29,8 @@ public class RoundManager : NetworkBehaviour
     /// <summary>Timer for searching for active players</summary>//
     float playerRefreshTimer;
 
+    public Winner hasWon = Winner.None;
+
 
     //NPC-related
     /// <summary>Zombiespawner-script</summary>//
@@ -175,17 +177,17 @@ public class RoundManager : NetworkBehaviour
         {
             if (activePlayers.Count > 1)
             {
-                //Team wins
+                hasWon = Winner.Team;
             }
             else
             {
                 if (activePlayers.Contains(impostor))
                 {
-                    //Impostor wins
+                    hasWon = Winner.Imposter;
                 }
                 else
                 {
-                    //Team wins
+                    hasWon = Winner.Team;
                 }
             }
         }
