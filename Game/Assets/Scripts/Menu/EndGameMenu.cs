@@ -57,7 +57,7 @@ public class EndGameMenu : NetworkBehaviour
         else
             title.text = "Imposter wins";
 
-        impostorText.text = "muss noch eingefügt werden";
+        impostorText.text = FindObjectOfType<RoundManager>().imposterNames;
         endGameCanvas.enabled = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
