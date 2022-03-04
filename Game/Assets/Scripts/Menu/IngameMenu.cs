@@ -21,7 +21,10 @@ public class IngameMenu : NetworkBehaviour
         if (!isLocalPlayer)
             return;
 
-        if (Input.GetKeyDown(KeyCode.Escape) && FindObjectOfType<RoundManager>().hasWon == Winner.None)
+        if (
+            Input.GetKeyDown(KeyCode.Escape)
+            && FindObjectOfType<RoundManager>().hasWon == Winner.None
+        )
             toggleMenu();
     }
 
@@ -31,6 +34,10 @@ public class IngameMenu : NetworkBehaviour
     public void toggleMenu()
     {
         menuCanvas.enabled = !menuCanvas.enabled;
+        if (connectionToServer.identity.GetComponent<PlayerMovement>() != null)
+            connectionToServer.identity.GetComponent<PlayerMovement>().active = !menuCanvas.enabled;
+        else
+            connectionToServer.identity.GetComponent<Spectator>().active = !menuCanvas.enabled;
         Cursor.visible = menuCanvas.enabled;
         Cursor.lockState = menuCanvas.enabled ? CursorLockMode.Confined : CursorLockMode.Locked;
     }
