@@ -31,6 +31,8 @@ public class RoundManager : NetworkBehaviour
 
     public Winner hasWon = Winner.None;
 
+    public string imposterNames = "";
+
 
     //NPC-related
     /// <summary>Zombiespawner-script</summary>//
@@ -143,13 +145,17 @@ public class RoundManager : NetworkBehaviour
 
         GameObject[] playersArray = GameObject.FindGameObjectsWithTag("Player");
 
+        string names = "";
+
         foreach (GameObject player in playersArray)
         {
             if (player.GetComponent<NetworkIdentity>().netId == impostor)
             {
                 TargetRpcTellImpostor(player.GetComponent<NetworkIdentity>().connectionToClient);
+                names += player.GetComponent<Player>().displayName + "\n";
             }
         }
+        SetImposterNames(names);
     }
 
     /// <summary>
@@ -191,6 +197,7 @@ public class RoundManager : NetworkBehaviour
                 }
             }
         }
+        SetHasWon(hasWon);
     }
 
 
@@ -249,5 +256,17 @@ public class RoundManager : NetworkBehaviour
     {
         //TODO: Tell the impostor in the UI that he has been chosen
         Debug.Log("You are the impostor");
+    }
+
+    [ClientRpc]
+    void SetHasWon(Winner winner )
+    {
+        hasWon = winner;
+    }
+
+    [ClientRpc]
+    void SetImposterNames(string names)
+    {
+        imposterNames = names;
     }
 }
