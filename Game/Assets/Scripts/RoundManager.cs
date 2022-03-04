@@ -63,7 +63,7 @@ public class RoundManager : NetworkBehaviour
     {
         if (!isServer) return;
 
-        if(NetworkManager.singleton as NetworkManagerLobby != null) totalPlayers = (NetworkManager.singleton as NetworkManagerLobby).gamePlayers.Count;
+        if (NetworkManager.singleton as NetworkManagerLobby != null) totalPlayers = (NetworkManager.singleton as NetworkManagerLobby).gamePlayers.Count;
         zombieSpawner = GetComponent<ZombieSpawner>();
         taskManager = GetComponent<TaskManager>();
     }
@@ -259,7 +259,7 @@ public class RoundManager : NetworkBehaviour
     }
 
     [ClientRpc]
-    void SetHasWon(Winner winner )
+    void SetHasWon(Winner winner)
     {
         hasWon = winner;
     }
