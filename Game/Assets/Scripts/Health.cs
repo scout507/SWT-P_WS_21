@@ -19,10 +19,11 @@ public class Health : NetworkBehaviour
 
     public HealthBar healthBar;
 
+    /// <summary>Holds the prefab for a dead player.</summary>
     public GameObject deadPlayerPrefab = null;
-
+    /// <summary>Holds the prefab for a spectator.</summary>
     public GameObject spectatorPlayerPrefab = null;
-
+    /// <summary>Is true when the player is dead.</summary>
     public bool isDead = false;
 
     void Start()
@@ -86,22 +87,27 @@ public class Health : NetworkBehaviour
     void TargetDeath()
     {
         Debug.Log("You are Dead");
-        CmdDestroyPlayer(gameObject);
+        CmdDestroyPlayer();
     }
 
+    /// <summary>
+    /// Spawns the deadPlayer prefab and the spectator prefab.
+    /// Sets the game object of the spectator as a new player prefab.
+    /// </summary>
     [Command]
-    void CmdDestroyPlayer(GameObject character)
+    void CmdDestroyPlayer()
     {
         GameObject deadPlayer = Instantiate(deadPlayerPrefab, transform.position, transform.rotation);
         GameObject spectator = Instantiate(spectatorPlayerPrefab, transform.position + Vector3.up * 5, transform.rotation);
 
         NetworkServer.Spawn(deadPlayer);
         NetworkServer.ReplacePlayerForConnection(connectionToClient, spectator.gameObject, true);
-        RpcDestroyPlayer(character);
+        RpcDestroyPlayer();
     }
 
+    /// <summary>Deactivates the player object.</summary>
     [ClientRpc]
-    void RpcDestroyPlayer(GameObject character)
+    void RpcDestroyPlayer()
     {
         gameObject.SetActive(false);
     }

@@ -44,6 +44,7 @@ public class PlayerSpawnSystem : NetworkBehaviour
     /// Called only by the server.
     /// Randomly creates the player with one of the predefined presets/classes.
     /// If no more prefab is available, the default prefab is used.
+    /// Also sets the display name on the player prefab.
     /// </summary>
     /// <param name="conn">Network connection from the client.</param>
     [Server]

@@ -137,6 +137,7 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     float xRotation = 0f;
 
+    /// <summary>Is true if the script is to be active.</summary>
     public bool active = true;
 
     /// <summary>

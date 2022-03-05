@@ -29,8 +29,10 @@ public class RoundManager : NetworkBehaviour
     /// <summary>Timer for searching for active players</summary>//
     float playerRefreshTimer;
 
+    /// <summary>Holds the winner, standard moderately none.</summary>
     public Winner hasWon = Winner.None;
 
+    /// <summary>Holds the impostor names. Each name is separated by a paragraph.</summary>
     public string imposterNames = "";
 
 
@@ -174,7 +176,6 @@ public class RoundManager : NetworkBehaviour
     /// </summary>
     void ChooseWinner()
     {
-        //TODO: Add endgame-screen or something.
         if (gameTimer >= timePerRound)
         {
             hasWon = Winner.Nobody;
@@ -258,12 +259,16 @@ public class RoundManager : NetworkBehaviour
         Debug.Log("You are the impostor");
     }
 
+    /// <summary>Sync the "hasWon" variable from the server to the client.</summary>
+    /// <param name="winner">Contains the winner type of the class Winner.</param>
     [ClientRpc]
     void SetHasWon(Winner winner)
     {
         hasWon = winner;
     }
 
+    /// <summary>Sync the "imposterNames" variable from the server to the client.</summary>
+    /// <param name="names">Contains the impostor names.</param>
     [ClientRpc]
     void SetImposterNames(string names)
     {
