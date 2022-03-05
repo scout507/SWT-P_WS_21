@@ -8,7 +8,7 @@ using Mirror;
 /// <summary>
 /// Meeting Button used to call/alarm meetings
 /// </summary>
-public class MeetingButton : NetworkBehaviour, IInteractable
+public class MeetingButton : Interactable
 {
     /// <summary>
     /// Is the meeting button ready to be interacted with?
@@ -30,9 +30,9 @@ public class MeetingButton : NetworkBehaviour, IInteractable
     /// </summary>
     [SerializeField] private AudioSource audioSource;
 
-    void Start()
+    public override void Start()
     {
-        gameObject.layer = LayerMask.NameToLayer("Interactable");
+        base.Start();
         isReady = true;
         cooldownTimer = 0;
     }
@@ -51,7 +51,7 @@ public class MeetingButton : NetworkBehaviour, IInteractable
     /// <summary>
     /// Handler for player interaction
     /// </summary>
-    void IInteractable.OnInteract() 
+    public override void OnInteract() 
     {
         if (!isReady) return;
         audioSource.PlayOneShot(audioSource.clip);
