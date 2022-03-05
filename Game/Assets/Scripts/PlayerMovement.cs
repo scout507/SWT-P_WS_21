@@ -304,6 +304,7 @@ public class PlayerMovement : NetworkBehaviour
         xRotation = newXRotation;
     }
 
+    [Command]
     public void Interact() 
     {
         RaycastHit hit;
