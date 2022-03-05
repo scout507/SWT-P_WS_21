@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -134,7 +134,8 @@ GameObject:
   - component: {fileID: 422989907}
   - component: {fileID: 422989909}
   - component: {fileID: 422989908}
-  m_Layer: 0
+  - component: {fileID: 422989910}
+  m_Layer: 3
   m_Name: MeetingButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,6 +169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5fdadef70223847926d36d0027252e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  cooldown: 10
   audioSource: {fileID: 422989909}
 --- !u!82 &422989909
 AudioSource:
@@ -292,6 +296,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &422989910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422989906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 2502861285
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1 &819598645
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +325,7 @@ GameObject:
   - component: {fileID: 819598649}
   - component: {fileID: 819598648}
   - component: {fileID: 819598647}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}

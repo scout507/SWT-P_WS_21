@@ -304,6 +304,22 @@ public class PlayerMovement : NetworkBehaviour
         xRotation = newXRotation;
     }
 
+    public void Interact() 
+    {
+        RaycastHit hit;
+        bool hitInteractable = Physics.Raycast(
+            cameraMountPoint.transform.position,
+            cameraMountPoint.transform.forward,
+            out hit,
+            2,
+            (1 << 3)
+        );
+
+        if (!hitInteractable) return;
+        
+        hit.collider.transform.root.gameObject.GetComponent<IInteractable>().OnInteract();
+    }
+
     /// <summary>
     /// The Update methode is responsible for the movement and the changing of weapons.
     /// </summary>
@@ -411,6 +427,11 @@ public class PlayerMovement : NetworkBehaviour
             if (Input.GetKeyDown("1")) SetCurrentTaunt(1);
             if (Input.GetKeyDown("2")) SetCurrentTaunt(2);
             if (Input.GetKeyDown("3")) SetCurrentTaunt(3);
+        }
+
+        if (Input.GetButtonDown("Interact")) 
+        {
+            Interact();
         }
     }
 
