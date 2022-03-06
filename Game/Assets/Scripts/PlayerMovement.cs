@@ -305,7 +305,7 @@ public class PlayerMovement : NetworkBehaviour
     }
 
     [Command]
-    public void Interact() 
+    public void Interact()
     {
         RaycastHit hit;
         bool hitInteractable = Physics.Raycast(
@@ -317,7 +317,7 @@ public class PlayerMovement : NetworkBehaviour
         );
 
         if (!hitInteractable) return;
-        
+
         hit.collider.transform.root.gameObject.GetComponent<Interactable>().OnInteract();
     }
 
@@ -430,7 +430,7 @@ public class PlayerMovement : NetworkBehaviour
             if (Input.GetKeyDown("3")) SetCurrentTaunt(3);
         }
 
-        if (Input.GetButtonDown("Interact")) 
+        if (Input.GetButtonDown("Interact"))
         {
             Interact();
         }
