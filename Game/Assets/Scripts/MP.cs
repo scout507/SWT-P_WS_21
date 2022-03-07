@@ -38,6 +38,7 @@ public class MP : ShootGun
         }
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
+            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
             nextFire = Time.time + fireRate;
             if (gunAmmo > 0)
             {
@@ -75,6 +76,7 @@ public class MP : ShootGun
             }
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Monster"))
             {
+                Debug.Log("Shoot() Layer = Monster");
                 CmdShootMonster(hit.collider.transform.root.gameObject, gunDamage); // Calls TakeDamage on the monster hit
             }
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Device"))
