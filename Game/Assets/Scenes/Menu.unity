@@ -9952,7 +9952,7 @@ MonoBehaviour:
   runInBackground: 1
   autoStartServerBuild: 1
   serverTickRate: 30
-  offlineScene: 
+  offlineScene: Assets/Scenes/Menu.unity
   onlineScene: 
   transport: {fileID: 1763231319}
   networkAddress: localhost

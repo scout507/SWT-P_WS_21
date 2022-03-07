@@ -29,6 +29,12 @@ public class RoundManager : NetworkBehaviour
     /// <summary>Timer for searching for active players</summary>//
     float playerRefreshTimer;
 
+    /// <summary>Holds the winner, standard moderately none.</summary>
+    public Winner hasWon = Winner.None;
+
+    /// <summary>Holds the impostor names. Each name is separated by a paragraph.</summary>
+    public string imposterNames = "";
+
 
     //NPC-related
     /// <summary>Zombiespawner-script</summary>//
@@ -59,7 +65,7 @@ public class RoundManager : NetworkBehaviour
     {
         if (!isServer) return;
 
-        totalPlayers = (NetworkManager.singleton as NetworkManagerLobby).gamePlayers.Count;
+        if (NetworkManager.singleton as NetworkManagerLobby != null) totalPlayers = (NetworkManager.singleton as NetworkManagerLobby).gamePlayers.Count;
         zombieSpawner = GetComponent<ZombieSpawner>();
         taskManager = GetComponent<TaskManager>();
     }
@@ -141,13 +147,17 @@ public class RoundManager : NetworkBehaviour
 
         GameObject[] playersArray = GameObject.FindGameObjectsWithTag("Player");
 
+        string names = "";
+
         foreach (GameObject player in playersArray)
         {
             if (player.GetComponent<NetworkIdentity>().netId == impostor)
             {
                 TargetRpcTellImpostor(player.GetComponent<NetworkIdentity>().connectionToClient);
+                names += player.GetComponent<Player>().displayName + "\n";
             }
         }
+        SetImposterNames(names);
     }
 
     /// <summary>
@@ -166,29 +176,29 @@ public class RoundManager : NetworkBehaviour
     /// </summary>
     void ChooseWinner()
     {
-        //TODO: Add endgame-screen or something.
         if (gameTimer >= timePerRound)
         {
-            //Everyone loses the game
+            hasWon = Winner.Nobody;
         }
         else if (taskManager.CheckAllFinished())
         {
             if (activePlayers.Count > 1)
             {
-                //Team wins
+                hasWon = Winner.Team;
             }
             else
             {
                 if (activePlayers.Contains(impostor))
                 {
-                    //Impostor wins
+                    hasWon = Winner.Imposter;
                 }
                 else
                 {
-                    //Team wins
+                    hasWon = Winner.Team;
                 }
             }
         }
+        SetHasWon(hasWon);
     }
 
 
@@ -247,5 +257,21 @@ public class RoundManager : NetworkBehaviour
     {
         //TODO: Tell the impostor in the UI that he has been chosen
         Debug.Log("You are the impostor");
+    }
+
+    /// <summary>Sync the "hasWon" variable from the server to the client.</summary>
+    /// <param name="winner">Contains the winner type of the class Winner.</param>
+    [ClientRpc]
+    void SetHasWon(Winner winner)
+    {
+        hasWon = winner;
+    }
+
+    /// <summary>Sync the "imposterNames" variable from the server to the client.</summary>
+    /// <param name="names">Contains the impostor names.</param>
+    [ClientRpc]
+    void SetImposterNames(string names)
+    {
+        imposterNames = names;
     }
 }

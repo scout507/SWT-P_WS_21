@@ -9,11 +9,12 @@ TagManager:
   - Fence
   - NetworkManager
   - Manager
+  - FetchItem
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Interactable
   - Water
   - UI
   - Ground

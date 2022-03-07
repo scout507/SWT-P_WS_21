@@ -44,6 +44,7 @@ public class PlayerSpawnSystem : NetworkBehaviour
     /// Called only by the server.
     /// Randomly creates the player with one of the predefined presets/classes.
     /// If no more prefab is available, the default prefab is used.
+    /// Also sets the display name on the player prefab.
     /// </summary>
     /// <param name="conn">Network connection from the client.</param>
     [Server]
@@ -59,6 +60,8 @@ public class PlayerSpawnSystem : NetworkBehaviour
             playerInstance = Instantiate(playerPrefabs[index]);
             playerPrefabs.RemoveAt(index);
         }
+
+        playerInstance.GetComponent<Player>().displayName = conn.identity.GetComponent<NetworkGamePlayer>().displayName;
 
         NetworkServer.ReplacePlayerForConnection(conn, playerInstance.gameObject, true);
     }
