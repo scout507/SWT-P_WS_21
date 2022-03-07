@@ -52,7 +52,7 @@ public class MonsterController : NetworkBehaviour
 
     /// <summary>Stores the spawn spot</summary>
     Vector3 home;
-    NavMeshAgent nav;
+    public NavMeshAgent nav;
 
     /// <summary>Used to ground the monster</summary>
     [Header("Grounding")]

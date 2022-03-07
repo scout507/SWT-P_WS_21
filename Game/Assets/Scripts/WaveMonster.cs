@@ -14,8 +14,6 @@ public class WaveMonster : MonsterController
 {
     /// <summary>A list containing all attackable Objects (no players)</summary>
     List<GameObject> buildingTargets = new List<GameObject>();
-    /// <summary>NavMeshAgent for navigation</summary>
-    NavMeshAgent nav;
 
     /// <summary>Timer for target finding</summary>
     float timer;
