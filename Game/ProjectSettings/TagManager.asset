@@ -9,6 +9,7 @@ TagManager:
   - Fence
   - NetworkManager
   - Manager
+  - FetchItem
   layers:
   - Default
   - TransparentFX
