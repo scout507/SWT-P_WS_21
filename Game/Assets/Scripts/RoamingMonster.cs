@@ -9,36 +9,42 @@ using UnityEngine.AI;
 /// </summary>
 public class RoamingMonster : MonsterController
 {
-    /// <summary>The rate for detection checks in seconds</summary>   
+    /// <summary>The rate for detection checks in seconds</summary>
     public float detectionRate;
+
     /// <summary>Time it takes for the monster do de-aggro</summary>
     public float deAggroRate;
+
     /// <summary>Wether or not the monster sees a player</summary>
     public bool detectedPlayer;
+
     /// <summary>If the monster is aggroed by a player</summary>
     public bool aggro;
-
 
     [Range(0, 360)]
     /// <summary>Angle in witch the monster can 'see'</summary>
     public float detectionAngle;
+
     /// <summary>List of all posible Targets</summary>
     List<GameObject> targets = new List<GameObject>();
 
     /// <summary>Timer for detection</summary>
     float detectionTimer;
+
     /// <summary>Timer for de-agrro</summary>
     float deAggroTimer;
+
     /// <summary>Timer for patrolling</summary>
     float patrolTimer;
+
     /// <summary>Time for the next patrol-step</summary>
     float nextPatrolTime = 0;
 
     /// <summary>NavMeshAgent for navigation</summary>
     NavMeshAgent nav;
+
     /// <summary>The destination for the next patrol-step</summary>
     Vector3 patrolTarget;
-
 
     /// <summary>
     /// Gets Components.
@@ -54,7 +60,8 @@ public class RoamingMonster : MonsterController
     /// </summary>
     void Update()
     {
-        if (!isServer) return;
+        if (!isServer)
+            return;
 
         Vector3 velocity = nav.transform.InverseTransformDirection(nav.velocity);
         SetVelocityX(velocity.x);
@@ -78,13 +85,16 @@ public class RoamingMonster : MonsterController
             nav.isStopped = true;
         }
 
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Attack") || 
-            animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Damage") ||  
-            animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Dying")) 
+        if (
+            animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Attack")
+            || animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Damage")
+            || animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Dying")
+        )
         {
             nav.isStopped = true;
         }
-        else {
+        else
+        {
             if (aggro)
             {
                 deAggroTimer += Time.deltaTime;
@@ -98,7 +108,10 @@ public class RoamingMonster : MonsterController
 
                 if (currentTarget != null)
                 {
-                    if (Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
+                    if (
+                        Vector3.Distance(currentTarget.transform.position, transform.position)
+                        > atkRange
+                    )
                     {
                         nav.isStopped = false;
                         nav.SetDestination(currentTarget.transform.position);
@@ -118,7 +131,13 @@ public class RoamingMonster : MonsterController
 
                 if (patrolTimer >= nextPatrolTime)
                 {
-                    if (Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(patrolTarget.x, 0, patrolTarget.z)) <= 0.5f) patrolTarget = GetPatrollTarget();
+                    if (
+                        Vector3.Distance(
+                            new Vector3(transform.position.x, 0, transform.position.z),
+                            new Vector3(patrolTarget.x, 0, patrolTarget.z)
+                        ) <= 0.5f
+                    )
+                        patrolTarget = GetPatrollTarget();
                     nav.SetDestination(patrolTarget);
                     nextPatrolTime = Random.Range(0, 10);
                     patrolTimer = 0;
@@ -137,15 +156,16 @@ public class RoamingMonster : MonsterController
 
         if (players.Count > 0)
         {
-
             foreach (GameObject player in players)
             {
-                Vector3 directionToTarget = (player.transform.position - transform.position).normalized;
+                Vector3 directionToTarget =
+                    (player.transform.position - transform.position).normalized;
                 RaycastHit hit;
                 if (Vector3.Angle(transform.forward, directionToTarget) < detectionAngle / 2)
                 {
-
-                    if (Physics.Raycast(transform.position, directionToTarget, out hit, aggroRadius))
+                    if (
+                        Physics.Raycast(transform.position, directionToTarget, out hit, aggroRadius)
+                    )
                     {
                         if (hit.collider.gameObject.tag == "Player")
                         {
@@ -164,8 +184,10 @@ public class RoamingMonster : MonsterController
         if (targets.Count > 0)
         {
             //TODO: Add some sound/animation to show that the monster is seeing the player.
-            if (detectedPlayer) aggro = true;
-            else detectedPlayer = true;
+            if (detectedPlayer)
+                aggro = true;
+            else
+                detectedPlayer = true;
         }
         else
         {
@@ -179,7 +201,6 @@ public class RoamingMonster : MonsterController
     /// <returns>The target (player) GameObject</returns>
     GameObject ChooseTarget()
     {
-
         GameObject newTarget = null;
 
         if (players.Count > 0)
@@ -192,7 +213,11 @@ public class RoamingMonster : MonsterController
 
                 //if the player is reachable and the closest to the monster, the player becomes the new target
                 NavMeshPath navMeshPath = new NavMeshPath();
-                if (distance <= shortestDistance && nav.CalculatePath(target.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
+                if (
+                    distance <= shortestDistance
+                    && nav.CalculatePath(target.transform.position, navMeshPath)
+                    && navMeshPath.status == NavMeshPathStatus.PathComplete
+                )
                 {
                     shortestDistance = distance;
                     newTarget = target;
@@ -202,19 +227,25 @@ public class RoamingMonster : MonsterController
         return newTarget;
     }
 
-
     /// <summary>
     /// Randomly chooses a new Vector3 coordinate for the AI to patrol towards. Only returns reachable targets.
     /// </summary>
     /// <returns>The new target as Vector3</returns>
     Vector3 GetPatrollTarget()
     {
-        Vector3 pTarget = new Vector3(transform.position.x + Random.Range(-10, 11), transform.position.y, transform.position.z + Random.Range(-10, 11));
+        Vector3 pTarget = new Vector3(
+            transform.position.x + Random.Range(-10, 11),
+            transform.position.y,
+            transform.position.z + Random.Range(-10, 11)
+        );
         NavMeshPath navMeshPath = new NavMeshPath();
 
-        if (nav.CalculatePath(pTarget, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete) return pTarget;
-        else return transform.position;
+        if (
+            nav.CalculatePath(pTarget, navMeshPath)
+            && navMeshPath.status == NavMeshPathStatus.PathComplete
+        )
+            return pTarget;
+        else
+            return transform.position;
     }
-
 }
-
