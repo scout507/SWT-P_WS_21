@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['active_0',['active',['../class_destructable_object.html#a0410ac98bb0f1fe923fd5a43fabb0da2',1,'DestructableObject.active()'],['../class_task.html#a63b08be82a450d0829928c71b4f8d573',1,'Task.active()']]],
+  ['active_0',['active',['../class_destructable_object.html#a0410ac98bb0f1fe923fd5a43fabb0da2',1,'DestructableObject.active()'],['../class_player_movement.html#a73d442ad4ae6f4fe3df61e1e3e0b9bf5',1,'PlayerMovement.active()'],['../class_spectator.html#abb441b02f81068b18dff9457844ad722',1,'Spectator.active()'],['../class_task.html#a63b08be82a450d0829928c71b4f8d573',1,'Task.active()']]],
   ['activetransport_1',['activeTransport',['../class_mirror_1_1_transport.html#a4e187471cf106ef6068e4347b1d2fdee',1,'Mirror::Transport']]],
   ['activplayer_2',['activPlayer',['../class_fence_interaction.html#a955674bbf64321fc3639f5c9c8be059d',1,'FenceInteraction']]],
   ['aggro_3',['aggro',['../class_roaming_monster.html#aa2bb940a4aac402d5be51658c5a0732a',1,'RoamingMonster']]],

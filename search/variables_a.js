@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['name_0',['name',['../class_sound.html#a6232daa7d1f983315cc0d10cf776ab76',1,'Sound']]],
-  ['networkaddress_1',['networkAddress',['../class_mirror_1_1_network_manager.html#a5bf39246bf796ae839815eb799431e0a',1,'Mirror::NetworkManager']]],
-  ['nextfire_2',['nextFire',['../class_shoot_gun.html#a068ce8700fc40f2a4e872dab9ac328ea',1,'ShootGun']]],
-  ['nextsynctime_3',['nextSyncTime',['../class_mirror_1_1_experimental_1_1_network_rigidbody_1_1_client_sync_state.html#af114fda2e8ec9cf84e9db4472aa82163',1,'Mirror.Experimental.NetworkRigidbody.ClientSyncState.nextSyncTime()'],['../class_mirror_1_1_experimental_1_1_network_rigidbody2_d_1_1_client_sync_state.html#ab6f3ec1a1297a265df5b0c05deaf4075',1,'Mirror.Experimental.NetworkRigidbody2D.ClientSyncState.nextSyncTime()']]]
+  ['matchid_0',['matchId',['../class_mirror_1_1_network_match.html#aadc97198bb715e3ad71ce47f7476c6f1',1,'Mirror::NetworkMatch']]],
+  ['maxconnections_1',['maxConnections',['../class_mirror_1_1_network_manager.html#a647cb7a86c0cd91fea090a047b914793',1,'Mirror::NetworkManager']]],
+  ['maxhealth_2',['maxHealth',['../class_destructable_object.html#a31395416684f05945fd1569586116da6',1,'DestructableObject']]],
+  ['menucanvas_3',['menuCanvas',['../class_ingame_menu.html#aabc7a7f88d46fc0478a9ba40bdf458a3',1,'IngameMenu']]],
+  ['message_4',['message',['../struct_mirror_1_1_network_diagnostics_1_1_message_info.html#adc49afbdaac53d89f9862817ae05d750',1,'Mirror::NetworkDiagnostics::MessageInfo']]],
+  ['movementspeed_5',['movementSpeed',['../class_spectator.html#ab1d81b467258f0cf21a790f80e5014f4',1,'Spectator']]],
+  ['movespeed_6',['moveSpeed',['../class_monster_controller.html#ac61a31efa277d192bc0fbaf8143bf783',1,'MonsterController']]]
 ];

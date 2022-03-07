@@ -1,9 +1,14 @@
 var searchData=
 [
-  ['readytobegin_0',['readyToBegin',['../class_mirror_1_1_network_room_player.html#a30058f89cbfe60ef0bf61916a2d77e97',1,'Mirror::NetworkRoomPlayer']]],
-  ['recoil_1',['recoil',['../class_shoot_gun.html#a7e566d4d25065f874c5c879152d5a392',1,'ShootGun']]],
-  ['roomplayers_2',['roomPlayers',['../class_network_manager_lobby.html#a69de78ac448a1ee9c0dc537d5589ca9c',1,'NetworkManagerLobby']]],
-  ['roomscene_3',['RoomScene',['../class_mirror_1_1_network_room_manager.html#a998f09664331ad69ba3095b3e8fe6988',1,'Mirror::NetworkRoomManager']]],
-  ['roomslots_4',['roomSlots',['../class_mirror_1_1_network_room_manager.html#a28a644a2350cb014129a58bd6d320084',1,'Mirror::NetworkRoomManager']]],
-  ['runinbackground_5',['runInBackground',['../class_mirror_1_1_network_manager.html#ac3bbfc101e99f8a857f6dfa584f6156f',1,'Mirror::NetworkManager']]]
+  ['pendingplayers_0',['pendingPlayers',['../class_mirror_1_1_network_room_manager.html#a205ba6fde1487cb142d5ce5d35c848e0',1,'Mirror::NetworkRoomManager']]],
+  ['pitch_1',['pitch',['../class_sound.html#aef4ee55185bf12b9b2b2ca037a8c621a',1,'Sound']]],
+  ['planksinspector_2',['planksInspector',['../class_fence_interaction.html#a9432363709e51fa9ac925cfe3b4c2068',1,'FenceInteraction']]],
+  ['player_3',['player',['../class_compass.html#a1c873719f5bf915657302d2faccf18c3',1,'Compass.player()'],['../class_minimap.html#aae34d556a44e7efb70a7c62c9ee6d876',1,'Minimap.player()']]],
+  ['playercanvasobject_4',['PlayerCanvasObject',['../class_player_canvas.html#a1e382ffe3a41a6dd795507502c4a8bfb',1,'PlayerCanvas']]],
+  ['playername_5',['playerName',['../class_player_name_input.html#afe05966bdec71a56930c9c62c3d7fc2a',1,'PlayerNameInput']]],
+  ['playerprefab_6',['playerPrefab',['../class_mirror_1_1_network_manager.html#a81bcbc73d62c047faf0e9c73fb6ffd63',1,'Mirror::NetworkManager']]],
+  ['players_7',['players',['../class_monster_controller.html#ae297c37a00c866b6eca07f331dd3f9a2',1,'MonsterController.players()'],['../class_task.html#a8d05caff67206a3f62b157058cb97417',1,'Task.players()']]],
+  ['playerspawnmethod_8',['playerSpawnMethod',['../class_mirror_1_1_network_manager.html#ae6167e3960b1a34e09ea97868d1cc60e',1,'Mirror::NetworkManager']]],
+  ['position_9',['Position',['../class_mirror_1_1_network_reader.html#a8c3a88c7273f1f31e96935e80768b1a1',1,'Mirror.NetworkReader.Position()'],['../class_mirror_1_1_network_writer.html#ac70038113ba5ddc857ea0c187b5eac16',1,'Mirror.NetworkWriter.Position()']]],
+  ['progress_10',['progress',['../class_task.html#a156373f99c36bcc2c1a58d565283f835',1,'Task']]]
 ];

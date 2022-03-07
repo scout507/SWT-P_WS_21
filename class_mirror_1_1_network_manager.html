@@ -168,8 +168,9 @@ Transform&#160;</td><td class="memItemRight" valign="bottom"><b>GetStartPosition
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnServerError</b> (<a class="el" href="class_mirror_1_1_network_connection.html">NetworkConnection</a> conn, Exception exception)</td></tr>
 <tr class="memdesc:a34f8843f44e012bb65cb816655680c03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on server when transport raises an exception. <a class="el" href="class_mirror_1_1_network_connection.html" title="Base NetworkConnection class for server-to-client and client-to-server connection.">NetworkConnection</a> may be null.<br /></td></tr>
 <tr class="separator:a34f8843f44e012bb65cb816655680c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a328c8da98050688b524106c828bafdb8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mirror_1_1_network_manager.html#a328c8da98050688b524106c828bafdb8">OnServerChangeScene</a> (string newSceneName)</td></tr>
-<tr class="memdesc:a328c8da98050688b524106c828bafdb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called from ServerChangeScene immediately before SceneManager.LoadSceneAsync is executed <a href="class_mirror_1_1_network_manager.html#a328c8da98050688b524106c828bafdb8">More...</a><br /></td></tr>
+<tr class="memitem:a328c8da98050688b524106c828bafdb8"><td class="memItemLeft" align="right" valign="top"><a id="a328c8da98050688b524106c828bafdb8" name="a328c8da98050688b524106c828bafdb8"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnServerChangeScene</b> (string newSceneName)</td></tr>
+<tr class="memdesc:a328c8da98050688b524106c828bafdb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called from ServerChangeScene immediately before SceneManager.LoadSceneAsync is executed<br /></td></tr>
 <tr class="separator:a328c8da98050688b524106c828bafdb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93ae8a9ca02afa60598d464779e1bca5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mirror_1_1_network_manager.html#a93ae8a9ca02afa60598d464779e1bca5">OnServerSceneChanged</a> (string sceneName)</td></tr>
 <tr class="memdesc:a93ae8a9ca02afa60598d464779e1bca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on server after a scene load with <a class="el" href="class_mirror_1_1_network_manager.html#ae428a9f79881585ef5fef880f6c923ad" title="Change the server scene and all client&#39;s scenes across the network.">ServerChangeScene()</a> is completed. <a href="class_mirror_1_1_network_manager.html#a93ae8a9ca02afa60598d464779e1bca5">More...</a><br /></td></tr>
@@ -459,36 +460,6 @@ static string&#160;</td><td class="memItemRight" valign="bottom"><b>networkScene
 
 </div>
 </div>
-<a id="a328c8da98050688b524106c828bafdb8" name="a328c8da98050688b524106c828bafdb8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a328c8da98050688b524106c828bafdb8">&#9670;&nbsp;</a></span>OnServerChangeScene()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Mirror.NetworkManager.OnServerChangeScene </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>newSceneName</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Called from ServerChangeScene immediately before SceneManager.LoadSceneAsync is executed</p>
-
-<p>Reimplemented in <a class="el" href="class_network_manager_lobby.html#ad22bde6456466da9fdf40f44899c963f">NetworkManagerLobby</a>.</p>
-
-</div>
-</div>
 <a id="aefdbb69d64b19bbf4c78aaed41e08fe4" name="aefdbb69d64b19bbf4c78aaed41e08fe4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aefdbb69d64b19bbf4c78aaed41e08fe4">&#9670;&nbsp;</a></span>OnServerConnect()</h2>
 
@@ -605,7 +576,7 @@ static string&#160;</td><td class="memItemRight" valign="bottom"><b>networkScene
 
 <p>Called on server after a scene load with <a class="el" href="class_mirror_1_1_network_manager.html#ae428a9f79881585ef5fef880f6c923ad" title="Change the server scene and all client&#39;s scenes across the network.">ServerChangeScene()</a> is completed.</p>
 
-<p>Reimplemented in <a class="el" href="class_mirror_1_1_network_room_manager.html#a02b0bdcb470188c5f18e2c79d9c8c74f">Mirror.NetworkRoomManager</a>.</p>
+<p>Reimplemented in <a class="el" href="class_network_manager_lobby.html#ac6d498a1e938272d2c3ab5e9ecb60f4a">NetworkManagerLobby</a>, and <a class="el" href="class_mirror_1_1_network_room_manager.html#a02b0bdcb470188c5f18e2c79d9c8c74f">Mirror.NetworkRoomManager</a>.</p>
 
 </div>
 </div>

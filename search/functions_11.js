@@ -5,5 +5,6 @@ var searchData=
   ['timetonextwavestring_2',['TimeToNextWaveString',['../class_zombie_spawner.html#afe72b50c38caa1887415dde673481b3e',1,'ZombieSpawner']]],
   ['toarray_3',['ToArray',['../class_mirror_1_1_network_writer.html#a8733cfcd6790a709b020dcde9050a9a9',1,'Mirror::NetworkWriter']]],
   ['toarraysegment_4',['ToArraySegment',['../class_mirror_1_1_network_writer.html#a789cf8dce88b8036d8aa99571991a087',1,'Mirror::NetworkWriter']]],
-  ['togglemenu_5',['toggleMenu',['../class_ingame_menu.html#a87783f0d2900bfacc4b9811fdbb3820b',1,'IngameMenu']]]
+  ['togglecanvas_5',['toggleCanvas',['../class_end_game_menu.html#af9c041d80ce0262858b8487164585e14',1,'EndGameMenu']]],
+  ['togglemenu_6',['toggleMenu',['../class_ingame_menu.html#a87783f0d2900bfacc4b9811fdbb3820b',1,'IngameMenu']]]
 ];

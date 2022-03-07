@@ -22,10 +22,11 @@ var searchData=
   ['minimap_19',['Minimap',['../class_minimap.html',1,'']]],
   ['mirror_20',['Mirror',['../namespace_mirror.html',1,'']]],
   ['monstercontroller_21',['MonsterController',['../class_monster_controller.html',1,'']]],
-  ['movespeed_22',['moveSpeed',['../class_monster_controller.html#ac61a31efa277d192bc0fbaf8143bf783',1,'MonsterController']]],
-  ['mp_23',['MP',['../class_m_p.html',1,'']]],
-  ['multiplextransport_24',['MultiplexTransport',['../class_mirror_1_1_multiplex_transport.html',1,'Mirror']]],
-  ['remotecalls_25',['RemoteCalls',['../namespace_mirror_1_1_remote_calls.html',1,'Mirror']]],
-  ['simpleweb_26',['SimpleWeb',['../namespace_mirror_1_1_simple_web.html',1,'Mirror']]],
-  ['weaver_27',['Weaver',['../namespace_mirror_1_1_weaver.html',1,'Mirror']]]
+  ['movementspeed_22',['movementSpeed',['../class_spectator.html#ab1d81b467258f0cf21a790f80e5014f4',1,'Spectator']]],
+  ['movespeed_23',['moveSpeed',['../class_monster_controller.html#ac61a31efa277d192bc0fbaf8143bf783',1,'MonsterController']]],
+  ['mp_24',['MP',['../class_m_p.html',1,'']]],
+  ['multiplextransport_25',['MultiplexTransport',['../class_mirror_1_1_multiplex_transport.html',1,'Mirror']]],
+  ['remotecalls_26',['RemoteCalls',['../namespace_mirror_1_1_remote_calls.html',1,'Mirror']]],
+  ['simpleweb_27',['SimpleWeb',['../namespace_mirror_1_1_simple_web.html',1,'Mirror']]],
+  ['weaver_28',['Weaver',['../namespace_mirror_1_1_weaver.html',1,'Mirror']]]
 ];
