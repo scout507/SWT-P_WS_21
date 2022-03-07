@@ -20,10 +20,11 @@ public class PlayerCanvas : NetworkBehaviour
     /// </summary>
     void Start()
     {
-        if (isLocalPlayer)
+        if (!isLocalPlayer)
         {
-            PlayerCanvasObject.SetActive(true);
+            return;
         }
+        PlayerCanvasObject.SetActive(true);
     }
 
     /// <summary>

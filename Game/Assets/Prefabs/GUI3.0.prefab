@@ -945,7 +945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &190076423186528771
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1142,8 +1142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b93e33c92a293f46bdf7552d7a3fa9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
   icon: {fileID: 8214537220077455542}
   currentAmmo: {fileID: 1529435674273500373}
   totalAmmo: {fileID: 7135177318186784381}
@@ -1573,8 +1571,8 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.6949, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.6949005, y: 0}
   m_SizeDelta: {x: 6.6606, y: -1.6364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8922346892853477691
