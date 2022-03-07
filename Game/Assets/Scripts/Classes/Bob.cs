@@ -7,7 +7,7 @@ public class Bob : Classes
 {
     void Update()
     {
-        if(!isLocalPlayer) return;
+        if (!isLocalPlayer) return;
         if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon < 2)
         {
             newWeapon = selectedWeapon + 1;
@@ -26,7 +26,7 @@ public class Bob : Classes
         {
             CmdSwitchWeapon(2);
         }
-    }   
+    }
     public override void SwitchWeapon(int oldWeapon, int newWeapon)
     {
         switch (oldWeapon)
