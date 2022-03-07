@@ -54,7 +54,7 @@ public class CamController : Device
         {
             return;
         }
-        if(isActiv)
+        if (isActiv)
         {
             TargetReturnToPlayer(owner.GetComponent<NetworkIdentity>().connectionToClient);
         }

@@ -61,14 +61,6 @@ public abstract class ShootGun : NetworkBehaviour
     public AudioController audioController;
 
     /// <summary>
-    /// Fetches dependencies.
-    /// </summary>
-    private void Start()
-    {
-        audioController = this.GetComponent<AudioController>();
-    }
-
-    /// <summary>
     /// Gets called when player is hit.
     /// </summary>
     /// <param name="player">Gameobject of player who is hit.</param>

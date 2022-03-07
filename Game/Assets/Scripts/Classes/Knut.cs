@@ -5,9 +5,9 @@ using UnityEngine;
 /* edited by: SWT-P_WS_21/22*/
 public class Knut : Classes
 {
-     void Update()
+    void Update()
     {
-        if(!isLocalPlayer) return;
+        if (!isLocalPlayer) return;
         if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon < 2)
         {
             newWeapon = selectedWeapon + 1;
