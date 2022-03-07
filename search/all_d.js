@@ -50,9 +50,10 @@ var searchData=
   ['networktransformchild_47',['NetworkTransformChild',['../class_mirror_1_1_experimental_1_1_network_transform_child.html',1,'Mirror.Experimental.NetworkTransformChild'],['../class_mirror_1_1_network_transform_child.html',1,'Mirror.NetworkTransformChild']]],
   ['networkvisibility_48',['NetworkVisibility',['../class_mirror_1_1_network_visibility.html',1,'Mirror']]],
   ['networkwriter_49',['NetworkWriter',['../class_mirror_1_1_network_writer.html',1,'Mirror']]],
-  ['nextsynctime_50',['nextSyncTime',['../class_mirror_1_1_experimental_1_1_network_rigidbody_1_1_client_sync_state.html#af114fda2e8ec9cf84e9db4472aa82163',1,'Mirror.Experimental.NetworkRigidbody.ClientSyncState.nextSyncTime()'],['../class_mirror_1_1_experimental_1_1_network_rigidbody2_d_1_1_client_sync_state.html#ab6f3ec1a1297a265df5b0c05deaf4075',1,'Mirror.Experimental.NetworkRigidbody2D.ClientSyncState.nextSyncTime()']]],
-  ['notifyplayersofreadystate_51',['notifyPlayersOfReadyState',['../class_network_manager_lobby.html#a76569e12e044af67e8319e1c207c5378',1,'NetworkManagerLobby']]],
-  ['notreadymessage_52',['NotReadyMessage',['../struct_mirror_1_1_not_ready_message.html',1,'Mirror']]],
-  ['ntsnapshot_53',['NTSnapshot',['../struct_mirror_1_1_n_t_snapshot.html',1,'Mirror']]],
-  ['numplayers_54',['numPlayers',['../class_mirror_1_1_network_manager.html#ae8ea1665e8b5401a65f23e9a168b6a89',1,'Mirror::NetworkManager']]]
+  ['nextfire_50',['nextFire',['../class_shoot_gun.html#a068ce8700fc40f2a4e872dab9ac328ea',1,'ShootGun']]],
+  ['nextsynctime_51',['nextSyncTime',['../class_mirror_1_1_experimental_1_1_network_rigidbody_1_1_client_sync_state.html#af114fda2e8ec9cf84e9db4472aa82163',1,'Mirror.Experimental.NetworkRigidbody.ClientSyncState.nextSyncTime()'],['../class_mirror_1_1_experimental_1_1_network_rigidbody2_d_1_1_client_sync_state.html#ab6f3ec1a1297a265df5b0c05deaf4075',1,'Mirror.Experimental.NetworkRigidbody2D.ClientSyncState.nextSyncTime()']]],
+  ['notifyplayersofreadystate_52',['notifyPlayersOfReadyState',['../class_network_manager_lobby.html#a76569e12e044af67e8319e1c207c5378',1,'NetworkManagerLobby']]],
+  ['notreadymessage_53',['NotReadyMessage',['../struct_mirror_1_1_not_ready_message.html',1,'Mirror']]],
+  ['ntsnapshot_54',['NTSnapshot',['../struct_mirror_1_1_n_t_snapshot.html',1,'Mirror']]],
+  ['numplayers_55',['numPlayers',['../class_mirror_1_1_network_manager.html#ae8ea1665e8b5401a65f23e9a168b6a89',1,'Mirror::NetworkManager']]]
 ];

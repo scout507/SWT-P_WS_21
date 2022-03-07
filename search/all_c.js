@@ -18,12 +18,13 @@ var searchData=
   ['message_15',['Message',['../struct_mirror_1_1_simple_web_1_1_message.html',1,'Mirror::SimpleWeb']]],
   ['messageinfo_16',['MessageInfo',['../struct_mirror_1_1_network_diagnostics_1_1_message_info.html',1,'Mirror::NetworkDiagnostics']]],
   ['middlewaretransport_17',['MiddlewareTransport',['../class_mirror_1_1_middleware_transport.html',1,'Mirror']]],
-  ['mirror_18',['Mirror',['../namespace_mirror.html',1,'']]],
-  ['monstercontroller_19',['MonsterController',['../class_monster_controller.html',1,'']]],
-  ['movespeed_20',['moveSpeed',['../class_monster_controller.html#ac61a31efa277d192bc0fbaf8143bf783',1,'MonsterController']]],
-  ['mp_21',['MP',['../class_m_p.html',1,'']]],
-  ['multiplextransport_22',['MultiplexTransport',['../class_mirror_1_1_multiplex_transport.html',1,'Mirror']]],
-  ['remotecalls_23',['RemoteCalls',['../namespace_mirror_1_1_remote_calls.html',1,'Mirror']]],
-  ['simpleweb_24',['SimpleWeb',['../namespace_mirror_1_1_simple_web.html',1,'Mirror']]],
-  ['weaver_25',['Weaver',['../namespace_mirror_1_1_weaver.html',1,'Mirror']]]
+  ['minimap_18',['Minimap',['../class_minimap.html',1,'']]],
+  ['mirror_19',['Mirror',['../namespace_mirror.html',1,'']]],
+  ['monstercontroller_20',['MonsterController',['../class_monster_controller.html',1,'']]],
+  ['movespeed_21',['moveSpeed',['../class_monster_controller.html#ac61a31efa277d192bc0fbaf8143bf783',1,'MonsterController']]],
+  ['mp_22',['MP',['../class_m_p.html',1,'']]],
+  ['multiplextransport_23',['MultiplexTransport',['../class_mirror_1_1_multiplex_transport.html',1,'Mirror']]],
+  ['remotecalls_24',['RemoteCalls',['../namespace_mirror_1_1_remote_calls.html',1,'Mirror']]],
+  ['simpleweb_25',['SimpleWeb',['../namespace_mirror_1_1_simple_web.html',1,'Mirror']]],
+  ['weaver_26',['Weaver',['../namespace_mirror_1_1_weaver.html',1,'Mirror']]]
 ];

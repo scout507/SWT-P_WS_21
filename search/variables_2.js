@@ -7,5 +7,6 @@ var searchData=
   ['compassimage_4',['compassImage',['../class_compass.html#a3a76d01bc19873d5bf8a5f42280559d3',1,'Compass']]],
   ['connectionid_5',['connectionId',['../class_mirror_1_1_network_connection.html#a1247800fa37e4af183ca3c58e687ecf4',1,'Mirror::NetworkConnection']]],
   ['count_6',['count',['../struct_mirror_1_1_network_diagnostics_1_1_message_info.html#ad9fbdbaf142b48bcb27686b2114f632b',1,'Mirror::NetworkDiagnostics::MessageInfo']]],
-  ['currenttarget_7',['currentTarget',['../class_monster_controller.html#a56157e69eca59852c219122fb24c1d62',1,'MonsterController']]]
+  ['currentammo_7',['currentAmmo',['../class_inventory.html#a8440fa756c3278bed9aead2c98e0fb94',1,'Inventory']]],
+  ['currenttarget_8',['currentTarget',['../class_monster_controller.html#a56157e69eca59852c219122fb24c1d62',1,'MonsterController']]]
 ];
