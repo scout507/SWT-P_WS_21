@@ -36,9 +36,9 @@ public class MP : ShootGun
         {
             return;
         }
+        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
-            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
             nextFire = Time.time + fireRate;
             if (gunAmmo > 0)
             {

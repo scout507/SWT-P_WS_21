@@ -36,6 +36,7 @@ public class Shotgun : ShootGun
         {
             return;
         }
+        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
