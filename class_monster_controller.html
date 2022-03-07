@@ -86,6 +86,23 @@ Inheritance diagram for MonsterController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ad3b276a47ba6546d24cc5a842a6316ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monster_controller.html#ad3b276a47ba6546d24cc5a842a6316ac">CheckGrounded</a> ()</td></tr>
+<tr class="memdesc:ad3b276a47ba6546d24cc5a842a6316ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the monster is currently on ground  <a href="class_monster_controller.html#ad3b276a47ba6546d24cc5a842a6316ac">More...</a><br /></td></tr>
+<tr class="separator:ad3b276a47ba6546d24cc5a842a6316ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee5da85a14a71153470e44c4c530c0e9"><td class="memItemLeft" align="right" valign="top"><a id="aee5da85a14a71153470e44c4c530c0e9" name="aee5da85a14a71153470e44c4c530c0e9"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>GetVelocityX</b> ()</td></tr>
+<tr class="memdesc:aee5da85a14a71153470e44c4c530c0e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the monster's sideways velocity <br /></td></tr>
+<tr class="separator:aee5da85a14a71153470e44c4c530c0e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7f6d8636f10dd83a5e2b893f1d06c82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monster_controller.html#ad7f6d8636f10dd83a5e2b893f1d06c82">SetVelocityX</a> (float velocityX)</td></tr>
+<tr class="memdesc:ad7f6d8636f10dd83a5e2b893f1d06c82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the monster's sideways velocity variable  <a href="class_monster_controller.html#ad7f6d8636f10dd83a5e2b893f1d06c82">More...</a><br /></td></tr>
+<tr class="separator:ad7f6d8636f10dd83a5e2b893f1d06c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30322eb230fa4ae12e768505389b5384"><td class="memItemLeft" align="right" valign="top"><a id="a30322eb230fa4ae12e768505389b5384" name="a30322eb230fa4ae12e768505389b5384"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>GetVelocityZ</b> ()</td></tr>
+<tr class="memdesc:a30322eb230fa4ae12e768505389b5384"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the monster's forwards velocity <br /></td></tr>
+<tr class="separator:a30322eb230fa4ae12e768505389b5384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fb5b3299f78200fd1976d6c52c47646"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monster_controller.html#a1fb5b3299f78200fd1976d6c52c47646">SetVelocityZ</a> (float velocityZ)</td></tr>
+<tr class="memdesc:a1fb5b3299f78200fd1976d6c52c47646"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the monster's forwards velocity variable  <a href="class_monster_controller.html#a1fb5b3299f78200fd1976d6c52c47646">More...</a><br /></td></tr>
+<tr class="separator:a1fb5b3299f78200fd1976d6c52c47646"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42d54f636e3be761833ccf0c75c8b30a"><td class="memItemLeft" align="right" valign="top"><a id="a42d54f636e3be761833ccf0c75c8b30a" name="a42d54f636e3be761833ccf0c75c8b30a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>FindPlayers</b> ()</td></tr>
 <tr class="memdesc:a42d54f636e3be761833ccf0c75c8b30a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes a list containing all active players within aggro-radius. <br /></td></tr>
@@ -172,6 +189,10 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>hp</b></td></tr>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>moveSpeed</b></td></tr>
 <tr class="memdesc:ac61a31efa277d192bc0fbaf8143bf783"><td class="mdescLeft">&#160;</td><td class="mdescRight">The monsters movementspeed<br /></td></tr>
 <tr class="separator:ac61a31efa277d192bc0fbaf8143bf783"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea457884d5f6a32f099288c949723790"><td class="memItemLeft" align="right" valign="top"><a id="aea457884d5f6a32f099288c949723790" name="aea457884d5f6a32f099288c949723790"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>awake</b></td></tr>
+<tr class="memdesc:aea457884d5f6a32f099288c949723790"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when the monster aggro is triggered <br /></td></tr>
+<tr class="separator:aea457884d5f6a32f099288c949723790"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a604b9cba61d49183c1fc8470d47a4261"><td class="memItemLeft" align="right" valign="top"><a id="a604b9cba61d49183c1fc8470d47a4261" name="a604b9cba61d49183c1fc8470d47a4261"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>atkRange</b></td></tr>
 <tr class="memdesc:a604b9cba61d49183c1fc8470d47a4261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range for a melee Attack<br /></td></tr>
@@ -196,6 +217,16 @@ GameObject&#160;</td><td class="memItemRight" valign="bottom"><b>currentTarget</
 float&#160;</td><td class="memItemRight" valign="bottom"><b>atkTimer</b></td></tr>
 <tr class="memdesc:a38046d67531f300a39e478d607f3784b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer for attacking<br /></td></tr>
 <tr class="separator:a38046d67531f300a39e478d607f3784b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65003ba701aff398de5e6ed692eeef1f"><td class="memItemLeft" align="right" valign="top"><a id="a65003ba701aff398de5e6ed692eeef1f" name="a65003ba701aff398de5e6ed692eeef1f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>attack</b></td></tr>
+<tr class="separator:a65003ba701aff398de5e6ed692eeef1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e226bfc32c00cfd2d8ed5b844dc37f9"><td class="memItemLeft" align="right" valign="top"><a id="a8e226bfc32c00cfd2d8ed5b844dc37f9" name="a8e226bfc32c00cfd2d8ed5b844dc37f9"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>damageTaken</b></td></tr>
+<tr class="separator:a8e226bfc32c00cfd2d8ed5b844dc37f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c78f2d19ed4accf60dfbf4381d85f0"><td class="memItemLeft" align="right" valign="top"><a id="a90c78f2d19ed4accf60dfbf4381d85f0" name="a90c78f2d19ed4accf60dfbf4381d85f0"></a>
+Animator&#160;</td><td class="memItemRight" valign="bottom"><b>animator</b></td></tr>
+<tr class="memdesc:a90c78f2d19ed4accf60dfbf4381d85f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The monster's animator<br /></td></tr>
+<tr class="separator:a90c78f2d19ed4accf60dfbf4381d85f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_mirror_1_1_network_behaviour"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_mirror_1_1_network_behaviour')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_mirror_1_1_network_behaviour.html">Mirror.NetworkBehaviour</a></td></tr>
 <tr class="memitem:acf0616ac2f967bdd47bf0f579cefe8a7 inherit pub_attribs_class_mirror_1_1_network_behaviour"><td class="memItemLeft" align="right" valign="top"><a id="acf0616ac2f967bdd47bf0f579cefe8a7" name="acf0616ac2f967bdd47bf0f579cefe8a7"></a>
 SyncMode&#160;</td><td class="memItemRight" valign="bottom"><b>syncMode</b> = SyncMode.Observers</td></tr>
@@ -350,6 +381,70 @@ ulong&#160;</td><td class="memItemRight" valign="bottom"><b>syncVarDirtyBits</b>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ad3b276a47ba6546d24cc5a842a6316ac" name="ad3b276a47ba6546d24cc5a842a6316ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3b276a47ba6546d24cc5a842a6316ac">&#9670;&nbsp;</a></span>CheckGrounded()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MonsterController.CheckGrounded </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the monster is currently on ground </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns true or false</dd></dl>
+
+</div>
+</div>
+<a id="ad7f6d8636f10dd83a5e2b893f1d06c82" name="ad7f6d8636f10dd83a5e2b893f1d06c82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7f6d8636f10dd83a5e2b893f1d06c82">&#9670;&nbsp;</a></span>SetVelocityX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MonsterController.SetVelocityX </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>velocityX</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the monster's sideways velocity variable </p>
+<p ><br  />
+ </p>
+
+</div>
+</div>
+<a id="a1fb5b3299f78200fd1976d6c52c47646" name="a1fb5b3299f78200fd1976d6c52c47646"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fb5b3299f78200fd1976d6c52c47646">&#9670;&nbsp;</a></span>SetVelocityZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MonsterController.SetVelocityZ </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>velocityZ</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the monster's forwards velocity variable </p>
+<p ><br  />
+ </p>
 
 </div>
 </div>

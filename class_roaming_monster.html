@@ -84,8 +84,9 @@ Inheritance diagram for RoamingMonster:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a7ad97f342549995c371bb589aef8c49f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_roaming_monster.html#a7ad97f342549995c371bb589aef8c49f">detectionRate</a></td></tr>
-<tr class="memdesc:a7ad97f342549995c371bb589aef8c49f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The rate for detection checks in seconds <a href="class_roaming_monster.html#a7ad97f342549995c371bb589aef8c49f">More...</a><br /></td></tr>
+<tr class="memitem:a7ad97f342549995c371bb589aef8c49f"><td class="memItemLeft" align="right" valign="top"><a id="a7ad97f342549995c371bb589aef8c49f" name="a7ad97f342549995c371bb589aef8c49f"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>detectionRate</b></td></tr>
+<tr class="memdesc:a7ad97f342549995c371bb589aef8c49f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The rate for detection checks in seconds<br /></td></tr>
 <tr class="separator:a7ad97f342549995c371bb589aef8c49f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71f76133f1b2decf1b169a5b2f7327fb"><td class="memItemLeft" align="right" valign="top"><a id="a71f76133f1b2decf1b169a5b2f7327fb" name="a71f76133f1b2decf1b169a5b2f7327fb"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>deAggroRate</b></td></tr>
@@ -120,6 +121,10 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>hp</b></td></tr>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>moveSpeed</b></td></tr>
 <tr class="memdesc:ac61a31efa277d192bc0fbaf8143bf783 inherit pub_attribs_class_monster_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">The monsters movementspeed<br /></td></tr>
 <tr class="separator:ac61a31efa277d192bc0fbaf8143bf783 inherit pub_attribs_class_monster_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea457884d5f6a32f099288c949723790 inherit pub_attribs_class_monster_controller"><td class="memItemLeft" align="right" valign="top"><a id="aea457884d5f6a32f099288c949723790" name="aea457884d5f6a32f099288c949723790"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>awake</b></td></tr>
+<tr class="memdesc:aea457884d5f6a32f099288c949723790 inherit pub_attribs_class_monster_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when the monster aggro is triggered <br /></td></tr>
+<tr class="separator:aea457884d5f6a32f099288c949723790 inherit pub_attribs_class_monster_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a604b9cba61d49183c1fc8470d47a4261 inherit pub_attribs_class_monster_controller"><td class="memItemLeft" align="right" valign="top"><a id="a604b9cba61d49183c1fc8470d47a4261" name="a604b9cba61d49183c1fc8470d47a4261"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>atkRange</b></td></tr>
 <tr class="memdesc:a604b9cba61d49183c1fc8470d47a4261 inherit pub_attribs_class_monster_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range for a melee Attack<br /></td></tr>
@@ -144,6 +149,16 @@ GameObject&#160;</td><td class="memItemRight" valign="bottom"><b>currentTarget</
 float&#160;</td><td class="memItemRight" valign="bottom"><b>atkTimer</b></td></tr>
 <tr class="memdesc:a38046d67531f300a39e478d607f3784b inherit pub_attribs_class_monster_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer for attacking<br /></td></tr>
 <tr class="separator:a38046d67531f300a39e478d607f3784b inherit pub_attribs_class_monster_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65003ba701aff398de5e6ed692eeef1f inherit pub_attribs_class_monster_controller"><td class="memItemLeft" align="right" valign="top"><a id="a65003ba701aff398de5e6ed692eeef1f" name="a65003ba701aff398de5e6ed692eeef1f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>attack</b></td></tr>
+<tr class="separator:a65003ba701aff398de5e6ed692eeef1f inherit pub_attribs_class_monster_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e226bfc32c00cfd2d8ed5b844dc37f9 inherit pub_attribs_class_monster_controller"><td class="memItemLeft" align="right" valign="top"><a id="a8e226bfc32c00cfd2d8ed5b844dc37f9" name="a8e226bfc32c00cfd2d8ed5b844dc37f9"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>damageTaken</b></td></tr>
+<tr class="separator:a8e226bfc32c00cfd2d8ed5b844dc37f9 inherit pub_attribs_class_monster_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c78f2d19ed4accf60dfbf4381d85f0 inherit pub_attribs_class_monster_controller"><td class="memItemLeft" align="right" valign="top"><a id="a90c78f2d19ed4accf60dfbf4381d85f0" name="a90c78f2d19ed4accf60dfbf4381d85f0"></a>
+Animator&#160;</td><td class="memItemRight" valign="bottom"><b>animator</b></td></tr>
+<tr class="memdesc:a90c78f2d19ed4accf60dfbf4381d85f0 inherit pub_attribs_class_monster_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">The monster's animator<br /></td></tr>
+<tr class="separator:a90c78f2d19ed4accf60dfbf4381d85f0 inherit pub_attribs_class_monster_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_mirror_1_1_network_behaviour"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_mirror_1_1_network_behaviour')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_mirror_1_1_network_behaviour.html">Mirror.NetworkBehaviour</a></td></tr>
 <tr class="memitem:acf0616ac2f967bdd47bf0f579cefe8a7 inherit pub_attribs_class_mirror_1_1_network_behaviour"><td class="memItemLeft" align="right" valign="top"><a id="acf0616ac2f967bdd47bf0f579cefe8a7" name="acf0616ac2f967bdd47bf0f579cefe8a7"></a>
 SyncMode&#160;</td><td class="memItemRight" valign="bottom"><b>syncMode</b> = SyncMode.Observers</td></tr>
@@ -157,6 +172,23 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>syncInterval</b> = 0
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_methods_class_monster_controller"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_monster_controller')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_monster_controller.html">MonsterController</a></td></tr>
+<tr class="memitem:ad3b276a47ba6546d24cc5a842a6316ac inherit pub_methods_class_monster_controller"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monster_controller.html#ad3b276a47ba6546d24cc5a842a6316ac">CheckGrounded</a> ()</td></tr>
+<tr class="memdesc:ad3b276a47ba6546d24cc5a842a6316ac inherit pub_methods_class_monster_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the monster is currently on ground  <a href="class_monster_controller.html#ad3b276a47ba6546d24cc5a842a6316ac">More...</a><br /></td></tr>
+<tr class="separator:ad3b276a47ba6546d24cc5a842a6316ac inherit pub_methods_class_monster_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee5da85a14a71153470e44c4c530c0e9 inherit pub_methods_class_monster_controller"><td class="memItemLeft" align="right" valign="top"><a id="aee5da85a14a71153470e44c4c530c0e9" name="aee5da85a14a71153470e44c4c530c0e9"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>GetVelocityX</b> ()</td></tr>
+<tr class="memdesc:aee5da85a14a71153470e44c4c530c0e9 inherit pub_methods_class_monster_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the monster's sideways velocity <br /></td></tr>
+<tr class="separator:aee5da85a14a71153470e44c4c530c0e9 inherit pub_methods_class_monster_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7f6d8636f10dd83a5e2b893f1d06c82 inherit pub_methods_class_monster_controller"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monster_controller.html#ad7f6d8636f10dd83a5e2b893f1d06c82">SetVelocityX</a> (float velocityX)</td></tr>
+<tr class="memdesc:ad7f6d8636f10dd83a5e2b893f1d06c82 inherit pub_methods_class_monster_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the monster's sideways velocity variable  <a href="class_monster_controller.html#ad7f6d8636f10dd83a5e2b893f1d06c82">More...</a><br /></td></tr>
+<tr class="separator:ad7f6d8636f10dd83a5e2b893f1d06c82 inherit pub_methods_class_monster_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30322eb230fa4ae12e768505389b5384 inherit pub_methods_class_monster_controller"><td class="memItemLeft" align="right" valign="top"><a id="a30322eb230fa4ae12e768505389b5384" name="a30322eb230fa4ae12e768505389b5384"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>GetVelocityZ</b> ()</td></tr>
+<tr class="memdesc:a30322eb230fa4ae12e768505389b5384 inherit pub_methods_class_monster_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the monster's forwards velocity <br /></td></tr>
+<tr class="separator:a30322eb230fa4ae12e768505389b5384 inherit pub_methods_class_monster_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fb5b3299f78200fd1976d6c52c47646 inherit pub_methods_class_monster_controller"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monster_controller.html#a1fb5b3299f78200fd1976d6c52c47646">SetVelocityZ</a> (float velocityZ)</td></tr>
+<tr class="memdesc:a1fb5b3299f78200fd1976d6c52c47646 inherit pub_methods_class_monster_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the monster's forwards velocity variable  <a href="class_monster_controller.html#a1fb5b3299f78200fd1976d6c52c47646">More...</a><br /></td></tr>
+<tr class="separator:a1fb5b3299f78200fd1976d6c52c47646 inherit pub_methods_class_monster_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42d54f636e3be761833ccf0c75c8b30a inherit pub_methods_class_monster_controller"><td class="memItemLeft" align="right" valign="top"><a id="a42d54f636e3be761833ccf0c75c8b30a" name="a42d54f636e3be761833ccf0c75c8b30a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>FindPlayers</b> ()</td></tr>
 <tr class="memdesc:a42d54f636e3be761833ccf0c75c8b30a inherit pub_methods_class_monster_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes a list containing all active players within aggro-radius. <br /></td></tr>
@@ -342,26 +374,7 @@ ulong&#160;</td><td class="memItemRight" valign="bottom"><b>syncVarDirtyBits</b>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This class contains spefic target detection for Roaming Monsters. Inherits from <a class="el" href="class_monster_controller.html" title="This class is responsible for handling monsters. Most code should only be run on server.">MonsterController</a>. </p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a7ad97f342549995c371bb589aef8c49f" name="a7ad97f342549995c371bb589aef8c49f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ad97f342549995c371bb589aef8c49f">&#9670;&nbsp;</a></span>detectionRate</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float RoamingMonster.detectionRate</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The rate for detection checks in seconds</p>
-<p ><br  />
- </p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>RoamingMonster.cs</li>
 </ul>
 </div><!-- contents -->
