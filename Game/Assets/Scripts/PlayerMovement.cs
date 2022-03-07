@@ -347,7 +347,8 @@ public class PlayerMovement : NetworkBehaviour
             (1 << 3)
         );
 
-        if (!hitInteractable) return;
+        if (!hitInteractable)
+            return;
 
         hit.collider.transform.root.gameObject.GetComponent<Interactable>().OnInteract();
     }
@@ -469,9 +470,10 @@ public class PlayerMovement : NetworkBehaviour
                     SetCurrentTaunt(3);
             }
 
-        if (Input.GetButtonDown("Interact"))
-        {
-            Interact();
+            if (Input.GetButtonDown("Interact"))
+            {
+                Interact();
+            }
         }
     }
 }
