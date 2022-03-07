@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class Rifle : ShootGun
 {
+
+    private AudioController audioController; // Audio Script that controlls Gun Sound
+
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// </summary>
@@ -17,6 +20,8 @@ public class Rifle : ShootGun
         this.weaoponRange = 200f;
         this.gunAmmo = 4;
         this.recoil = 20f;
+
+        audioController = this.GetComponent<AudioController>();
     }
 
     /// <summary>
@@ -30,6 +35,7 @@ public class Rifle : ShootGun
         }
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
+            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
             nextFire = Time.time + fireRate;
             if (gunAmmo > 0)
             {
@@ -55,6 +61,7 @@ public class Rifle : ShootGun
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
         gunAmmo--;
+        audioController.PlayGunSound(4);
         if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
         {
             Debug.Log("In Range!");
