@@ -56,7 +56,7 @@ public abstract class ShootGun : NetworkBehaviour
     /// </summary>
     public Inventory inventory;
     /// <summary>True when player is attacking</summary>
-    public bool inAttack; 
+    public bool inAttack;
     /// <summary>Audio Script that controlls Gun Sound</summary>
     private AudioController audioController;
 
