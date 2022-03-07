@@ -13,7 +13,7 @@ public class NetworkGamePlayer : NetworkBehaviour
 {
     /// <summary>A synchronised variable containing the name of the player or a placeholder.</summary>
     [SyncVar]
-    string displayName = "Loading...";
+    public string displayName = "Loading...";
 
     /// <summary>
     /// Triggers when the client/host starts.
