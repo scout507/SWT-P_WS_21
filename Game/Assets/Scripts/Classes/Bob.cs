@@ -5,7 +5,7 @@ using UnityEngine;
 /* edited by: SWT-P_WS_21/22*/
 public class Bob : Classes
 {
-     void Update()
+    void Update()
     {
         if(!isLocalPlayer) return;
         if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon < 2)
@@ -51,5 +51,10 @@ public class Bob : Classes
             default:
                 break;
         }
+    }
+
+    public override void SetHasMelee()
+    {
+        this.hasMelee = false;
     }
 }

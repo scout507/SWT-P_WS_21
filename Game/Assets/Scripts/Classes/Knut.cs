@@ -53,4 +53,8 @@ public class Knut : Classes
                 break;
         }
     }
+    public override void SetHasMelee()
+    {
+        this.hasMelee = false;
+    }
 }

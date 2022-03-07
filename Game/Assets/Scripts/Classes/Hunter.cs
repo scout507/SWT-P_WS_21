@@ -6,6 +6,7 @@ using UnityEngine;
 public class Hunter : Classes
 {
     bool isInZoom = false;
+
     void Update()
     {
         if (!isLocalPlayer) return;
@@ -70,5 +71,9 @@ public class Hunter : Classes
             default:
                 break;
         }
+    }
+    public override void SetHasMelee()
+    {
+        this.hasMelee = false;
     }
 }

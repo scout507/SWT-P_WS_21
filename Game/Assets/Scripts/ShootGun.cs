@@ -23,12 +23,7 @@ public abstract class ShootGun : NetworkBehaviour
     public bool inAttack; // Placeholder till this get somehow sorted...
 
 
-    private AudioController audioController; // Audio Script that controlls Gun Sound
-
-    private void Start()
-    {
-        audioController = this.GetComponent<AudioController>();
-    }
+    public AudioController audioController; // Audio Script that controlls Gun Sound
 
     /// <summary>
     /// Gets called when player is hit.
