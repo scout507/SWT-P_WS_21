@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Mirror;
 
 /* created by: SWT-P_WS_21/22 */
 
@@ -12,18 +13,18 @@ using TMPro;
 /// </summary>
 public class JoinLobbyMenu : MonoBehaviour
 {
-    /// <summary>Holds the Lobby UI network manager</summary>
-    [SerializeField] private NetworkManagerLobby networkManager = null;
-
     [Header("UI")]
     /// <summary>Holds the game object that defines the host UI of the Lobby UI.</summary>
-    [SerializeField] private GameObject landingPagePanel = null;
+    [SerializeField]
+    private GameObject landingPagePanel = null;
 
     /// <summary>Holds the input field for the IP address of the Lobby UI.</summary>
-    [SerializeField] private TMP_InputField ipAdressInputField = null;
+    [SerializeField]
+    private TMP_InputField ipAdressInputField = null;
 
     /// <summary>Holds the Join button of the Lobby UI.</summary>
-    [SerializeField] private Button joinButton = null;
+    [SerializeField]
+    private Button joinButton = null;
 
     /// <summary>
     /// Called when the object of the class in the scene will activated.
@@ -52,12 +53,15 @@ public class JoinLobbyMenu : MonoBehaviour
     /// </summary>
     public void JoinLobby()
     {
-        string ipAdress = ipAdressInputField.text;
+        if (!string.IsNullOrEmpty(ipAdressInputField.text))
+        {
+            string ipAdress = ipAdressInputField.text;
 
-        networkManager.networkAddress = ipAdress;
-        networkManager.StartClient();
+            NetworkManager.singleton.networkAddress = ipAdress;
+            NetworkManager.singleton.StartClient();
 
-        joinButton.interactable = false;
+            joinButton.interactable = false;
+        }
     }
 
     /// <summary>
@@ -67,9 +71,8 @@ public class JoinLobbyMenu : MonoBehaviour
     private void HandleClientConnected()
     {
         joinButton.interactable = true;
-
+        landingPagePanel.SetActive(true);
         gameObject.SetActive(false);
-        landingPagePanel.SetActive(false);
     }
 
     /// <summary>
