@@ -57,6 +57,17 @@ public class Task : NetworkBehaviour
     }
 
     /// <summary>
+    /// Used to undo the task and set it active again.
+    /// </summary>
+    public void UndoTask()
+    {
+        active = true;
+        done = false;
+        progress = 0;
+        UpdateHealth();
+    }
+
+    /// <summary>
     /// Adds players to the players List once they are in the interactive radius.
     /// </summary>
     /// <param name="other">Collider of the entering GameObject</param>

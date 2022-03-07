@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class Melee : ShootGun
 {
+
+    private AudioController audioController; // Audio Script that controlls Gun Sound
+
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// </summary>
@@ -14,6 +17,8 @@ public class Melee : ShootGun
     {
         this.gunDamage = 100;
         this.fireRate = 0.5f;
+
+        audioController = this.GetComponent<AudioController>();
     }
 
     /// <summary>
@@ -25,10 +30,15 @@ public class Melee : ShootGun
         {
             return;
         }
+
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             Shoot();
+        }
+        else
+        {
+            this.inAttack = false;
         }
     }
 
@@ -37,7 +47,8 @@ public class Melee : ShootGun
     /// </summary>
     public override void Shoot()
     {
-        StartCoroutine(Hit());
+        audioController.PlayGunSound(3);
+        this.inAttack = true;
     }
 
     /// <summary>
@@ -87,5 +98,14 @@ public class Melee : ShootGun
         {
             CmdShootDevice(attackedOpponent, gunDamage);
         }
+    }
+
+    /// <summary>
+    /// Getter for the melee's collider
+    /// </summary>
+    /// <returns>BoxCollider of the melee weapon's head</returns>
+    public BoxCollider GetCollider()
+    {
+        return gunMount.GetComponentInChildren<BoxCollider>();
     }
 }
