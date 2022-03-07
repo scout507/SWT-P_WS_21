@@ -32,7 +32,6 @@ public class MeleeAnimationColliderToggle : MonoBehaviour
     void setColliderOn()
     {
         melee.GetCollider().enabled = true;
-        Debug.Log("Melee Collider ON");
     }
 
     /// <summary>
@@ -41,6 +40,5 @@ public class MeleeAnimationColliderToggle : MonoBehaviour
     void setColliderOff()
     {
         melee.GetCollider().enabled = false;
-        Debug.Log("Melee Collider OFF");
     }
 }
