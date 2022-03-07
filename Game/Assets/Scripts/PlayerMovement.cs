@@ -207,6 +207,7 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     public int GetSelectedWeapon()
     {
+        //return selectedWeapon;
         // This needs to return the player's selectedWeapon via their class script
         return 0;
     }
