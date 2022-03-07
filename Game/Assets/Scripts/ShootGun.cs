@@ -58,15 +58,7 @@ public abstract class ShootGun : NetworkBehaviour
     /// <summary>True when player is attacking</summary>
     public bool inAttack;
     /// <summary>Audio Script that controlls Gun Sound</summary>
-    private AudioController audioController;
-
-    /// <summary>
-    /// Fetches dependencies.
-    /// </summary>
-    private void Start()
-    {
-        audioController = this.GetComponent<AudioController>();
-    }
+    public AudioController audioController;
 
     /// <summary>
     /// Gets called when player is hit.

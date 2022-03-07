@@ -6,6 +6,7 @@ using UnityEngine;
 /* edited by: SWT-P_WS_21/22*/
 public abstract class Classes : NetworkBehaviour
 {
+    public bool hasMelee;
     public int newWeapon = 0;
 
     [SyncVar(hook = nameof(SwitchWeapon))]
@@ -18,6 +19,7 @@ public abstract class Classes : NetworkBehaviour
     {
         selectedWeapon = 1;
         SwitchWeapon(selectedWeapon, selectedWeapon);
+        SetHasMelee();
     }
 
 
@@ -37,4 +39,11 @@ public abstract class Classes : NetworkBehaviour
     /// <param name="oldWeapon">Index of old weapon.</param>
     /// <param name="newWeapon">Index of new weapon.</param>
     public abstract void SwitchWeapon(int oldWeapon, int newWeapon);
+
+    public int GetSelectedWeapon()
+    {
+        return selectedWeapon;
+    }
+
+    public abstract void SetHasMelee();
 }

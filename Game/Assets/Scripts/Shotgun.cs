@@ -11,8 +11,6 @@ using UnityEngine;
 public class Shotgun : ShootGun
 {
 
-    private AudioController audioController; // Audio Script that controlls Gun Sound
-
     private int pelletAmount = 15;
 
     /// <summary>
