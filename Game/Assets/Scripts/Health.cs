@@ -19,13 +19,20 @@ public class Health : NetworkBehaviour
 
     public HealthBar healthBar;
 
+    /// <summary>Holds the prefab for a dead player.</summary>
+    public GameObject deadPlayerPrefab = null;
+    /// <summary>Holds the prefab for a spectator.</summary>
+    public GameObject spectatorPlayerPrefab = null;
+    /// <summary>Is true when the player is dead.</summary>
+    public bool isDead = false;
+
     void Start()
     {
 
         health = 100;
         healthBar.SetMaxHealth(health);
         if (!isLocalPlayer) return;
-        CmdRegisterPlayer();
+        //CmdRegisterPlayer();
     }
 
     /// <summary>
@@ -45,11 +52,20 @@ public class Health : NetworkBehaviour
         else
         {
             health -= amount;
+            if (health > 0)
+            {
+                healthBar.SetHealth(health);
+            }
+            else
+            {
+                healthBar.SetHealth(0);
+            }
         }
         if (amount > 0) TargetDamage();
         else GotHealed();
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
+            isDead = true;
             TargetDeath();
         }
     }
@@ -78,23 +94,30 @@ public class Health : NetworkBehaviour
     [TargetRpc]
     void TargetDeath()
     {
-        Camera.main.transform.parent = null;
-        Camera.main.transform.position = new Vector3(-5.8f, 84.5f, -48.3f);
-        Camera.main.transform.rotation = Quaternion.Euler(51f, 0f, 0f);
         Debug.Log("You are Dead");
-        CmdDestroyPlayer(gameObject);
+        CmdDestroyPlayer();
     }
 
+    /// <summary>
+    /// Spawns the deadPlayer prefab and the spectator prefab.
+    /// Sets the game object of the spectator as a new player prefab.
+    /// </summary>
     [Command]
-    void CmdDestroyPlayer(GameObject character)
+    void CmdDestroyPlayer()
     {
-        RpcDestroyPlayer(character);
+        GameObject deadPlayer = Instantiate(deadPlayerPrefab, transform.position, transform.rotation);
+        GameObject spectator = Instantiate(spectatorPlayerPrefab, transform.position + Vector3.up * 5, transform.rotation);
+
+        NetworkServer.Spawn(deadPlayer);
+        NetworkServer.ReplacePlayerForConnection(connectionToClient, spectator.gameObject, true);
+        RpcDestroyPlayer();
     }
 
+    /// <summary>Deactivates the player object.</summary>
     [ClientRpc]
-    void RpcDestroyPlayer(GameObject character)
+    void RpcDestroyPlayer()
     {
-        Destroy(character);
+        gameObject.SetActive(false);
     }
 
 
