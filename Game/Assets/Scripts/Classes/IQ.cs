@@ -63,4 +63,8 @@ public class IQ : Classes
                 break;
         }
     }
+    public override void SetHasMelee()
+    {
+        this.hasMelee = false;
+    }
 }

@@ -182,8 +182,7 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     public int GetSelectedWeapon()
     {
-        // This needs to return the player's selectedWeapon via their class script
-        return 0;
+        return GetComponent<Classes>().GetSelectedWeapon();
     }
 
     /// <summary>

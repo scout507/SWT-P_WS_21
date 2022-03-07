@@ -63,4 +63,9 @@ public class Doc : Classes
                 break;
         }
     }
+
+    public override void SetHasMelee()
+    {
+        this.hasMelee = false;
+    }
 }
