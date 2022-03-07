@@ -4,10 +4,10 @@ using UnityEngine;
 
 /* edited by: SWT-P_WS_21/22*/
 public class IQ : Classes
-{   
+{
     void Update()
     {
-        if(!isLocalPlayer) return;
+        if (!isLocalPlayer) return;
         if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon < 3)
         {
             newWeapon = selectedWeapon + 1;
@@ -62,5 +62,9 @@ public class IQ : Classes
             default:
                 break;
         }
+    }
+    public override void SetHasMelee()
+    {
+        this.hasMelee = false;
     }
 }

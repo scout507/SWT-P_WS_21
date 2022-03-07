@@ -5,9 +5,9 @@ using UnityEngine;
 /* edited by: SWT-P_WS_21/22*/
 public class Bob : Classes
 {
-     void Update()
+    void Update()
     {
-        if(!isLocalPlayer) return;
+        if (!isLocalPlayer) return;
         if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon < 2)
         {
             newWeapon = selectedWeapon + 1;
@@ -26,7 +26,7 @@ public class Bob : Classes
         {
             CmdSwitchWeapon(2);
         }
-    }   
+    }
     public override void SwitchWeapon(int oldWeapon, int newWeapon)
     {
         switch (oldWeapon)
@@ -51,5 +51,10 @@ public class Bob : Classes
             default:
                 break;
         }
+    }
+
+    public override void SetHasMelee()
+    {
+        this.hasMelee = false;
     }
 }
