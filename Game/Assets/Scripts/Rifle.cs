@@ -8,8 +8,6 @@ using UnityEngine;
 public class Rifle : ShootGun
 {
 
-    private AudioController audioController; // Audio Script that controlls Gun Sound
-
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// </summary>
@@ -21,7 +19,7 @@ public class Rifle : ShootGun
         this.gunAmmo = 4;
         this.recoil = 20f;
 
-        audioController = this.GetComponent<AudioController>();
+         audioController = this.GetComponent<AudioController>();
     }
 
     /// <summary>

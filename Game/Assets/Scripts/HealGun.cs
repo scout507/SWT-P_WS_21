@@ -38,7 +38,7 @@ public class HealGun : ShootGun
                 Debug.Log("Out of Ammo!");
             }
         }
-        if(Input.GetButtonDown("Fire3") && Time.time > nextFire)
+        if (Input.GetButtonDown("Fire3") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             if (gunAmmo > 0)
