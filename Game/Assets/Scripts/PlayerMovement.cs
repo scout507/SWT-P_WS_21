@@ -12,93 +12,114 @@ using UnityEngine;
 /// </summary>
 public class PlayerMovement : NetworkBehaviour
 {
-    [SerializeField] CharacterController controller;
+    [SerializeField]
+    CharacterController controller;
 
     /// <summary>
     /// Prefab of the player's model
     /// </summary>
-    [SerializeField] GameObject playerModel;
+    [SerializeField]
+    GameObject playerModel;
 
     /// <summary>
     /// Move vector relative to the player
     /// </summary>
-    [SyncVar] Vector3 moveRelative;
+    [SyncVar]
+    Vector3 moveRelative;
 
     /// <summary>
     /// Walking speed multiplier
     /// </summary>
-    [SerializeField] float speed = 9f;
+    [SerializeField]
+    float speed = 9f;
 
     /// <summary>
     /// Sprint speed multiplier
     /// </summary>
-    [SerializeField] float sprintSpeedMultiplier = 1.5f;
+    [SerializeField]
+    float sprintSpeedMultiplier = 1.5f;
 
     /// <summary>
     /// Crouch speed multiplier
     /// </summary>
-    [SerializeField] float crouchSpeedMultiplier = .33f;
+    [SerializeField]
+    float crouchSpeedMultiplier = .33f;
 
     /// <summary>
     /// Gravity force to apply to the player
     /// </summary>
-    [SerializeField] float gravity = 19.62f;
+    [SerializeField]
+    float gravity = 19.62f;
 
     /// <summary>
     /// 
     /// </summary>
-    [SerializeField] float jumpHeight = 2f;
+    [SerializeField]
+    float jumpHeight = 2f;
 
     /// <summary>
     /// Player's current stamina
     /// </summary>
-    [SerializeField] float stamina = 10f;
+    [SerializeField]
+    float stamina = 10f;
 
     /// <summary>
     /// Maximum stamina
     /// </summary>
-    [SerializeField] float staminaMax = 10f;
+    [SerializeField]
+    float staminaMax = 10f;
 
     /// <summary>
     /// Stamina to drain
     /// </summary>
-    [SerializeField] float staminaDrain = .33f;
+    [SerializeField]
+    float staminaDrain = .33f;
 
     /// <summary>
     /// Stamina to regain
     /// </summary>
-    [SerializeField] float staminaRegen = .01f;
+    [SerializeField]
+    float staminaRegen = .01f;
 
     /// <summary>
     /// Is the player's stamina on cooldown / is the player currently exhausted?
     /// </summary>
     bool staminaOnCooldown = false;
 
-    [SerializeField] Transform groundCheck;
-    [SerializeField] float groundDistance = 0.4f;
-    [SerializeField] LayerMask groundMask;
+    [SerializeField]
+    Transform groundCheck;
+
+    [SerializeField]
+    float groundDistance = 0.4f;
+
+    [SerializeField]
+    LayerMask groundMask;
 
     Vector3 velocity;
 
     /// <summary>
     /// Is the player currently on ground? 
     /// </summary>
-    [SyncVar] bool isGrounded = false;
+    [SyncVar]
+    bool isGrounded = false;
 
     /// <summary>
     /// Is the player currently in air? 
     /// </summary>
-    [SyncVar] bool isAirborne = false;
+    [SyncVar]
+    bool isAirborne = false;
 
     /// <summary>
     /// Is the player currently sprinting?
     /// </summary>
-    [SyncVar] bool isSprinting = false;
+    [SyncVar]
+    bool isSprinting = false;
 
     /// <summary>
     /// Is the player currently crouching?
     /// </summary>
-    [SyncVar] bool isCrouching = false;
+    [SyncVar]
+    bool isCrouching = false;
 
     /// <summary>
     /// Is the player currently prone?
@@ -116,10 +137,14 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     float xRotation = 0f;
 
+    /// <summary>Is true if the script is to be active.</summary>
+    public bool active = true;
+
     /// <summary>
     /// Player's current taunt (0 = none)
     /// </summary>
-    [SyncVar] int currentTaunt = 0;
+    [SyncVar]
+    int currentTaunt = 0;
 
     /// <summary>
     /// Returns the player's view pitch
@@ -262,7 +287,13 @@ public class PlayerMovement : NetworkBehaviour
         }
         else
         {
-            return (isGrounded && Input.GetAxis("Vertical") > 0.1f && forward.magnitude > 0.1f && Input.GetButton("Sprint") && stamina > 0);
+            return (
+                isGrounded
+                && Input.GetAxis("Vertical") > 0.1f
+                && forward.magnitude > 0.1f
+                && Input.GetButton("Sprint")
+                && stamina > 0
+            );
         }
     }
 
@@ -279,7 +310,6 @@ public class PlayerMovement : NetworkBehaviour
         cameraMountPoint.transform.localPosition = new Vector3(0.085f, 0.26f, 0.06f);
         isCrouching = true;
     }
-
 
     /// <summary>
     /// Toggles player's position to uncrouched
@@ -332,103 +362,112 @@ public class PlayerMovement : NetworkBehaviour
             return;
         }
 
-        SetIsGrounded(CheckGrounded());
-
-        if (isGrounded && velocity.y < 0)
+        if (active)
         {
-            velocity.y = -2f;
-            SetIsAirborne(false);
-        }
+            SetIsGrounded(CheckGrounded());
 
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
-        cameraMountPoint.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * mouseX);
-
-        Vector3 right = transform.right * Input.GetAxis("Horizontal") * speed;
-        Vector3 forward = transform.forward * Input.GetAxis("Vertical") * speed;
-
-        isSprinting = CheckSprinting(forward);
-        if (isSprinting)
-        {
-            if (isCrouching)
+            if (isGrounded && velocity.y < 0)
             {
-                Uncrouch();
+                velocity.y = -2f;
+                SetIsAirborne(false);
             }
 
-            forward *= sprintSpeedMultiplier;
-            stamina -= staminaDrain * Time.deltaTime;
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-            if (stamina < 0)
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+            cameraMountPoint.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            transform.Rotate(Vector3.up * mouseX);
+
+            Vector3 right = transform.right * Input.GetAxis("Horizontal") * speed;
+            Vector3 forward = transform.forward * Input.GetAxis("Vertical") * speed;
+
+            isSprinting = CheckSprinting(forward);
+            if (isSprinting)
             {
-                stamina = 0;
-                staminaOnCooldown = true;
-            }
-        }
-        else
-        {
-            stamina += staminaRegen * Time.deltaTime;
+                if (isCrouching)
+                {
+                    Uncrouch();
+                }
 
-            if (stamina > staminaMax)
-            {
-                stamina = staminaMax;
-            }
+                forward *= sprintSpeedMultiplier;
+                stamina -= staminaDrain * Time.deltaTime;
 
-            if (stamina > staminaMax / 3)
-            {
-                staminaOnCooldown = false;
-            }
-        }
-
-        Vector3 move = right + forward;
-
-        if (isCrouching)
-        {
-            move *= crouchSpeedMultiplier;
-        }
-
-        if ((!isSprinting && move.magnitude > speed) || (isSprinting && move.magnitude > speed * sprintSpeedMultiplier))
-        {
-            move = move.normalized;
-            move *= isSprinting ? speed * sprintSpeedMultiplier : speed;
-
-        }
-
-        controller.Move(move * Time.deltaTime);
-        SetMoveRelative(transform.InverseTransformDirection(move));
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            Uncrouch();
-            SetIsAirborne(true);
-            velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
-        }
-
-        if (Input.GetButtonDown("Crouch"))
-        {
-            if (!isCrouching)
-            {
-                Crouch();
+                if (stamina < 0)
+                {
+                    stamina = 0;
+                    staminaOnCooldown = true;
+                }
             }
             else
             {
-                Uncrouch();
+                stamina += staminaRegen * Time.deltaTime;
+
+                if (stamina > staminaMax)
+                {
+                    stamina = staminaMax;
+                }
+
+                if (stamina > staminaMax / 3)
+                {
+                    staminaOnCooldown = false;
+                }
             }
-        }
 
-        velocity.y -= gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+            Vector3 move = right + forward;
 
-        if (move.magnitude > 0.1f) SetCurrentTaunt(0);
-        if (Input.GetKey("t"))
-        {
-            if (Input.GetKeyDown("1")) SetCurrentTaunt(1);
-            if (Input.GetKeyDown("2")) SetCurrentTaunt(2);
-            if (Input.GetKeyDown("3")) SetCurrentTaunt(3);
+            if (isCrouching)
+            {
+                move *= crouchSpeedMultiplier;
+            }
+
+            if (
+                (!isSprinting && move.magnitude > speed)
+                || (isSprinting && move.magnitude > speed * sprintSpeedMultiplier)
+            )
+            {
+                move = move.normalized;
+                move *= isSprinting ? speed * sprintSpeedMultiplier : speed;
+            }
+
+            controller.Move(move * Time.deltaTime);
+            SetMoveRelative(transform.InverseTransformDirection(move));
+
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                Uncrouch();
+                SetIsAirborne(true);
+                velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
+            }
+
+            if (Input.GetButtonDown("Crouch"))
+            {
+                if (!isCrouching)
+                {
+                    Crouch();
+                }
+                else
+                {
+                    Uncrouch();
+                }
+            }
+
+            velocity.y -= gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+
+            if (move.magnitude > 0.1f)
+                SetCurrentTaunt(0);
+            if (Input.GetKey("t"))
+            {
+                if (Input.GetKeyDown("1"))
+                    SetCurrentTaunt(1);
+                if (Input.GetKeyDown("2"))
+                    SetCurrentTaunt(2);
+                if (Input.GetKeyDown("3"))
+                    SetCurrentTaunt(3);
+            }
         }
 
         if (Input.GetButtonDown("Interact"))
