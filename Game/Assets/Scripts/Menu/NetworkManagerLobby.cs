@@ -203,7 +203,7 @@ public class NetworkManagerLobby : NetworkManager
             if (!isReadyToStart())
                 return;
 
-            ServerChangeScene("Test");
+            ServerChangeScene("1. Final");
         }
     }
 
@@ -214,7 +214,7 @@ public class NetworkManagerLobby : NetworkManager
     /// <param name="newSceneName">Requires the name of the scene to be loaded.</param>
     public override void ServerChangeScene(string newSceneName)
     {
-        if (SceneManager.GetActiveScene().path == menuScene && newSceneName.StartsWith("Test"))
+        if (SceneManager.GetActiveScene().path == menuScene && newSceneName.StartsWith("1. Final"))
         {
             for (int i = roomPlayers.Count - 1; i >= 0; i--)
             {
@@ -236,7 +236,7 @@ public class NetworkManagerLobby : NetworkManager
     /// <param name="newSceneName">Name of the scene to switch to.</param>
     public override void OnServerSceneChanged(string newSceneName)
     {
-        if (newSceneName.StartsWith("Test"))
+        if (newSceneName.StartsWith("1. Final"))
         {
             GameObject playerSpawnSystemInstance = Instantiate(playerSpawnSystem);
             NetworkServer.Spawn(playerSpawnSystemInstance);
