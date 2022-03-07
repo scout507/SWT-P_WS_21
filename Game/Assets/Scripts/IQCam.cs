@@ -16,6 +16,7 @@ public class IQCam : NetworkBehaviour
     public Transform deviceMount; // Point where device is loaded
     public Transform throwPoint;
     private GameObject[] cameras = new GameObject[3];
+    public Inventory inventory;
 
     [SerializeField]
     private int setCamerasCount = 0;
@@ -24,6 +25,7 @@ public class IQCam : NetworkBehaviour
     private int lastActiveCam = 0;
     public Transform cameraMountPoint;
     CamController activeCam;
+    public Sprite icon;
 
     // Update is called once per frame
     void Update()
@@ -32,6 +34,7 @@ public class IQCam : NetworkBehaviour
         {
             return;
         }
+        inventory.UpdateInfo(icon, remainingCams, 0);
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire && !isInCams)
         {
             nextFire = Time.time + fireRate;

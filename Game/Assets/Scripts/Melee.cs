@@ -28,7 +28,7 @@ public class Melee : ShootGun
         {
             return;
         }
-
+        inventory.UpdateInfo(this.icon, 0, 0);
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;

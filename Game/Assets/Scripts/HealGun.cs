@@ -25,7 +25,7 @@ public class HealGun : ShootGun
         {
             return;
         }
-
+        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
@@ -44,6 +44,7 @@ public class HealGun : ShootGun
             if (gunAmmo > 0)
             {
                 CmdShootPlayer(this.gameObject, gunDamage);
+                gunAmmo--;
             }
             else
             {

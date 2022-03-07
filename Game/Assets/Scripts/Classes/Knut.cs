@@ -55,6 +55,6 @@ public class Knut : Classes
     }
     public override void SetHasMelee()
     {
-        this.hasMelee = false;
+        this.hasMelee = true;
     }
 }
