@@ -15,15 +15,15 @@ public class MeleeAnimationColliderToggle : MonoBehaviour
     /// <summary>
     /// Player's melee collider
     /// </summary>
-    private CapsuleCollider collider;
+    private CapsuleCollider col;
 
     /// <summary>
     /// Gets the melee collider on start
     /// </summary>
     void Start()
     {
-        collider = melee.gunMount.GetComponentInChildren<CapsuleCollider>();
-        Debug.Log("Melee Collider: " + collider);
+        col = melee.gunMount.GetComponentInChildren<CapsuleCollider>();
+        Debug.Log("Melee Collider: " + col);
     }
 
     /// <summary>
@@ -32,7 +32,6 @@ public class MeleeAnimationColliderToggle : MonoBehaviour
     void setColliderOn()
     {
         melee.GetCollider().enabled = true;
-        Debug.Log("Melee Collider ON");
     }
 
     /// <summary>
@@ -41,6 +40,5 @@ public class MeleeAnimationColliderToggle : MonoBehaviour
     void setColliderOff()
     {
         melee.GetCollider().enabled = false;
-        Debug.Log("Melee Collider OFF");
     }
 }
