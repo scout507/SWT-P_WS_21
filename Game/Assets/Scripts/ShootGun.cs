@@ -11,20 +11,58 @@ using UnityEngine;
 /// </summary>
 public abstract class ShootGun : NetworkBehaviour
 {
-    public int gunDamage; // Damage output for gun
-    public float fireRate; // Firerate for gun
-    public float weaoponRange; // Range for gun
-    public Transform gunEnd; // Gun end for animations
-    public GameObject gun; // Prefab of gun
-    public Transform gunMount; // Point where gun is loaded
-    public int gunAmmo; // Ammunition of gun
-    public float nextFire; // Time of the next shot you can take
-    public float recoil; // Set ammount of Recoil per Shot
-    public bool inAttack; // Placeholder till this get somehow sorted...
+    /// <summary>
+    /// Damage output for gun
+    /// </summary>
+    public int gunDamage;
+    /// <summary>
+    /// Firerate for gun
+    /// </summary>
+    public float fireRate;
+    /// <summary>
+    /// Range for gun
+    /// </summary>
+    public float weaoponRange;
+    /// <summary>
+    /// Gun end for animations
+    /// </summary>
+    public Transform gunEnd;
+    /// <summary>
+    /// Prefab of gun
+    /// </summary>
+    public GameObject gun;
+    /// <summary>
+    /// Point where gun is loaded
+    /// </summary>
+    public Transform gunMount;
+    /// <summary>
+    /// Ammunition of gun
+    /// </summary>
+    public int gunAmmo;
+    /// <summary>
+    /// Time of the next shot you can take
+    /// </summary>
+    public float nextFire;
+    /// <summary>
+    /// Set ammount of Recoil per Shot
+    /// </summary>
+    public float recoil;
+    /// <summary>
+    /// Icon of the Weapon
+    /// </summary>
+    public Sprite icon;
+    /// <summary>
+    /// Weapon-Inventory of the Player
+    /// </summary>
+    public Inventory inventory;
+    /// <summary>True when player is attacking</summary>
+    public bool inAttack;
+    /// <summary>Audio Script that controlls Gun Sound</summary>
+    private AudioController audioController;
 
-
-    private AudioController audioController; // Audio Script that controlls Gun Sound
-
+    /// <summary>
+    /// Fetches dependencies.
+    /// </summary>
     private void Start()
     {
         audioController = this.GetComponent<AudioController>();

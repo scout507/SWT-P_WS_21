@@ -9,12 +9,12 @@ using UnityEngine.UI;
 public class Compass : MonoBehaviour
 {
     /// <summary>
-    /// sprite of teh compass directions
+    /// sprite of the compass directions
     /// </summary>
     public RawImage compassImage;
 
     /// <summary>
-    /// the players transformation info 
+    /// the players transformation info
     /// </summary>
     public Transform player;
 
