@@ -55,7 +55,18 @@ public abstract class ShootGun : NetworkBehaviour
     /// Weapon-Inventory of the Player
     /// </summary>
     public Inventory inventory;
+    /// <summary>True when player is attacking</summary>
+    public bool inAttack; 
+    /// <summary>Audio Script that controlls Gun Sound</summary>
+    private AudioController audioController;
 
+    /// <summary>
+    /// Fetches dependencies.
+    /// </summary>
+    private void Start()
+    {
+        audioController = this.GetComponent<AudioController>();
+    }
 
     /// <summary>
     /// Gets called when player is hit.
@@ -142,4 +153,5 @@ public abstract class ShootGun : NetworkBehaviour
         xRotation -= recoil;
         GetComponent<PlayerMovement>().SetXRotation(xRotation);
     }
+
 }
