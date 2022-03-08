@@ -11,8 +11,6 @@ public class AudioController : NetworkBehaviour
     public AudioClip[] audioClips; // The Audio Clips, Gun Sounds and Footstep Sounds
     public float stepRate = 0.5f; // The Footstep Sound Rate
     public float stepCoolDown; // The Time until the next Footstep Sound is Played
-    /// <summary>Volume for the sounds</summary>
-    public float vol = 1f;
 
     private void Start()
     {
@@ -52,7 +50,7 @@ public class AudioController : NetworkBehaviour
     [ClientRpc]
     void RPCPlayFootStepSound()
     {
-        audioSource.volume = 0.3f * vol;
+        audioSource.volume = 0.3f;
         audioSource.pitch = 1f + Random.Range(-0.2f, 0.2f);
         audioSource.PlayOneShot(audioClips[5], 0.9f);
         stepCoolDown = stepRate;
@@ -88,7 +86,7 @@ public class AudioController : NetworkBehaviour
     [ClientRpc]
     void RPCSendGunSound(int weaponNumber)
     {
-        audioSource.volume = 0.7f * vol;
+        audioSource.volume = 0.7f;
         audioSource.pitch = 1f + Random.Range(-0.1f, 0.1f);
         audioSource.PlayOneShot(audioClips[weaponNumber]);
     }
