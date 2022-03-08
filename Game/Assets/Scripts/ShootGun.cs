@@ -40,6 +40,10 @@ public abstract class ShootGun : NetworkBehaviour
     /// </summary>
     public int gunAmmo;
     /// <summary>
+    /// Maximum Ammo
+    /// </summary>
+    public int magSize;
+    /// <summary>
     /// Time of the next shot you can take
     /// </summary>
     public float nextFire;
@@ -130,6 +134,8 @@ public abstract class ShootGun : NetworkBehaviour
     private void OnEnable()
     {
         Instantiate(gun, gunMount);
+        if(isLocalPlayer) inventory = GetComponentInChildren<Inventory>();
+        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
     }
 
     /// <summary>

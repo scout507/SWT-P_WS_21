@@ -23,7 +23,6 @@ public class Shotgun : ShootGun
         this.weaoponRange = 50f;
         this.gunAmmo = 8;
         this.recoil = 10f;
-
         audioController = this.GetComponent<AudioController>();
     }
 
@@ -38,6 +37,8 @@ public class Shotgun : ShootGun
         }
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
+            inventory = GetComponentInChildren<Inventory>();
+            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
             nextFire = Time.time + fireRate;
             if (gunAmmo > 0)
             {
@@ -51,8 +52,10 @@ public class Shotgun : ShootGun
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            gunAmmo = 8;
+            gunAmmo = magSize;
         }
+        
+        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
     }
 
     /// <summary>
@@ -99,4 +102,5 @@ public class Shotgun : ShootGun
         }
         Recoil();
     }
+
 }
