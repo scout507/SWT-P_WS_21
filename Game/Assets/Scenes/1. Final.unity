@@ -15420,9 +15420,9 @@ MonoBehaviour:
   zombiesAmount: 10
   roamerAmount: 10
   waveSpawns:
-  - {fileID: 0}
+  - {fileID: 1623414519}
   roamerSpawns:
-  - {fileID: 0}
+  - {fileID: 923746921}
 --- !u!114 &1208821841
 MonoBehaviour:
   m_ObjectHideFlags: 0
