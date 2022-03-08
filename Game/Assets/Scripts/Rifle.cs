@@ -18,8 +18,7 @@ public class Rifle : ShootGun
         this.weaoponRange = 200f;
         this.gunAmmo = 4;
         this.recoil = 20f;
-
-         audioController = this.GetComponent<AudioController>();
+        audioController = this.GetComponent<AudioController>();
     }
 
     /// <summary>
@@ -33,6 +32,7 @@ public class Rifle : ShootGun
         }
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
+            if (isLocalPlayer) inventory = GetComponentInChildren<Inventory>();
             inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
             nextFire = Time.time + fireRate;
             if (gunAmmo > 0)
@@ -46,8 +46,10 @@ public class Rifle : ShootGun
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            gunAmmo = 4;
+            gunAmmo = magSize;
         }
+
+        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
     }
 
     /// <summary>
@@ -88,4 +90,5 @@ public class Rifle : ShootGun
         }
         Recoil();
     }
+
 }

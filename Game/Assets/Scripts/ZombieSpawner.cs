@@ -115,7 +115,7 @@ public class ZombieSpawner : NetworkBehaviour
     {
         for (int i = 0; i < roamerAmount; i++)
         {
-            GameObject spawn = roamerSpawns[Random.Range(0,waveSpawns.Length)];
+            GameObject spawn = roamerSpawns[Random.Range(0,roamerSpawns.Length)];
             GameObject spawnedZombie = (GameObject)Instantiate(roamingZombie, spawn.transform.position + new Vector3(i, 0, 0), Quaternion.identity);
             NetworkServer.Spawn(spawnedZombie);
         }

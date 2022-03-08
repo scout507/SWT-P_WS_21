@@ -348,7 +348,7 @@ MonoBehaviour:
   speed: 6
   sprintSpeedMultiplier: 1.5
   crouchSpeedMultiplier: 0.33
-  gravity: 19.62
+  gravity: 9.62
   jumpHeight: 1.5
   stamina: 1
   staminaMax: 1
@@ -359,7 +359,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  mouseSensitivity: 2000
+  mouseSensitivity: 500
   cameraMountPoint: {fileID: 5846548512739356343}
   active: 1
 --- !u!114 &7349878661262666589
@@ -678,6 +678,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f0f794c67e9233d468a38d165590d253, type: 3}
   stepRate: 0.5
   stepCoolDown: 0
+  vol: 1
 --- !u!114 &843334520957899125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,6 +708,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae41d263bf8af243a7b4e512c02563a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   displayName: 
 --- !u!1 &5846548512739356343
 GameObject:
