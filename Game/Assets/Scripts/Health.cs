@@ -31,8 +31,6 @@ public class Health : NetworkBehaviour
 
         health = 100;
         healthBar.SetMaxHealth(health);
-        if (!isLocalPlayer) return;
-        //CmdRegisterPlayer();
     }
 
     /// <summary>
@@ -118,15 +116,5 @@ public class Health : NetworkBehaviour
     void RpcDestroyPlayer()
     {
         gameObject.SetActive(false);
-    }
-
-
-    /// <summary>
-    /// Calls the RoundManager to register the player upon joining the game.
-    /// </summary>
-    [Command]
-    void CmdRegisterPlayer()
-    {
-        GameObject.FindGameObjectWithTag("Manager").GetComponent<RoundManager>().Register(this.gameObject);
     }
 }

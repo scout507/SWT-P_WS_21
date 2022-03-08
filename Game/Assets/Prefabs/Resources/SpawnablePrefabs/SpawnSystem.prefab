@@ -64,4 +64,4 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   playerPrefabs: []
-  playerPrefabDefault: {fileID: 5846548511801371663, guid: 2379c76a6e4255a47b5f4939973537e7, type: 3}
+  playerPrefabDefault: {fileID: 975155098409841358, guid: e6ff160d6ee7cd94596598b70d382f4f, type: 3}
