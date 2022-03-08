@@ -24,13 +24,6 @@ public class Turret : NetworkBehaviour
 
 
     /// <summary>
-    /// Turret Camera Mount
-    /// </summary>
-    [SerializeField] GameObject cameraMountPoint;
-
-
-
-    /// <summary>
     /// Reference to the controllTurret Script on the Player Object
     /// </summary>
     ControllTurret controlTurretPlayer;
@@ -39,14 +32,7 @@ public class Turret : NetworkBehaviour
     /// <summary>
     /// Rotation speed of the turret
     /// </summary>
-    private float rotateSpeed = 100f;
-
-
-
-    /// <summary>
-    /// Firerate of the Turret
-    /// </summary>
-    [SerializeField] float fireRate = 0.25f;
+    private float rotateSpeed = 0.5f;
 
     /// <summary>
     /// Damage amount of the Turret
@@ -60,8 +46,6 @@ public class Turret : NetworkBehaviour
 
     /// <summary>
     /// Particle system used when on Shot
-    /// Particle from https://assetstore.unity.com/packages/essentials/asset-packs/unity-particle-pack-5-x-73777
-    /// Turret Model from https://assetstore.unity.com/packages/3d/props/guns/fixed-machine-gun-turret-169039
     /// </summary>
     [SerializeField] ParticleSystem shotflash;
 
@@ -73,9 +57,24 @@ public class Turret : NetworkBehaviour
     /// The Directon and the Value of the Movement
     /// </param>
     [Command]
-    public void cmdrotateTurret(float rotateDirection)
+    public void cmdrotateTurret(float rotateDirection, float updownDirection)
     {
-        transform.transform.GetChild(0).gameObject.transform.Rotate(new Vector3(0, rotateDirection, 0) * rotateSpeed * Time.deltaTime);
+        Transform MgTransform = transform.transform.GetChild(0).gameObject.transform;
+
+        if (MgTransform.eulerAngles.x < 10 || MgTransform.eulerAngles.x > 330)
+        {
+            MgTransform.Rotate(updownDirection * rotateSpeed, 0f, 0f, Space.Self);
+            MgTransform.Rotate(0f, rotateDirection * rotateSpeed, 0f, Space.World);
+        }
+        else if (MgTransform.eulerAngles.x >= 10 && MgTransform.eulerAngles.x <= 20 && updownDirection < 0)
+        {
+            MgTransform.Rotate(updownDirection * rotateSpeed, 0f, 0f, Space.Self);
+        }
+        else if (MgTransform.eulerAngles.x <= 330 && MgTransform.eulerAngles.x >= 320 && updownDirection > 0)
+        {
+            MgTransform.Rotate(updownDirection * rotateSpeed, 0f, 0f, Space.Self);
+        }
+
     }
 
 
@@ -96,7 +95,7 @@ public class Turret : NetworkBehaviour
     {
 
         RaycastHit hit;
-        Vector3 rayOrigin = gameObject.transform.position;
+        Vector3 rayOrigin = gameObject.transform.GetChild(0).gameObject.transform.position;
         Vector3 direction = gameObject.transform.GetChild(0).forward;
 
         rpcturretFireAnimationn();
@@ -106,7 +105,7 @@ public class Turret : NetworkBehaviour
             if (hit.collider.gameObject.tag == "Player")
             {
                 RpcHitPlayer();
-                //hit.transform.gameObject.GetComponent<Health>().TakeDamage(turretDamage);
+                hit.transform.gameObject.GetComponent<Health>().TakeDamage(turretDamage);
 
             }
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Monster"))
@@ -124,6 +123,7 @@ public class Turret : NetworkBehaviour
             Debug.DrawRay(rayOrigin, direction * weaoponRange, Color.red, 10);
             RpcOutOfRange(hit.point);
         }
+
 
     }
 

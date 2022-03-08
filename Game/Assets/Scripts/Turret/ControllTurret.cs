@@ -39,14 +39,23 @@ public class ControllTurret : NetworkBehaviour
     /// </summary>
     public uint playerinUseID;
 
+    /// <summary>
+    /// Firerate of the Turret
+    /// </summary>
+    [SerializeField] float fireRate = 1f;
 
-    // Update is called once per frame
+    /// <summary>
+    /// Fire rate of the Turret
+    /// </summary>
+    float nextFire = 0;
+
     /// <summary>
     /// The Player can use:
     /// E to enter the Vehicle
     /// Escpae to Exit the Vehicle
     /// Use Fire1 Button to shot with the Vehicle
     /// Rotate the Turret when the Player is inside the Vehicle
+    /// The Order of the Weapon Scripts: 0 = Pistol; 1 = MP ; 2 = Shotgun ; 3 = Melee ; 4 = Rifle
     /// </summary>
     void Update()
     {
@@ -66,11 +75,12 @@ public class ControllTurret : NetworkBehaviour
                 playerCamera.transform.parent = turretCameraMount.transform;
                 playerCamera.transform.position = turretCameraMount.transform.position;
                 playerCamera.transform.rotation = turretCameraMount.transform.rotation;
+
                 turret.enterVehicle();
                 inVehicle = true;
 
                 gameObject.GetComponent<PlayerMovement>().enabled = false;
-                // 0 = Pistol; 1 = MP ; 2 = Shotgun ; 3 = Melee ; 4 = Rifle
+
                 if (gameObject.GetComponent<Pistol>().enabled == true)
                 {
                     weaponScriptActive[0] = 1;
@@ -101,7 +111,10 @@ public class ControllTurret : NetworkBehaviour
             if (inVehicle)
             {
                 float rotateDirection = Input.GetAxis("Horizontal");
-                turret.cmdrotateTurret(rotateDirection);
+                float upDownDirection = Input.GetAxis("Vertical");
+                turret.cmdrotateTurret(rotateDirection, upDownDirection);
+                transform.position = turretCameraMount.transform.position;
+                transform.rotation = turretCameraMount.transform.rotation;
             }
 
 
@@ -109,7 +122,8 @@ public class ControllTurret : NetworkBehaviour
             {
                 playerCamera.transform.parent = playerCameraMount.transform;
                 playerCamera.transform.position = playerCameraMount.transform.position;
-                playerCamera.transform.rotation = playerCameraMount.transform.rotation;
+                playerCameraMount.transform.parent.rotation = Quaternion.Euler(0, turretCameraMount.transform.eulerAngles.y, 0);
+
 
                 inVehicle = false;
                 gameObject.GetComponent<PlayerMovement>().enabled = true;
@@ -139,8 +153,9 @@ public class ControllTurret : NetworkBehaviour
                 turret.exitVehicle();
             }
 
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
             {
+                nextFire = Time.time + fireRate;
                 turret.Shoot();
             }
         }
