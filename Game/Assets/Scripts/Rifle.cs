@@ -32,7 +32,7 @@ public class Rifle : ShootGun
         }
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
-            if(isLocalPlayer) inventory = GetComponentInChildren<Inventory>();
+            if (isLocalPlayer) inventory = GetComponentInChildren<Inventory>();
             inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
             nextFire = Time.time + fireRate;
             if (gunAmmo > 0)

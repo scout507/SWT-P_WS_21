@@ -134,7 +134,7 @@ public abstract class ShootGun : NetworkBehaviour
     private void OnEnable()
     {
         Instantiate(gun, gunMount);
-        if(isLocalPlayer) inventory = GetComponentInChildren<Inventory>();
+        if (isLocalPlayer) inventory = GetComponentInChildren<Inventory>();
         inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
     }
 

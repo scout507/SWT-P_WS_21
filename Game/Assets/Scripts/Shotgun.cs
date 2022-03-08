@@ -54,7 +54,7 @@ public class Shotgun : ShootGun
         {
             gunAmmo = magSize;
         }
-        
+
         inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
     }
 
