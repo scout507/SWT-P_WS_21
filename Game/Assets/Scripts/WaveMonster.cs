@@ -131,7 +131,7 @@ public class WaveMonster : MonsterController
                 }
             }
         }
-        else
+        else if(buildingTargets.Count > 0)
         {
             float shortestDistance = Vector3.Distance(this.transform.position, buildingTargets[0].transform.position);
 
@@ -147,6 +147,25 @@ public class WaveMonster : MonsterController
                     newTarget = target;
                 }
             }
+        }
+        else
+        {
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            float shortestDistance = Vector3.Distance(this.transform.position, players[0].transform.position);
+
+            for(int i = 0; i<players.Length; i++)
+            {
+                float distance = Vector3.Distance(transform.position, players[i].transform.position);
+
+                //if the object is reachable and the closest to the monster, the object becomes the new target
+                NavMeshPath navMeshPath = new NavMeshPath();
+                if (distance <= shortestDistance && nav.CalculatePath(players[i].transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
+                {
+                    shortestDistance = distance;
+                    newTarget = players[i];
+                }
+            }
+
         }
 
         return newTarget;

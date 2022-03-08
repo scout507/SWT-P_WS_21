@@ -127,7 +127,7 @@ public class PlayerMovement : NetworkBehaviour
     bool isProne = false;
 
     [SerializeField]
-    float mouseSensitivity = 100f;
+    float mouseSensitivity = 5f;
 
     [SerializeField]
     public GameObject cameraMountPoint;
