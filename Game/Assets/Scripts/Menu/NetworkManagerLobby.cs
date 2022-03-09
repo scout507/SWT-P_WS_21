@@ -19,7 +19,7 @@ public class NetworkManagerLobby : NetworkManager
     [Scene]
     [SerializeField]
     private string menuScene = "";
-    
+
     [Scene]
     [SerializeField]
     private string gameScene = "";
