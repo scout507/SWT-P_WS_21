@@ -10,6 +10,7 @@ TagManager:
   - NetworkManager
   - Manager
   - FetchItem
+  - Roamer
   layers:
   - Default
   - TransparentFX
