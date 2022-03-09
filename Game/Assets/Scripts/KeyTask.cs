@@ -13,10 +13,20 @@ public class KeyTask : Task
     float refreshTime = 10f;
     float refreshTimer;
     bool keyDropped;
-    
+    [SyncVar] bool keyHere;
 
     private void Update()
     {
+        
+        if(isClient)
+        {
+            if(!done && keyHere && NetworkClient.localPlayer.gameObject.GetComponent<NetworkIdentity>().netId == playerWithKey.GetComponent<NetworkIdentity>().netId)
+            {
+                Debug.Log("Press 'E");
+                if(Input.GetKeyDown(KeyCode.E)) CmdFinish();
+            }
+        }
+
         if(!isServer) return;
 
         refreshTimer -= Time.deltaTime;
@@ -33,7 +43,7 @@ public class KeyTask : Task
             SpawnKey(zombieWithKey.transform.position);
         }
 
-        if(playerWithKey.GetComponent<Health>().health <= 0)
+        if(playerWithKey != null && playerWithKey.GetComponent<Health>().health <= 0)
         {
             SpawnKey(playerWithKey.transform.position);
         }
@@ -61,5 +71,30 @@ public class KeyTask : Task
         NetworkServer.Spawn(keyInstance);
         taskDescription = "Pick up the key!";
     }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(isServer && other.tag == "Player" && other.GetComponent<NetworkIdentity>().netId == playerWithKey.GetComponent<NetworkIdentity>().netId)
+        {
+            keyHere = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(isServer && other.tag == "Player" && other.GetComponent<NetworkIdentity>().netId == playerWithKey.GetComponent<NetworkIdentity>().netId)
+        {
+            keyHere = false;
+        }
+    }
+
+    [Command(requiresAuthority = false)]
+    void CmdFinish()
+    {
+        FinishTask();
+    }
+
+
 
 }
