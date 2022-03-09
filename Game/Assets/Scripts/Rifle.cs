@@ -62,6 +62,7 @@ public class Rifle : ShootGun
         Vector3 direction = Camera.main.transform.forward;
         gunAmmo--;
         audioController.PlayGunSound(4);
+        TriggerAggro();
         if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
         {
             Debug.Log("In Range!");
