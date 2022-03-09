@@ -65,9 +65,9 @@ public class RoundManager : NetworkBehaviour
     {
         if (!isServer) return;
 
-        if (NetworkManager.singleton as NetworkManagerLobby != null) totalPlayers = (NetworkManager.singleton as NetworkManagerLobby).gamePlayers.Count;
         zombieSpawner = GetComponent<ZombieSpawner>();
         taskManager = GetComponent<TaskManager>();
+        if (NetworkManager.singleton as NetworkManagerLobby != null) totalPlayers = (NetworkManager.singleton as NetworkManagerLobby).gamePlayers.Count;
     }
 
 

@@ -100,7 +100,8 @@ public class WaveMonster : MonsterController
 
         foreach (GameObject destructable in destructables)
         {
-            if (destructable.GetComponent<DestructableObject>().active) buildingTargets.Add(destructable);
+            DestructableObject script = destructable.GetComponent<DestructableObject>();
+            if (script.active && script.attackAble) buildingTargets.Add(destructable);
         }
     }
 
