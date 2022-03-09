@@ -63,6 +63,23 @@ public abstract class ShootGun : NetworkBehaviour
     public bool inAttack;
     /// <summary>Audio Script that controlls Gun Sound</summary>
     public AudioController audioController;
+    /// <summary>The range at witch shots can trigger zombies.</summary>
+    public float triggerRange = 15f;
+
+    /// <summary>
+    /// Checks for nearby zombies and triggers them.
+    /// </summary>
+    public void TriggerAggro()
+    {
+        Collider[] nearbyZombies = Physics.OverlapSphere(this.gameObject.transform.position, triggerRange);
+        foreach (Collider nearbyZombie in nearbyZombies)
+        {
+            if (nearbyZombie.GetComponent<MonsterController>())
+            {
+                CmdTriggerMonster(nearbyZombie.gameObject, this.gameObject);
+            }
+        }
+    }
 
     /// <summary>
     /// Gets called when player is hit.
@@ -98,6 +115,17 @@ public abstract class ShootGun : NetworkBehaviour
     {
         Debug.Log("CMDShootMonster!");
         monster.GetComponent<MonsterController>().TakeDamage(damageAmount);
+    }
+
+    /// <summary>
+    /// Calls the AggroMob method to trigger nearby monsters.
+    /// </summary>
+    /// <param name="monster">The monster to trigger</param>
+    /// <param name="player">The player triggering it.</param>
+    [Command]
+    public void CmdTriggerMonster(GameObject monster, GameObject player)
+    {
+        monster.GetComponent<MonsterController>().AggroMob(player);
     }
 
     /// <summary>

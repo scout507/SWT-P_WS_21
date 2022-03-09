@@ -68,6 +68,7 @@ public class Shotgun : ShootGun
         Vector3 direction = Camera.main.transform.forward;
         gunAmmo--;
         audioController.PlayGunSound(2);
+        TriggerAggro();
         for (int i = 0; i < pelletAmount; i++)
         {
 
