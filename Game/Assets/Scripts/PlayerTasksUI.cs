@@ -68,7 +68,7 @@ public class PlayerTasksUI : NetworkBehaviour
 
         for (int i = 0; i < taskList.Count; i++)
         {
-            GameObject panel = Instantiate(new GameObject(), transform.position, Quaternion.Euler(0,0,0));
+            GameObject panel = Instantiate(new GameObject(), transform.position, Quaternion.Euler(0, 0, 0));
             TextMeshProUGUI textElement = panel.AddComponent<TextMeshProUGUI>();
             panel.transform.SetParent(taskUI.transform);
             textElement.enableAutoSizing = true;
@@ -82,13 +82,13 @@ public class PlayerTasksUI : NetworkBehaviour
     /// Updates the task UI elements. Adds 'strikethrough' once they're finished.
     /// </summary>
     void UpdateTaskUI()
-    
+
     {
         taskList = taskManager.GetTaskInfo();
         for (int i = 0; i < taskList.Count; i++)
         {
             TextMeshProUGUI taskUI = taskListUI[i].GetComponent<TextMeshProUGUI>();
-            taskUI.rectTransform.rotation = Quaternion.Euler(0,0,0);
+            taskUI.rectTransform.rotation = Quaternion.Euler(0, 0, 0);
             taskUI.text = (i + 1).ToString() + ". " + taskList[i][1] + " - " + taskList[i][2];
 
             if (taskList[i][3] == "True")
