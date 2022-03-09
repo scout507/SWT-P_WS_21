@@ -50,6 +50,7 @@ public class Task : NetworkBehaviour
     /// </summary>
     public void FinishTask()
     {
+        dObjScript.attackAble = false;
         active = false;
         done = true;
         progress = 1;

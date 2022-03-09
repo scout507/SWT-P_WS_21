@@ -68,15 +68,11 @@ public class PlayerTasksUI : NetworkBehaviour
 
         for (int i = 0; i < taskList.Count; i++)
         {
-
-            GameObject panel = Instantiate(new GameObject(), transform.position, Quaternion.identity);
+            GameObject panel = Instantiate(new GameObject(), transform.position, Quaternion.Euler(0,0,0));
             TextMeshProUGUI textElement = panel.AddComponent<TextMeshProUGUI>();
             panel.transform.SetParent(taskUI.transform);
-            string textSting = (i + 1).ToString() + ". " + taskList[i][1] + " - " + taskList[i][2];
-            textElement.text = textSting;
             textElement.enableAutoSizing = true;
             textElement.color = Color.black;
-
             taskListUI.Add(panel);
         }
     }
@@ -86,17 +82,22 @@ public class PlayerTasksUI : NetworkBehaviour
     /// Updates the task UI elements. Adds 'strikethrough' once they're finished.
     /// </summary>
     void UpdateTaskUI()
+    
     {
         taskList = taskManager.GetTaskInfo();
         for (int i = 0; i < taskList.Count; i++)
         {
+            TextMeshProUGUI taskUI = taskListUI[i].GetComponent<TextMeshProUGUI>();
+            taskUI.rectTransform.rotation = Quaternion.Euler(0,0,0);
+            taskUI.text = (i + 1).ToString() + ". " + taskList[i][1] + " - " + taskList[i][2];
+
             if (taskList[i][3] == "True")
             {
-                taskListUI[i].GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Strikethrough;
+                taskUI.fontStyle = FontStyles.Strikethrough;
             }
             else
             {
-                taskListUI[i].GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Bold;
+                taskUI.fontStyle = FontStyles.Bold;
             }
         }
     }
