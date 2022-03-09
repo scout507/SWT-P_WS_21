@@ -131,7 +131,7 @@ public class WaveMonster : MonsterController
                 }
             }
         }
-        else if(buildingTargets.Count > 0)
+        else if (buildingTargets.Count > 0)
         {
             float shortestDistance = Vector3.Distance(this.transform.position, buildingTargets[0].transform.position);
 
@@ -151,11 +151,11 @@ public class WaveMonster : MonsterController
         else
         {
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            if(players.Length > 0)
+            if (players.Length > 0)
             {
                 float shortestDistance = Vector3.Distance(this.transform.position, players[0].transform.position);
 
-                for(int i = 0; i<players.Length; i++)
+                for (int i = 0; i < players.Length; i++)
                 {
                     float distance = Vector3.Distance(transform.position, players[i].transform.position);
 
