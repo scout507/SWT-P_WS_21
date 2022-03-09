@@ -18,6 +18,8 @@ public class TaskTimer : Task
     float nextZombies = 2f;
     /// <summary>True when the task has started</summary>
     bool started;
+    /// <summary>The amount of times the hp has come down to 0</summary>
+    float fails;
 
     /// <summary>
     /// Handles Client interaction. Also handles the timer on the server.
@@ -44,10 +46,22 @@ public class TaskTimer : Task
             {
                 nextZombies -= Time.deltaTime;
 
-                if(dObjScript.health <100) dObjScript.health += 1*Time.deltaTime;
+                //Check if the task is failed or finished
+                if(dObjScript.health <= 1){
+                    fails += 1*Time.deltaTime;
+                } 
+                if(fails >= 3){
+                    started = false;
+                    taskDescription = "Go to the PLACEHOLDER and start the defence";
+                    fails = 0;
+                    UndoTask();
+                    dObjScript.attackAble = false;
+                }
+                else if(dObjScript.health <100){
+                    dObjScript.health += 1*Time.deltaTime;
+                    UpdateText();
+                } 
                 else FinishTask();
-
-                UpdateText();
 
                 if (nextZombies <= 0)
                 {
@@ -87,6 +101,7 @@ public class TaskTimer : Task
     [Command(requiresAuthority = false)]
     void CmdStartCountdown()
     {
+        dObjScript.attackAble = true;
         started = true;
     }
 }

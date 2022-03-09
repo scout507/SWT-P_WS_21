@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644731181183206968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.45, y: 7.25, z: 13.9}
+  m_LocalPosition: {x: 40.608192, y: 7.1301794, z: 4.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -145,8 +145,8 @@ MonoBehaviour:
   syncInterval: 0.1
   active: 1
   done: 0
-  spawn: {x: 0, y: 0, z: 0}
-  id: 0
+  spawn: {x: 40.6, y: 7.1, z: 4.37}
+  id: 1
   taskName: Defence
   taskDescription: PLACEHOLDER
   progress: 0
@@ -154,6 +154,9 @@ MonoBehaviour:
   zombie: {fileID: 8903686763907575664, guid: ffb8cfe21b159413a9809a9cbc45bc61, type: 3}
   zombieSpawns:
   - {fileID: 4144350163469310045, guid: 758c5ac6fd10d1345ad3687f716301e2, type: 3}
+  - {fileID: 4871083004048331330, guid: 6866def01b013e949bc629d8496802cc, type: 3}
+  - {fileID: 5409075508430416131, guid: a0cd2a547edfedb449a8f2af00d9b246, type: 3}
+  - {fileID: 2532718635195742553, guid: d66e097c7738af24fbd31631b4f2a0cd, type: 3}
   progressRate: 1
 --- !u!114 &644731181183206983
 MonoBehaviour:
