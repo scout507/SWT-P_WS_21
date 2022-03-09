@@ -28,6 +28,7 @@ public class FetchTask : Task
         if (!init) InitTask();
         if (currentItems == maxItems) FinishTask();
         if (done && currentItems != maxItems) UndoTask();
+        taskDescription = "Find the remaining " + (maxItems-currentItems).ToString() + " barrels and bring them to PLACEHOLDER";
     }
 
     /// <summary>
