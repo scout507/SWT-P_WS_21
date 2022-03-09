@@ -19,5 +19,6 @@ var searchData=
   ['compilationfinishedlogger_16',['CompilationFinishedLogger',['../class_mirror_1_1_weaver_1_1_compilation_finished_logger.html',1,'Mirror::Weaver']]],
   ['compiledassemblyfromfile_17',['CompiledAssemblyFromFile',['../class_mirror_1_1_weaver_1_1_compiled_assembly_from_file.html',1,'Mirror::Weaver']]],
   ['config_18',['Config',['../struct_mirror_1_1_simple_web_1_1_receive_loop_1_1_config.html',1,'Mirror.SimpleWeb.ReceiveLoop.Config'],['../struct_mirror_1_1_simple_web_1_1_send_loop_1_1_config.html',1,'Mirror.SimpleWeb.SendLoop.Config']]],
-  ['connectionstate_19',['ConnectionState',['../class_telepathy_1_1_connection_state.html',1,'Telepathy']]]
+  ['connectionstate_19',['ConnectionState',['../class_telepathy_1_1_connection_state.html',1,'Telepathy']]],
+  ['controllturret_20',['ControllTurret',['../class_controll_turret.html',1,'']]]
 ];

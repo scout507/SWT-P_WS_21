@@ -8,8 +8,8 @@ var searchData=
   ['readymessage_5',['ReadyMessage',['../struct_mirror_1_1_ready_message.html',1,'Mirror']]],
   ['readystatechanged_6',['ReadyStateChanged',['../class_mirror_1_1_network_room_player.html#a76a6dca471cf689b5500502082b1986a',1,'Mirror::NetworkRoomPlayer']]],
   ['readytobegin_7',['readyToBegin',['../class_mirror_1_1_network_room_player.html#a30058f89cbfe60ef0bf61916a2d77e97',1,'Mirror::NetworkRoomPlayer']]],
-  ['recoil_8',['recoil',['../class_shoot_gun.html#a7e566d4d25065f874c5c879152d5a392',1,'ShootGun']]],
-  ['recoil_9',['Recoil',['../class_shoot_gun.html#aa48019105790c4be9275b69c0796b5bc',1,'ShootGun']]],
+  ['recoil_8',['Recoil',['../class_shoot_gun.html#aa48019105790c4be9275b69c0796b5bc',1,'ShootGun']]],
+  ['recoil_9',['recoil',['../class_shoot_gun.html#a7e566d4d25065f874c5c879152d5a392',1,'ShootGun']]],
   ['register_10',['Register',['../class_round_manager.html#af5aa47cad3bfd6056f9b374e0c2f6a77',1,'RoundManager']]],
   ['registerstartposition_11',['RegisterStartPosition',['../class_mirror_1_1_network_manager.html#a44753113feef2e4f0bec30dde393f966',1,'Mirror::NetworkManager']]],
   ['remaining_12',['Remaining',['../class_mirror_1_1_network_reader.html#abe522be5d8a7fcccd099a017aa4ece4b',1,'Mirror::NetworkReader']]],
@@ -26,5 +26,6 @@ var searchData=
   ['roundmanager_23',['RoundManager',['../class_round_manager.html',1,'']]],
   ['rpchitwall_24',['RpcHitWall',['../class_shoot_gun.html#abde6eda8ded50337b59a519bc9549b50',1,'ShootGun']]],
   ['rpcmessage_25',['RpcMessage',['../struct_mirror_1_1_rpc_message.html',1,'Mirror']]],
-  ['runinbackground_26',['runInBackground',['../class_mirror_1_1_network_manager.html#ac3bbfc101e99f8a857f6dfa584f6156f',1,'Mirror::NetworkManager']]]
+  ['rpcturretfireanimationn_26',['rpcturretFireAnimationn',['../class_turret.html#a9c839f440c84735d8d3b2ebdc80df07f',1,'Turret']]],
+  ['runinbackground_27',['runInBackground',['../class_mirror_1_1_network_manager.html#ac3bbfc101e99f8a857f6dfa584f6156f',1,'Mirror::NetworkManager']]]
 ];
