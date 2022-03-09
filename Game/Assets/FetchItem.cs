@@ -69,6 +69,7 @@ public class FetchItem : NetworkBehaviour
     void CmdPickUp(GameObject player)
     {
         gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        gameObject.transform.position = new Vector3 (transform.position.x, transform.position.y+0.5f,transform.position.z);
         gameObject.transform.SetParent(player.transform);
         usedBy = player.GetComponent<NetworkIdentity>().netId;
         used = true;
