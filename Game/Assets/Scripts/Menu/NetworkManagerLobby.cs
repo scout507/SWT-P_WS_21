@@ -19,6 +19,10 @@ public class NetworkManagerLobby : NetworkManager
     [Scene]
     [SerializeField]
     private string menuScene = "";
+    
+    [Scene]
+    [SerializeField]
+    private string gameScene = "";
 
     [Header("Room")]
     /// <summary>Specifies which prefab is to be used for the clients.</summary>
@@ -203,7 +207,7 @@ public class NetworkManagerLobby : NetworkManager
             if (!isReadyToStart())
                 return;
 
-            ServerChangeScene("1. Final");
+            ServerChangeScene(gameScene);
         }
     }
 
@@ -214,7 +218,7 @@ public class NetworkManagerLobby : NetworkManager
     /// <param name="newSceneName">Requires the name of the scene to be loaded.</param>
     public override void ServerChangeScene(string newSceneName)
     {
-        if (SceneManager.GetActiveScene().path == menuScene && newSceneName.StartsWith("1. Final"))
+        if (SceneManager.GetActiveScene().path == menuScene && newSceneName.StartsWith(gameScene))
         {
             for (int i = roomPlayers.Count - 1; i >= 0; i--)
             {
@@ -236,7 +240,7 @@ public class NetworkManagerLobby : NetworkManager
     /// <param name="newSceneName">Name of the scene to switch to.</param>
     public override void OnServerSceneChanged(string newSceneName)
     {
-        if (newSceneName.StartsWith("1. Final"))
+        if (newSceneName.StartsWith(gameScene))
         {
             GameObject playerSpawnSystemInstance = Instantiate(playerSpawnSystem);
             NetworkServer.Spawn(playerSpawnSystemInstance);
