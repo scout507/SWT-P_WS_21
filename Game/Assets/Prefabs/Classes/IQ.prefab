@@ -1524,9 +1524,8 @@ MonoBehaviour:
   m_SettingsGUIToggle: 1
 --- !u!1 &4131985534928452319
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8775b42ec62d79145958b319bbef72bf, type: 3}
+  m_PrefabInstance: {fileID: 2477896660437962072}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:

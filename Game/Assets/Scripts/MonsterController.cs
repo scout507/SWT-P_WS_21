@@ -222,6 +222,6 @@ public class MonsterController : NetworkBehaviour
     /// <param name="other">The collider of the gameobject which hit this gameobject.</param>
     private void OnTriggerEnter(Collider other)
     {
-        other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
+        if(other.transform.root.GetComponent<Melee>()) other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
     }
 }

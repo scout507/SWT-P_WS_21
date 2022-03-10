@@ -22,7 +22,6 @@ public class MP : ShootGun
         this.weaoponRange = 50f;
         this.gunAmmo = 30;
         this.recoil = 2.5f;
-
         audioController = this.GetComponent<AudioController>();
     }
 
@@ -52,8 +51,10 @@ public class MP : ShootGun
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            gunAmmo = 30;
+            gunAmmo = magSize;
         }
+
+        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
     }
 
     /// <summary>
