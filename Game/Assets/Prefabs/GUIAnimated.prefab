@@ -2351,6 +2351,9 @@ MonoBehaviour:
     m_Bits: 64
   mouseSensitivity: 2000
   cameraMountPoint: {fileID: 8853732363362296011}
+  active: 1
+  speedUpDown: 3.1
+  playerTransform: {fileID: 8853732361934627212}
 --- !u!114 &8853732361934627215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2384,6 +2387,9 @@ MonoBehaviour:
   syncInterval: 0.1
   health: 100
   healthBar: {fileID: 1164631760992450785}
+  deadPlayerPrefab: {fileID: 0}
+  spectatorPlayerPrefab: {fileID: 0}
+  isDead: 0
 --- !u!136 &495364871213262823
 CapsuleCollider:
   m_ObjectHideFlags: 0
