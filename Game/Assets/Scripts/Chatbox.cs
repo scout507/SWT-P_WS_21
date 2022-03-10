@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using Mirror;
 
 public class Chatbox : NetworkBehaviour
@@ -35,7 +36,8 @@ public class Chatbox : NetworkBehaviour
         textBox = textBoxUI.GetComponent<TextMeshProUGUI>();
         chatText = chatBoxUI.GetComponentInChildren<TextMeshProUGUI>();
         playerName = GetComponent<Player>().displayName;
-
+        Debug.Log(chatBoxUI.GetComponent<Image>().color);
+        chatBoxUI.GetComponent<Image>().color -= new Color(0,0,0,0.8f);
     }
 
     /// <summary>
@@ -47,19 +49,20 @@ public class Chatbox : NetworkBehaviour
         UpdateTimers();
         UpdateText();
 
-
         if (typing)
         {
             if (Input.GetKeyDown(KeyCode.KeypadEnter))
             {
                 typing = false;
+                chatBoxUI.GetComponent<Image>().color -= new Color(0,0,0,0.8f);
                 if (chatBoxUI.text.Length > 0) SubmitMessage(chatText.text);
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.KeypadEnter) && !typing)
+        else if (Input.GetKeyDown(KeyCode.KeypadEnter) && !typing)
         {
             typing = true;
+            chatBoxUI.GetComponent<Image>().color += new Color(0,0,0,0.8f);
             chatBoxUI.Select();
         }
 
@@ -118,6 +121,8 @@ public class Chatbox : NetworkBehaviour
     /// <param name="message"></param>
     public void AddMessage(string message)
     {
+        //TODO: Add notification sound
+        
         for (int i = 4; i > 0; i--)
         {
             messages[i] = messages[i - 1];
@@ -151,7 +156,6 @@ public class Chatbox : NetworkBehaviour
     void UpdateText()
     {
         string text = "";
-        Debug.Log(messages[0]);
         for (int i = 4; i > -1; i--)
         {
             text += messages[i] + "\n";
