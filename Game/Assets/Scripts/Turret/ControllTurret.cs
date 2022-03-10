@@ -81,27 +81,27 @@ public class ControllTurret : NetworkBehaviour
 
                 gameObject.GetComponent<PlayerMovement>().enabled = false;
 
-                if (gameObject.GetComponent<Pistol>().enabled == true)
+                if (gameObject.GetComponent<Pistol>()?.enabled == true)
                 {
                     weaponScriptActive[0] = 1;
                     gameObject.GetComponent<Pistol>().enabled = false;
                 }
-                if (gameObject.GetComponent<MP>().enabled == true)
+                if (gameObject.GetComponent<MP>()?.enabled == true)
                 {
                     weaponScriptActive[1] = 1;
                     gameObject.GetComponent<MP>().enabled = false;
                 }
-                if (gameObject.GetComponent<Shotgun>().enabled == true)
+                if (gameObject.GetComponent<Shotgun>()?.enabled == true)
                 {
                     weaponScriptActive[2] = 1;
                     gameObject.GetComponent<Shotgun>().enabled = false;
                 }
-                if (gameObject.GetComponent<Melee>().enabled == true)
+                if (gameObject.GetComponent<Melee>()?.enabled == true)
                 {
                     weaponScriptActive[3] = 1;
                     gameObject.GetComponent<Melee>().enabled = false;
                 }
-                if (gameObject.GetComponent<Rifle>().enabled == true)
+                if (gameObject.GetComponent<Rifle>()?.enabled == true)
                 {
                     weaponScriptActive[4] = 1;
                     gameObject.GetComponent<Rifle>().enabled = false;
