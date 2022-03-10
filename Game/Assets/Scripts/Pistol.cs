@@ -18,6 +18,7 @@ public class Pistol : ShootGun
         this.weaoponRange = 50f;
         this.gunAmmo = 8;
         this.recoil = 3f;
+        this.magSize = 8;
         audioController = this.GetComponent<AudioController>();
     }
 

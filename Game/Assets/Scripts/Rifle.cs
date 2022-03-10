@@ -18,6 +18,7 @@ public class Rifle : ShootGun
         this.weaoponRange = 200f;
         this.gunAmmo = 4;
         this.recoil = 20f;
+        this.magSize = 4;
         audioController = this.GetComponent<AudioController>();
     }
 
@@ -33,8 +34,6 @@ public class Rifle : ShootGun
         inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
-            if (isLocalPlayer) inventory = GetComponentInChildren<Inventory>();
-            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
             nextFire = Time.time + fireRate;
             if (gunAmmo > 0)
             {
