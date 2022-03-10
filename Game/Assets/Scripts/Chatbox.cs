@@ -63,6 +63,53 @@ public class Chatbox : NetworkBehaviour
             chatBoxUI.Select();
         }
 
+        //Quick-Chat
+
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            SubmitMessage("HELP");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            SubmitMessage("OK");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            SubmitMessage("STOP");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            SubmitMessage("FOLLOW ME");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad5))
+        {
+            SubmitMessage("NICE");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad6))
+        {
+            SubmitMessage("KILL THE ZOMBIES");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad7))
+        {
+            SubmitMessage("NEED HEAL");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad8))
+        {
+            SubmitMessage("RETREAT");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad9))
+        {
+            SubmitMessage("WATCH OUT");
+        }
+
     }
 
     /// <summary>
@@ -141,7 +188,7 @@ public class Chatbox : NetworkBehaviour
     List<GameObject> FindNearbyPlayers()
     {
         List<GameObject> nearbyPlayers = new List<GameObject>();
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 40f);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 15f);
 
         foreach (Collider hitCollider in hitColliders)
         {
