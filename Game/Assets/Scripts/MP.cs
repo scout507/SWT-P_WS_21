@@ -50,6 +50,7 @@ public class MP : ShootGun
 
         if (Input.GetKeyDown(KeyCode.R))
         {
+            audioController.CmdPlayGunSound(6);
             gunAmmo = magSize;
         }
 
@@ -65,7 +66,7 @@ public class MP : ShootGun
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
         gunAmmo--;
-        audioController.PlayGunSound(1);
+        audioController.CmdPlayGunSound(1);
         if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
         {
             Debug.Log("In Range!");

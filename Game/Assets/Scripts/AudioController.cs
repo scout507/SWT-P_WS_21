@@ -7,10 +7,13 @@ public class AudioController : NetworkBehaviour
 {
 
     public AudioSource audioSource; // The Audio Source that is attached to the Player
+    
+    [SerializeField] AudioClip[] gunSounds; // The Audio Clips, Gun Sounds and Footstep Sounds
+    [SerializeField] AudioClip[] playerSounds; // The Audio Clips, Gun Sounds and Footstep Sounds
+    float stepRate = 0.5f; // The Footstep Sound Rate
+    float stepCoolDown; // The Time until the next Footstep Sound is Played
 
-    public AudioClip[] audioClips; // The Audio Clips, Gun Sounds and Footstep Sounds
-    public float stepRate = 0.5f; // The Footstep Sound Rate
-    public float stepCoolDown; // The Time until the next Footstep Sound is Played
+    float dmgSoundCd;
 
     private void Start()
     {
@@ -41,40 +44,34 @@ public class AudioController : NetworkBehaviour
     [Command]
     void CmdPlayFootStepSound()
     {
-        RPCPlayFootStepSound();
+        float randomf = 1f + Random.Range(-0.2f, 0.2f);
+        RPCPlayFootStepSound(randomf);
     }
 
     /// <summary>
     /// The ClientRpC for the Footstep Sound, to play the sound on all Clients
     /// </summary>
     [ClientRpc]
-    void RPCPlayFootStepSound()
+    void RPCPlayFootStepSound(float randomf)
     {
         audioSource.volume = 0.3f;
-        audioSource.pitch = 1f + Random.Range(-0.2f, 0.2f);
-        audioSource.PlayOneShot(audioClips[5], 0.9f);
+        audioSource.pitch = randomf;
+        audioSource.PlayOneShot(playerSounds[10], 0.9f);
         stepCoolDown = stepRate;
     }
+
 
     /// <summary>
     /// Method is called on Weapon Usage, once per shot
     /// WeaponNumbe is the Number of the Used weapon, Number is linked to a SoundClip
     /// 0 = Pistol; 1 = MP ; 2 = Shotgun ; 3 = Melee ; 4 = Rifle
-    /// </summary>
-    public void PlayGunSound(int weaponNumber)
-    {
-        Debug.Log(weaponNumber);
-        CmdSendGunSound(weaponNumber);
-    }
-
-
-    /// <summary>
-    /// The Command for the Gun Sound
+    /// 5 = Pistol reload; 6 = MP reload; 7 = Shotgun reload; 8 = Rifle reload
     /// </summary>
     [Command]
-    void CmdSendGunSound(int weaponNumber)
+    public void CmdPlayGunSound(int weaponNumber)
     {
-        RPCSendGunSound(weaponNumber);
+        float randomf = 1f + Random.Range(-0.1f, 0.1f);
+        RPCPlayGunSound(weaponNumber, randomf);
     }
 
 
@@ -84,11 +81,29 @@ public class AudioController : NetworkBehaviour
     /// and a changing pitch value
     /// </summary>
     [ClientRpc]
-    void RPCSendGunSound(int weaponNumber)
+    void RPCPlayGunSound(int weaponNumber, float randomf)
     {
         audioSource.volume = 0.7f;
-        audioSource.pitch = 1f + Random.Range(-0.1f, 0.1f);
-        audioSource.PlayOneShot(audioClips[weaponNumber]);
+        audioSource.pitch = randomf;
+        audioSource.PlayOneShot(gunSounds[weaponNumber]);
     }
+
+    [Command]
+    public void CmdPlayDmgTakenSound(int min, int max)
+    {
+        int random = Random.Range(min,max);
+        float randomf = 1f + Random.Range(-0.2f, 0.2f);
+        RPCPlayDmgTakenSound(random, randomf);
+    }
+
+    [ClientRpc]
+    void RPCPlayDmgTakenSound(int random, float randomf)
+    {
+        Debug.Log(random);
+        audioSource.volume = 0.6f;
+        audioSource.pitch = randomf;
+        audioSource.PlayOneShot(playerSounds[random], 0.9f);
+    }
+
 
 }

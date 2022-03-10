@@ -25,12 +25,15 @@ public class Health : NetworkBehaviour
     public GameObject spectatorPlayerPrefab = null;
     /// <summary>Is true when the player is dead.</summary>
     public bool isDead = false;
+    /// <summary>Audio Script that controlls Gun Sound</summary>
+    public AudioController audioController;
 
     void Start()
     {
 
         health = 100;
         healthBar.SetMaxHealth(health);
+        audioController = this.GetComponent<AudioController>();
     }
 
     /// <summary>
@@ -52,6 +55,7 @@ public class Health : NetworkBehaviour
             health -= amount;
             if (health > 0)
             {
+                audioController.CmdPlayDmgTakenSound(1,10);
                 healthBar.SetHealth(health);
             }
             else
@@ -63,6 +67,7 @@ public class Health : NetworkBehaviour
         else GotHealed();
         if (health <= 0 && !isDead)
         {
+            audioController.CmdPlayDmgTakenSound(10, 11);
             isDead = true;
             TargetDeath();
         }

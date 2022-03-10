@@ -52,6 +52,7 @@ public class Shotgun : ShootGun
 
         if (Input.GetKeyDown(KeyCode.R))
         {
+            audioController.CmdPlayGunSound(7);
             gunAmmo = magSize;
         }
 
@@ -67,7 +68,7 @@ public class Shotgun : ShootGun
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
         gunAmmo--;
-        audioController.PlayGunSound(2);
+        audioController.CmdPlayGunSound(2);
         for (int i = 0; i < pelletAmount; i++)
         {
 
