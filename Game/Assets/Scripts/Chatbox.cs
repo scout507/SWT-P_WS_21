@@ -37,7 +37,7 @@ public class Chatbox : NetworkBehaviour
         chatText = chatBoxUI.GetComponentInChildren<TextMeshProUGUI>();
         playerName = GetComponent<Player>().displayName;
         Debug.Log(chatBoxUI.GetComponent<Image>().color);
-        chatBoxUI.GetComponent<Image>().color -= new Color(0,0,0,0.8f);
+        chatBoxUI.GetComponent<Image>().color -= new Color(0, 0, 0, 0.8f);
     }
 
     /// <summary>
@@ -54,7 +54,7 @@ public class Chatbox : NetworkBehaviour
             if (Input.GetKeyDown(KeyCode.KeypadEnter))
             {
                 typing = false;
-                chatBoxUI.GetComponent<Image>().color -= new Color(0,0,0,0.8f);
+                chatBoxUI.GetComponent<Image>().color -= new Color(0, 0, 0, 0.8f);
                 if (chatBoxUI.text.Length > 0) SubmitMessage(chatText.text);
             }
 
@@ -62,7 +62,7 @@ public class Chatbox : NetworkBehaviour
         else if (Input.GetKeyDown(KeyCode.KeypadEnter) && !typing)
         {
             typing = true;
-            chatBoxUI.GetComponent<Image>().color += new Color(0,0,0,0.8f);
+            chatBoxUI.GetComponent<Image>().color += new Color(0, 0, 0, 0.8f);
             chatBoxUI.Select();
         }
 
@@ -122,7 +122,7 @@ public class Chatbox : NetworkBehaviour
     public void AddMessage(string message)
     {
         //TODO: Add notification sound
-        
+
         for (int i = 4; i > 0; i--)
         {
             messages[i] = messages[i - 1];
