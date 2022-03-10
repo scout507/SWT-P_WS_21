@@ -129,7 +129,6 @@ public class RoundManager : NetworkBehaviour
     /// </summary>
     void InitGame()
     {
-        ChooseImpostor();
         activePlayers = GetAllPlayers();
         zombieSpawner.InitialSpawn();
         taskManager.InitTasks();
@@ -207,10 +206,10 @@ public class RoundManager : NetworkBehaviour
     /// </summary>
     void StartGame()
     {
+        ChooseImpostor();
         started = true;
         //TODO: Open doors and maybe some other stuff
         Debug.Log("The Game has started.");
-        Debug.Log(taskManager.GetTaskInfo());
     }
 
     /// <summary>
