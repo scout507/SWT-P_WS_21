@@ -20,9 +20,9 @@ public class Chatbox : NetworkBehaviour
     float timeForDeletion = 25f;
     /// <summary>Timer for deletion</summary>
     float[] timer = new float[5];
-
-    string userInput = "";
+    /// <summary>The name of the player for the chat</summary>
     string playerName;
+    /// <summary>True when the player opened the chat</summary>
     bool typing;
 
     /// <summary>
@@ -38,6 +38,9 @@ public class Chatbox : NetworkBehaviour
 
     }
 
+    /// <summary>
+    /// Registers input.
+    /// </summary>
     void Update()
     {
         if (!isLocalPlayer) return;
@@ -45,21 +48,21 @@ public class Chatbox : NetworkBehaviour
         UpdateText();
 
 
-        if(typing)
+        if (typing)
         {
-            if(Input.GetKeyDown(KeyCode.KeypadEnter))
+            if (Input.GetKeyDown(KeyCode.KeypadEnter))
             {
                 typing = false;
-                if(chatBoxUI.text.Length >0) SubmitMessage(chatText.text);
+                if (chatBoxUI.text.Length > 0) SubmitMessage(chatText.text);
             }
-            
+
         }
-        if(Input.GetKeyDown(KeyCode.KeypadEnter) && !typing)
+        if (Input.GetKeyDown(KeyCode.KeypadEnter) && !typing)
         {
             typing = true;
             chatBoxUI.Select();
         }
-        
+
     }
 
     /// <summary>
@@ -110,13 +113,18 @@ public class Chatbox : NetworkBehaviour
         textBox.text = text;
     }
 
+    /// <summary>
+    /// Submits a message to the chat. 
+    /// Sends the message via command to all nearby players.
+    /// </summary>
+    /// <param name="message">The message to send.</param>
     void SubmitMessage(string message)
     {
         List<GameObject> nearbyPlayers = FindNearbyPlayers();
 
-        if(nearbyPlayers.Count > 0)
+        if (nearbyPlayers.Count > 0)
         {
-            foreach(GameObject player in nearbyPlayers)
+            foreach (GameObject player in nearbyPlayers)
             {
                 CmdSendMessage(playerName + ": " + message, player);
             }
@@ -126,28 +134,41 @@ public class Chatbox : NetworkBehaviour
         chatBoxUI.text = "";
     }
 
-
+    /// <summary>
+    /// Finds all players within a given radius
+    /// </summary>
+    /// <returns>Returns a list of all nearby player gameObjects, excluding the own.</returns>
     List<GameObject> FindNearbyPlayers()
     {
         List<GameObject> nearbyPlayers = new List<GameObject>();
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 40f);
-        
+
         foreach (Collider hitCollider in hitColliders)
         {
-            if(hitCollider.gameObject.tag == "Player" && !nearbyPlayers.Contains(hitCollider.gameObject) && hitCollider.gameObject != this.gameObject)
+            if (hitCollider.gameObject.tag == "Player" && !nearbyPlayers.Contains(hitCollider.gameObject) && hitCollider.gameObject != this.gameObject)
             {
                 nearbyPlayers.Add(hitCollider.gameObject);
-            } 
+            }
         }
         return nearbyPlayers;
     }
 
+    /// <summary>
+    /// For distributing a message to other players.
+    /// </summary>
+    /// <param name="message">Message to send.</param>
+    /// <param name="target">The player GameObject to send it to.</param>
     [Command]
     void CmdSendMessage(string message, GameObject target)
     {
         TargetRPCSendMessage(target.GetComponent<NetworkIdentity>().connectionToClient, message);
     }
 
+    /// <summary>
+    /// Adds a given message to the checkbox of the target player.
+    /// </summary>
+    /// <param name="target">NetworkConnection of the Target.</param>
+    /// <param name="message">The message to deliver.</param>
     [TargetRpc]
     void TargetRPCSendMessage(NetworkConnection target, string message)
     {
