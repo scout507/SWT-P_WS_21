@@ -501,7 +501,7 @@ public class PlayerMovement : NetworkBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.tag == "Ladder")
+        if (col.gameObject.tag == "Ladder")
         {
             //controller.enabled = false;
             insideLadder = !insideLadder;
@@ -510,7 +510,7 @@ public class PlayerMovement : NetworkBehaviour
 
     void OnTriggerExit(Collider col)
     {
-        if(col.gameObject.tag == "Ladder")
+        if (col.gameObject.tag == "Ladder")
         {
             //controller.enabled = false;
             insideLadder = !insideLadder;
