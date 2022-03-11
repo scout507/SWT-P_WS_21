@@ -1936,6 +1936,8 @@ MonoBehaviour:
   gunAmmo: 0
   magSize: 0
   nextFire: 0
+  nextReload: 0
+  reloadDelay: 0
   recoil: 0
   icon: {fileID: 21300000, guid: a91a15d944ea895479edd768d0a92b6b, type: 3}
   inventory: {fileID: 0}
@@ -1964,6 +1966,8 @@ MonoBehaviour:
   gunAmmo: 0
   magSize: 0
   nextFire: 0
+  nextReload: 0
+  reloadDelay: 0
   recoil: 0
   icon: {fileID: 21300000, guid: 3896c9d635f76ca469ff9b7ab5fc5b1a, type: 3}
   inventory: {fileID: 0}
@@ -2215,7 +2219,7 @@ MonoBehaviour:
   remainingCams: 3
   deviceMount: {fileID: 6901453500099918566}
   throwPoint: {fileID: 6921565230632442624}
-  inventory: {fileID: 0}
+  inventory: {fileID: 3008375478098745331}
   setCamerasCount: 0
   lastActiveCam: 0
   cameraMountPoint: {fileID: 0}
