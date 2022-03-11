@@ -150,7 +150,7 @@ public class RoundManager : NetworkBehaviour
         zombieSpawner.InitialSpawn();
         taskManager.InitTasks();
         ready = true;
-        //TODO: start some Countdown on the HUD
+        RpcMessage("The game is starting in 30s");
     }
 
     /// <summary>
@@ -228,7 +228,7 @@ public class RoundManager : NetworkBehaviour
         ChooseImpostor();
         started = true;
         //TODO: Open doors and maybe some other stuff
-        Debug.Log("The Game has started.");
+        RpcMessage("The game has started");
     }
 
     /// <summary>
@@ -250,8 +250,7 @@ public class RoundManager : NetworkBehaviour
     [ClientRpc]
     void RpcJoinMessage(string playerName)
     {
-        //TODO: Replace with actual UI message
-        Debug.Log(playerName + " has joined the game!");
+        NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(playerName + " has joined the game!");
     }
 
     /// <summary>
@@ -266,14 +265,23 @@ public class RoundManager : NetworkBehaviour
     }
 
     /// <summary>
+    /// Sends a message to all clients chatboxes.
+    /// </summary>
+    /// <param name="message"></param>
+    [ClientRpc]
+    void RpcMessage(string message)
+    {
+        NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
+    }
+
+    /// <summary>
     /// Sends a message to the chosen impostor.
     /// </summary>
     /// <param name="target">ConnectionToClient of the impostor</param>
     [TargetRpc]
     void TargetRpcTellImpostor(NetworkConnection target)
     {
-        //TODO: Tell the impostor in the UI that he has been chosen
-        Debug.Log("You are the impostor");
+        NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage("You are the impostor");
     }
 
     /// <summary>Sync the "hasWon" variable from the server to the client.</summary>
