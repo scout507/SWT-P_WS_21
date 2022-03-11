@@ -6,7 +6,8 @@ using UnityEngine;
 
 
 public class MP : ShootGun
-{
+{   
+    private bool isReloading = false;
 
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
@@ -19,6 +20,7 @@ public class MP : ShootGun
     {
         this.gunDamage = 5;
         this.fireRate = 0.1f;
+        this.reloadDelay = 0.5f;
         this.weaoponRange = 50f;
         this.gunAmmo = 30;
         this.recoil = 2.5f;
@@ -42,6 +44,7 @@ public class MP : ShootGun
             nextFire = Time.time + fireRate;
             if (gunAmmo > 0)
             {
+                isReloading = false;
                 Shoot();
             }
             else
@@ -50,9 +53,23 @@ public class MP : ShootGun
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
+        {
+            isReloading = true;
+            nextReload = Time.time + reloadDelay;
+        }
+        if(isReloading)
+        {
+            Reload();
+        }
+    }
+
+    void Reload()
+    {
+        if(Time.time > nextReload)
         {
             gunAmmo = magSize;
+            isReloading = false;
         }
     }
 

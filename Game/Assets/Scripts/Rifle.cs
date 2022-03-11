@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Rifle : ShootGun
 {
-
+    private bool isReloading = false;
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// </summary>
@@ -15,6 +15,7 @@ public class Rifle : ShootGun
     {
         this.gunDamage = 50;
         this.fireRate = 1f;
+        this.reloadDelay = 0.7f;
         this.weaoponRange = 200f;
         this.gunAmmo = 4;
         this.recoil = 20f;
@@ -37,6 +38,7 @@ public class Rifle : ShootGun
             nextFire = Time.time + fireRate;
             if (gunAmmo > 0)
             {
+                isReloading = false;
                 Shoot();
             }
             else
@@ -44,12 +46,31 @@ public class Rifle : ShootGun
                 Debug.Log("Out of Ammo!");
             }
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        
+        if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
         {
-            gunAmmo = magSize;
+            isReloading = true;
+            nextReload = Time.time + reloadDelay;
+        }
+        if(isReloading)
+        {
+            Reload();
         }
 
         inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+    }
+
+    void Reload()
+    {
+        if(Time.time > nextReload && gunAmmo < magSize && isReloading)
+        {
+            nextReload = Time.time + reloadDelay;
+            gunAmmo++;
+        }
+        if(gunAmmo == magSize)
+        {
+            isReloading = false;
+        }
     }
 
     /// <summary>
