@@ -154,7 +154,7 @@ public class PlayerMovement : NetworkBehaviour
     /// <summary>
     /// The UP and DOWN speed for climbing ladders.
     /// </summary>
-    public float speedUpDown = 3.1f;
+    public float speedUpDown = 0.1f;
 
     /// <summary>
     /// Transform-information of the player
