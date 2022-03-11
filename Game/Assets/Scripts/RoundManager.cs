@@ -10,22 +10,29 @@ using Mirror;
 /// </summary>
 public class RoundManager : NetworkBehaviour
 {
-
     // Player-related
     /// <summary>Amount of players in this round</summary>//
     public int totalPlayers;
+
     /// <summary>Amount of players that have joined this round</summary>//
     int joinedPlayers;
-    /// <summary>A list containing all net ID's of players </summary>//  
+
+    /// <summary>A list containing all net ID's of players </summary>//
     List<uint> players = new List<uint>();
+
     /// <summary>A list containing all net ID's of players that are alive</summary>//
     List<uint> activePlayers = new List<uint>();
+
     /// <summary>Net-ID of the impostor</summary>//
     uint impostor;
+
     /// <summary>The player's spawn as an empty game-object</summary>//
-    [SerializeField] GameObject playerSpawn;
+    [SerializeField]
+    GameObject playerSpawn;
+
     /// <summary>Refresh rate for searching for active players</summary>//
     float playerRefreshTime = 1f;
+
     /// <summary>Timer for searching for active players</summary>//
     float playerRefreshTimer;
 
@@ -35,11 +42,9 @@ public class RoundManager : NetworkBehaviour
     /// <summary>Holds the impostor names. Each name is separated by a paragraph.</summary>
     public string imposterNames = "";
 
-
     //NPC-related
     /// <summary>Zombiespawner-script</summary>//
     ZombieSpawner zombieSpawner;
-
 
     // Task-related
     /// <summary>TaskManager-script</summary>//
@@ -47,49 +52,60 @@ public class RoundManager : NetworkBehaviour
 
     //Game-related
     /// <summary>Total time a round can take before beeing game over</summary>//
-    [SerializeField] float timePerRound;
+    [SerializeField]
+    float timePerRound;
+
     /// <summary>Length of the preperation phase</summary>//
-    [SerializeField] float prepTimer;
+    [SerializeField]
+    float prepTimer;
+
     /// <summary>Timer for the round time</summary>//
     float gameTimer = 0;
+
     /// <summary>True when all players have joined the game</summary>//
     bool ready;
+
     /// <summary>True when the preperation phase is over</summary>//
     bool started;
-
 
     /// <summary>
     /// Gets all dependencies
     /// </summary>
     void Start()
     {
-        if (!isServer) return;
+        if (!isServer)
+            return;
 
-        if (NetworkManager.singleton as NetworkManagerLobby != null) totalPlayers = (NetworkManager.singleton as NetworkManagerLobby).gamePlayers.Count;
+        if (NetworkManager.singleton as NetworkManagerLobby != null)
+            totalPlayers = (NetworkManager.singleton as NetworkManagerLobby).gamePlayers.Count;
         zombieSpawner = GetComponent<ZombieSpawner>();
         taskManager = GetComponent<TaskManager>();
     }
-
 
     /// <summary>
     /// Handles timers and checks for state changes
     /// </summary>
     void Update()
     {
-        if (!isServer) return;
+        if (!isServer)
+            return;
 
         //Timers
         if (!ready)
         {
-            if (joinedPlayers == totalPlayers) InitGame();
-            else return;
+            if (joinedPlayers == totalPlayers)
+                InitGame();
+            else
+                return;
         }
 
         if (!started)
         {
             prepTimer -= Time.deltaTime;
-            if (prepTimer <= 0) StartGame();
-            else return;
+            if (prepTimer <= 0)
+                StartGame();
+            else
+                return;
         }
 
         gameTimer += Time.deltaTime;
@@ -101,9 +117,10 @@ public class RoundManager : NetworkBehaviour
             playerRefreshTimer = playerRefreshTime;
         }
 
-
-
-        if (CheckGameOver()) ChooseWinner();
+        if (CheckGameOver())
+        {
+            ChooseWinner();
+        }
     }
 
     /// <summary>
@@ -117,7 +134,7 @@ public class RoundManager : NetworkBehaviour
 
         foreach (GameObject player in playersArray)
         {
-            if (!player.GetComponent<Health>().isDead)
+            if (player.GetComponent<Health>() && !player.GetComponent<Health>().isDead)
                 newPlayerList.Add(player.GetComponent<NetworkIdentity>().netId);
         }
 
@@ -165,9 +182,13 @@ public class RoundManager : NetworkBehaviour
     /// <returns>True when a game-over state is reached</returns>
     bool CheckGameOver()
     {
-        if (gameTimer >= timePerRound) return true;
-        else if (activePlayers.Count == 0) return true;
-        else return taskManager.CheckAllFinished();
+        Debug.Log("Test Game Over");
+        if (gameTimer >= timePerRound)
+            return true;
+        else if (activePlayers.Count == 0)
+            return true;
+        else
+            return taskManager.CheckAllFinished();
     }
 
     /// <summary>
@@ -176,15 +197,11 @@ public class RoundManager : NetworkBehaviour
     void ChooseWinner()
     {
         if (gameTimer >= timePerRound)
-        {
             hasWon = Winner.Nobody;
-        }
         else if (taskManager.CheckAllFinished())
         {
             if (activePlayers.Count > 1)
-            {
                 hasWon = Winner.Team;
-            }
             else
             {
                 if (activePlayers.Contains(impostor))
@@ -197,9 +214,11 @@ public class RoundManager : NetworkBehaviour
                 }
             }
         }
+        else
+            hasWon = Winner.Nobody;
+
         SetHasWon(hasWon);
     }
-
 
     /// <summary>
     /// Starts the game once the preperation time is over.
@@ -245,7 +264,6 @@ public class RoundManager : NetworkBehaviour
     {
         player.transform.position = playerSpawn.transform.position;
     }
-
 
     /// <summary>
     /// Sends a message to the chosen impostor.
