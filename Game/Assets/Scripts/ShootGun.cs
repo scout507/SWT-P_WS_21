@@ -48,6 +48,14 @@ public abstract class ShootGun : NetworkBehaviour
     /// </summary>
     public float nextFire;
     /// <summary>
+    /// Time of the next reload you can take
+    /// </summary>
+    public float nextReload;
+    /// <summary>
+    /// Time of the next reload you can take
+    /// </summary>
+    public float reloadDelay;
+    /// <summary>
     /// Set ammount of Recoil per Shot
     /// </summary>
     public float recoil;
