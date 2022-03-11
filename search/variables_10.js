@@ -9,6 +9,5 @@ var searchData=
   ['title_6',['title',['../class_end_game_menu.html#abf89c0655fe76fcc58476d561f9e887a',1,'EndGameMenu']]],
   ['toggle_7',['toggle',['../class_menu.html#a57d3268552b008bc4e74809824fbe475',1,'Menu']]],
   ['totalammo_8',['totalAmmo',['../class_inventory.html#aa01bdaa28ef60341be07501365dc3f1b',1,'Inventory']]],
-  ['totalplayers_9',['totalPlayers',['../class_round_manager.html#a11d22c2c18ed59a69bee5663e79c5037',1,'RoundManager']]],
-  ['turret_10',['turret',['../class_controll_turret.html#aaa906a312249635bab0511313cf9c50a',1,'ControllTurret']]]
+  ['totalplayers_9',['totalPlayers',['../class_round_manager.html#a11d22c2c18ed59a69bee5663e79c5037',1,'RoundManager']]]
 ];

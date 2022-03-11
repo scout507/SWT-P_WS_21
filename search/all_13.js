@@ -26,7 +26,5 @@ var searchData=
   ['totalammo_23',['totalAmmo',['../class_inventory.html#aa01bdaa28ef60341be07501365dc3f1b',1,'Inventory']]],
   ['totalplayers_24',['totalPlayers',['../class_round_manager.html#a11d22c2c18ed59a69bee5663e79c5037',1,'RoundManager']]],
   ['transport_25',['Transport',['../class_mirror_1_1_transport.html',1,'Mirror']]],
-  ['turret_26',['Turret',['../class_turret.html',1,'']]],
-  ['turret_27',['turret',['../class_controll_turret.html#aaa906a312249635bab0511313cf9c50a',1,'ControllTurret']]],
-  ['typereferencecomparer_28',['TypeReferenceComparer',['../class_mirror_1_1_weaver_1_1_type_reference_comparer.html',1,'Mirror::Weaver']]]
+  ['typereferencecomparer_26',['TypeReferenceComparer',['../class_mirror_1_1_weaver_1_1_type_reference_comparer.html',1,'Mirror::Weaver']]]
 ];

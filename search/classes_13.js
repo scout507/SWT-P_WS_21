@@ -8,6 +8,5 @@ var searchData=
   ['telepathytransport_5',['TelepathyTransport',['../class_mirror_1_1_telepathy_transport.html',1,'Mirror']]],
   ['timeoutauthenticator_6',['TimeoutAuthenticator',['../class_mirror_1_1_authenticators_1_1_timeout_authenticator.html',1,'Mirror::Authenticators']]],
   ['transport_7',['Transport',['../class_mirror_1_1_transport.html',1,'Mirror']]],
-  ['turret_8',['Turret',['../class_turret.html',1,'']]],
-  ['typereferencecomparer_9',['TypeReferenceComparer',['../class_mirror_1_1_weaver_1_1_type_reference_comparer.html',1,'Mirror::Weaver']]]
+  ['typereferencecomparer_8',['TypeReferenceComparer',['../class_mirror_1_1_weaver_1_1_type_reference_comparer.html',1,'Mirror::Weaver']]]
 ];
