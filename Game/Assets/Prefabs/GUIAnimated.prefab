@@ -2599,6 +2599,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   PlayerCanvasObject: {fileID: 2664283680279055697}
+  MinimapCam: {fileID: 7674793990378713536}
 --- !u!1 &8853732363362296011
 GameObject:
   m_ObjectHideFlags: 0
