@@ -50,7 +50,7 @@ public class AudioController : NetworkBehaviour
     [ClientRpc]
     void RPCPlayFootStepSound()
     {
-        audioSource.volume = 0.3f;
+        audioSource.volume = 0.7f;
         audioSource.pitch = 1f + Random.Range(-0.2f, 0.2f);
         audioSource.PlayOneShot(audioClips[5], 0.9f);
         stepCoolDown = stepRate;
@@ -86,7 +86,7 @@ public class AudioController : NetworkBehaviour
     [ClientRpc]
     void RPCSendGunSound(int weaponNumber)
     {
-        audioSource.volume = 0.7f;
+        audioSource.volume = 0.8f;
         audioSource.pitch = 1f + Random.Range(-0.1f, 0.1f);
         audioSource.PlayOneShot(audioClips[weaponNumber]);
     }
