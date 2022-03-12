@@ -33,46 +33,47 @@ public class HealGun : ShootGun
         {
             return;
         }
-        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
-        {
-            nextFire = Time.time + fireRate;
-            if (gunAmmo > 0)
-            {
-                Shoot();
-            }
-            else
-            {
-                Debug.Log("Out of Ammo!");
-            }
-        }
-        if (Input.GetButtonDown("Fire3") && Time.time > nextFire)
-        {
-            nextFire = Time.time + fireRate;
-            if (gunAmmo > 0)
-            {
-                CmdShootPlayer(this.gameObject, gunDamage);
-                gunAmmo--;
-            }
-            else
-            {
-                Debug.Log("Out of Ammo!");
-            }
-        }
 
-        if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
+        if (canInteract)
         {
-            isReloading = true;
-            nextReload = Time.time + reloadDelay;
-        }
-        if (isReloading)
-        {
-            Reload();
-        }
+            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            gunAmmo = 1;
+            if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                if (gunAmmo > 0)
+                {
+                    Shoot();
+                }
+                else
+                {
+                    Debug.Log("Out of Ammo!");
+                }
+            }
+            if (Input.GetButtonDown("Fire3") && Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                if (gunAmmo > 0)
+                {
+                    CmdShootPlayer(this.gameObject, gunDamage);
+                    gunAmmo--;
+                }
+                else
+                {
+                    Debug.Log("Out of Ammo!");
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
+            {
+                isReloading = true;
+                nextReload = Time.time + reloadDelay;
+            }
+
+            if (isReloading)
+            {
+                Reload();
+            }
         }
     }
 

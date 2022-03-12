@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class Rifle : ShootGun
 {
-
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// </summary>
@@ -33,32 +32,35 @@ public class Rifle : ShootGun
         {
             return;
         }
-        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
-        {
-            nextFire = Time.time + fireRate;
-            if (gunAmmo > 0)
-            {
-                isReloading = false;
-                Shoot();
-            }
-            else
-            {
-                Debug.Log("Out of Ammo!");
-            }
-        }
 
-        if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
+        if (canInteract)
         {
-            isReloading = true;
-            nextReload = Time.time + reloadDelay;
-        }
-        if (isReloading)
-        {
-            Reload();
-        }
+            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
 
-        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+            if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                if (gunAmmo > 0)
+                {
+                    isReloading = false;
+                    Shoot();
+                }
+                else
+                {
+                    Debug.Log("Out of Ammo!");
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
+            {
+                isReloading = true;
+                nextReload = Time.time + reloadDelay;
+            }
+            if (isReloading)
+            {
+                Reload();
+            }
+        }
     }
 
     /// <summary>
@@ -115,5 +117,4 @@ public class Rifle : ShootGun
         }
         Recoil();
     }
-
 }
