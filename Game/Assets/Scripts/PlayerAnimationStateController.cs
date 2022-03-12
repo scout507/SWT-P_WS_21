@@ -19,11 +19,24 @@ public class PlayerAnimationStateController : NetworkBehaviour
     /// </summary>
     [SerializeField] PlayerMovement playerMovement;
 
+    [SerializeField] Classes playerClass;
+
     /// <summary>
     /// Player's Rig
     /// </summary>
     [SerializeField] Rig rig;
 
+    void Start()
+    {
+        if (playerClass.hasMelee)
+        {
+            animator.SetBool("isKnut", true);
+        }
+        else
+        {
+            animator.SetBool("isKnut", false);
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -40,10 +53,11 @@ public class PlayerAnimationStateController : NetworkBehaviour
         animator.SetBool("isProne", playerMovement.GetIsProne());
         animator.SetBool("Jump", Input.GetButtonDown("Jump"));
         animator.SetBool("onGround", playerMovement.CheckGrounded());
-        if(GetComponent<Classes>().hasMelee){
+        if (playerClass.hasMelee)
+        {
             animator.SetBool("MeleeInAttack", GetComponent<Melee>().inAttack);
         }
-        
+
 
         int taunt = playerMovement.GetCurrentTaunt();
         animator.SetInteger("Taunt", taunt);
