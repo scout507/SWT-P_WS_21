@@ -17,20 +17,20 @@ public class WaveMonster : MonsterController
 
     /// <summary>Timer for target finding</summary>
     float timer;
+
     /// <summary>The refreshrate for target finding calculations</summary>
     float refreshRate = 2f;
-
 
     /// <summary>
     /// Initial FindBuildings.
     /// </summary>
     void Start()
     {
-        if (!isServer) return;
+        if (!isServer)
+            return;
 
         FindBuildings();
         nav = GetComponent<NavMeshAgent>();
-
     }
 
     /// <summary>
@@ -38,7 +38,8 @@ public class WaveMonster : MonsterController
     /// </summary>
     void Update()
     {
-        if (!isServer) return;
+        if (!isServer)
+            return;
 
         Vector3 velocity = nav.transform.InverseTransformDirection(nav.velocity);
         SetVelocityX(velocity.x);
@@ -49,7 +50,8 @@ public class WaveMonster : MonsterController
             damageTaken = false;
             attack = false;
 
-            if (hp <= 0) Die();
+            if (hp <= 0)
+                Die();
 
             timer += Time.deltaTime;
             atkTimer += Time.deltaTime;
@@ -60,18 +62,23 @@ public class WaveMonster : MonsterController
                 FindPlayers();
             }
 
-            if (timer >= refreshRate) currentTarget = ChooseTarget();
+            if (timer >= refreshRate)
+                currentTarget = ChooseTarget();
 
-
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Attack") ||
-                animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Damage") ||
-                animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Dying"))
+            if (
+                animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Attack")
+                || animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Damage")
+                || animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Dying")
+            )
             {
                 nav.isStopped = true;
             }
             else if (currentTarget != null)
             {
-                if (Vector3.Distance(currentTarget.transform.position, transform.position) > atkRange)
+                if (
+                    Vector3.Distance(currentTarget.transform.position, transform.position)
+                    > atkRange
+                )
                 {
                     nav.isStopped = false;
                     nav.SetDestination(currentTarget.transform.position);
@@ -83,12 +90,10 @@ public class WaveMonster : MonsterController
                 }
             }
 
-
-            if (timer >= refreshRate) timer = 0f;
+            if (timer >= refreshRate)
+                timer = 0f;
         }
     }
-
-
 
     /// <summary>
     /// Finds all GameObject with the 'DestructableObject' tag and adds them to the buildingTargets list.
@@ -100,10 +105,11 @@ public class WaveMonster : MonsterController
 
         foreach (GameObject destructable in destructables)
         {
-            if (destructable.GetComponent<DestructableObject>().active) buildingTargets.Add(destructable);
+            DestructableObject script = destructable.GetComponent<DestructableObject>();
+            if (script.active && script.attackAble)
+                buildingTargets.Add(destructable);
         }
     }
-
 
     /// <summary>
     /// Selects a target for the monster to attack. 
@@ -111,7 +117,6 @@ public class WaveMonster : MonsterController
     /// <returns>Returns the target as a GameObject or null if there is no possible target</returns>
     GameObject ChooseTarget()
     {
-
         GameObject newTarget = null;
 
         if (players.Count > 0)
@@ -124,7 +129,11 @@ public class WaveMonster : MonsterController
 
                 //if the player is reachable and the closest to the monster, the player becomes the new target
                 NavMeshPath navMeshPath = new NavMeshPath();
-                if (distance <= shortestDistance && nav.CalculatePath(target.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
+                if (
+                    distance <= shortestDistance
+                    && nav.CalculatePath(target.transform.position, navMeshPath)
+                    && navMeshPath.status == NavMeshPathStatus.PathComplete
+                )
                 {
                     shortestDistance = distance;
                     newTarget = target;
@@ -133,7 +142,10 @@ public class WaveMonster : MonsterController
         }
         else if (buildingTargets.Count > 0)
         {
-            float shortestDistance = Vector3.Distance(this.transform.position, buildingTargets[0].transform.position);
+            float shortestDistance = Vector3.Distance(
+                this.transform.position,
+                buildingTargets[0].transform.position
+            );
 
             foreach (GameObject target in buildingTargets)
             {
@@ -141,7 +153,11 @@ public class WaveMonster : MonsterController
 
                 //if the object is reachable and the closest to the monster, the object becomes the new target
                 NavMeshPath navMeshPath = new NavMeshPath();
-                if (distance <= shortestDistance && nav.CalculatePath(target.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
+                if (
+                    distance <= shortestDistance
+                    && nav.CalculatePath(target.transform.position, navMeshPath)
+                    && navMeshPath.status == NavMeshPathStatus.PathComplete
+                )
                 {
                     shortestDistance = distance;
                     newTarget = target;
@@ -153,22 +169,31 @@ public class WaveMonster : MonsterController
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
             if (players.Length > 0)
             {
-                float shortestDistance = Vector3.Distance(this.transform.position, players[0].transform.position);
+                float shortestDistance = Vector3.Distance(
+                    this.transform.position,
+                    players[0].transform.position
+                );
 
                 for (int i = 0; i < players.Length; i++)
                 {
-                    float distance = Vector3.Distance(transform.position, players[i].transform.position);
+                    float distance = Vector3.Distance(
+                        transform.position,
+                        players[i].transform.position
+                    );
 
                     //if the object is reachable and the closest to the monster, the object becomes the new target
                     NavMeshPath navMeshPath = new NavMeshPath();
-                    if (distance <= shortestDistance && nav.CalculatePath(players[i].transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
+                    if (
+                        distance <= shortestDistance
+                        && nav.CalculatePath(players[i].transform.position, navMeshPath)
+                        && navMeshPath.status == NavMeshPathStatus.PathComplete
+                    )
                     {
                         shortestDistance = distance;
                         newTarget = players[i];
                     }
                 }
             }
-
         }
 
         return newTarget;
