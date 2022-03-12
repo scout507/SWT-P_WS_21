@@ -6,7 +6,11 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    /// <summary>
+    /// Slider to adjust the Size
+    /// </summary>
     public Slider slider;
+    public Image HPColor;
 
     /// <summary>
     /// sets the max health of the slider
@@ -16,6 +20,7 @@ public class HealthBar : MonoBehaviour
     {
         slider.maxValue = health;
         slider.value = health;
+        ColorChanger();
     }
 
     /// <summary>
@@ -25,5 +30,12 @@ public class HealthBar : MonoBehaviour
     public void SetHealth(int health)
     {
         slider.value = health;
+        ColorChanger();
+    }
+
+    void ColorChanger()
+    {
+        Color healthColor = Color.Lerp(Color.red, Color.green, (slider.value / slider.maxValue));
+        HPColor.color = healthColor;
     }
 }
