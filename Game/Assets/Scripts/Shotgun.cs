@@ -12,7 +12,6 @@ public class Shotgun : ShootGun
 {
 
     private int pelletAmount = 15;
-    private bool isReloading = false;
 
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
@@ -26,6 +25,7 @@ public class Shotgun : ShootGun
         this.gunAmmo = 8;
         this.recoil = 10f;
         this.magSize = 8;
+        this.isReloading = false;
         audioController = this.GetComponent<AudioController>();
     }
 
@@ -60,7 +60,7 @@ public class Shotgun : ShootGun
             isReloading = true;
             nextReload = Time.time + reloadDelay;
         }
-        if(isReloading)
+        if (isReloading)
         {
             Reload();
         }
@@ -68,13 +68,16 @@ public class Shotgun : ShootGun
         inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
     }
 
-    void Reload()
+    /// <summary>
+    /// Shotgun is reloaded one round after another till the magazin is full
+    /// </summary>
+    public override void Reload()
     {
-        if(Time.time > nextReload && gunAmmo < magSize && isReloading)
+        if (Time.time > nextReload && gunAmmo < magSize && isReloading)
         {
             gunAmmo++;
         }
-        if(gunAmmo == magSize)
+        if (gunAmmo == magSize)
         {
             isReloading = false;
         }

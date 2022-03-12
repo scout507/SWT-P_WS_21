@@ -40,7 +40,10 @@ abstract public class Device : NetworkBehaviour
 
     abstract public void TargetDeath();
 
-
+    /// <summary>
+    /// Destroys the device on all clients
+    /// </summary>
+    /// <param name="device">Device which should be destroyed</param>
     [ClientRpc]
     public void RpcDestroyDevice(GameObject device)
     {

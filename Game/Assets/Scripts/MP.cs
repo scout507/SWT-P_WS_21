@@ -6,16 +6,12 @@ using UnityEngine;
 
 
 public class MP : ShootGun
-{   
-    private bool isReloading = false;
-
+{
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// The AudioController is set
     /// </summary>
     /// 
-
-
     void Start()
     {
         this.gunDamage = 5;
@@ -25,6 +21,7 @@ public class MP : ShootGun
         this.gunAmmo = 30;
         this.recoil = 2.5f;
         this.magSize = 30;
+        this.isReloading = false;
         audioController = this.GetComponent<AudioController>();
     }
 
@@ -58,15 +55,18 @@ public class MP : ShootGun
             isReloading = true;
             nextReload = Time.time + reloadDelay;
         }
-        if(isReloading)
+        if (isReloading)
         {
             Reload();
         }
     }
 
-    void Reload()
+    /// <summary>
+    /// MP is reloaded in full magazins, but should not instantly be reloaded, so it is reloaded after a certain time after the button is pressed
+    /// </summary>
+    public override void Reload()
     {
-        if(Time.time > nextReload)
+        if (Time.time > nextReload)
         {
             gunAmmo = magSize;
             isReloading = false;

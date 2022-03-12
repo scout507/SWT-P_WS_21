@@ -50,6 +50,14 @@ public class Melee : ShootGun
     }
 
     /// <summary>
+    /// Melee does not need Reload function, but because it is necessary for abstract class ShootGun
+    /// </summary>
+    public override void Reload()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    /// <summary>
     /// Enables the colliders of the weapon and plays animation.
     /// </summary>
     /// <returns></returns>

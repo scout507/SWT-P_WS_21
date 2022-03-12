@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class Pistol : ShootGun
 {
-    private bool isReloading = false;
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// </summary>
@@ -20,6 +19,7 @@ public class Pistol : ShootGun
         this.gunAmmo = 8;
         this.recoil = 3f;
         this.magSize = 8;
+        this.isReloading = false;
         audioController = this.GetComponent<AudioController>();
     }
 
@@ -52,7 +52,7 @@ public class Pistol : ShootGun
             isReloading = true;
             nextReload = Time.time + reloadDelay;
         }
-        if(isReloading)
+        if (isReloading)
         {
             Reload();
         }
@@ -60,9 +60,12 @@ public class Pistol : ShootGun
         inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
     }
 
-    void Reload()
+    /// <summary>
+    /// Pistol is reloaded in full magazins, but should not instantly be reloaded, so it is reloaded after a certain time after the button is pressed
+    /// </summary>
+    public override void Reload()
     {
-        if(Time.time > nextReload)
+        if (Time.time > nextReload)
         {
             gunAmmo = magSize;
             isReloading = false;
