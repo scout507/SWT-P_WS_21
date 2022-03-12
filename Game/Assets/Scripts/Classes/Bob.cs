@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /* edited by: SWT-P_WS_21/22*/
+/// <summary>
+/// Bob is a class with a shotgun and a pistol
+/// </summary>
 public class Bob : Classes
 {
+    /// <summary>
+    /// Update checks input if player wants to change weapon
+    /// </summary>
     void Update()
     {
         if (!isLocalPlayer) return;
@@ -27,6 +33,12 @@ public class Bob : Classes
             CmdSwitchWeapon(2);
         }
     }
+
+    /// <summary>
+    /// Handles change of weapons through enabling and disenabling the correct scripts on the player
+    /// </summary>
+    /// <param name="oldWeapon"></param>
+    /// <param name="newWeapon"></param>
     public override void SwitchWeapon(int oldWeapon, int newWeapon)
     {
         switch (oldWeapon)
@@ -53,6 +65,9 @@ public class Bob : Classes
         }
     }
 
+    /// <summary>
+    /// Bob does not have melee weapon
+    /// </summary>
     public override void SetHasMelee()
     {
         this.hasMelee = false;
