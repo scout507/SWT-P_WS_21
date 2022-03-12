@@ -52,7 +52,7 @@ public class PlayerMovement : NetworkBehaviour
     float gravity = 19.62f;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     [SerializeField]
     float jumpHeight = 2f;
@@ -98,13 +98,13 @@ public class PlayerMovement : NetworkBehaviour
     Vector3 velocity;
 
     /// <summary>
-    /// Is the player currently on ground? 
+    /// Is the player currently on ground?
     /// </summary>
     [SyncVar]
     bool isGrounded = false;
 
     /// <summary>
-    /// Is the player currently in air? 
+    /// Is the player currently in air?
     /// </summary>
     [SyncVar]
     bool isAirborne = false;
@@ -146,6 +146,20 @@ public class PlayerMovement : NetworkBehaviour
     [SyncVar]
     int currentTaunt = 0;
 
+    /// <summary>
+    /// bool to check for a LAdderCollider
+    /// </summary>
+    bool insideLadder = false;
+
+    /// <summary>
+    /// The UP and DOWN speed for climbing ladders.
+    /// </summary>
+    public float speedUpDown = 0.1f;
+
+    /// <summary>
+    /// Transform-information of the player
+    /// </summary>
+    public Transform playerTransform;
     /// <summary>
     /// Returns the player's view pitch
     /// </summary>
@@ -472,6 +486,34 @@ public class PlayerMovement : NetworkBehaviour
             {
                 Interact();
             }
+
+            if (insideLadder == true && Input.GetKey("w"))
+            {
+                playerTransform.transform.position += Vector3.up / speedUpDown;
+            }
+
+            if (insideLadder == true && Input.GetKey("s"))
+            {
+                playerTransform.transform.position -= Vector3.up / speedUpDown;
+            }
+        }
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Ladder")
+        {
+            //controller.enabled = false;
+            insideLadder = !insideLadder;
+        }
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.tag == "Ladder")
+        {
+            //controller.enabled = false;
+            insideLadder = !insideLadder;
         }
     }
 }
