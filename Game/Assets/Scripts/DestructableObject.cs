@@ -17,6 +17,8 @@ public class DestructableObject : NetworkBehaviour
     [SyncVar] public float health;
     /// <summary>True when hp are above 0</summary>
     [SyncVar] public bool active;
+    /// <summary>True when this object is attackable by zombies</summary>
+    [SyncVar] public bool attackAble = true;
 
     /// <summary>
     /// Used for checking if health drops below 0.
@@ -26,6 +28,7 @@ public class DestructableObject : NetworkBehaviour
         if (health <= 0)
         {
             active = false;
+            health = 0;
         }
         else
             active = true;
