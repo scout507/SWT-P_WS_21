@@ -48,6 +48,14 @@ public abstract class ShootGun : NetworkBehaviour
     /// </summary>
     public float nextFire;
     /// <summary>
+    /// Time of the next reload you can take
+    /// </summary>
+    public float nextReload;
+    /// <summary>
+    /// Time of the next reload you can take
+    /// </summary>
+    public float reloadDelay;
+    /// <summary>
     /// Set ammount of Recoil per Shot
     /// </summary>
     public float recoil;
@@ -63,6 +71,10 @@ public abstract class ShootGun : NetworkBehaviour
     public bool inAttack;
     /// <summary>Audio Script that controlls Gun Sound</summary>
     public AudioController audioController;
+    /// <summary>true if the player can do inputs.</summary>
+    public bool canInteract = true;
+    /// <summary>Flag if player is reloading.</summary>
+    public bool isReloading = false;
 
     /// <summary>
     /// Gets called when player is hit.
@@ -142,6 +154,11 @@ public abstract class ShootGun : NetworkBehaviour
     /// Implements a single shot, different for every weapon.
     /// </summary>
     public abstract void Shoot();
+
+    /// <summary>
+    /// Implements reloading, different for every weapon.
+    /// </summary>
+    public abstract void Reload();
 
     /// <summary>
     /// Very simple recoil for better representation of gun.

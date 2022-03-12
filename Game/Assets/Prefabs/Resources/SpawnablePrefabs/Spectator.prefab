@@ -63,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  movementSpeed: 0.5
-  speedM: 2
-  speedV: 2
+  movementSpeed: 0.3
+  speedH: 3
+  speedV: 3
+  active: 1

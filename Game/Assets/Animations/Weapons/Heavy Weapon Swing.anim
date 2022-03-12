@@ -82368,14 +82368,14 @@ AnimationClip:
   - time: 1
     functionName: setColliderOn
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: a42885bfd3f390647a67f23098fedf3e, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.6666666
     functionName: setColliderOff
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: a42885bfd3f390647a67f23098fedf3e, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
