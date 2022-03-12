@@ -4,7 +4,7 @@ using UnityEngine;
 using Mirror;
 
 abstract public class Device : NetworkBehaviour
-{   
+{
     [SyncVar]
     [SerializeField]
     int health = 30;
@@ -19,7 +19,8 @@ abstract public class Device : NetworkBehaviour
         {
             return;
         }
-        else{
+        else
+        {
             health -= amount;
         }
 
