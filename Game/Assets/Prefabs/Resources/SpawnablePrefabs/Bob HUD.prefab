@@ -1646,6 +1646,24 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   PlayerCanvasObject: {fileID: 175494767}
+--- !u!114 &1637883784838488660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975155098409841358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d6a1671046c7644c9e09975358f7a20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  turret: {fileID: 0}
+  cameraMount: {fileID: 0}
+  playerinUseID: 0
+  fireRate: 1
 --- !u!1001 &6677552368837680833
 PrefabInstance:
   m_ObjectHideFlags: 0
