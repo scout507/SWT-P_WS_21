@@ -5,13 +5,17 @@ using Mirror;
 
 public class FetchItem : NetworkBehaviour
 {
-
+    /// <summary>List of nearby players (for server)</summary>
     public List<uint> players = new List<uint>();
+    /// <summary>List of nearby players (for clients)</summary>
     public List<uint> playersClient = new List<uint>();
+    /// <summary>Id of the player currently using this item</summary>
     [SyncVar] uint usedBy;
+    /// <summary>True when used by a player</summary>
     [SyncVar] bool used;
+    /// <summary>True when the light should be on</summary>
     public bool lightOn = true;
-    //GameObject player;
+
 
 
     /// <summary>
@@ -69,6 +73,7 @@ public class FetchItem : NetworkBehaviour
     void CmdPickUp(GameObject player)
     {
         gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
         gameObject.transform.SetParent(player.transform);
         usedBy = player.GetComponent<NetworkIdentity>().netId;
         used = true;
