@@ -21,14 +21,14 @@ public class AmbienteAudio : NetworkBehaviour
     void Update()
     {
         thundercd -= Time.deltaTime;
-        if(thundercd < 0f)
+        if (thundercd < 0f)
         {
             RPCPlayThunderSounds();
-            thundercd = ambienteSounds[1].length + Random.Range(30,200);
+            thundercd = ambienteSounds[1].length + Random.Range(30, 200);
         }
 
         windcd -= Time.deltaTime;
-        if(windcd < 0f)
+        if (windcd < 0f)
         {
             RPCPlayWindSounds();
             windcd = ambienteSounds[2].length;
