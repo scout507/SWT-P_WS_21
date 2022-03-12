@@ -74,6 +74,17 @@ public class EndGameMenu : NetworkBehaviour
     /// <param name="winner">Indicates who has won.</param>
     public void toggleCanvas(Winner winner)
     {
+        NetworkIdentity player = connectionToServer.identity;
+
+        if (player.GetComponent<PlayerMovement>() != null)
+        {
+            player.GetComponent<PlayerMovement>().active = false;
+            foreach (var item in player.GetComponents<ShootGun>())
+                item.canInteract = false;
+        }
+        else
+            player.GetComponent<Spectator>().active = false;
+
         if (winner == Winner.Team)
             title.text = "Team wins";
         else if (winner == Winner.Imposter)
