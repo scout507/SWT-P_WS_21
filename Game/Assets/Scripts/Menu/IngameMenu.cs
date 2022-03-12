@@ -85,16 +85,22 @@ public class IngameMenu : NetworkBehaviour
     /// </summary>
     public void toggleMenu()
     {
-        if (connectionToServer.identity.GetComponent<AudioSource>())
-            volumeSlider.value = connectionToServer.identity.GetComponent<AudioSource>().volume;
-
+        NetworkIdentity player = connectionToServer.identity;
         inGameMenuCanvas.enabled = !inGameMenuCanvas.enabled;
-        if (connectionToServer.identity.GetComponent<PlayerMovement>() != null)
-            connectionToServer.identity.GetComponent<PlayerMovement>().active =
-                !inGameMenuCanvas.enabled;
+
+        if (player.GetComponent<PlayerMovement>() != null)
+        {
+            player.GetComponent<PlayerMovement>().active = !inGameMenuCanvas.enabled;
+            foreach (var item in player.GetComponents<ShootGun>())
+                item.canInteract = !inGameMenuCanvas.enabled;
+        }
         else
-            connectionToServer.identity.GetComponent<Spectator>().active =
-                !inGameMenuCanvas.enabled;
+            player.GetComponent<Spectator>().active = !inGameMenuCanvas.enabled;
+
+        if (player.GetComponent<AudioSource>())
+            volumeSlider.value = player.GetComponent<AudioSource>().volume;
+
+
         Cursor.visible = inGameMenuCanvas.enabled;
         Cursor.lockState = inGameMenuCanvas.enabled
             ? CursorLockMode.Confined

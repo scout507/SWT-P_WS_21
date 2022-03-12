@@ -71,9 +71,9 @@ public abstract class ShootGun : NetworkBehaviour
     public bool inAttack;
     /// <summary>Audio Script that controlls Gun Sound</summary>
     public AudioController audioController;
-    /// <summary>
-    /// Flag if player is reloading
-    /// </summary>
+    /// <summary>true if the player can do inputs.</summary>
+    public bool canInteract = true;
+    /// <summary>Flag if player is reloading.</summary>
     public bool isReloading = false;
 
     /// <summary>

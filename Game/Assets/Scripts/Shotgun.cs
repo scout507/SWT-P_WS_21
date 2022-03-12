@@ -10,7 +10,6 @@ using UnityEngine;
 /// </summary>
 public class Shotgun : ShootGun
 {
-
     private int pelletAmount = 15;
 
     /// <summary>
@@ -38,37 +37,40 @@ public class Shotgun : ShootGun
         {
             return;
         }
-        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+
+        if (canInteract)
         {
-            inventory = GetComponentInChildren<Inventory>();
             inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
-            nextFire = Time.time + fireRate;
-            if (gunAmmo > 0)
-            {
-                isReloading = false;
-                Shoot();
-            }
-            else
-            {
-                Debug.Log("Out of Ammo!");
-            }
-        }
 
-        if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
-        {
-            isReloading = true;
-            nextReload = Time.time + reloadDelay;
-        }
-        if (isReloading)
-        {
-            Reload();
-        }
+            if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+            {
+                inventory = GetComponentInChildren<Inventory>();
+                inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+                nextFire = Time.time + fireRate;
+                if (gunAmmo > 0)
+                {
+                    isReloading = false;
+                    Shoot();
+                }
+                else
+                {
+                    Debug.Log("Out of Ammo!");
+                }
+            }
 
-        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+            if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
+            {
+                isReloading = true;
+                nextReload = Time.time + reloadDelay;
+            }
+
+            if (isReloading)
+            {
+                Reload();
+            }
+        }
     }
 
-    /// <summary>
     /// Shotgun is reloaded one round after another till the magazin is full
     /// </summary>
     public override void Reload()
@@ -95,9 +97,12 @@ public class Shotgun : ShootGun
         audioController.PlayGunSound(2);
         for (int i = 0; i < pelletAmount; i++)
         {
-
-            direction += Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.up) * Camera.main.transform.forward;
-            direction += Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.right) * Camera.main.transform.forward;
+            direction +=
+                Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.up)
+                * Camera.main.transform.forward;
+            direction +=
+                Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.right)
+                * Camera.main.transform.forward;
             if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
             {
                 Debug.Log("In Range!");
@@ -127,5 +132,4 @@ public class Shotgun : ShootGun
         }
         Recoil();
     }
-
 }

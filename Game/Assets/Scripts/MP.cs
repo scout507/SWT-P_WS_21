@@ -11,7 +11,7 @@ public class MP : ShootGun
     /// In Start the different attributes for this gun are inizialized.
     /// The AudioController is set
     /// </summary>
-    /// 
+    ///
     void Start()
     {
         this.gunDamage = 5;
@@ -35,29 +35,31 @@ public class MP : ShootGun
         {
             return;
         }
-        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
-        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        if (canInteract)
         {
-            nextFire = Time.time + fireRate;
-            if (gunAmmo > 0)
+            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+            if (Input.GetButton("Fire1") && Time.time > nextFire)
             {
-                isReloading = false;
-                Shoot();
-            }
-            else
-            {
-                Debug.Log("Out of Ammo!");
-            }
-        }
+                if (Input.GetButton("Fire1") && Time.time > nextFire)
+                {
+                    isReloading = false;
+                    Shoot();
+                }
 
-        if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
-        {
-            isReloading = true;
-            nextReload = Time.time + reloadDelay;
-        }
-        if (isReloading)
-        {
-            Reload();
+                if (
+                    Input.GetKeyDown(KeyCode.R)
+                    && Time.time > nextReload
+                    && !Input.GetButton("Fire1")
+                )
+                {
+                    isReloading = true;
+                    nextReload = Time.time + reloadDelay;
+                }
+                if (isReloading)
+                {
+                    Reload();
+                }
+            }
         }
     }
 
