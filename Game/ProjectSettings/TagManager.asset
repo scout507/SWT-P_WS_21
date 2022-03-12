@@ -11,6 +11,7 @@ TagManager:
   - Manager
   - FetchItem
   - Ladder
+  - Roamer
   layers:
   - Default
   - TransparentFX

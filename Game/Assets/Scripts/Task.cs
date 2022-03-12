@@ -19,14 +19,14 @@ public class Task : NetworkBehaviour
     /// <summary>Name of the task for the UI.</summary>
     public string taskName;
     /// <summary>Short description for the UI.</summary>
-    public string taskDescription;
+    [SyncVar] public string taskDescription;
 
     /// <summary>Progress in percent. 50% should be 0.5</summary>
     [SyncVar] public float progress;
     /// <summary>List of all Players within the interactable radius</summary>
     readonly public SyncList<uint> players = new SyncList<uint>();
 
-    DestructableObject dObjScript;
+    public DestructableObject dObjScript;
 
     /// <summary>
     /// Gets all dependencies
@@ -50,6 +50,7 @@ public class Task : NetworkBehaviour
     /// </summary>
     public void FinishTask()
     {
+        dObjScript.attackAble = false;
         active = false;
         done = true;
         progress = 1;
