@@ -28,35 +28,46 @@ public class PlayerAnimationStateController : NetworkBehaviour
 
     void Start()
     {
-        if (playerClass.hasMelee)
-        {
-            animator.SetBool("isKnut", true);
-        }
-        else
-        {
-            animator.SetBool("isKnut", false);
-        }
+        Debug.Log("HELLO PLAYER ANIMATION CONTROLLER");
+        animator.SetBool("isKnut", playerClass.hasMelee);
+        Debug.Log("HELLO PLAYER ANIMATION CONTROLLER END");
     }
 
     // Update is called once per frame
     void Update()
     {
+                Debug.Log("ANIMATOR UPDATE START");
+
+    Debug.Log("ANIMATOR UPDATE HAS MELEE: " + playerClass.hasMelee);
+
         Vector3 velocity = playerMovement.GetMoveRelative();
         animator.SetFloat("Velocity Z", velocity.z);
         animator.SetFloat("Velocity X", velocity.x);
         animator.SetFloat("Pitch", playerMovement.GetPitch());
+                Debug.Log("ANIMATOR UPDATE VELOCITY PITCH");
 
-        int selectedWeapon = playerMovement.GetSelectedWeapon();
+        int selectedWeapon = playerClass.GetSelectedWeapon();
         animator.SetInteger("selectedWeapon", selectedWeapon);
+                        Debug.Log("ANIMATOR UPDATE SELECTED WEAPON => " + selectedWeapon);
+
 
         animator.SetBool("isCrouching", playerMovement.GetIsCrouching());
         animator.SetBool("isProne", playerMovement.GetIsProne());
         animator.SetBool("Jump", Input.GetButtonDown("Jump"));
         animator.SetBool("onGround", playerMovement.CheckGrounded());
+                animator.SetBool("isKnut", playerClass.hasMelee);
+                        Debug.Log("ANIMATOR UPDATE FLAGS");
+
         if (playerClass.hasMelee)
         {
             animator.SetBool("MeleeInAttack", GetComponent<Melee>().inAttack);
         }
+        else
+        {
+            animator.SetBool("MeleeInAttack", false);
+        }
+                        Debug.Log("ANIMATOR UPDATE HAS MELEE");
+
 
 
         int taunt = playerMovement.GetCurrentTaunt();
@@ -71,5 +82,8 @@ public class PlayerAnimationStateController : NetworkBehaviour
             animator.SetLayerWeight(2, 0);
             rig.weight = selectedWeapon == 4 ? 1 : 0;
         }
+                Debug.Log("ANIMATOR UPDATE END TAUNTS");
+
+        Debug.Log("HasMelee: " + playerClass.hasMelee);
     }
 }

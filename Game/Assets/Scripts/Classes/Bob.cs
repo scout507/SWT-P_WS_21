@@ -33,7 +33,10 @@ public class Bob : Classes
             CmdSwitchWeapon(2);
         }
     }
-
+public override int GetSelectedWeapon()
+    {
+        return selectedWeapon;
+    }
     /// <summary>
     /// Handles change of weapons through enabling and disenabling the correct scripts on the player
     /// </summary>
@@ -71,5 +74,7 @@ public class Bob : Classes
     public override void SetHasMelee()
     {
         this.hasMelee = false;
+         Debug.Log("SET HAS MELEE");
+        Debug.Log("SET HAS MELEE: " + this.hasMelee);
     }
 }

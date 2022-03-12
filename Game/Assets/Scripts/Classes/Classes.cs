@@ -57,10 +57,10 @@ public abstract class Classes : NetworkBehaviour
     /// 
     /// </summary>
     /// <returns>selectedWeapon for animator</returns>
-    public int GetSelectedWeapon()
-    {
-        return selectedWeapon;
-    }
+    public abstract int GetSelectedWeapon();
+   // {
+    //    return selectedWeapon;
+    //}
 
     /// <summary>
     /// SetHasMelee sets hasMelee in correct class

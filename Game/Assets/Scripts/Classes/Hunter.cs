@@ -51,7 +51,10 @@ public class Hunter : Classes
             }
         }
     }
-
+public override int GetSelectedWeapon()
+    {
+        return selectedWeapon;
+    }
     /// <summary>
     /// Handles change of weapons through enabling and disenabling the correct scripts on the player and zooms out on weapon change
     /// </summary>
