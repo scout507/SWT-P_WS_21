@@ -15,9 +15,12 @@ public class Rifle : ShootGun
     {
         this.gunDamage = 50;
         this.fireRate = 1f;
+        this.reloadDelay = 0.7f;
         this.weaoponRange = 200f;
         this.gunAmmo = 4;
         this.recoil = 20f;
+        this.magSize = 4;
+        this.isReloading = false;
         audioController = this.GetComponent<AudioController>();
     }
 
@@ -30,13 +33,13 @@ public class Rifle : ShootGun
         {
             return;
         }
+        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
-            if (isLocalPlayer) inventory = GetComponentInChildren<Inventory>();
-            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
             nextFire = Time.time + fireRate;
             if (gunAmmo > 0)
             {
+                isReloading = false;
                 Shoot();
             }
             else
@@ -44,12 +47,34 @@ public class Rifle : ShootGun
                 Debug.Log("Out of Ammo!");
             }
         }
-        if (Input.GetKeyDown(KeyCode.R))
+
+        if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
         {
-            gunAmmo = magSize;
+            isReloading = true;
+            nextReload = Time.time + reloadDelay;
+        }
+        if (isReloading)
+        {
+            Reload();
         }
 
         inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+    }
+
+    /// <summary>
+    /// Rifle is reloaded one round after another till the magazin is full
+    /// </summary>
+    public override void Reload()
+    {
+        if (Time.time > nextReload && gunAmmo < magSize && isReloading)
+        {
+            nextReload = Time.time + reloadDelay;
+            gunAmmo++;
+        }
+        if (gunAmmo == magSize)
+        {
+            isReloading = false;
+        }
     }
 
     /// <summary>

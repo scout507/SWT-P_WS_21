@@ -20,9 +20,12 @@ public class Shotgun : ShootGun
     {
         this.gunDamage = 5;
         this.fireRate = 0.25f;
+        this.reloadDelay = 0.25f;
         this.weaoponRange = 50f;
         this.gunAmmo = 8;
         this.recoil = 10f;
+        this.magSize = 8;
+        this.isReloading = false;
         audioController = this.GetComponent<AudioController>();
     }
 
@@ -35,6 +38,7 @@ public class Shotgun : ShootGun
         {
             return;
         }
+        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
             inventory = GetComponentInChildren<Inventory>();
@@ -42,6 +46,7 @@ public class Shotgun : ShootGun
             nextFire = Time.time + fireRate;
             if (gunAmmo > 0)
             {
+                isReloading = false;
                 Shoot();
             }
             else
@@ -50,12 +55,32 @@ public class Shotgun : ShootGun
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
         {
-            gunAmmo = magSize;
+            isReloading = true;
+            nextReload = Time.time + reloadDelay;
+        }
+        if (isReloading)
+        {
+            Reload();
         }
 
         inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+    }
+
+    /// <summary>
+    /// Shotgun is reloaded one round after another till the magazin is full
+    /// </summary>
+    public override void Reload()
+    {
+        if (Time.time > nextReload && gunAmmo < magSize && isReloading)
+        {
+            gunAmmo++;
+        }
+        if (gunAmmo == magSize)
+        {
+            isReloading = false;
+        }
     }
 
     /// <summary>

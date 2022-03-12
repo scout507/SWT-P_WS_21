@@ -28,7 +28,7 @@ public class Melee : ShootGun
         {
             return;
         }
-
+        inventory.UpdateInfo(this.icon, 0, 0);
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
@@ -47,6 +47,14 @@ public class Melee : ShootGun
     {
         audioController.PlayGunSound(3);
         this.inAttack = true;
+    }
+
+    /// <summary>
+    /// Melee does not need Reload function, but because it is necessary for abstract class ShootGun
+    /// </summary>
+    public override void Reload()
+    {
+        throw new System.NotImplementedException();
     }
 
     /// <summary>

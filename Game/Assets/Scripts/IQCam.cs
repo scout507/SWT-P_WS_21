@@ -3,38 +3,89 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+/* created by: SWT-P_WS_21/22 */
 
+/// <summary>
+/// This Script controls the camera device.
+/// It is responsible for setting up new cams and change view to the camera perspective.
+/// </summary>
 public class IQCam : NetworkBehaviour
 {
-
+    /// <summary>
+    /// device is the device in the hands of IQ, which is rendered if she has cameras ready
+    /// </summary>
     public GameObject device;
+    /// <summary>
+    /// cam is the gameobject of the cam, which is spawned when she sets one up
+    /// </summary>
     public GameObject cam;
+    /// <summary>
+    /// Count of remaining cams
+    /// </summary>
     public int remainingCams = 3;
-    float nextFire;
-    float fireRate;
+    /// <summary>
+    /// Time when next camera can be thrown
+    /// </summary>
+    float nextThrow;
+    /// <summary>
+    /// Rate in which cameras can be set up
+    /// </summary>
+    float throwRate = 0.25f;
+    /// <summary>
+    /// Flag if player is in cams
+    /// </summary>
     bool isInCams = false;
-    public Transform deviceMount; // Point where device is loaded
+    /// <summary>
+    /// Point where device is loaded
+    /// </summary>
+    public Transform deviceMount;
+    /// <summary>
+    /// Point where camera is spawned
+    /// </summary>
     public Transform throwPoint;
+    /// <summary>
+    /// Array of cameras which are set up
+    /// </summary>
     private GameObject[] cameras = new GameObject[3];
-
+    /// <summary>
+    /// Weapon inventory of player
+    /// </summary>
+    public Inventory inventory;
+    /// <summary>
+    /// Tracks how many cameras are set up
+    /// </summary>
     [SerializeField]
     private int setCamerasCount = 0;
-
+    /// <summary>
+    /// Tracks which camera was last activ
+    /// </summary>
     [SerializeField]
     private int lastActiveCam = 0;
-    public Transform cameraMountPoint;
+    /// <summary>
+    /// The correct rotation and the destruction of cameras is controlled in CamController.
+    /// This script needs a way to set the camera activ and to get the right camera, it is saved in this variable.
+    /// </summary>
     CamController activeCam;
+    /// <summary>
+    /// Sprite for the UI.
+    /// </summary>
+    public Sprite icon;
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update() function is responsible for getting the user input.
+    /// If Fire1 Button is pressed and the player is not activ in a camera, a new camera is thrown.
+    /// On Key X the player can enter or leave the camera view.
+    /// </summary>
     void Update()
     {
         if (!isLocalPlayer)
         {
             return;
         }
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire && !isInCams)
+        inventory.UpdateInfo(icon, remainingCams, 0);
+        if (Input.GetButtonDown("Fire1") && Time.time > nextThrow && !isInCams)
         {
-            nextFire = Time.time + fireRate;
+            nextThrow = Time.time + throwRate;
             if (remainingCams > 0)
             {
                 CmdSetNewCam(Camera.main.transform.forward);
@@ -80,17 +131,22 @@ public class IQCam : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// This function sets the camera view of the player to the view of the last activ camera. 
+    /// </summary>
     public void GetInCam()
     {
         activeCam = cameras[lastActiveCam].gameObject.GetComponent<CamController>();
         activeCam.CmdSetActive();
         Transform cameraTransform = Camera.main.gameObject.transform; // Find main camera which is part of the scene instead of the prefab
-        cameraMountPoint = activeCam.transform;
         cameraTransform.parent = activeCam.cameraMount.transform; // Make the camera a child of the mount point
         cameraTransform.position = activeCam.cameraMount.transform.position; // Set position/rotation same as the mount point
         cameraTransform.rotation = activeCam.cameraMount.transform.rotation;
     }
 
+    /// <summary>
+    /// This function returns the camera view to the players character perspective.
+    /// </summary>
     public void ReturnToPlayer()
     {
         GetComponent<PlayerMovement>().enabled = true;
@@ -105,6 +161,10 @@ public class IQCam : NetworkBehaviour
         cameraTransform.rotation = player.cameraMountPoint.transform.rotation;
     }
 
+    /// <summary>
+    /// If a camera is destroyed it needs to be removed from the list of cameras.
+    /// </summary>
+    /// <param name="number">Index of camera, which should be removed.</param>
     public void RemoveDevice(int number)
     {
         if (number == 0)
@@ -145,6 +205,12 @@ public class IQCam : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the owner of a newly set up camera to the right player.
+    /// Host and Guest need different methods.
+    /// </summary>
+    /// <param name="owner">Networkconnection of owner.</param>
+    /// <param name="spawnedCamera">Newly set up camera.</param>
     [TargetRpc]
     void TargetSetNewCam(NetworkConnection owner, GameObject spawnedCamera)
     {
@@ -160,6 +226,10 @@ public class IQCam : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Spawns new camera and throws it in right direction, handled on Server.
+    /// </summary>
+    /// <param name="direction">Direction in which camera is thrown.</param>
     [Command]
     void CmdSetNewCam(Vector3 direction)
     {
@@ -174,7 +244,7 @@ public class IQCam : NetworkBehaviour
     }
 
     /// <summary>
-    /// Destroys gameobject of gun when a new gun is equipped.
+    /// Destroys gameobject of device when a new gun is equipped.
     /// </summary>
     private void OnDisable()
     {
@@ -182,7 +252,7 @@ public class IQCam : NetworkBehaviour
     }
 
     /// <summary>
-    /// Loads prefab of gun when this gun is equipped.
+    /// Loads prefab of gun when this device is equipped.
     /// </summary>
     private void OnEnable()
     {
