@@ -7,21 +7,21 @@ using UnityEngine;
 
 public class MP : ShootGun
 {
-
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// The AudioController is set
     /// </summary>
     /// 
-
-
     void Start()
     {
         this.gunDamage = 5;
         this.fireRate = 0.1f;
+        this.reloadDelay = 0.5f;
         this.weaoponRange = 50f;
         this.gunAmmo = 30;
         this.recoil = 2.5f;
+        this.magSize = 30;
+        this.isReloading = false;
         audioController = this.GetComponent<AudioController>();
     }
 
@@ -35,11 +35,13 @@ public class MP : ShootGun
         {
             return;
         }
+        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             if (gunAmmo > 0)
             {
+                isReloading = false;
                 Shoot();
             }
             else
@@ -48,12 +50,27 @@ public class MP : ShootGun
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
+        {
+            isReloading = true;
+            nextReload = Time.time + reloadDelay;
+        }
+        if (isReloading)
+        {
+            Reload();
+        }
+    }
+
+    /// <summary>
+    /// MP is reloaded in full magazins, but should not instantly be reloaded, so it is reloaded after a certain time after the button is pressed
+    /// </summary>
+    public override void Reload()
+    {
+        if (Time.time > nextReload)
         {
             gunAmmo = magSize;
+            isReloading = false;
         }
-
-        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
     }
 
     /// <summary>
