@@ -40,6 +40,8 @@ public class MonsterController : NetworkBehaviour
     public List<GameObject> players;
     /// <summary>The current Target the monster is focused on</summary>
     public GameObject currentTarget;
+    /// <summary>If the monster is aggroed by a player</summary>
+    public bool aggro;
 
     float timer;
     /// <summary>Timer for attacking</summary>
@@ -170,7 +172,6 @@ public class MonsterController : NetworkBehaviour
     /// </summary>
     public void Attack()
     {
-        Debug.Log("ATTK");
         if (atkTimer >= atkCooldown)
         {
             attack = true;
@@ -213,6 +214,7 @@ public class MonsterController : NetworkBehaviour
         if (currentTarget == null || currentTarget.tag != "Player")
         {
             currentTarget = player;
+            aggro = true;
         }
     }
 
@@ -222,6 +224,6 @@ public class MonsterController : NetworkBehaviour
     /// <param name="other">The collider of the gameobject which hit this gameobject.</param>
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.root.GetComponent<Melee>()) other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
+        if (other.transform.root.GetComponent<Melee>()) other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
     }
 }
