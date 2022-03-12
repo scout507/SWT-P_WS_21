@@ -63,7 +63,7 @@ public class Shotgun : ShootGun
                 isReloading = true;
                 nextReload = Time.time + reloadDelay;
             }
-            
+
             if (isReloading)
             {
                 Reload();
