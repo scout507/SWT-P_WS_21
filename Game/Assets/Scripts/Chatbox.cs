@@ -221,7 +221,8 @@ public class Chatbox : NetworkBehaviour
     /// <param name="target">NetworkConnection of the Target.</param>
     /// <param name="message">The message to deliver.</param>
     [TargetRpc]
-    void TargetRPCSendMessage(NetworkConnection target, string message)
+    public void TargetRPCSendMessage(NetworkConnection target, string message)
+
     {
         NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
     }
