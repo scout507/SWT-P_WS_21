@@ -9,15 +9,23 @@ using Mirror;
 public class TaskTimer : Task
 {
     /// <summary>The spawnable zombies</summary>
-    [SerializeField] GameObject zombie;
+    [SerializeField]
+    GameObject zombie;
+
     /// <summary>Places for the Zombies to spawn</summary>
-    [SerializeField] List<GameObject> zombieSpawns;
+    [SerializeField]
+    List<GameObject> zombieSpawns;
+
     /// <summary>The progress toward completion each second. Finished on reaching 100</summary>
-    [SerializeField] float progressRate = 1f;
+    [SerializeField]
+    float progressRate = 1f;
+
     /// <summary>Time for the next zombies to spawn</summary>
     float nextZombies = 2f;
+
     /// <summary>True when the task has started</summary>
     bool started;
+
     /// <summary>The amount of times the hp has come down to 0</summary>
     float fails;
 
@@ -26,9 +34,15 @@ public class TaskTimer : Task
     /// </summary>
     void Update()
     {
-        if (isClient) //vvv Player interaction with the task vvv 
+        if (isClient) //vvv Player interaction with the task vvv
         {
-            if (players.Contains(NetworkClient.localPlayer.gameObject.GetComponent<NetworkIdentity>().netId) && active && !started) //Checks if the player is in range
+            if (
+                players.Contains(
+                    NetworkClient.localPlayer.gameObject.GetComponent<NetworkIdentity>().netId
+                )
+                && active
+                && !started
+            ) //Checks if the player is in range
             {
                 Debug.Log("Press E");
 
@@ -41,27 +55,30 @@ public class TaskTimer : Task
 
         if (isServer)
         {
-
             if (started && active)
             {
                 nextZombies -= Time.deltaTime;
 
                 //Check if the task is failed or finished
-                if(dObjScript.health <= 1){
-                    fails += 1*Time.deltaTime;
-                } 
-                if(fails >= 3){
+                if (dObjScript.health <= 1)
+                {
+                    fails += 1 * Time.deltaTime;
+                }
+                if (fails >= 3)
+                {
                     started = false;
                     taskDescription = "Go to the PLACEHOLDER and start the defence";
                     fails = 0;
                     UndoTask();
                     dObjScript.attackAble = false;
                 }
-                else if(dObjScript.health <100){
-                    dObjScript.health += 1*Time.deltaTime;
+                else if (dObjScript.health < 100)
+                {
+                    dObjScript.health += 1 * Time.deltaTime;
                     UpdateText();
-                } 
-                else FinishTask();
+                }
+                else
+                    FinishTask();
 
                 if (nextZombies <= 0)
                 {
@@ -76,13 +93,17 @@ public class TaskTimer : Task
     /// </summary>
     void SpawnZombies()
     {
-        nextZombies = Random.Range(3,10);
-        int zombieAmount = Random.Range(1,4);
+        nextZombies = Random.Range(3, 10);
+        int zombieAmount = Random.Range(1, 4);
 
-        for(int i = 0; i<zombieAmount; i++)
+        for (int i = 0; i < zombieAmount; i++)
         {
-            GameObject zombieInstance = Instantiate(zombie, zombieSpawns[Random.Range(0,zombieSpawns.Count)].transform.position ,Quaternion.identity);
-            NetworkServer.Spawn(zombieInstance); 
+            GameObject zombieInstance = Instantiate(
+                zombie,
+                zombieSpawns[Random.Range(0, zombieSpawns.Count)].transform.position,
+                Quaternion.identity
+            );
+            NetworkServer.Spawn(zombieInstance);
         }
     }
 
@@ -91,7 +112,7 @@ public class TaskTimer : Task
     /// </summary>
     void UpdateText()
     {
-        int progress = (int) dObjScript.health;
+        int progress = (int)dObjScript.health;
         taskDescription = "Defend the object: " + progress.ToString() + "% done!";
     }
 

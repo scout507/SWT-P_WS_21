@@ -9,17 +9,27 @@ using Mirror;
 public class FetchTask : Task
 {
     /// <summary>List of all spawnable fetchItems</summary>
-    [SerializeField] List<GameObject> fetchItems;
+    [SerializeField]
+    List<GameObject> fetchItems;
+
     /// <summary>The item to spawn</summary>
-    [SerializeField] GameObject fetchItem;
+    [SerializeField]
+    GameObject fetchItem;
+
     /// <summary>A list of all possible spawn locations</summary>
-    [SerializeField] List<Vector3> spawns;
+    [SerializeField]
+    List<Vector3> spawns;
+
     /// <summary>Amount of items to spawn for one task</summary>
-    [SerializeField] int maxItems;
+    [SerializeField]
+    int maxItems;
+
     /// <summary>Items in the drop-off zone</summary>
     List<GameObject> itemsInZone = new List<GameObject>();
+
     /// <summary>Amount of items in the drop-off zone</summary>
     int currentItems;
+
     /// <summary>True when the items have been spawned</summary>
     bool init;
 
@@ -28,11 +38,18 @@ public class FetchTask : Task
     /// </summary>
     void Update()
     {
-        if (!isServer) return;
-        if (!init) InitTask();
-        if (currentItems == maxItems) FinishTask();
-        if (done && currentItems != maxItems) UndoTask();
-        taskDescription = "Find the remaining " + (maxItems-currentItems).ToString() + " barrels and bring them to PLACEHOLDER";
+        if (!isServer)
+            return;
+        if (!init)
+            InitTask();
+        if (currentItems == maxItems)
+            FinishTask();
+        if (done && currentItems != maxItems)
+            UndoTask();
+        taskDescription =
+            "Find the remaining "
+            + (maxItems - currentItems).ToString()
+            + " barrels and bring them to PLACEHOLDER";
     }
 
     /// <summary>
@@ -40,7 +57,7 @@ public class FetchTask : Task
     /// </summary>
     void InitTask()
     {
-        for (int i = 0; i < maxItems+3; i++)
+        for (int i = 0; i < maxItems + 3; i++)
         {
             Vector3 spawn = spawns[Random.Range(0, spawns.Count)];
             spawns.Remove(spawn);
