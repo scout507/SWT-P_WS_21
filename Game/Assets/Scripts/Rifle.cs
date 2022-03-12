@@ -46,7 +46,7 @@ public class Rifle : ShootGun
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            audioController.CmdPlayGunSound(8);
+            audioController.CmdPlayGunSound(7);
             gunAmmo = magSize;
         }
 
