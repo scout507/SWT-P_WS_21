@@ -63,6 +63,8 @@ public abstract class ShootGun : NetworkBehaviour
     public bool inAttack;
     /// <summary>Audio Script that controlls Gun Sound</summary>
     public AudioController audioController;
+    /// <summary>true if the player can do inputs.</summary>
+    public bool canInteract = true;
 
     /// <summary>
     /// Gets called when player is hit.

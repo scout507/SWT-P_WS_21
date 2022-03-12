@@ -26,34 +26,37 @@ public class HealGun : ShootGun
             return;
         }
 
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+        if (canInteract)
         {
-            nextFire = Time.time + fireRate;
-            if (gunAmmo > 0)
+            if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
             {
-                Shoot();
+                nextFire = Time.time + fireRate;
+                if (gunAmmo > 0)
+                {
+                    Shoot();
+                }
+                else
+                {
+                    Debug.Log("Out of Ammo!");
+                }
             }
-            else
+            if (Input.GetButtonDown("Fire3") && Time.time > nextFire)
             {
-                Debug.Log("Out of Ammo!");
+                nextFire = Time.time + fireRate;
+                if (gunAmmo > 0)
+                {
+                    CmdShootPlayer(this.gameObject, gunDamage);
+                }
+                else
+                {
+                    Debug.Log("Out of Ammo!");
+                }
             }
-        }
-        if (Input.GetButtonDown("Fire3") && Time.time > nextFire)
-        {
-            nextFire = Time.time + fireRate;
-            if (gunAmmo > 0)
-            {
-                CmdShootPlayer(this.gameObject, gunDamage);
-            }
-            else
-            {
-                Debug.Log("Out of Ammo!");
-            }
-        }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            gunAmmo = 1;
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                gunAmmo = 1;
+            }
         }
     }
 

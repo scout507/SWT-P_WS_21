@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class Rifle : ShootGun
 {
-
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// </summary>
@@ -30,26 +29,31 @@ public class Rifle : ShootGun
         {
             return;
         }
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+        
+        if (canInteract)
         {
-            if (isLocalPlayer) inventory = GetComponentInChildren<Inventory>();
-            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
-            nextFire = Time.time + fireRate;
-            if (gunAmmo > 0)
+            if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
             {
-                Shoot();
+                if (isLocalPlayer)
+                    inventory = GetComponentInChildren<Inventory>();
+                inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+                nextFire = Time.time + fireRate;
+                if (gunAmmo > 0)
+                {
+                    Shoot();
+                }
+                else
+                {
+                    Debug.Log("Out of Ammo!");
+                }
             }
-            else
+            if (Input.GetKeyDown(KeyCode.R))
             {
-                Debug.Log("Out of Ammo!");
+                gunAmmo = magSize;
             }
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            gunAmmo = magSize;
-        }
 
-        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+        }
     }
 
     /// <summary>
@@ -90,5 +94,4 @@ public class Rifle : ShootGun
         }
         Recoil();
     }
-
 }

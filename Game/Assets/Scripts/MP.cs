@@ -7,12 +7,11 @@ using UnityEngine;
 
 public class MP : ShootGun
 {
-
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// The AudioController is set
     /// </summary>
-    /// 
+    ///
 
 
     void Start()
@@ -35,25 +34,29 @@ public class MP : ShootGun
         {
             return;
         }
-        if (Input.GetButton("Fire1") && Time.time > nextFire)
-        {
-            nextFire = Time.time + fireRate;
-            if (gunAmmo > 0)
-            {
-                Shoot();
-            }
-            else
-            {
-                Debug.Log("Out of Ammo!");
-            }
-        }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (canInteract)
         {
-            gunAmmo = magSize;
-        }
+            if (Input.GetButton("Fire1") && Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                if (gunAmmo > 0)
+                {
+                    Shoot();
+                }
+                else
+                {
+                    Debug.Log("Out of Ammo!");
+                }
+            }
 
-        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                gunAmmo = magSize;
+            }
+
+            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+        }
     }
 
     /// <summary>

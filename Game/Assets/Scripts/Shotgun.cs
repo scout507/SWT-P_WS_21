@@ -10,7 +10,6 @@ using UnityEngine;
 /// </summary>
 public class Shotgun : ShootGun
 {
-
     private int pelletAmount = 15;
 
     /// <summary>
@@ -35,27 +34,31 @@ public class Shotgun : ShootGun
         {
             return;
         }
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+
+        if (canInteract)
         {
-            inventory = GetComponentInChildren<Inventory>();
+            if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+            {
+                inventory = GetComponentInChildren<Inventory>();
+                inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+                nextFire = Time.time + fireRate;
+                if (gunAmmo > 0)
+                {
+                    Shoot();
+                }
+                else
+                {
+                    Debug.Log("Out of Ammo!");
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                gunAmmo = magSize;
+            }
+
             inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
-            nextFire = Time.time + fireRate;
-            if (gunAmmo > 0)
-            {
-                Shoot();
-            }
-            else
-            {
-                Debug.Log("Out of Ammo!");
-            }
         }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            gunAmmo = magSize;
-        }
-
-        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
     }
 
     /// <summary>
@@ -70,9 +73,12 @@ public class Shotgun : ShootGun
         audioController.PlayGunSound(2);
         for (int i = 0; i < pelletAmount; i++)
         {
-
-            direction += Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.up) * Camera.main.transform.forward;
-            direction += Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.right) * Camera.main.transform.forward;
+            direction +=
+                Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.up)
+                * Camera.main.transform.forward;
+            direction +=
+                Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.right)
+                * Camera.main.transform.forward;
             if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
             {
                 Debug.Log("In Range!");
@@ -102,5 +108,4 @@ public class Shotgun : ShootGun
         }
         Recoil();
     }
-
 }

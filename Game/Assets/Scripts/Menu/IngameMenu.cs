@@ -33,11 +33,18 @@ public class IngameMenu : NetworkBehaviour
     /// </summary>
     public void toggleMenu()
     {
+        NetworkIdentity player = connectionToServer.identity;
         menuCanvas.enabled = !menuCanvas.enabled;
-        if (connectionToServer.identity.GetComponent<PlayerMovement>() != null)
-            connectionToServer.identity.GetComponent<PlayerMovement>().active = !menuCanvas.enabled;
+
+        if (player.GetComponent<PlayerMovement>() != null)
+        {
+            player.GetComponent<PlayerMovement>().active = !menuCanvas.enabled;
+            foreach (var item in player.GetComponents<ShootGun>())
+                item.canInteract = !menuCanvas.enabled;
+        }
         else
-            connectionToServer.identity.GetComponent<Spectator>().active = !menuCanvas.enabled;
+            player.GetComponent<Spectator>().active = !menuCanvas.enabled;
+
         Cursor.visible = menuCanvas.enabled;
         Cursor.lockState = menuCanvas.enabled ? CursorLockMode.Confined : CursorLockMode.Locked;
     }

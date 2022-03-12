@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class Melee : ShootGun
 {
-
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// </summary>
@@ -28,15 +27,18 @@ public class Melee : ShootGun
         {
             return;
         }
-
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+        
+        if (canInteract)
         {
-            nextFire = Time.time + fireRate;
-            Shoot();
-        }
-        else
-        {
-            this.inAttack = false;
+            if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                Shoot();
+            }
+            else
+            {
+                this.inAttack = false;
+            }
         }
     }
 
