@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /* edited by: SWT-P_WS_21/22*/
+/// <summary>
+/// Knut is a class with a hammer and a pistol
+/// </summary>
 public class Knut : Classes
 {
+    /// <summary>
+    /// Update checks input if player wants to change weapon
+    /// </summary>
     void Update()
     {
         if (!isLocalPlayer) return;
@@ -28,6 +34,11 @@ public class Knut : Classes
         }
     }
 
+    /// <summary>
+    /// Handles change of weapons through enabling and disenabling the correct scripts on the player
+    /// </summary>
+    /// <param name="oldWeapon"></param>
+    /// <param name="newWeapon"></param>
     public override void SwitchWeapon(int oldWeapon, int newWeapon)
     {
         switch (oldWeapon)
@@ -53,8 +64,12 @@ public class Knut : Classes
                 break;
         }
     }
+
+    /// <summary>
+    /// Knut does have melee weapon
+    /// </summary>
     public override void SetHasMelee()
     {
-        this.hasMelee = false;
+        this.hasMelee = true;
     }
 }
