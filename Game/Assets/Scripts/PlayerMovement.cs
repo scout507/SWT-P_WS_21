@@ -348,7 +348,7 @@ public class PlayerMovement : NetworkBehaviour
         if (!hitInteractable)
             return;
 
-        hit.collider.transform.root.gameObject.GetComponent<Interactable>().OnInteract();
+        hit.collider.transform.parent.gameObject.GetComponent<Interactable>().OnInteract();
     }
 
     /// <summary>
