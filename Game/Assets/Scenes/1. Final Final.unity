@@ -20208,6 +20208,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 652212616}
     m_Modifications:
+    - target: {fileID: 6444935947891963777, guid: 9857d4318b9624f7792591eff589c07d, type: 3}
+      propertyPath: MaxDistance
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444935947891963777, guid: 9857d4318b9624f7792591eff589c07d, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6444935947891963778, guid: 9857d4318b9624f7792591eff589c07d, type: 3}
       propertyPath: sceneId
       value: 2727823581
@@ -20218,7 +20226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6444935947891963782, guid: 9857d4318b9624f7792591eff589c07d, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6444935947891963783, guid: 9857d4318b9624f7792591eff589c07d, type: 3}
       propertyPath: m_RootOrder
@@ -20266,7 +20274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6444935948321075937, guid: 9857d4318b9624f7792591eff589c07d, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6444935948321075937, guid: 9857d4318b9624f7792591eff589c07d, type: 3}
       propertyPath: m_StaticEditorFlags
