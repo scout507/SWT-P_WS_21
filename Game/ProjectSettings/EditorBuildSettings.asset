@@ -9,15 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: a967185100caabe47aa0a5bb22de6f8b
   - enabled: 1
-    path: Assets/Scenes/1. Final.unity
-    guid: f4bcff2918de30e4ba3c3173b2ec4706
-  - enabled: 1
-    path: Assets/Scenes/Chatbox.unity
-    guid: ed5910d67d38e0d47a9b8d61c426a95d
-  - enabled: 1
-    path: Assets/Scenes/1. Final Marcel.unity
-    guid: abf36f201f50eee4e9cf2cf784651e4d
-  - enabled: 1
-    path: Assets/Scenes/MapTexturiert.unity
-    guid: 69b10e560584d6e46a389333a327f39e
+    path: Assets/Scenes/1. Final Final.unity
+    guid: 8e1c3cfee332206489c6bf80ea5b28c7
   m_configObjects: {}
