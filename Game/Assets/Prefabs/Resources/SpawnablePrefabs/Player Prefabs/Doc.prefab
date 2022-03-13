@@ -1018,7 +1018,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.2
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -3619,7 +3619,7 @@ MonoBehaviour:
   staminaDrain: 0.33
   staminaRegen: 0.2
   groundCheck: {fileID: 2016525312195625365}
-  groundDistance: 0.4
+  groundDistance: 0.1
   groundMask:
     serializedVersion: 2
     m_Bits: 64
