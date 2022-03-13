@@ -115,9 +115,6 @@ public class Menu : MonoBehaviour
     /// </summary>
     public void host()
     {
-        Debug.Log("NetworkClient: " + NetworkClient.active);
-        Debug.Log("NetworkServer: " + NetworkServer.active);
-        Debug.Log("NetworkManager: " + NetworkManager.singleton.isActiveAndEnabled);
         NetworkManager.singleton.StartHost();
     }
 }
