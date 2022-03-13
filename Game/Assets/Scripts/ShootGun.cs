@@ -82,7 +82,7 @@ public abstract class ShootGun : NetworkBehaviour
     public Inventory inventory;
 
     /// <summary>True when player is attacking</summary>
-    public bool inAttack;
+    [SyncVar] public bool inAttack;
 
     /// <summary>Audio Script that controlls Gun Sound</summary>
     public AudioController audioController;

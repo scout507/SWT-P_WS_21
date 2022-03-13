@@ -1405,6 +1405,121 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
+--- !u!114 &-200612948616464720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975155098409841358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d6a1671046c7644c9e09975358f7a20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  turret: {fileID: 0}
+  cameraMount: {fileID: 975155098756427894}
+  playerinUseID: 0
+  fireRate: 1
+--- !u!114 &1889157257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975155098409841358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04282d08f827ad649bedf1fc509087ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  taskUI: {fileID: 1641919419}
+--- !u!114 &1918621632688552968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975155098409841358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8d966b61378ce448b94554c0750882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  PlayerCanvasObject: {fileID: 175494767}
+  MinimapCam: {fileID: 1978417676}
+--- !u!114 &2514985894666865304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975155098409841358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd79c8cdbd00e2478331edd73fdd2c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  hasMelee: 0
+  newWeapon: 0
+  selectedWeapon: 0
+--- !u!114 &3575069106172214850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975155098409841358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f89490c1d3c64f6478b9607942e10098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  textBoxUI: {fileID: 8366940022429536719}
+  chatBoxUI: {fileID: 4457861263793200956}
+--- !u!114 &8789596820955259134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975155098409841358}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7e24bb451fb564c94f6ceb76aefc68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  gunDamage: 0
+  fireRate: 0
+  weaoponRange: 0
+  gunEnd: {fileID: 0}
+  gun: {fileID: 7678036035394549839, guid: 717f150a1a9290f4080fab653e89af85, type: 3}
+  gunMount: {fileID: 8927492312566190432}
+  gunAmmo: 0
+  magSize: 0
+  nextFire: 0
+  nextReload: 0
+  reloadDelay: 0
+  recoil: 0
+  icon: {fileID: 21300000, guid: 5ac20f28871933a4da589214b4bd5294, type: 3}
+  inventory: {fileID: 266826016}
+  inAttack: 0
+  audioController: {fileID: 0}
+  triggerRange: 15
+  canInteract: 1
+  isReloading: 0
 --- !u!1 &3729767498942100523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,121 +1835,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &-200612948616464720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 975155098409841358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d6a1671046c7644c9e09975358f7a20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  turret: {fileID: 0}
-  cameraMount: {fileID: 975155098756427894}
-  playerinUseID: 0
-  fireRate: 1
---- !u!114 &1889157257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 975155098409841358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04282d08f827ad649bedf1fc509087ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  taskUI: {fileID: 1641919419}
---- !u!114 &1918621632688552968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 975155098409841358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f8d966b61378ce448b94554c0750882, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  PlayerCanvasObject: {fileID: 175494767}
-  MinimapCam: {fileID: 1978417676}
---- !u!114 &2514985894666865304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 975155098409841358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dd79c8cdbd00e2478331edd73fdd2c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  hasMelee: 0
-  newWeapon: 0
-  selectedWeapon: 0
---- !u!114 &3575069106172214850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 975155098409841358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f89490c1d3c64f6478b9607942e10098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  textBoxUI: {fileID: 8366940022429536719}
-  chatBoxUI: {fileID: 4457861263793200956}
---- !u!114 &8789596820955259134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 975155098409841358}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b7e24bb451fb564c94f6ceb76aefc68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  gunDamage: 0
-  fireRate: 0
-  weaoponRange: 0
-  gunEnd: {fileID: 0}
-  gun: {fileID: 7678036035394549839, guid: 717f150a1a9290f4080fab653e89af85, type: 3}
-  gunMount: {fileID: 8927492312566190432}
-  gunAmmo: 0
-  magSize: 0
-  nextFire: 0
-  nextReload: 0
-  reloadDelay: 0
-  recoil: 0
-  icon: {fileID: 21300000, guid: 5ac20f28871933a4da589214b4bd5294, type: 3}
-  inventory: {fileID: 266826016}
-  inAttack: 0
-  audioController: {fileID: 0}
-  triggerRange: 15
-  canInteract: 1
-  isReloading: 0
 --- !u!1 &6982406050844580415
 GameObject:
   m_ObjectHideFlags: 0
@@ -3233,6 +3233,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5846548511801372657, guid: 2379c76a6e4255a47b5f4939973537e7, type: 3}
+      propertyPath: m_SlopeLimit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5846548511801372657, guid: 2379c76a6e4255a47b5f4939973537e7, type: 3}
+      propertyPath: m_StepOffset
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5846548511801372659, guid: 2379c76a6e4255a47b5f4939973537e7, type: 3}
       propertyPath: sceneId
       value: 0
@@ -3299,12 +3307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6008571234266634391, guid: 2379c76a6e4255a47b5f4939973537e7, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform 'mixamorig:Head'\n\tTransform
-        'mixamorig:Hips'\n\tTransform 'mixamorig:RightShoulder'\n\tTransform 'mixamorig:Spine2'\n\tTransform
-        'mixamorig:Neck'\n\tTransform 'mixamorig:Spine'\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform
-        'mixamorig:Head'\n\tTransform 'mixamorig:Hips'\n\tand more ..."
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6153090346344194113, guid: 2379c76a6e4255a47b5f4939973537e7, type: 3}
       propertyPath: m_LocalPosition.x
