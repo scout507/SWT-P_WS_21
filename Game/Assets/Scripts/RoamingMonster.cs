@@ -18,9 +18,6 @@ public class RoamingMonster : MonsterController
     /// <summary>Wether or not the monster sees a player</summary>
     public bool detectedPlayer;
 
-    /// <summary>If the monster is aggroed by a player</summary>
-    public bool aggro;
-
     [Range(0, 360)]
     /// <summary>Angle in witch the monster can 'see'</summary>
     public float detectionAngle;
@@ -39,9 +36,6 @@ public class RoamingMonster : MonsterController
 
     /// <summary>Time for the next patrol-step</summary>
     float nextPatrolTime = 0;
-
-    /// <summary>NavMeshAgent for navigation</summary>
-    NavMeshAgent nav;
 
     /// <summary>The destination for the next patrol-step</summary>
     Vector3 patrolTarget;
@@ -122,6 +116,10 @@ public class RoamingMonster : MonsterController
                         Attack();
                     }
                 }
+            }
+            else
+            {
+                currentTarget = null;
             }
 
             if (!aggro && !detectedPlayer)

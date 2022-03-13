@@ -3,10 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /* edited by: SWT-P_WS_21/22*/
+/// <summary>
+/// Hunter is a class with a Rifle and a pistol and can zoom in with rifle
+/// </summary>
 public class Hunter : Classes
 {
+    /// <summary>
+    /// Flag for tracking the state of zoom
+    /// </summary>
     bool isInZoom = false;
 
+    /// <summary>
+    /// Update checks input if player wants to change weapon or zoom in with rifle
+    /// </summary>
     void Update()
     {
         if (!isLocalPlayer) return;
@@ -42,6 +51,15 @@ public class Hunter : Classes
             }
         }
     }
+public override int GetSelectedWeapon()
+    {
+        return selectedWeapon;
+    }
+    /// <summary>
+    /// Handles change of weapons through enabling and disenabling the correct scripts on the player and zooms out on weapon change
+    /// </summary>
+    /// <param name="oldWeapon"></param>
+    /// <param name="newWeapon"></param>
     public override void SwitchWeapon(int oldWeapon, int newWeapon)
     {
         switch (oldWeapon)
@@ -72,6 +90,10 @@ public class Hunter : Classes
                 break;
         }
     }
+
+    /// <summary>
+    /// Hunter does not have melee weapon
+    /// </summary>
     public override void SetHasMelee()
     {
         this.hasMelee = false;

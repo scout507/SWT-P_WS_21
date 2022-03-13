@@ -116,7 +116,7 @@ public class TaskManager : NetworkBehaviour
             string[] infoArr = new string[4];
             Task task = listToCheck[i].GetComponent<Task>();
             infoArr[0] = task.id.ToString();
-            infoArr[1] = task.name;
+            infoArr[1] = task.taskName;
             infoArr[2] = task.taskDescription;
             infoArr[3] = task.done.ToString();
             info.Add(infoArr);

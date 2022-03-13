@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class Pistol : ShootGun
 {
-
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// </summary>
@@ -15,9 +14,12 @@ public class Pistol : ShootGun
     {
         this.gunDamage = 10;
         this.fireRate = 0.25f;
+        this.reloadDelay = 0.5f;
         this.weaoponRange = 50f;
         this.gunAmmo = 8;
         this.recoil = 3f;
+        this.magSize = 8;
+        this.isReloading = false;
         audioController = this.GetComponent<AudioController>();
     }
 
@@ -31,26 +33,48 @@ public class Pistol : ShootGun
             return;
         }
 
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+        if (canInteract)
         {
-            nextFire = Time.time + fireRate;
-            if (gunAmmo > 0)
+            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+
+            if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
             {
-                Shoot();
+                nextFire = Time.time + fireRate;
+                if (gunAmmo > 0)
+                {
+                    isReloading = false;
+                    Shoot();
+                }
+                else
+                {
+                    Debug.Log("Out of Ammo!");
+                }
             }
-            else
+
+            if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
             {
-                Debug.Log("Out of Ammo!");
+                isReloading = true;
+                nextReload = Time.time + reloadDelay;
+            }
+
+            if (isReloading)
+            {
+                Reload();
             }
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.R))
+    /// <summary>
+    /// Pistol is reloaded in full magazins, but should not instantly be reloaded, so it is reloaded after a certain time after the button is pressed
+    /// </summary>
+    public override void Reload()
+    {
+        if (Time.time > nextReload)
         {
             audioController.CmdPlayGunSound(5);
             gunAmmo = magSize;
+            isReloading = false;
         }
-
-        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
     }
 
     /// <summary>
@@ -63,6 +87,7 @@ public class Pistol : ShootGun
         Vector3 direction = Camera.main.transform.forward;
         gunAmmo--;
         audioController.CmdPlayGunSound(0);
+        TriggerAggro();
         if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
         {
             Debug.Log("In Range!");
