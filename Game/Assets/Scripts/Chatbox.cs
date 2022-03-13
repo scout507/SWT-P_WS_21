@@ -36,7 +36,6 @@ public class Chatbox : NetworkBehaviour
         textBox = textBoxUI.GetComponent<TextMeshProUGUI>();
         chatText = chatBoxUI.GetComponentInChildren<TextMeshProUGUI>();
         playerName = GetComponent<Player>().displayName;
-        Debug.Log(chatBoxUI.GetComponent<Image>().color);
         chatBoxUI.GetComponent<Image>().color -= new Color(0, 0, 0, 0.8f);
     }
 

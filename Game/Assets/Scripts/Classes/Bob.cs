@@ -74,7 +74,5 @@ public override int GetSelectedWeapon()
     public override void SetHasMelee()
     {
         this.hasMelee = false;
-         Debug.Log("SET HAS MELEE");
-        Debug.Log("SET HAS MELEE: " + this.hasMelee);
     }
 }
