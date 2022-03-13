@@ -32,6 +32,14 @@ public class Knut : Classes
         {
             CmdSwitchWeapon(2);
         }
+
+        Debug.Log("KNUT SELECTED WEAPON => " + selectedWeapon);
+    }
+
+    public override int GetSelectedWeapon()
+    {
+        Debug.Log("RETURNED KNUT SELECTED WEAPON => " + selectedWeapon);
+        return selectedWeapon;
     }
 
     /// <summary>
