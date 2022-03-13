@@ -181,7 +181,6 @@ public class RoundManager : NetworkBehaviour
     /// <returns>True when a game-over state is reached</returns>
     bool CheckGameOver()
     {
-        Debug.Log("Test Game Over");
         if (gameTimer >= timePerRound)
             return true;
         else if (activePlayers.Count == 0)
