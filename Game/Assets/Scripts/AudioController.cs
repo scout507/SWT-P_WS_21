@@ -7,13 +7,10 @@ public class AudioController : NetworkBehaviour
 {
 
     public AudioSource audioSource; // The Audio Source that is attached to the Player
-    
+
     [SerializeField] AudioClip[] gunSounds; // The Audio Clips, Gun Sounds and Footstep Sounds
     [SerializeField] AudioClip[] playerSounds; // The Audio Clips, Gun Sounds and Footstep Sounds
-    float stepRate = 0.5f; // The Footstep Sound Rate
     float stepCoolDown; // The Time until the next Footstep Sound is Played
-
-    float dmgSoundCd;
 
     private void Start()
     {
@@ -32,7 +29,7 @@ public class AudioController : NetworkBehaviour
             if ((Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f) && stepCoolDown < 0f)
             {
                 CmdPlayFootStepSound();
-                stepCoolDown = stepRate;
+                stepCoolDown = playerSounds[10].length;
             }
         }
     }
@@ -54,10 +51,8 @@ public class AudioController : NetworkBehaviour
     [ClientRpc]
     void RPCPlayFootStepSound(float randomf)
     {
-        audioSource.volume = 0.3f;
         audioSource.pitch = randomf;
-        audioSource.PlayOneShot(playerSounds[10], 0.9f);
-        stepCoolDown = stepRate;
+        audioSource.PlayOneShot(playerSounds[10], 0.4f);
     }
 
 
@@ -83,15 +78,14 @@ public class AudioController : NetworkBehaviour
     [ClientRpc]
     void RPCPlayGunSound(int weaponNumber, float randomf)
     {
-        audioSource.volume = 0.7f;
         audioSource.pitch = randomf;
-        audioSource.PlayOneShot(gunSounds[weaponNumber]);
+        audioSource.PlayOneShot(gunSounds[weaponNumber], 0.5f);
     }
 
     [Command]
     public void CmdPlayDmgTakenSound(int min, int max)
     {
-        int random = Random.Range(min,max);
+        int random = Random.Range(min, max);
         float randomf = 1f + Random.Range(-0.2f, 0.2f);
         RPCPlayDmgTakenSound(random, randomf);
     }
@@ -99,11 +93,8 @@ public class AudioController : NetworkBehaviour
     [ClientRpc]
     void RPCPlayDmgTakenSound(int random, float randomf)
     {
-        Debug.Log(random);
         audioSource.volume = 0.6f;
         audioSource.pitch = randomf;
-        audioSource.PlayOneShot(playerSounds[random], 0.9f);
+        audioSource.PlayOneShot(playerSounds[random], 0.7f);
     }
-
-
 }

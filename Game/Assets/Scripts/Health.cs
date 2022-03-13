@@ -55,7 +55,7 @@ public class Health : NetworkBehaviour
             health -= amount;
             if (health > 0)
             {
-                audioController.CmdPlayDmgTakenSound(1,10);
+                audioController.CmdPlayDmgTakenSound(1, 10);
                 healthBar.SetHealth(health);
             }
             else

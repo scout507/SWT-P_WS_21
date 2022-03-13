@@ -70,7 +70,7 @@ public class Rifle : ShootGun
     {
         if (Time.time > nextReload && gunAmmo < magSize && isReloading)
         {
-            audioController.CmdPlayGunSound(8);
+            audioController.CmdPlayGunSound(7);
             nextReload = Time.time + reloadDelay;
             gunAmmo++;
         }
