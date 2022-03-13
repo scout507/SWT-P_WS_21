@@ -15,6 +15,9 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField]
     CharacterController controller;
 
+    /// <summary>Player camera</summary>
+    public GameObject cam;
+
     /// <summary>
     /// Prefab of the player's model
     /// </summary>
@@ -272,10 +275,11 @@ public class PlayerMovement : NetworkBehaviour
             child.gameObject.layer = 0;
         }
         Cursor.lockState = CursorLockMode.Locked;
-        Transform cameraTransform = Camera.main.gameObject.transform; // Find main camera which is part of the scene instead of the prefab
-        cameraTransform.parent = cameraMountPoint.transform; // Make the camera a child of the mount point
-        cameraTransform.position = cameraMountPoint.transform.position; // Set position/rotation same as the mount point
-        cameraTransform.rotation = cameraMountPoint.transform.rotation;
+        cam.SetActive(true);
+        //Transform cameraTransform = Camera.main.gameObject.transform; // Find main camera which is part of the scene instead of the prefab
+        //cameraTransform.parent = cameraMountPoint.transform; // Make the camera a child of the mount point
+        //cameraTransform.position = cameraMountPoint.transform.position; // Set position/rotation same as the mount point
+        //cameraTransform.rotation = cameraMountPoint.transform.rotation;
     }
 
     /// <summary>
