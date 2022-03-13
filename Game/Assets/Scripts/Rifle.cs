@@ -89,7 +89,7 @@ public class Rifle : ShootGun
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
         gunAmmo--;
-        audioController.PlayGunSound(4);
+        audioController.CmdPlayGunSound(4);
         TriggerAggro();
         if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
         {
