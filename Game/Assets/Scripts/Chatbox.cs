@@ -8,21 +8,31 @@ using Mirror;
 public class Chatbox : NetworkBehaviour
 {
     /// <summary>The UI component holding the textbox.</summary>
-    [SerializeField] GameObject textBoxUI;
+    [SerializeField]
+    GameObject textBoxUI;
+
     //  <summary>The UI component holding the input field.</summary>
-    [SerializeField] TMP_InputField chatBoxUI;
+    [SerializeField]
+    TMP_InputField chatBoxUI;
+
     /// <summary>The text component of the textbox.</summary>
     TextMeshProUGUI textBox;
+
     /// <summary>The text component of the input field.</summary>
     TextMeshProUGUI chatText;
+
     /// <summary>Array holding the newest 5 messages</summary>
     string[] messages = new string[5];
+
     /// <summary>Time until a message is deleted</summary>
     float timeForDeletion = 25f;
+
     /// <summary>Timer for deletion</summary>
     float[] timer = new float[5];
+
     /// <summary>The name of the player for the chat</summary>
     string playerName;
+
     /// <summary>True when the player opened the chat</summary>
     bool typing;
 
@@ -31,7 +41,8 @@ public class Chatbox : NetworkBehaviour
     /// </summary>
     void Start()
     {
-        if (!isLocalPlayer) return;
+        if (!isLocalPlayer)
+            return;
 
         textBox = textBoxUI.GetComponent<TextMeshProUGUI>();
         chatText = chatBoxUI.GetComponentInChildren<TextMeshProUGUI>();
@@ -44,7 +55,8 @@ public class Chatbox : NetworkBehaviour
     /// </summary>
     void Update()
     {
-        if (!isLocalPlayer) return;
+        if (!isLocalPlayer)
+            return;
         UpdateTimers();
         UpdateText();
 
@@ -54,9 +66,9 @@ public class Chatbox : NetworkBehaviour
             {
                 typing = false;
                 chatBoxUI.GetComponent<Image>().color -= new Color(0, 0, 0, 0.8f);
-                if (chatBoxUI.text.Length > 0) SubmitMessage(chatText.text);
+                if (chatBoxUI.text.Length > 0)
+                    SubmitMessage(chatText.text);
             }
-
         }
         else if (Input.GetKeyDown(KeyCode.KeypadEnter) && !typing)
         {
@@ -111,7 +123,6 @@ public class Chatbox : NetworkBehaviour
         {
             SubmitMessage("WATCH OUT");
         }
-
     }
 
     /// <summary>
@@ -195,7 +206,11 @@ public class Chatbox : NetworkBehaviour
 
         foreach (Collider hitCollider in hitColliders)
         {
-            if (hitCollider.gameObject.tag == "Player" && !nearbyPlayers.Contains(hitCollider.gameObject) && hitCollider.gameObject != this.gameObject)
+            if (
+                hitCollider.gameObject.tag == "Player"
+                && !nearbyPlayers.Contains(hitCollider.gameObject)
+                && hitCollider.gameObject != this.gameObject
+            )
             {
                 nearbyPlayers.Add(hitCollider.gameObject);
             }
@@ -220,10 +235,8 @@ public class Chatbox : NetworkBehaviour
     /// <param name="target">NetworkConnection of the Target.</param>
     /// <param name="message">The message to deliver.</param>
     [TargetRpc]
-    public void TargetRPCSendMessage(NetworkConnection target, string message)
-
+    void TargetRPCSendMessage(NetworkConnection target, string message)
     {
         NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
     }
-
 }

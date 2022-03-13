@@ -140,9 +140,7 @@ public class FenceInteraction : NetworkBehaviour
         )
         {
             players.Add(player.GetComponent<NetworkIdentity>().netId);
-            player
-                .GetComponent<Chatbox>()
-                .TargetRPCSendMessage(connectionToClient, "Press [E] to repair.");
+            targetRpcSendMessage(player.GetComponent<NetworkConnection>(), "Press [E] to repair.");
         }
     }
 
@@ -169,5 +167,11 @@ public class FenceInteraction : NetworkBehaviour
     {
         used = true;
         activPlayer = netidPlayer;
+    }
+
+    [TargetRpc]
+    void targetRpcSendMessage(NetworkConnection target, string message)
+    {
+        NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
     }
 }
