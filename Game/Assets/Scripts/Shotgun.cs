@@ -77,6 +77,7 @@ public class Shotgun : ShootGun
     {
         if (Time.time > nextReload && gunAmmo < magSize && isReloading)
         {
+            audioController.CmdPlayGunSound(6);
             gunAmmo++;
         }
         if (gunAmmo == magSize)
@@ -94,7 +95,7 @@ public class Shotgun : ShootGun
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
         gunAmmo--;
-        audioController.PlayGunSound(2);
+        audioController.CmdPlayGunSound(2);
         TriggerAggro();
         for (int i = 0; i < pelletAmount; i++)
         {
