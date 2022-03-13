@@ -37,9 +37,6 @@ public class RoamingMonster : MonsterController
     /// <summary>Time for the next patrol-step</summary>
     float nextPatrolTime = 0;
 
-    /// <summary>NavMeshAgent for navigation</summary>
-    NavMeshAgent nav;
-
     /// <summary>The destination for the next patrol-step</summary>
     Vector3 patrolTarget;
 

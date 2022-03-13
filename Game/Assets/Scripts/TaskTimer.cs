@@ -16,10 +16,6 @@ public class TaskTimer : Task
     [SerializeField]
     List<GameObject> zombieSpawns;
 
-    /// <summary>The progress toward completion each second. Finished on reaching 100</summary>
-    [SerializeField]
-    float progressRate = 1f;
-
     /// <summary>Time for the next zombies to spawn</summary>
     float nextZombies = 2f;
 
