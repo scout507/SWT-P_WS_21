@@ -79,7 +79,7 @@ public class Menu : MonoBehaviour
     /// </summary>
     public void changeVolume()
     {
-        FindObjectOfType<AudioSource>().volume = volumeSlider.value;
+        AudioListener.volume = volumeSlider.value;
     }
 
     /// <summary>
@@ -115,7 +115,9 @@ public class Menu : MonoBehaviour
     /// </summary>
     public void host()
     {
-        Debug.Log(NetworkClient.ready);
+        Debug.Log("NetworkClient: " + NetworkClient.active);
+        Debug.Log("NetworkServer: " + NetworkServer.active);
+        Debug.Log("NetworkManager: " + NetworkManager.singleton.isActiveAndEnabled);
         NetworkManager.singleton.StartHost();
     }
 }

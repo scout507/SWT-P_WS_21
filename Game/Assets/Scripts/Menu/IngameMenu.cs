@@ -120,7 +120,7 @@ public class IngameMenu : NetworkBehaviour
     /// </summary>
     public void changeVolume()
     {
-        connectionToServer.identity.GetComponent<AudioSource>().volume = volumeSlider.value;
+        AudioListener.volume = volumeSlider.value;
     }
 
     /// <summary>
