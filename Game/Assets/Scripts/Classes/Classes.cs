@@ -4,11 +4,24 @@ using Mirror;
 using UnityEngine;
 
 /* edited by: SWT-P_WS_21/22*/
+/// <summary>
+/// Classes is the abstract class of our classes
+/// </summary>
 public abstract class Classes : NetworkBehaviour
 {
+    /// <summary>
+    /// hasMelee is important for the animator
+    /// </summary>
     public bool hasMelee;
+
+    /// <summary>
+    /// newWeapon saves the new weapon when the weapon is changed
+    /// </summary>
     public int newWeapon = 0;
 
+    /// <summary>
+    /// selectedWeapon saves the selected weapon, if it is changed the function SwitchWeapon is called
+    /// </summary>
     [SyncVar(hook = nameof(SwitchWeapon))]
     public int selectedWeapon = 0;
 
@@ -40,10 +53,17 @@ public abstract class Classes : NetworkBehaviour
     /// <param name="newWeapon">Index of new weapon.</param>
     public abstract void SwitchWeapon(int oldWeapon, int newWeapon);
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns>selectedWeapon for animator</returns>
     public int GetSelectedWeapon()
     {
         return selectedWeapon;
     }
 
+    /// <summary>
+    /// SetHasMelee sets hasMelee in correct class
+    /// </summary>
     public abstract void SetHasMelee();
 }

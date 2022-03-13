@@ -973,7 +973,7 @@ GameObject:
   - component: {fileID: 3145835891609072745}
   m_Layer: 8
   m_Name: RoamingMonster
-  m_TagString: Untagged
+  m_TagString: Roamer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

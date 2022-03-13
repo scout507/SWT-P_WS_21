@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1371958826472287752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977908094656156945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e70c13b8848d74e862b19054a08c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  active: 1
+  done: 0
+  spawn: {x: -17.73, y: 19.03, z: -23.45}
+  id: 0
+  taskName: Timer
+  taskDescription: "Geh zum Timer und dr\xFCck E"
+  progress: 0
+  dObjScript: {fileID: 0}
+  timer: 5
+  zombie: {fileID: 0}
+--- !u!1001 &4667369712673056080
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 668850647307551356, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 668850647307551356, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 668850647307551356, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 668850647307551356, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -23.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 668850647307551356, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 668850647307551356, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 668850647307551356, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 668850647307551356, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 668850647307551356, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 668850647307551356, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 668850647307551356, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359909094749990710, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+      propertyPath: sceneId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359909094749990710, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+      propertyPath: m_AssetId
+      value: 16976ab074dbe0f4f9e3737b3f764ffc
+      objectReference: {fileID: 0}
+    - target: {fileID: 5770350946829474683, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6608791559642214465, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+      propertyPath: m_Name
+      value: TimerTask1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5324876894052632234, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+--- !u!1 &1977908094656156945 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6608791559642214465, guid: 960986ed42019f646a6edbd35ff03cd9, type: 3}
+  m_PrefabInstance: {fileID: 4667369712673056080}
+  m_PrefabAsset: {fileID: 0}
