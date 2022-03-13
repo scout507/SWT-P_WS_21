@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/1. Final Marcel.unity
     guid: abf36f201f50eee4e9cf2cf784651e4d
+  - enabled: 1
+    path: Assets/Scenes/MapTexturiert.unity
+    guid: 69b10e560584d6e46a389333a327f39e
   m_configObjects: {}
