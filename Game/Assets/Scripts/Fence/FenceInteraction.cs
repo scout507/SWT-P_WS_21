@@ -140,7 +140,7 @@ public class FenceInteraction : NetworkBehaviour
         )
         {
             players.Add(player.GetComponent<NetworkIdentity>().netId);
-            targetRpcSendMessage(player.GetComponent<NetworkConnection>(), "Press [E] to repair.");
+            targetRpcSendMessage(player.GetComponent<NetworkIdentity>().connectionToClient, "Press [E] to repair.");
         }
     }
 
