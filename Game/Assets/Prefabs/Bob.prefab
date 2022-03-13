@@ -168,6 +168,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   controller: {fileID: 5846548511801372657}
+  cam: {fileID: 0}
   playerModel: {fileID: 8204713543300615096}
   speed: 6
   sprintSpeedMultiplier: 1.5
