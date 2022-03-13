@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10937,7 +10937,7 @@ MonoBehaviour:
   spawnPrefabs: []
   minPlayers: 1
   menuScene: Assets/Scenes/Menu.unity
-  gameScene: Assets/Scenes/1. Final Marcel.unity
+  gameScene: Assets/Scenes/1. Final Final.unity
   roomPlayerPrefab: {fileID: 6369713485113490369, guid: 45676aec1e544a7449f4c69b64c55a96, type: 3}
   gamePlayerPrefab: {fileID: 6726831642852333111, guid: 5868e60051b776f49a082279beec57b1, type: 3}
   playerSpawnSystem: {fileID: 7912372823320429736, guid: 0dc330197fca6c440a338ef0288a9252, type: 3}

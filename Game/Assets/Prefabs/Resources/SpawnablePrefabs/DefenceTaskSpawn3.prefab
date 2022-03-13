@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5409075508430416133}
   - component: {fileID: 5409075508430416130}
+  - component: {fileID: -3087229222410482361}
   m_Layer: 0
   m_Name: DefenceTaskSpawn3
   m_TagString: Untagged
@@ -43,3 +44,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ff656bc41f43a4d8dfecf318db2803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3087229222410482361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5409075508430416131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: a0cd2a547edfedb449a8f2af00d9b246
+  hasSpawned: 0
