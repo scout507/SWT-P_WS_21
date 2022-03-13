@@ -1060,7 +1060,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1147,9 +1147,11 @@ MonoBehaviour:
   dead: 0
   players: []
   currentTarget: {fileID: 0}
+  aggro: 0
   atkTimer: 0
   attack: 0
   damageTaken: 0
+  nav: {fileID: 0}
   groundCheck: {fileID: 8903686764973335868}
   groundDistance: 0.4
   groundMask:
@@ -1157,7 +1159,7 @@ MonoBehaviour:
     m_Bits: 64
   animator: {fileID: 8903686764230930558}
   networkAnimator: {fileID: 8903686763907575695}
-  collider: {fileID: 8903686763907575694}
+  col: {fileID: 0}
 --- !u!1 &8903686763909129732
 GameObject:
   m_ObjectHideFlags: 0
