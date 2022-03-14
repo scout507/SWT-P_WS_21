@@ -45,9 +45,20 @@ public class Turret : NetworkBehaviour
     [SerializeField] float weaoponRange = 30f;
 
     /// <summary>
-    /// Particle system used when on Shot
+    /// Particle system used when shooting
     /// </summary>
     [SerializeField] ParticleSystem shotflash;
+
+    /// <summary>
+    /// AudioSource used when shooting
+    /// </summary>
+    AudioSource audiosource;
+
+
+    private void Start()
+    {
+        audiosource = this.GetComponent<AudioSource>();
+    }
 
 
     /// <summary>
@@ -88,6 +99,16 @@ public class Turret : NetworkBehaviour
     }
 
     /// <summary>
+    /// Calls the Turret Shot Sound on all Clients
+    /// </summary>
+    [ClientRpc]
+    public void RPCTurretShotSound()
+    {
+        audiosource.volume = 0.7f;
+        audiosource.Play();
+    }
+
+    /// <summary>
     /// Shoots one shot defined by the attributes of the specific gun
     /// </summary>
     [Command]
@@ -98,6 +119,7 @@ public class Turret : NetworkBehaviour
         Vector3 rayOrigin = gameObject.transform.GetChild(0).gameObject.transform.position;
         Vector3 direction = gameObject.transform.GetChild(0).forward;
 
+        RPCTurretShotSound();
         rpcturretFireAnimationn();
         if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
         {
