@@ -97,8 +97,8 @@ public class IngameMenu : NetworkBehaviour
         else
             player.GetComponent<Spectator>().active = !inGameMenuCanvas.enabled;
 
-        if (player.GetComponent<AudioSource>())
-            volumeSlider.value = player.GetComponent<AudioSource>().volume;
+        if (player.GetComponent<AudioListener>())
+            volumeSlider.value = AudioListener.volume;
 
 
         Cursor.visible = inGameMenuCanvas.enabled;
