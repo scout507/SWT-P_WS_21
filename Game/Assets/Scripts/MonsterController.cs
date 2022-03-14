@@ -133,7 +133,7 @@ public class MonsterController : NetworkBehaviour
         {
             dead = true;
             GetComponent<Collider>().enabled = false;
-            Destroy(this.gameObject, 300f); // Destroys the Monster after 5 minutes
+            Destroy(this.gameObject, 10f);
         }
     }
 

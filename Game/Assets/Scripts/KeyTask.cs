@@ -98,7 +98,7 @@ public class KeyTask : Task
     /// <param name="other">Collider that triggered this method.</param>
     void OnTriggerEnter(Collider other)
     {
-        if (isServer && other.tag == "Player" && other.GetComponent<NetworkIdentity>().netId == playerWithKey.GetComponent<NetworkIdentity>().netId)
+        if (isServer && other.tag == "Player" && playerWithKey && other.GetComponent<NetworkIdentity>().netId == playerWithKey.GetComponent<NetworkIdentity>().netId)
         {
             keyHere = true;
         }
@@ -110,7 +110,7 @@ public class KeyTask : Task
     /// <param name="other">Collider that triggered this method.</param>
     void OnTriggerExit(Collider other)
     {
-        if (isServer && other.tag == "Player" && other.GetComponent<NetworkIdentity>().netId == playerWithKey.GetComponent<NetworkIdentity>().netId)
+        if (isServer && other.tag == "Player" && playerWithKey && other.GetComponent<NetworkIdentity>().netId == playerWithKey.GetComponent<NetworkIdentity>().netId)
         {
             keyHere = false;
         }
