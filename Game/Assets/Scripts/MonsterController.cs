@@ -180,7 +180,7 @@ public class MonsterController : NetworkBehaviour
     /// <param name="player">The player that triggered the monster.</param>
     public void AggroMob(GameObject player)
     {
-        if (currentTarget == null || currentTarget.tag != "Player")
+        if (currentTarget == null || (currentTarget.tag != "Player" && currentTarget.tag != "Fence"))
         {
             currentTarget = player;
             aggro = true;
@@ -194,7 +194,7 @@ public class MonsterController : NetworkBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.root.GetComponent<Melee>())
-            other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
+            other.transform.root.GetComponent<Melee>().meleeHit(gameObject);    
     }
 
 

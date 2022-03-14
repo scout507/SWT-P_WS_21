@@ -21,6 +21,10 @@ public class WaveMonster : MonsterController
     /// <summary>The refreshrate for target finding calculations</summary>
     float refreshRate = 2f;
 
+    bool prioritiseFence;
+    FenceInteraction fenceScript;
+    GameObject[] planks;
+
     /// <summary>
     /// Initial FindBuildings.
     /// </summary>
@@ -71,7 +75,7 @@ public class WaveMonster : MonsterController
                 || animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Dying")
             )
             {
-                nav.isStopped = true;
+                nav.SetDestination(transform.position);
             }
             else if (currentTarget != null)
             {
@@ -80,12 +84,11 @@ public class WaveMonster : MonsterController
                     > atkRange
                 )
                 {
-                    nav.isStopped = false;
                     nav.SetDestination(currentTarget.transform.position);
                 }
                 else
                 {
-                    nav.isStopped = true;
+                    nav.SetDestination(transform.position);
                     Attack();
                 }
             }
@@ -118,6 +121,16 @@ public class WaveMonster : MonsterController
     GameObject ChooseTarget()
     {
         GameObject newTarget = null;
+
+        if(prioritiseFence && fenceScript)
+        {
+            foreach (GameObject plank in fenceScript.planksInspector)
+            {
+                if(plank.GetComponent<DestructableObject>().active) return plank;
+            }
+
+            prioritiseFence = false;
+        }
 
         if (players.Count > 0)
         {
@@ -197,6 +210,24 @@ public class WaveMonster : MonsterController
         }
 
         return newTarget;
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Fence")
+        {
+            prioritiseFence = true;
+            fenceScript = other.gameObject.GetComponent<FenceInteraction>();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Fence")
+        {
+            prioritiseFence = false;
+        }
     }
 
 
