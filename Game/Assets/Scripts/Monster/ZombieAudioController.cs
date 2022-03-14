@@ -97,6 +97,7 @@ public class ZombieAudioController : NetworkBehaviour
     [ClientRpc]
     public void RPCPlayZombieAttackSound(int selected)
     {
+        Debug.Log("Zombie attack ");
         audioSource.PlayOneShot(monsterAttackSound[selected], 0.8f);
     }
 }

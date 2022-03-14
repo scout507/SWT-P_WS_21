@@ -45,9 +45,20 @@ public class Turret : NetworkBehaviour
     [SerializeField] float weaoponRange = 30f;
 
     /// <summary>
-    /// Particle system used when on Shot
+    /// Particle system used when shooting
     /// </summary>
     [SerializeField] ParticleSystem shotflash;
+
+    /// <summary>
+    /// AudioSource used when shooting
+    /// </summary>
+    AudioSource audiosource;
+
+
+    private void Start()
+    {
+        audiosource = this.GetComponent<AudioSource>();
+    }
 
 
     /// <summary>
@@ -61,12 +72,12 @@ public class Turret : NetworkBehaviour
     {
         Transform MgTransform = transform.transform.GetChild(0).gameObject.transform;
 
-        if (MgTransform.eulerAngles.x < 10 || MgTransform.eulerAngles.x > 330)
+        if (MgTransform.eulerAngles.x < 25 || MgTransform.eulerAngles.x > 330)
         {
             MgTransform.Rotate(updownDirection * rotateSpeed, 0f, 0f, Space.Self);
             MgTransform.Rotate(0f, rotateDirection * rotateSpeed, 0f, Space.World);
         }
-        else if (MgTransform.eulerAngles.x >= 10 && MgTransform.eulerAngles.x <= 20 && updownDirection < 0)
+        else if (MgTransform.eulerAngles.x >= 25 && MgTransform.eulerAngles.x <= 35 && updownDirection < 0)
         {
             MgTransform.Rotate(updownDirection * rotateSpeed, 0f, 0f, Space.Self);
         }
@@ -88,6 +99,16 @@ public class Turret : NetworkBehaviour
     }
 
     /// <summary>
+    /// Calls the Turret Shot Sound on all Clients
+    /// </summary>
+    [ClientRpc]
+    public void RPCTurretShotSound()
+    {
+        audiosource.volume = 0.7f;
+        audiosource.Play();
+    }
+
+    /// <summary>
     /// Shoots one shot defined by the attributes of the specific gun
     /// </summary>
     [Command]
@@ -98,6 +119,7 @@ public class Turret : NetworkBehaviour
         Vector3 rayOrigin = gameObject.transform.GetChild(0).gameObject.transform.position;
         Vector3 direction = gameObject.transform.GetChild(0).forward;
 
+        RPCTurretShotSound();
         rpcturretFireAnimationn();
         if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
         {

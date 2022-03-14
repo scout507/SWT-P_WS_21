@@ -83,6 +83,7 @@ public class Shotgun : ShootGun
         }
         if (gunAmmo == magSize)
         {
+            audioController.CmdPlayGunSound(6);
             isReloading = false;
         }
     }
