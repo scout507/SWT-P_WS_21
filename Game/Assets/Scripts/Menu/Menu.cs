@@ -79,7 +79,7 @@ public class Menu : MonoBehaviour
     /// </summary>
     public void changeVolume()
     {
-        FindObjectOfType<AudioSource>().volume = volumeSlider.value;
+        AudioListener.volume = volumeSlider.value;
     }
 
     /// <summary>
@@ -115,7 +115,6 @@ public class Menu : MonoBehaviour
     /// </summary>
     public void host()
     {
-        Debug.Log(NetworkClient.ready);
         NetworkManager.singleton.StartHost();
     }
 }

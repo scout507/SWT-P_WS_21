@@ -11,6 +11,10 @@ public class PlayerCanvas : NetworkBehaviour
     /// </summary>
     public GameObject PlayerCanvasObject;
     /// <summary>
+    /// the camera for the minimap.
+    /// </summary>
+    public GameObject MinimapCam;
+    /// <summary>
     /// the weapon loadout of the player.
     /// </summary>
     private Inventory inventory;
@@ -25,6 +29,7 @@ public class PlayerCanvas : NetworkBehaviour
             return;
         }
         PlayerCanvasObject.SetActive(true);
+        MinimapCam.SetActive(true);
     }
 
     /// <summary>

@@ -15,61 +15,84 @@ public class MonsterController : NetworkBehaviour
 {
     /// <summary>Aggro radius of the monster</summary>
     public float aggroRadius;
+
     /// <summary>Damage the monster does in one hit</summary>
     public float damage;
+
     /// <summary>The monsters Hp</summary>
     public float hp;
+
     /// <summary>The monsters movementspeed</summary>
     public float moveSpeed;
 
     /// <summary> Monster's sideways velocity </summary>
-    [SyncVar] float velocityX;
+    [SyncVar]
+    float velocityX;
+
     /// <summary> Monster's forwards velocity </summary>
-    [SyncVar] float velocityZ;
+    [SyncVar]
+    float velocityZ;
 
     /// <summary>True when the monster aggro is triggered </summary>
     public bool awake;
+
     /// <summary>Range for a melee Attack</summary>
     public float atkRange;
+
     /// <summary>Cooldown between Attacks</summary>
     public float atkCooldown;
+
     /// <summary>Wether or not this monster is dead</summary>
-    [SyncVar] public bool dead;
+    [SyncVar]
+    public bool dead;
 
     /// <summary>A list containing all possible targets</summary>
     public List<GameObject> players;
+
     /// <summary>The current Target the monster is focused on</summary>
     public GameObject currentTarget;
 
-    float timer;
+    /// <summary>If the monster is aggroed by a player</summary>
+    public bool aggro;
+
     /// <summary>Timer for attacking</summary>
     public float atkTimer;
-    [SyncVar] public bool attack;
 
-    /// <summary>The refreshrate for target finding calculations</summary>
-    float refreshRate = 1f;
+    [SyncVar]
+    public bool attack;
+
     public bool damageTaken;
 
     /// <summary>Stores the spawn spot</summary>
     Vector3 home;
+
+    /// <summary>Holds NavMeshAgent for navigation</summary>
     public NavMeshAgent nav;
 
     /// <summary>Used to ground the monster</summary>
     [Header("Grounding")]
-    [SerializeField] Transform groundCheck;
-    [SerializeField] float groundDistance = 0.4f;
-    [SerializeField] LayerMask groundMask;
+    [SerializeField]
+    Transform groundCheck;
+
+    [SerializeField]
+    float groundDistance = 0.4f;
+
+    [SerializeField]
+    LayerMask groundMask;
 
     /// <summary>The monster's animator</summary>
-    [SerializeField] public Animator animator;
+    [SerializeField]
+    public Animator animator;
 
     /// <summary>
     /// Monster's network Animator
     /// </summary>
-    [SerializeField] NetworkAnimator networkAnimator;
+    [SerializeField]
+    NetworkAnimator networkAnimator;
 
     /// <summary>Player's melee collider</summary>
-    [SerializeField] CapsuleCollider collider;
+    [SerializeField]
+    CapsuleCollider col;
 
     /// <summary>NavMeshAgent for navigation</summary>
     NavMeshAgent navAgent;
@@ -82,7 +105,6 @@ public class MonsterController : NetworkBehaviour
     {
         return Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
     }
-
 
     /// <summary>
     /// Set monster status to dead
@@ -103,7 +125,7 @@ public class MonsterController : NetworkBehaviour
 
     /// <summary>
     /// Set the monster's sideways velocity variable
-    /// </summary>    
+    /// </summary>
     public void SetVelocityX(float velocityX)
     {
         this.velocityX = velocityX;
@@ -119,7 +141,7 @@ public class MonsterController : NetworkBehaviour
 
     /// <summary>
     /// Set the monster's forwards velocity variable
-    /// </summary>    
+    /// </summary>
     public void SetVelocityZ(float velocityZ)
     {
         this.velocityZ = velocityZ;
@@ -143,14 +165,16 @@ public class MonsterController : NetworkBehaviour
             if (Vector3.Distance(transform.position, player.transform.position) <= aggroRadius)
             {
                 NavMeshPath navMeshPath = new NavMeshPath();
-                if (navAgent.CalculatePath(player.transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
+                if (
+                    navAgent.CalculatePath(player.transform.position, navMeshPath)
+                    && navMeshPath.status == NavMeshPathStatus.PathComplete
+                )
                 {
                     players.Add(player);
                 }
             }
         }
     }
-
 
     /// <summary>
     /// Method to handle monster death.
@@ -160,7 +184,7 @@ public class MonsterController : NetworkBehaviour
         if (!dead)
         {
             dead = true;
-            collider.enabled = false;
+            col.enabled = false;
             Destroy(this.gameObject, 300f); // Destroys the Monster after 5 minutes
         }
     }
@@ -170,7 +194,6 @@ public class MonsterController : NetworkBehaviour
     /// </summary>
     public void Attack()
     {
-        Debug.Log("ATTK");
         if (atkTimer >= atkCooldown)
         {
             attack = true;
@@ -186,7 +209,6 @@ public class MonsterController : NetworkBehaviour
         }
     }
 
-
     /// <summary>
     /// Can be called to damage the monster.
     /// </summary>
@@ -199,10 +221,10 @@ public class MonsterController : NetworkBehaviour
             networkAnimator.SetTrigger("hasTakenDamage");
 
             hp -= dmgTaken;
-            if (hp <= 0) Die();
+            if (hp <= 0)
+                Die();
         }
     }
-
 
     /// <summary>
     /// Not useable yet. This method is going to be used for triggering monsters manually.
@@ -213,6 +235,7 @@ public class MonsterController : NetworkBehaviour
         if (currentTarget == null || currentTarget.tag != "Player")
         {
             currentTarget = player;
+            aggro = true;
         }
     }
 
@@ -222,6 +245,7 @@ public class MonsterController : NetworkBehaviour
     /// <param name="other">The collider of the gameobject which hit this gameobject.</param>
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.root.GetComponent<Melee>()) other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
+        if (other.transform.root.GetComponent<Melee>())
+            other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
     }
 }
