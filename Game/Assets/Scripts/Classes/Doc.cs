@@ -37,7 +37,7 @@ public class Doc : Classes
             CmdSwitchWeapon(3);
         }
     }
-public override int GetSelectedWeapon()
+    public override int GetSelectedWeapon()
     {
         return selectedWeapon;
     }

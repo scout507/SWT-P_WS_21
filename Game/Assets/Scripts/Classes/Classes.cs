@@ -58,7 +58,7 @@ public abstract class Classes : NetworkBehaviour
     /// </summary>
     /// <returns>selectedWeapon for animator</returns>
     public abstract int GetSelectedWeapon();
-   // {
+    // {
     //    return selectedWeapon;
     //}
 

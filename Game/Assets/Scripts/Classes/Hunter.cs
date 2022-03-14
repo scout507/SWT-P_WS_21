@@ -51,7 +51,7 @@ public class Hunter : Classes
             }
         }
     }
-public override int GetSelectedWeapon()
+    public override int GetSelectedWeapon()
     {
         return selectedWeapon;
     }

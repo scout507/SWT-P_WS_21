@@ -33,7 +33,7 @@ public class Bob : Classes
             CmdSwitchWeapon(2);
         }
     }
-public override int GetSelectedWeapon()
+    public override int GetSelectedWeapon()
     {
         return selectedWeapon;
     }
