@@ -72,12 +72,12 @@ public class Turret : NetworkBehaviour
     {
         Transform MgTransform = transform.transform.GetChild(0).gameObject.transform;
 
-        if (MgTransform.eulerAngles.x < 10 || MgTransform.eulerAngles.x > 330)
+        if (MgTransform.eulerAngles.x < 25 || MgTransform.eulerAngles.x > 330)
         {
             MgTransform.Rotate(updownDirection * rotateSpeed, 0f, 0f, Space.Self);
             MgTransform.Rotate(0f, rotateDirection * rotateSpeed, 0f, Space.World);
         }
-        else if (MgTransform.eulerAngles.x >= 10 && MgTransform.eulerAngles.x <= 20 && updownDirection < 0)
+        else if (MgTransform.eulerAngles.x >= 25 && MgTransform.eulerAngles.x <= 35 && updownDirection < 0)
         {
             MgTransform.Rotate(updownDirection * rotateSpeed, 0f, 0f, Space.Self);
         }
