@@ -90,62 +90,10 @@ public class MonsterController : NetworkBehaviour
     [SerializeField]
     NetworkAnimator networkAnimator;
 
-    /// <summary>Player's melee collider</summary>
-    [SerializeField]
-    CapsuleCollider col;
-
     /// <summary>NavMeshAgent for navigation</summary>
     NavMeshAgent navAgent;
 
-    /// <summary>
-    /// Checks if the monster is currently on ground
-    /// </summary>
-    /// <returns>Returns true or false</returns>
-    public bool CheckGrounded()
-    {
-        return Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-    }
-
-    /// <summary>
-    /// Set monster status to dead
-    /// </summary>
-    [Command]
-    void SetDead(bool newDead)
-    {
-        dead = newDead;
-    }
-
-    /// <summary>
-    /// Get the monster's sideways velocity
-    /// </summary>
-    public float GetVelocityX()
-    {
-        return velocityX;
-    }
-
-    /// <summary>
-    /// Set the monster's sideways velocity variable
-    /// </summary>
-    public void SetVelocityX(float velocityX)
-    {
-        this.velocityX = velocityX;
-    }
-
-    /// <summary>
-    /// Get the monster's forwards velocity
-    /// </summary>
-    public float GetVelocityZ()
-    {
-        return velocityZ;
-    }
-
-    /// <summary>
-    /// Set the monster's forwards velocity variable
-    /// </summary>
-    public void SetVelocityZ(float velocityZ)
-    {
-        this.velocityZ = velocityZ;
-    }
+    
 
     /// <summary>
     ///  Makes a list containing all active players within aggro-radius.
@@ -184,7 +132,7 @@ public class MonsterController : NetworkBehaviour
         if (!dead)
         {
             dead = true;
-            col.enabled = false;
+            GetComponent<Collider>().enabled = false;
             Destroy(this.gameObject, 300f); // Destroys the Monster after 5 minutes
         }
     }
@@ -247,5 +195,47 @@ public class MonsterController : NetworkBehaviour
     {
         if (other.transform.root.GetComponent<Melee>())
             other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
+    }
+
+
+    /// <summary>
+    /// Checks if the monster is currently on ground
+    /// </summary>
+    /// <returns>Returns true or false</returns>
+    public bool CheckGrounded()
+    {
+        return Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+    }
+
+    /// <summary>
+    /// Get the monster's sideways velocity
+    /// </summary>
+    public float GetVelocityX()
+    {
+        return velocityX;
+    }
+
+    /// <summary>
+    /// Set the monster's sideways velocity variable
+    /// </summary>
+    public void SetVelocityX(float velocityX)
+    {
+        this.velocityX = velocityX;
+    }
+
+    /// <summary>
+    /// Get the monster's forwards velocity
+    /// </summary>
+    public float GetVelocityZ()
+    {
+        return velocityZ;
+    }
+
+    /// <summary>
+    /// Set the monster's forwards velocity variable
+    /// </summary>
+    public void SetVelocityZ(float velocityZ)
+    {
+        this.velocityZ = velocityZ;
     }
 }
