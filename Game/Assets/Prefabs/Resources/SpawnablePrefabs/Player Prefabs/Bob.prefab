@@ -1919,7 +1919,7 @@ MonoBehaviour:
   cameraMountPoint: {fileID: 1092632388209761557}
   active: 1
   speedUpDown: 0.1
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 1092632388568931410}
 --- !u!114 &4038268749146904831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3163,7 +3163,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform 'mixamorig:Head'\n\tTransform
+    'mixamorig:Hips'\n\tTransform 'mixamorig:RightShoulder'\n\tTransform 'mixamorig:Spine2'\n\tTransform
+    'mixamorig:Neck'\n\tTransform 'mixamorig:Spine'\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform
+    'mixamorig:Head'\n\tTransform 'mixamorig:Hips'\n\tand more ..."
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0

@@ -170,7 +170,7 @@ MonoBehaviour:
   cameraMountPoint: {fileID: 195347160754409277}
   active: 1
   speedUpDown: 0.1
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 195347161537138298}
 --- !u!114 &3861023467227302615
 MonoBehaviour:
   m_ObjectHideFlags: 0

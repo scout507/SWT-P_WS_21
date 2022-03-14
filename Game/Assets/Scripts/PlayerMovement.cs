@@ -157,7 +157,7 @@ public class PlayerMovement : NetworkBehaviour
     /// <summary>
     /// The UP and DOWN speed for climbing ladders.
     /// </summary>
-    public float speedUpDown = 0.1f;
+    public float speedUpDown = 1f;
 
     /// <summary>
     /// Transform-information of the player
@@ -493,12 +493,14 @@ public class PlayerMovement : NetworkBehaviour
 
             if (insideLadder == true && Input.GetKey("w"))
             {
-                playerTransform.transform.position += Vector3.up / speedUpDown;
+                playerTransform.transform.position += Vector3.up * speedUpDown;
+                Debug.Log("LAdderUp");
             }
 
             if (insideLadder == true && Input.GetKey("s"))
             {
-                playerTransform.transform.position -= Vector3.up / speedUpDown;
+                playerTransform.transform.position -= Vector3.up * speedUpDown;
+                Debug.Log("LAdderDown");
             }
         }
     }
@@ -507,7 +509,6 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (col.gameObject.tag == "Ladder")
         {
-            //controller.enabled = false;
             insideLadder = !insideLadder;
         }
     }
@@ -516,7 +517,6 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (col.gameObject.tag == "Ladder")
         {
-            //controller.enabled = false;
             insideLadder = !insideLadder;
         }
     }
