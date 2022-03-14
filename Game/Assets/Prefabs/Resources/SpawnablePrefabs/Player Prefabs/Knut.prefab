@@ -3000,6 +3000,7 @@ GameObject:
   - component: {fileID: 69705066928994589}
   - component: {fileID: 3871981253046807317}
   - component: {fileID: 4040658721727034228}
+  - component: {fileID: 8404310298752661302}
   m_Layer: 0
   m_Name: ybot
   m_TagString: Untagged
@@ -3143,6 +3144,19 @@ MonoBehaviour:
   - {fileID: 1013337145665472850}
   - {fileID: 8576001883135158221}
   - {fileID: 1626115878407430683}
+--- !u!114 &8404310298752661302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2470752913803848242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42885bfd3f390647a67f23098fedf3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  melee: {fileID: 8558135535231344565}
 --- !u!1 &2651061250075791628
 GameObject:
   m_ObjectHideFlags: 0
@@ -5043,7 +5057,7 @@ GameObject:
   - component: {fileID: 2913158405564112593}
   m_Layer: 7
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

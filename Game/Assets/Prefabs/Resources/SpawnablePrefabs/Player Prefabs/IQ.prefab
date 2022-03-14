@@ -1647,6 +1647,7 @@ Transform:
   - {fileID: 391035669925444941}
   - {fileID: 1094080574741137950}
   - {fileID: 246643226685595558}
+  - {fileID: 646350672531502630}
   m_Father: {fileID: 3631930469003400144}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1679,6 +1680,7 @@ GameObject:
   - component: {fileID: 2688393703453318889}
   - component: {fileID: 1041023694822087843}
   - component: {fileID: 8150518361738604341}
+  - component: {fileID: 6555504856947454190}
   m_Layer: 7
   m_Name: IQ
   m_TagString: Player
@@ -1809,7 +1811,7 @@ MonoBehaviour:
   syncInterval: 0.1
   animator: {fileID: 3469621993841108151}
   playerMovement: {fileID: 3631930469003400146}
-  playerClass: {fileID: 0}
+  playerClass: {fileID: 4723413201424085042}
   rig: {fileID: 391035670898940303}
 --- !u!114 &1396528955028989726
 MonoBehaviour:
@@ -1838,7 +1840,7 @@ MonoBehaviour:
   reloadDelay: 0
   recoil: 0
   icon: {fileID: 21300000, guid: a91a15d944ea895479edd768d0a92b6b, type: 3}
-  inventory: {fileID: 0}
+  inventory: {fileID: 6555504856947454190}
   inAttack: 0
   audioController: {fileID: 0}
   triggerRange: 15
@@ -2129,7 +2131,7 @@ MonoBehaviour:
   weaoponRange: 0
   gunEnd: {fileID: 0}
   gun: {fileID: 6697091580636379084, guid: 0dc993c100a881e4188fd83cd71513e6, type: 3}
-  gunMount: {fileID: 6901453500099918566, guid: efda7e777b30dd9419aa5a42bdda935c, type: 3}
+  gunMount: {fileID: 4903176535373345665}
   gunAmmo: 0
   magSize: 0
   nextFire: 0
@@ -2137,7 +2139,7 @@ MonoBehaviour:
   reloadDelay: 0
   recoil: 0
   icon: {fileID: 21300000, guid: 3896c9d635f76ca469ff9b7ab5fc5b1a, type: 3}
-  inventory: {fileID: 0}
+  inventory: {fileID: 6555504856947454190}
   inAttack: 0
   audioController: {fileID: 0}
   triggerRange: 15
@@ -2240,14 +2242,29 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   device: {fileID: 4785279838882829785, guid: 52004729eb4bb254e9518c0b6fdd71b9, type: 3}
-  cam: {fileID: 7041521826398166441, guid: 0626f0694f83d654a9022d15c7f94db1, type: 3}
+  cam: {fileID: 9084510970874009076, guid: edf24628d628e4546a879191f99d4198, type: 3}
   remainingCams: 3
-  deviceMount: {fileID: 6901453500099918566, guid: efda7e777b30dd9419aa5a42bdda935c, type: 3}
-  throwPoint: {fileID: 6921565230632442624, guid: efda7e777b30dd9419aa5a42bdda935c, type: 3}
-  inventory: {fileID: 3008375478098745331, guid: efda7e777b30dd9419aa5a42bdda935c, type: 3}
+  deviceMount: {fileID: 4903176535373345665}
+  throwPoint: {fileID: 646350672531502630}
+  inventory: {fileID: 6555504856947454190}
   setCamerasCount: 0
   lastActiveCam: 0
   icon: {fileID: 21300000, guid: eb7cf23d2d94cad40b9335378e89baf0, type: 3}
+--- !u!114 &6555504856947454190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3631930469003399215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b93e33c92a293f46bdf7552d7a3fa9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 4606979979185302264}
+  currentAmmo: {fileID: 4606979978600937984}
+  totalAmmo: {fileID: 4606979978795080744}
 --- !u!1 &3748181228300224713
 GameObject:
   m_ObjectHideFlags: 0
@@ -3790,7 +3807,6 @@ GameObject:
   - component: {fileID: 4606979979737813954}
   - component: {fileID: 4606979979737813955}
   - component: {fileID: 4606979979737813952}
-  - component: {fileID: 4606979979737813953}
   m_Layer: 7
   m_Name: Inventory
   m_TagString: Untagged
@@ -3876,21 +3892,6 @@ MonoBehaviour:
   visible: 0
   m_AssetId: edfde870b48f52a46bde1e716f5f1836
   hasSpawned: 0
---- !u!114 &4606979979737813953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4606979979737814015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b93e33c92a293f46bdf7552d7a3fa9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 4606979979185302264}
-  currentAmmo: {fileID: 4606979978600937984}
-  totalAmmo: {fileID: 4606979978795080744}
 --- !u!1 &4606979979778552974
 GameObject:
   m_ObjectHideFlags: 0
@@ -4832,7 +4833,7 @@ GameObject:
   - component: {fileID: 1782484902726812539}
   m_Layer: 7
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5766,6 +5767,36 @@ Transform:
   - {fileID: 3676778548286664544}
   m_Father: {fileID: 4915057187977369307}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8775548957125659669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 646350672531502630}
+  m_Layer: 7
+  m_Name: Throwing Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &646350672531502630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8775548957125659669}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.146, y: -0.057, z: 0.178}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3631930468673589912}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8777910930200208171
 GameObject:

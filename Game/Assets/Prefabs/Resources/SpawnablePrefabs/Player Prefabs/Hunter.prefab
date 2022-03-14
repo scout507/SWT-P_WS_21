@@ -1666,7 +1666,7 @@ GameObject:
   - component: {fileID: 8284263150622685076}
   m_Layer: 7
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3126,7 +3126,6 @@ GameObject:
   - component: {fileID: 6171182747716265773}
   - component: {fileID: 6171182747716265772}
   - component: {fileID: 6171182747716265775}
-  - component: {fileID: 6171182747716265774}
   m_Layer: 7
   m_Name: Inventory
   m_TagString: Untagged
@@ -3212,21 +3211,6 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 61f9005d8742b484697027f4cb12d928
   hasSpawned: 0
---- !u!114 &6171182747716265774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6171182747716265744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b93e33c92a293f46bdf7552d7a3fa9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 6171182748235161111}
-  currentAmmo: {fileID: 6171182746848071407}
-  totalAmmo: {fileID: 6171182748650481863}
 --- !u!1 &6171182747759345761
 GameObject:
   m_ObjectHideFlags: 0
@@ -4056,6 +4040,7 @@ GameObject:
   - component: {fileID: 4650063682550238019}
   - component: {fileID: 5693713448060660230}
   - component: {fileID: 7221874302929135692}
+  - component: {fileID: 1836463808731579088}
   m_Layer: 7
   m_Name: Hunter
   m_TagString: Player
@@ -4215,7 +4200,7 @@ MonoBehaviour:
   reloadDelay: 0
   recoil: 0
   icon: {fileID: 21300000, guid: a91a15d944ea895479edd768d0a92b6b, type: 3}
-  inventory: {fileID: 0}
+  inventory: {fileID: 1836463808731579088}
   inAttack: 0
   audioController: {fileID: 0}
   triggerRange: 15
@@ -4506,7 +4491,7 @@ MonoBehaviour:
   weaoponRange: 0
   gunEnd: {fileID: 0}
   gun: {fileID: 8698056783547040552, guid: add50088f5d5a42428df8319c9bedd75, type: 3}
-  gunMount: {fileID: 8185596437495219236, guid: 27863ca0e9a6be04bb1e94aaa6b7885d, type: 3}
+  gunMount: {fileID: 3332840703075747694}
   gunAmmo: 0
   magSize: 0
   nextFire: 0
@@ -4514,7 +4499,7 @@ MonoBehaviour:
   reloadDelay: 0
   recoil: 0
   icon: {fileID: 21300000, guid: 85d1e42aa73f14f488267073752fee9a, type: 3}
-  inventory: {fileID: 8711893335984980594, guid: 27863ca0e9a6be04bb1e94aaa6b7885d, type: 3}
+  inventory: {fileID: 1836463808731579088}
   inAttack: 0
   audioController: {fileID: 0}
   triggerRange: 15
@@ -4602,6 +4587,21 @@ MonoBehaviour:
   syncInterval: 0.1
   textBoxUI: {fileID: 2430014832794896321}
   chatBoxUI: {fileID: 7528315639880796466}
+--- !u!114 &1836463808731579088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353453614411015360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b93e33c92a293f46bdf7552d7a3fa9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 6171182748235161111}
+  currentAmmo: {fileID: 6171182746848071407}
+  totalAmmo: {fileID: 6171182748650481863}
 --- !u!1 &6532415815542692768
 GameObject:
   m_ObjectHideFlags: 0

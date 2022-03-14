@@ -976,7 +976,7 @@ GameObject:
   - component: {fileID: 7000608064453497078}
   m_Layer: 7
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2714,7 +2714,6 @@ GameObject:
   - component: {fileID: 5076903146301734991}
   - component: {fileID: 5076903146301734990}
   - component: {fileID: 5076903146301734989}
-  - component: {fileID: 5076903146301734988}
   m_Layer: 7
   m_Name: Inventory
   m_TagString: Untagged
@@ -2800,21 +2799,6 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 075e0dc6cae10e944aa607268e2083c7
   hasSpawned: 0
---- !u!114 &5076903146301734988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5076903146301735026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b93e33c92a293f46bdf7552d7a3fa9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 5076903146854693237}
-  currentAmmo: {fileID: 5076903145425299853}
-  totalAmmo: {fileID: 5076903146707603365}
 --- !u!1 &5076903146395166467
 GameObject:
   m_ObjectHideFlags: 0
@@ -3533,7 +3517,9 @@ GameObject:
   - component: {fileID: 8998092756763804912}
   - component: {fileID: 4034556708218422838}
   - component: {fileID: 730747787748256081}
+  - component: {fileID: 5509212279269278509}
   - component: {fileID: 7708747275089474707}
+  - component: {fileID: 2677676495556656572}
   - component: {fileID: 5475456745661169758}
   - component: {fileID: 6337985355647918650}
   - component: {fileID: 7676265450600325473}
@@ -3541,12 +3527,11 @@ GameObject:
   - component: {fileID: 3089190406687180689}
   - component: {fileID: 5901680355624381328}
   - component: {fileID: 5384902223931467612}
-  - component: {fileID: 2677676495556656572}
   - component: {fileID: 4540076729803111542}
+  - component: {fileID: 6564255415128420439}
   - component: {fileID: 4270414193407592412}
   - component: {fileID: 5076903145676599781}
   - component: {fileID: 6689139258151685476}
-  - component: {fileID: 6564255415128420439}
   - component: {fileID: 8640713244179795758}
   m_Layer: 7
   m_Name: Doc
@@ -3680,6 +3665,21 @@ MonoBehaviour:
   playerMovement: {fileID: 5475456745661169759}
   playerClass: {fileID: 6564255415128420439}
   rig: {fileID: 9004582126544947714}
+--- !u!114 &5509212279269278509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475456745661170594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b93e33c92a293f46bdf7552d7a3fa9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 5076903146854693237}
+  currentAmmo: {fileID: 5076903145425299853}
+  totalAmmo: {fileID: 5076903146707603365}
 --- !u!114 &7708747275089474707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3707,9 +3707,42 @@ MonoBehaviour:
   reloadDelay: 0
   recoil: 0
   icon: {fileID: 21300000, guid: a91a15d944ea895479edd768d0a92b6b, type: 3}
-  inventory: {fileID: 0}
+  inventory: {fileID: 5509212279269278509}
   inAttack: 0
   audioController: {fileID: 0}
+  triggerRange: 15
+  canInteract: 1
+  isReloading: 0
+--- !u!114 &2677676495556656572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475456745661170594}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05687435994ba5f4090bd6219059383d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  gunDamage: 0
+  fireRate: 0
+  weaoponRange: 0
+  gunEnd: {fileID: 0}
+  gun: {fileID: 6697091580636379084, guid: 0dc993c100a881e4188fd83cd71513e6, type: 3}
+  gunMount: {fileID: 4436074727136452620}
+  gunAmmo: 0
+  magSize: 0
+  nextFire: 0
+  nextReload: 0
+  reloadDelay: 0
+  recoil: 0
+  icon: {fileID: 21300000, guid: 3896c9d635f76ca469ff9b7ab5fc5b1a, type: 3}
+  inventory: {fileID: 5509212279269278509}
+  inAttack: 0
+  audioController: {fileID: 5901680355624381328}
   triggerRange: 15
   canInteract: 1
   isReloading: 0
@@ -3979,39 +4012,6 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   displayName: 
---- !u!114 &2677676495556656572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5475456745661170594}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05687435994ba5f4090bd6219059383d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  gunDamage: 0
-  fireRate: 0
-  weaoponRange: 0
-  gunEnd: {fileID: 0}
-  gun: {fileID: 6697091580636379084, guid: 0dc993c100a881e4188fd83cd71513e6, type: 3}
-  gunMount: {fileID: 4365043823033041865, guid: 19dcf8cdea4dfa74a88e6455e6150515, type: 3}
-  gunAmmo: 0
-  magSize: 0
-  nextFire: 0
-  nextReload: 0
-  reloadDelay: 0
-  recoil: 0
-  icon: {fileID: 21300000, guid: 3896c9d635f76ca469ff9b7ab5fc5b1a, type: 3}
-  inventory: {fileID: 5503771066609640957, guid: 19dcf8cdea4dfa74a88e6455e6150515, type: 3}
-  inAttack: 0
-  audioController: {fileID: 0}
-  triggerRange: 15
-  canInteract: 1
-  isReloading: 0
 --- !u!114 &4540076729803111542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4031,7 +4031,7 @@ MonoBehaviour:
   weaoponRange: 0
   gunEnd: {fileID: 0}
   gun: {fileID: 1603137358330784911, guid: 17dff674c315a4e4db8bb5a1f7463e6b, type: 3}
-  gunMount: {fileID: 4365043823033041865, guid: 19dcf8cdea4dfa74a88e6455e6150515, type: 3}
+  gunMount: {fileID: 4436074727136452620}
   gunAmmo: 0
   magSize: 0
   nextFire: 0
@@ -4039,12 +4039,29 @@ MonoBehaviour:
   reloadDelay: 0
   recoil: 0
   icon: {fileID: 21300000, guid: 9ec48cb13dafebc41bf72f7f9eacfb4e, type: 3}
-  inventory: {fileID: 5503771066609640957, guid: 19dcf8cdea4dfa74a88e6455e6150515, type: 3}
+  inventory: {fileID: 5509212279269278509}
   inAttack: 0
-  audioController: {fileID: 0}
+  audioController: {fileID: 5901680355624381328}
   triggerRange: 15
   canInteract: 1
   isReloading: 0
+--- !u!114 &6564255415128420439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475456745661170594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67fee351e08cd041920a6b19261c7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  hasMelee: 0
+  newWeapon: 0
+  selectedWeapon: 0
 --- !u!114 &4270414193407592412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4094,23 +4111,6 @@ MonoBehaviour:
   syncInterval: 0.1
   PlayerCanvasObject: {fileID: 5076903146395166467}
   MinimapCam: {fileID: 5076903145597825888}
---- !u!114 &6564255415128420439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5475456745661170594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f67fee351e08cd041920a6b19261c7d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  hasMelee: 0
-  newWeapon: 0
-  selectedWeapon: 0
 --- !u!114 &8640713244179795758
 MonoBehaviour:
   m_ObjectHideFlags: 0

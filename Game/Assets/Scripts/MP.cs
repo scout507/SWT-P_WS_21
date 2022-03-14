@@ -40,25 +40,30 @@ public class MP : ShootGun
             inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
             if (Input.GetButton("Fire1") && Time.time > nextFire)
             {
-                if (Input.GetButton("Fire1") && Time.time > nextFire)
+                nextFire = Time.time + fireRate;
+                if (gunAmmo > 0)
                 {
                     isReloading = false;
                     Shoot();
                 }
+                else
+                {
+                    Debug.Log("Out of Ammo!");
+                }
+            }
 
-                if (
-                    Input.GetKeyDown(KeyCode.R)
-                    && Time.time > nextReload
-                    && !Input.GetButton("Fire1")
-                )
-                {
-                    isReloading = true;
-                    nextReload = Time.time + reloadDelay;
-                }
-                if (isReloading)
-                {
-                    Reload();
-                }
+            if (
+                Input.GetKeyDown(KeyCode.R)
+                && Time.time > nextReload
+                && !Input.GetButton("Fire1")
+            )
+            {
+                isReloading = true;
+                nextReload = Time.time + reloadDelay;
+            }
+            if (isReloading)
+            {
+                Reload();
             }
         }
     }
@@ -97,7 +102,6 @@ public class MP : ShootGun
             }
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Monster"))
             {
-                Debug.Log("Shoot() Layer = Monster");
                 CmdShootMonster(hit.collider.transform.root.gameObject, gunDamage); // Calls TakeDamage on the monster hit
             }
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Device"))
