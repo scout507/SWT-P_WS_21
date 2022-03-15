@@ -14,23 +14,26 @@ public class Knut : Classes
     void Update()
     {
         if (!isLocalPlayer) return;
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon < 2)
+        if (GetComponent<PlayerMovement>().active)
         {
-            newWeapon = selectedWeapon + 1;
-            CmdSwitchWeapon(newWeapon);
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon > 1)
-        {
-            newWeapon = selectedWeapon - 1;
-            CmdSwitchWeapon(newWeapon);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            CmdSwitchWeapon(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            CmdSwitchWeapon(2);
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon < 2)
+            {
+                newWeapon = selectedWeapon + 1;
+                CmdSwitchWeapon(newWeapon);
+            }
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon > 1)
+            {
+                newWeapon = selectedWeapon - 1;
+                CmdSwitchWeapon(newWeapon);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                CmdSwitchWeapon(1);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                CmdSwitchWeapon(2);
+            }
         }
     }
 
