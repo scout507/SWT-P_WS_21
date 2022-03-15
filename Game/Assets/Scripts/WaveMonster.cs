@@ -122,11 +122,11 @@ public class WaveMonster : MonsterController
     {
         GameObject newTarget = null;
 
-        if(prioritiseFence && fenceScript)
+        if (prioritiseFence && fenceScript)
         {
             foreach (GameObject plank in fenceScript.planksInspector)
             {
-                if(plank.GetComponent<DestructableObject>().active) return plank;
+                if (plank.GetComponent<DestructableObject>().active) return plank;
             }
 
             prioritiseFence = false;
@@ -215,7 +215,7 @@ public class WaveMonster : MonsterController
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Fence")
+        if (other.tag == "Fence")
         {
             prioritiseFence = true;
             fenceScript = other.gameObject.GetComponent<FenceInteraction>();
@@ -224,7 +224,7 @@ public class WaveMonster : MonsterController
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.tag == "Fence")
+        if (other.tag == "Fence")
         {
             prioritiseFence = false;
         }

@@ -93,7 +93,7 @@ public class MonsterController : NetworkBehaviour
     /// <summary>NavMeshAgent for navigation</summary>
     NavMeshAgent navAgent;
 
-    
+
 
     /// <summary>
     ///  Makes a list containing all active players within aggro-radius.
@@ -194,7 +194,7 @@ public class MonsterController : NetworkBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.root.GetComponent<Melee>())
-            other.transform.root.GetComponent<Melee>().meleeHit(gameObject);    
+            other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
     }
 
 
