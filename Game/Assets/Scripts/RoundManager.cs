@@ -67,6 +67,9 @@ public class RoundManager : NetworkBehaviour
 
     /// <summary>True when the preperation phase is over</summary>//
     bool started;
+    
+    /// <summary>Offset for the spawn-positions of the players</summary>//
+    float spawnOffset; 
 
     /// <summary>
     /// Gets all dependencies
@@ -238,7 +241,8 @@ public class RoundManager : NetworkBehaviour
         joinedPlayers++;
         players.Add(player.GetComponent<NetworkIdentity>().netId);
         RpcJoinMessage(player.GetComponent<NetworkIdentity>().netId.ToString());
-        TargetRpcMoveToSpawn(player.GetComponent<NetworkIdentity>().connectionToClient, player);
+        TargetRpcMoveToSpawn(player.GetComponent<NetworkIdentity>().connectionToClient, player, spawnOffset);
+        spawnOffset += 1.5f;
     }
 
     /// <summary>
@@ -257,9 +261,9 @@ public class RoundManager : NetworkBehaviour
     /// <param name="target">ConnectionToClient of the player</param>
     /// <param name="player">The gameobject of the player that needs to be moved</param>
     [TargetRpc]
-    void TargetRpcMoveToSpawn(NetworkConnection target, GameObject player)
+    void TargetRpcMoveToSpawn(NetworkConnection target, GameObject player, float offset)
     {
-        player.transform.position = playerSpawn.transform.position;
+        player.transform.position = new Vector3(playerSpawn.transform.position.x + offset, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
     }
 
     /// <summary>
