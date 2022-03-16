@@ -47,6 +47,7 @@ public class RoamingMonster : MonsterController
     {
         nav = GetComponent<NavMeshAgent>();
         patrolTarget = transform.position;
+        zombieAudioController = this.GetComponent<ZombieAudioController>();
     }
 
     /// <summary>

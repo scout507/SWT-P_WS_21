@@ -25,6 +25,8 @@ public class WaveMonster : MonsterController
     FenceInteraction fenceScript;
     GameObject[] planks;
 
+
+
     /// <summary>
     /// Initial FindBuildings.
     /// </summary>
@@ -35,6 +37,7 @@ public class WaveMonster : MonsterController
 
         FindBuildings();
         nav = GetComponent<NavMeshAgent>();
+        zombieAudioController = this.GetComponent<ZombieAudioController>();
     }
 
     /// <summary>

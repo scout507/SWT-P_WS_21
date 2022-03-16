@@ -1161,6 +1161,7 @@ MonoBehaviour:
     m_Bits: 64
   animator: {fileID: 8903686764230930558}
   networkAnimator: {fileID: 8903686763907575695}
+  zombieAudioController: {fileID: 0}
 --- !u!114 &6571798480064415526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1222,7 +1223,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 10
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0

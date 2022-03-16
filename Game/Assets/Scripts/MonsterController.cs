@@ -93,6 +93,9 @@ public class MonsterController : NetworkBehaviour
     /// <summary>NavMeshAgent for navigation</summary>
     NavMeshAgent navAgent;
 
+    /// <summary>Audio Script that controlls Gun Sound</summary>
+    public ZombieAudioController zombieAudioController;
+
 
 
     /// <summary>
@@ -131,6 +134,7 @@ public class MonsterController : NetworkBehaviour
     {
         if (!dead)
         {
+            zombieAudioController.RPCPlayZombieDeathSound(Random.Range(3, 5));
             dead = true;
             navAgent.enabled = false;
             GetComponent<Collider>().enabled = false;
@@ -145,6 +149,7 @@ public class MonsterController : NetworkBehaviour
     {
         if (atkTimer >= atkCooldown)
         {
+            zombieAudioController.RPCPlayZombieAttackSound(Random.Range(0, 5));
             attack = true;
             atkTimer = 0;
             if (currentTarget.tag == "Player")
@@ -166,6 +171,7 @@ public class MonsterController : NetworkBehaviour
     {
         if (!dead)
         {
+            zombieAudioController.RPCPlayZombieDmgSound(Random.Range(0, 3));
             animator.SetTrigger("hasTakenDamage");
             networkAnimator.SetTrigger("hasTakenDamage");
 

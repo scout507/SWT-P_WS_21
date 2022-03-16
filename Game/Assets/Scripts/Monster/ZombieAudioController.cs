@@ -8,14 +8,14 @@ public class ZombieAudioController : NetworkBehaviour
 
     public AudioSource audioSource; // The Audio Source that is attached to the Monster
     float stepCoolDown; // The Time until the next Footstep Sound is Played
-    float idleCooldown;
+    float idleCooldown; // The Time until the next Idle Sound is Played
 
-    [SerializeField] AudioClip[] monsterFootsteps; // The Audio Clips, Gun Sounds and Footstep Sounds
-    [SerializeField] AudioClip[] monsterIdleSound;
-    [SerializeField] AudioClip[] monsterDmgTakenSound;
-    [SerializeField] AudioClip[] monsterAttackSound;
-    int monsterFootstep;
-    int monsterIdle;
+    [SerializeField] AudioClip[] monsterFootsteps; // The Audio Clips, Zombie Footstep Sounds
+    [SerializeField] AudioClip[] monsterIdleSound; // The Audio Clips, Zombie Footstep Sounds
+    [SerializeField] AudioClip[] monsterDmgTakenSound; // The Audio Clips, Zombie Injured and Death Sounds
+    [SerializeField] AudioClip[] monsterAttackSound; // The Audio Clips, Zombie Attack Sounds
+    int monsterFootstep; // The selected Zombie Footstep Sound
+    int monsterIdle; // The selected Zombie Idle Sound 
 
     private void Start()
     {
@@ -24,7 +24,6 @@ public class ZombieAudioController : NetworkBehaviour
         monsterIdle = Random.Range(0, 7);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!isServer) return;
@@ -46,16 +45,19 @@ public class ZombieAudioController : NetworkBehaviour
     }
 
     /// <summary>
-    /// The ClientRpC for the Footstep Sound, to play the sound on all Clients
+    /// The ClientRpC for the Zombie Footstep Sound
     /// </summary>
     [ClientRpc]
     void RPCPlayFootStepSound(float randomf)
     {
-        if(!audioSource) audioSource = this.GetComponent<AudioSource>();
+        if (!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.pitch = randomf;
         audioSource.PlayOneShot(monsterFootsteps[monsterFootstep], 0.4f);
     }
 
+    /// <summary>
+    /// The ClientRpC for the Zombie Idle Sound
+    /// </summary>
     [ClientRpc]
     void RPCPlayZombieIdleSound()
     {
@@ -63,41 +65,29 @@ public class ZombieAudioController : NetworkBehaviour
         audioSource.PlayOneShot(monsterIdleSound[monsterIdle], 0.8f);
     }
 
-    [Command]
-    public void CmdPlayZombieDmgSound()
-    {
-        int selected = Random.Range(0, 3);
-        RPCPlayZombieDmgSound(selected);
-    }
-
+    /// <summary>
+    /// The ClientRpC for the Zombie Sound, when the Zombie took Damage
+    /// </summary>
     [ClientRpc]
     public void RPCPlayZombieDmgSound(int selected)
     {
         if (!audioSource) audioSource = this.GetComponent<AudioSource>();
-        audioSource.PlayOneShot(monsterDmgTakenSound[selected], 0.8f);
+        audioSource.PlayOneShot(monsterDmgTakenSound[selected], 0.6f);
     }
 
-    [Command]
-    public void CmdPlayZombieDeathSound()
-    {
-        int selected = Random.Range(3, 5);
-        RPCPlayZombieDeathSound(selected);
-    }
-
+    /// <summary>
+    /// The ClientRpC for the Zombie Sound, when the Zombie Died
+    /// </summary>
     [ClientRpc]
-    void RPCPlayZombieDeathSound(int selected)
+    public void RPCPlayZombieDeathSound(int selected)
     {
         if (!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.PlayOneShot(monsterDmgTakenSound[selected], 0.8f);
     }
 
-    [Command]
-    public void CmdPlayZombieAttackSound()
-    {
-        int selected = Random.Range(0, 5);
-        RPCPlayZombieAttackSound(selected);
-    }
-
+    /// <summary>
+    /// The ClientRpC for the Zombie Sound, when the Zombie Attacked
+    /// </summary>
     [ClientRpc]
     public void RPCPlayZombieAttackSound(int selected)
     {
