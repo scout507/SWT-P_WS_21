@@ -51,6 +51,7 @@ public class AudioController : NetworkBehaviour
     [ClientRpc]
     void RPCPlayFootStepSound(float randomf)
     {
+        if(!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.pitch = randomf;
         audioSource.PlayOneShot(playerSounds[10], 0.4f);
     }
@@ -78,6 +79,7 @@ public class AudioController : NetworkBehaviour
     [ClientRpc]
     void RPCPlayGunSound(int weaponNumber, float randomf)
     {
+        if(!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.pitch = randomf;
         audioSource.PlayOneShot(gunSounds[weaponNumber], 0.5f);
     }
@@ -93,6 +95,7 @@ public class AudioController : NetworkBehaviour
     [ClientRpc]
     void RPCPlayDmgTakenSound(int random, float randomf)
     {
+        if(!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.volume = 0.6f;
         audioSource.pitch = randomf;
         audioSource.PlayOneShot(playerSounds[random], 0.7f);

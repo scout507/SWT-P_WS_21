@@ -27,8 +27,8 @@ public class ZombieAudioController : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isServer) return;
-        
+        if (!isServer) return;
+
         stepCoolDown -= Time.deltaTime;
         if (stepCoolDown < 0f)
         {
@@ -51,6 +51,7 @@ public class ZombieAudioController : NetworkBehaviour
     [ClientRpc]
     void RPCPlayFootStepSound(float randomf)
     {
+        if(!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.pitch = randomf;
         audioSource.PlayOneShot(monsterFootsteps[monsterFootstep], 0.4f);
     }
@@ -58,6 +59,7 @@ public class ZombieAudioController : NetworkBehaviour
     [ClientRpc]
     void RPCPlayZombieIdleSound()
     {
+        if (!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.PlayOneShot(monsterIdleSound[monsterIdle], 0.8f);
     }
 
@@ -71,7 +73,7 @@ public class ZombieAudioController : NetworkBehaviour
     [ClientRpc]
     public void RPCPlayZombieDmgSound(int selected)
     {
-        Debug.Log("Zombie dmg taken");
+        if (!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.PlayOneShot(monsterDmgTakenSound[selected], 0.8f);
     }
 
@@ -85,7 +87,7 @@ public class ZombieAudioController : NetworkBehaviour
     [ClientRpc]
     void RPCPlayZombieDeathSound(int selected)
     {
-        Debug.Log("Zombie death");
+        if (!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.PlayOneShot(monsterDmgTakenSound[selected], 0.8f);
     }
 
@@ -99,7 +101,7 @@ public class ZombieAudioController : NetworkBehaviour
     [ClientRpc]
     public void RPCPlayZombieAttackSound(int selected)
     {
-        Debug.Log("Zombie attack ");
+        if (!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.PlayOneShot(monsterAttackSound[selected], 0.8f);
     }
 }

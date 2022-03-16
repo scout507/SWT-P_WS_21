@@ -47,18 +47,21 @@ public class AmbienteAudio : NetworkBehaviour
     [ClientRpc]
     void RPCPlayMusicSounds()
     {
+        if(!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.PlayOneShot(ambienteSounds[0]);
     }
 
     [ClientRpc]
     void RPCPlayThunderSounds()
     {
+        if(!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.PlayOneShot(ambienteSounds[1]);
     }
 
     [ClientRpc]
     void RPCPlayWindSounds()
     {
+        if(!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.PlayOneShot(ambienteSounds[2]);
     }
 }
