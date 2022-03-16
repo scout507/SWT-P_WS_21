@@ -30,8 +30,8 @@ public class Health : NetworkBehaviour
 
     void Start()
     {
-        if(!isLocalPlayer) return;
-        
+        if (!isLocalPlayer) return;
+
         healthBar = GetComponentInChildren<HealthBar>();
         health = 100;
         audioController = this.GetComponent<AudioController>();
@@ -56,21 +56,21 @@ public class Health : NetworkBehaviour
             health -= amount;
             if (health > 0)
             {
-                audioController.CmdPlayDmgTakenSound(1, 10);
+                TargetRpcDamageSounds(connectionToClient, 1, 10);
             }
         }
         if (amount > 0) TargetDamage();
         else GotHealed();
         if (health <= 0 && !isDead)
         {
-            audioController.CmdPlayDmgTakenSound(10, 11);
+            TargetRpcDamageSounds(connectionToClient, 10, 11);
             isDead = true;
             TargetDeath();
         }
     }
 
     /// <summary>
-    /// The methode TargetDamage is called when a player is hit. It can then trigger an animation or something similar.
+    /// The method TargetDamage is called when a player is hit. It can then trigger an animation or something similar.
     /// </summary>
     [TargetRpc]
     public void TargetDamage()
@@ -79,16 +79,27 @@ public class Health : NetworkBehaviour
     }
 
     /// <summary>
-    /// The methode GotHealed is called when a player is healed. It can then trigger an animation or something similar.
+    /// The method GotHealed is called when a player is healed. It can then trigger an animation or something similar.
     /// </summary>
     [TargetRpc]
     public void GotHealed()
     {
         Debug.Log("Got healed!");
     }
+    /// <summary>
+    /// Triggers a damage sound on a player that got hit.
+    /// </summary>
+    /// <param name="target">Player that got hit</param>
+    /// <param name="min">Soundindex</param>
+    /// <param name="max">Soundindex</param>
+    [TargetRpc]
+    void TargetRpcDamageSounds(NetworkConnection target, int min, int max)
+    {
+        audioController.CmdPlayDmgTakenSound(min, max);
+    }
 
     /// <summary>
-    /// The methode TargetDeath is called when a player dies. It destroys the gameobject of the player and resets the main camera.
+    /// The method TargetDeath is called when a player dies. It destroys the gameobject of the player and resets the main camera.
     /// </summary>
     [TargetRpc]
     void TargetDeath()
