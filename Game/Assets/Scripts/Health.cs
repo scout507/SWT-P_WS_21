@@ -34,7 +34,6 @@ public class Health : NetworkBehaviour
         
         healthBar = GetComponentInChildren<HealthBar>();
         health = 100;
-        healthBar.SetMaxHealth(health);
         audioController = this.GetComponent<AudioController>();
     }
 

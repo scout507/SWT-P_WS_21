@@ -13,34 +13,23 @@ public class HealthBar : MonoBehaviour
     public Image HPColor;
     Health healthScript;
 
-    /// <summary>
-    /// sets the max health of the slider
-    /// </summary>
-    /// <param name="health"></param>
-    public void SetMaxHealth(int health)
+
+    private void Start()
     {
-        slider = GetComponent<Slider>();
-        slider.maxValue = health;
-        slider.value = health;
         healthScript = GetComponentInParent<Health>();
+        slider = GetComponent<Slider>();
+        slider.maxValue = healthScript.health;
+        slider.value = healthScript.health;
         ColorChanger();
     }
 
     void Update()
     {
-        if(healthScript.health <= 0) slider.value = healthScript.health;
+        if(healthScript.health >= 0) slider.value = healthScript.health;
         else slider.value = 0;
-    }
-
-    /// <summary>
-    /// sets the current value of the slider
-    /// </summary>
-    /// <param name="health"></param>
-    public void SetHealth(int health)
-    {
-        slider.value = health;
         ColorChanger();
     }
+
 
     void ColorChanger()
     {
