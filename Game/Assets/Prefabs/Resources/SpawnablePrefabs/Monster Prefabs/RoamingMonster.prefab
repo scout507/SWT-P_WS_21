@@ -1161,7 +1161,7 @@ MonoBehaviour:
     m_Bits: 64
   animator: {fileID: 8903686764230930558}
   networkAnimator: {fileID: 8903686763907575695}
-  detectionRate: 2
+  detectionRate: 1.5
   deAggroRate: 5
   detectedPlayer: 0
   detectionAngle: 100
