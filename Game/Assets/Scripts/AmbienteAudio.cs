@@ -20,6 +20,8 @@ public class AmbienteAudio : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!isServer) return;
+
         thundercd -= Time.deltaTime;
         if (thundercd < 0f)
         {

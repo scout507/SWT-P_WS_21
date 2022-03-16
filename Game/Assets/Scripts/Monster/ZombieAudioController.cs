@@ -27,6 +27,8 @@ public class ZombieAudioController : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!isServer) return;
+        
         stepCoolDown -= Time.deltaTime;
         if (stepCoolDown < 0f)
         {
