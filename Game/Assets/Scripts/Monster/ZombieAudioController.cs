@@ -16,6 +16,7 @@ public class ZombieAudioController : NetworkBehaviour
     [SerializeField] AudioClip[] monsterAttackSound; // The Audio Clips, Zombie Attack Sounds
     int monsterFootstep; // The selected Zombie Footstep Sound
     int monsterIdle; // The selected Zombie Idle Sound 
+    bool isAlive = true;
 
     private void Start()
     {
@@ -29,7 +30,7 @@ public class ZombieAudioController : NetworkBehaviour
         if (!isServer) return;
 
         stepCoolDown -= Time.deltaTime;
-        if (stepCoolDown < 0f)
+        if (stepCoolDown < 0f && isAlive)
         {
             float randomf = 1f + Random.Range(-0.2f, 0.2f);
             RPCPlayFootStepSound(randomf);
@@ -37,7 +38,7 @@ public class ZombieAudioController : NetworkBehaviour
         }
 
         idleCooldown -= Time.deltaTime;
-        if (idleCooldown < 0f)
+        if (idleCooldown < 0f && isAlive)
         {
             RPCPlayZombieIdleSound();
             idleCooldown = monsterIdleSound[monsterIdle].length * 10;
@@ -81,6 +82,7 @@ public class ZombieAudioController : NetworkBehaviour
     [ClientRpc]
     public void RPCPlayZombieDeathSound(int selected)
     {
+        isAlive = false;
         if (!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.PlayOneShot(monsterDmgTakenSound[selected], 0.8f);
     }
