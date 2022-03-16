@@ -273,7 +273,7 @@ public class RoundManager : NetworkBehaviour
     [ClientRpc]
     void RpcMessage(string message)
     {
-        NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
+        if(NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
     }
 
     /// <summary>
@@ -283,7 +283,7 @@ public class RoundManager : NetworkBehaviour
     [TargetRpc]
     void TargetRpcTellImpostor(NetworkConnection target)
     {
-        NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage("You are the impostor");
+        if(NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage("You are the impostor");
     }
 
     /// <summary>Sync the "hasWon" variable from the server to the client.</summary>
