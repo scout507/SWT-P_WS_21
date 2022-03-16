@@ -19782,7 +19782,7 @@ MonoBehaviour:
   syncInterval: 0.1
   waveZombie: {fileID: 8903686763907575664, guid: ffb8cfe21b159413a9809a9cbc45bc61, type: 3}
   roamingZombie: {fileID: 8903686763907575664, guid: 979bea07f521841f48a31b06fb3aafe0, type: 3}
-  timeBetweenWave: 30
+  timeBetweenWave: 100
   zombiesAmount: 10
   roamerAmount: 10
   waveSpawns:
