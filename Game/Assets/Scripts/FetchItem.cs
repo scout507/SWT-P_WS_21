@@ -139,7 +139,7 @@ public class FetchItem : NetworkBehaviour
     [TargetRpc]
     void TargetRpcSendMessage(NetworkConnection target, string message)
     {
-        NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
+        if(NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
     }
 
 }
