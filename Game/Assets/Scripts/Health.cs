@@ -17,7 +17,7 @@ public class Health : NetworkBehaviour
     [SyncVar]
     public int health = 100;
 
-    public HealthBar healthBar;
+    HealthBar healthBar;
 
     /// <summary>Holds the prefab for a dead player.</summary>
     public GameObject deadPlayerPrefab = null;
@@ -30,7 +30,9 @@ public class Health : NetworkBehaviour
 
     void Start()
     {
-
+        if(!isLocalPlayer) return;
+        
+        healthBar = GetComponentInChildren<HealthBar>();
         health = 100;
         healthBar.SetMaxHealth(health);
         audioController = this.GetComponent<AudioController>();
@@ -56,11 +58,6 @@ public class Health : NetworkBehaviour
             if (health > 0)
             {
                 audioController.CmdPlayDmgTakenSound(1, 10);
-                healthBar.SetHealth(health);
-            }
-            else
-            {
-                healthBar.SetHealth(0);
             }
         }
         if (amount > 0) TargetDamage();

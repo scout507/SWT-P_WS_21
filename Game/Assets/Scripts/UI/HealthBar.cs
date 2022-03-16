@@ -9,8 +9,9 @@ public class HealthBar : MonoBehaviour
     /// <summary>
     /// Slider to adjust the Size
     /// </summary>
-    public Slider slider;
+    Slider slider;
     public Image HPColor;
+    Health healthScript;
 
     /// <summary>
     /// sets the max health of the slider
@@ -18,9 +19,17 @@ public class HealthBar : MonoBehaviour
     /// <param name="health"></param>
     public void SetMaxHealth(int health)
     {
+        slider = GetComponent<Slider>();
         slider.maxValue = health;
         slider.value = health;
+        healthScript = GetComponentInParent<Health>();
         ColorChanger();
+    }
+
+    void Update()
+    {
+        if(healthScript.health <= 0) slider.value = healthScript.health;
+        else slider.value = 0;
     }
 
     /// <summary>
