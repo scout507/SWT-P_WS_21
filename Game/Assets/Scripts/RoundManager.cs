@@ -69,7 +69,7 @@ public class RoundManager : NetworkBehaviour
     bool started;
     
     /// <summary>Offset for the spawn-positions of the players</summary>//
-    float spawnOffset; 
+    float spawnOffset = 0; 
 
     /// <summary>
     /// Gets all dependencies
