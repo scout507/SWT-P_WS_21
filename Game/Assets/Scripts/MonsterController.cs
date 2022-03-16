@@ -132,6 +132,7 @@ public class MonsterController : NetworkBehaviour
         if (!dead)
         {
             dead = true;
+            navAgent.enabled = false;
             GetComponent<Collider>().enabled = false;
             Destroy(this.gameObject, 10f);
         }

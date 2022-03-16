@@ -54,7 +54,7 @@ public class RoamingMonster : MonsterController
     /// </summary>
     void Update()
     {
-        if (!isServer)
+        if (!isServer || dead)
             return;
 
         Vector3 velocity = nav.transform.InverseTransformDirection(nav.velocity);
