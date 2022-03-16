@@ -58,7 +58,7 @@ public class PlayerSpawnSystem : NetworkBehaviour
         GameObject playerInstance;
 
         if (playerPrefabs.Count == 0)
-            playerInstance = Instantiate(playerPrefabDefault);
+            playerInstance = Instantiate(playerPrefabDefault, new Vector3(spawn.x + offset, spawn.y, spawn.z), Quaternion.identity);
         else
         {
             int index = new System.Random().Next(playerPrefabs.Count);
