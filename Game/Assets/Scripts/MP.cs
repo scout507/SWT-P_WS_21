@@ -75,7 +75,7 @@ public class MP : ShootGun
     {
         if (Time.time > nextReload)
         {
-            audioController.CmdPlayGunSound(5);
+            audioController.CmdPlayGunSound(6);
             gunAmmo = magSize;
             isReloading = false;
         }

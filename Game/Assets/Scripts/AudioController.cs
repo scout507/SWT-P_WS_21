@@ -12,6 +12,7 @@ public class AudioController : NetworkBehaviour
     [SerializeField] AudioClip[] playerSounds; // The Audio Clips, Gun Sounds and Footstep Sounds
     float stepCoolDown; // The Time until the next Footstep Sound is Played
 
+
     private void Start()
     {
         audioSource = this.GetComponent<AudioSource>();
@@ -51,7 +52,7 @@ public class AudioController : NetworkBehaviour
     [ClientRpc]
     void RPCPlayFootStepSound(float randomf)
     {
-        if(!audioSource) audioSource = this.GetComponent<AudioSource>();
+        if (!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.pitch = randomf;
         audioSource.PlayOneShot(playerSounds[10], 0.4f);
     }
@@ -72,18 +73,23 @@ public class AudioController : NetworkBehaviour
 
 
     /// <summary>
-    /// The ClientRpC for the the Gun Sound, to play the sound on all Clients
+    /// The ClientRpC for the Gun Sound, to play the sound on all Clients
     /// with a fixed Volume level
     /// and a changing pitch value
     /// </summary>
     [ClientRpc]
     void RPCPlayGunSound(int weaponNumber, float randomf)
     {
-        if(!audioSource) audioSource = this.GetComponent<AudioSource>();
+        if (!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.pitch = randomf;
         audioSource.PlayOneShot(gunSounds[weaponNumber], 0.5f);
     }
 
+    /// <summary>
+    /// Method is called when the Player takes Damage
+    /// with a changeg pitch value
+    /// and different Damage Sound every time its called
+    /// </summary>
     [Command]
     public void CmdPlayDmgTakenSound(int min, int max)
     {
@@ -92,12 +98,17 @@ public class AudioController : NetworkBehaviour
         RPCPlayDmgTakenSound(random, randomf);
     }
 
+
+    /// <summary>
+    /// The ClientRpC for the Player Damage taken Sound
+    /// with a fixed Volume level
+    /// and a changing pitch value
+    /// </summary>
     [ClientRpc]
     void RPCPlayDmgTakenSound(int random, float randomf)
     {
-        if(!audioSource) audioSource = this.GetComponent<AudioSource>();
-        audioSource.volume = 0.6f;
+        if (!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.pitch = randomf;
-        audioSource.PlayOneShot(playerSounds[random], 0.7f);
+        audioSource.PlayOneShot(playerSounds[random], 0.6f);
     }
 }

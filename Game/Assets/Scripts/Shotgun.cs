@@ -78,12 +78,11 @@ public class Shotgun : ShootGun
         if (Time.time > nextReload && gunAmmo < magSize && isReloading)
         {
             nextReload = Time.time + reloadDelay;
-            audioController.CmdPlayGunSound(6);
             gunAmmo++;
         }
         if (gunAmmo == magSize)
         {
-            audioController.CmdPlayGunSound(6);
+            audioController.CmdPlayGunSound(7);
             isReloading = false;
         }
     }

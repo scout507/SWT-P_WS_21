@@ -4436,6 +4436,7 @@ MonoBehaviour:
   audioSource: {fileID: 7830575361609299709, guid: e6ff160d6ee7cd94596598b70d382f4f, type: 3}
   gunSounds:
   - {fileID: 8300000, guid: 99413626a2f9ae9479379f397715c2e4, type: 3}
+  - {fileID: 8300000, guid: ec7f93c3908381746aef86dc33c88a2e, type: 3}
   - {fileID: 8300000, guid: 3f52c1a1ac226784ab2c8e1c962df7b9, type: 3}
   - {fileID: 8300000, guid: 2804f4e92b202fc42b73e77377c98586, type: 3}
   - {fileID: 8300000, guid: a09d7e51f5e907a499a3a3c08845912f, type: 3}
