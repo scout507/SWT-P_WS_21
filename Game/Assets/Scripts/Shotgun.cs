@@ -107,7 +107,7 @@ public class Shotgun : ShootGun
             direction +=
                 Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.right)
                 * Camera.main.transform.forward;
-            if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
+            if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange))
             {
                 Debug.Log("In Range!");
                 Debug.DrawLine(rayOrigin, hit.point, Color.green, 0.5f);

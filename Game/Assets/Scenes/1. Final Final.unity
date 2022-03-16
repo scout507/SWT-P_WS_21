@@ -1472,7 +1472,7 @@ GameObject:
   - component: {fileID: 96712370}
   - component: {fileID: 96712369}
   - component: {fileID: 96712368}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Interaction
   m_TagString: Fence
   m_Icon: {fileID: 0}
@@ -4758,7 +4758,7 @@ GameObject:
   - component: {fileID: 236731026}
   - component: {fileID: 236731025}
   - component: {fileID: 236731024}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Interaction
   m_TagString: Fence
   m_Icon: {fileID: 0}
@@ -27517,7 +27517,7 @@ GameObject:
   - component: {fileID: 1834341457}
   - component: {fileID: 1834341456}
   - component: {fileID: 1834341455}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Interaction
   m_TagString: Fence
   m_Icon: {fileID: 0}

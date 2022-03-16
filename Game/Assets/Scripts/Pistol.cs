@@ -88,7 +88,7 @@ public class Pistol : ShootGun
         gunAmmo--;
         audioController.CmdPlayGunSound(0);
         TriggerAggro();
-        if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
+        if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange))
         {
             Debug.Log("In Range!");
             Debug.DrawLine(rayOrigin, hit.point, Color.green, 0.5f);
