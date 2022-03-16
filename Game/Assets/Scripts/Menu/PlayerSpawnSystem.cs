@@ -10,7 +10,7 @@ using System.Linq;
 public class PlayerSpawnSystem : NetworkBehaviour
 {
     /// <summary>Spawn point of the player prefab</summary>///
-    [SerializeField] Vector3 spawn = new Vector3(-22f,-27f,-0.74f);
+    [SerializeField] Vector3 spawn = new Vector3(0.8f, 6.46f,-13.87f);
     /// <summary>Offset for spawning the players</summary>///
     float offset = 0;
 
