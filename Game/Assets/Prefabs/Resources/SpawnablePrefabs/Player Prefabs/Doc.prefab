@@ -3258,7 +3258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aada89e0ae6fee84e86a6ce93dfe1e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 5076903146753084455}
   HPColor: {fileID: 5076903146429114936}
 --- !u!1 &5076903146765549987
 GameObject:
@@ -3612,7 +3611,7 @@ MonoBehaviour:
   cameraMountPoint: {fileID: 5475456744313192730}
   active: 1
   speedUpDown: 0.1
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 5475456745661169757}
 --- !u!114 &8998092756763804912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3628,7 +3627,6 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   health: 100
-  healthBar: {fileID: 5076903146753084453}
   deadPlayerPrefab: {fileID: 460552992717093625, guid: a23e5782667b9447bb3595bb5214491b, type: 3}
   spectatorPlayerPrefab: {fileID: 4639899495843315192, guid: 49a5a51195366c64a807c02c4307d16d, type: 3}
   isDead: 0

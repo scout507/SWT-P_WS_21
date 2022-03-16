@@ -157,7 +157,7 @@ public class PlayerMovement : NetworkBehaviour
     /// <summary>
     /// The UP and DOWN speed for climbing ladders.
     /// </summary>
-    public float speedUpDown = 0.1f;
+    public float speedUpDown = 10.0f;
 
     /// <summary>
     /// Transform-information of the player
@@ -471,8 +471,11 @@ public class PlayerMovement : NetworkBehaviour
                 }
             }
 
-            velocity.y -= gravity * Time.deltaTime;
-            controller.Move(velocity * Time.deltaTime);
+            if (!insideLadder)
+            {
+                velocity.y -= gravity * Time.deltaTime;
+                controller.Move(velocity * Time.deltaTime);
+            }
 
             if (move.magnitude > 0.1f)
                 SetCurrentTaunt(0);
@@ -493,12 +496,16 @@ public class PlayerMovement : NetworkBehaviour
 
             if (insideLadder == true && Input.GetKey("w"))
             {
-                playerTransform.transform.position += Vector3.up / speedUpDown;
+                SetIsGrounded(true);
+                playerTransform.transform.position += Vector3.up * speedUpDown;
+                Debug.Log("LAdderUp");
             }
 
             if (insideLadder == true && Input.GetKey("s"))
             {
-                playerTransform.transform.position -= Vector3.up / speedUpDown;
+                SetIsGrounded(true);
+                playerTransform.transform.position -= Vector3.up * speedUpDown;
+                Debug.Log("LAdderDown");
             }
         }
     }
@@ -507,8 +514,7 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (col.gameObject.tag == "Ladder")
         {
-            //controller.enabled = false;
-            insideLadder = !insideLadder;
+            insideLadder = true;
         }
     }
 
@@ -516,8 +522,7 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (col.gameObject.tag == "Ladder")
         {
-            //controller.enabled = false;
-            insideLadder = !insideLadder;
+            insideLadder = false;
         }
     }
 }
