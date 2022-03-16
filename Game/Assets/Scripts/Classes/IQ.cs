@@ -14,27 +14,30 @@ public class IQ : Classes
     void Update()
     {
         if (!isLocalPlayer) return;
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon < 3)
+        if (GetComponent<PlayerMovement>().active)
         {
-            newWeapon = selectedWeapon + 1;
-            CmdSwitchWeapon(newWeapon);
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon > 1)
-        {
-            newWeapon = selectedWeapon - 1;
-            CmdSwitchWeapon(newWeapon);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            CmdSwitchWeapon(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            CmdSwitchWeapon(2);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            CmdSwitchWeapon(3);
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon < 3)
+            {
+                newWeapon = selectedWeapon + 1;
+                CmdSwitchWeapon(newWeapon);
+            }
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon > 1)
+            {
+                newWeapon = selectedWeapon - 1;
+                CmdSwitchWeapon(newWeapon);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                CmdSwitchWeapon(1);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                CmdSwitchWeapon(2);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                CmdSwitchWeapon(3);
+            }
         }
     }
     public override int GetSelectedWeapon()

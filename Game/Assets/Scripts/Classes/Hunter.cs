@@ -19,35 +19,38 @@ public class Hunter : Classes
     void Update()
     {
         if (!isLocalPlayer) return;
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon < 2)
+        if (GetComponent<PlayerMovement>().active)
         {
-            newWeapon = selectedWeapon + 1;
-            CmdSwitchWeapon(newWeapon);
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon > 1)
-        {
-            newWeapon = selectedWeapon - 1;
-            CmdSwitchWeapon(newWeapon);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            CmdSwitchWeapon(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            CmdSwitchWeapon(2);
-        }
-        if (Input.GetButtonDown("Fire2") && selectedWeapon == 1)
-        {
-            if (isInZoom)
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon < 2)
             {
-                Camera.main.fieldOfView = 60f;
-                isInZoom = false;
+                newWeapon = selectedWeapon + 1;
+                CmdSwitchWeapon(newWeapon);
             }
-            else
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon > 1)
             {
-                Camera.main.fieldOfView = 20f;
-                isInZoom = true;
+                newWeapon = selectedWeapon - 1;
+                CmdSwitchWeapon(newWeapon);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                CmdSwitchWeapon(1);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                CmdSwitchWeapon(2);
+            }
+            if (Input.GetButtonDown("Fire2") && selectedWeapon == 1)
+            {
+                if (isInZoom)
+                {
+                    Camera.main.fieldOfView = 60f;
+                    isInZoom = false;
+                }
+                else
+                {
+                    Camera.main.fieldOfView = 20f;
+                    isInZoom = true;
+                }
             }
         }
     }
