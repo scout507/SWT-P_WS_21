@@ -72,6 +72,7 @@ public class PlayerTasksUI : NetworkBehaviour
             TextMeshProUGUI textElement = panel.AddComponent<TextMeshProUGUI>();
             panel.transform.SetParent(taskUI.transform);
             textElement.enableAutoSizing = true;
+            textElement.fontSizeMin = 12;
             textElement.color = Color.black;
             taskListUI.Add(panel);
         }
@@ -89,6 +90,7 @@ public class PlayerTasksUI : NetworkBehaviour
         {
             TextMeshProUGUI taskUI = taskListUI[i].GetComponent<TextMeshProUGUI>();
             taskUI.rectTransform.rotation = Quaternion.Euler(0, 0, 0);
+            taskUI.rectTransform.localScale = new Vector3(1, 1, 1);
             taskUI.text = (i + 1).ToString() + ". " + taskList[i][1] + " - " + taskList[i][2];
 
             if (taskList[i][3] == "True")

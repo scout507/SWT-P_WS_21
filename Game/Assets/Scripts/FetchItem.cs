@@ -49,6 +49,7 @@ public class FetchItem : NetworkBehaviour
         {
             players.Add(other.GetComponent<NetworkIdentity>().netId);
             RpcSyncList(players);
+            TargetRpcSendMessage(other.gameObject.GetComponent<NetworkIdentity>().connectionToClient, "Press 'E' to pick up the barrel");
         }
     }
 
@@ -128,6 +129,17 @@ public class FetchItem : NetworkBehaviour
     {
         gameObject.transform.parent = null;
         GetComponent<Rigidbody>().isKinematic = false;
+    }
+
+    /// <summary>
+    /// Sends a message to the choosen player.
+    /// </summary>
+    /// <param name="target">The players NetworkConnecton</param>
+    /// <param name="message">The message for the player to recieve</param>
+    [TargetRpc]
+    void TargetRpcSendMessage(NetworkConnection target, string message)
+    {
+        NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
     }
 
 }

@@ -40,8 +40,6 @@ public class TaskTimer : Task
                 && !started
             ) //Checks if the player is in range
             {
-                Debug.Log("Press E");
-
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     CmdStartCountdown();
@@ -63,7 +61,7 @@ public class TaskTimer : Task
                 if (fails >= 3)
                 {
                     started = false;
-                    taskDescription = "Go to the PLACEHOLDER and start the defence";
+                    taskDescription = "Task failed. Go back to the task to try again.";
                     fails = 0;
                     UndoTask();
                     dObjScript.attackAble = false;
@@ -113,6 +111,19 @@ public class TaskTimer : Task
     }
 
     /// <summary>
+    /// Adds players to the players List once they are in the interactive radius.
+    /// </summary>
+    /// <param name="other">Collider of the entering GameObject</param>
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player" && isServer)
+        {
+            TargetRpcSendMessage(other.gameObject.GetComponent<NetworkIdentity>().connectionToClient, "Press 'E' to start the Defence-task");
+            players.Add(other.GetComponent<NetworkIdentity>().netId);
+        }
+    }
+
+    /// <summary>
     /// Used to start the Countdown by the players.
     /// </summary>
     [Command(requiresAuthority = false)]
@@ -120,5 +131,16 @@ public class TaskTimer : Task
     {
         dObjScript.attackAble = true;
         started = true;
+    }
+
+    /// <summary>
+    /// Sends a message to the choosen player.
+    /// </summary>
+    /// <param name="target">The players NetworkConnecton</param>
+    /// <param name="message">The message for the player to recieve</param>
+    [TargetRpc]
+    void TargetRpcSendMessage(NetworkConnection target, string message)
+    {
+        NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
     }
 }

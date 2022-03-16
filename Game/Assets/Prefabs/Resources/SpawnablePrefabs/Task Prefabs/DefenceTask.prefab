@@ -146,9 +146,10 @@ MonoBehaviour:
   active: 1
   done: 0
   spawn: {x: 40.6, y: 7.1, z: 4.37}
-  id: 1
+  id: 0
   taskName: Defence
-  taskDescription: PLACEHOLDER
+  taskDescription: Go to the box in the building north-east from the main building
+    and start the defence
   progress: 0
   dObjScript: {fileID: 0}
   zombie: {fileID: 8903686763907575664, guid: ffb8cfe21b159413a9809a9cbc45bc61, type: 3}
@@ -157,7 +158,6 @@ MonoBehaviour:
   - {fileID: 4871083004048331330, guid: 6866def01b013e949bc629d8496802cc, type: 3}
   - {fileID: 5409075508430416131, guid: a0cd2a547edfedb449a8f2af00d9b246, type: 3}
   - {fileID: 2532718635195742553, guid: d66e097c7738af24fbd31631b4f2a0cd, type: 3}
-  progressRate: 1
 --- !u!114 &644731181183206983
 MonoBehaviour:
   m_ObjectHideFlags: 0

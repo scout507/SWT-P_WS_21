@@ -35,7 +35,6 @@ public class KeyTask : Task
         {
             if (!done && keyHere && NetworkClient.localPlayer.gameObject.GetComponent<NetworkIdentity>().netId == playerWithKey.GetComponent<NetworkIdentity>().netId)
             {
-                Debug.Log("Press 'E");
                 if (Input.GetKeyDown(KeyCode.E)) CmdFinish();
             }
         }
@@ -101,6 +100,7 @@ public class KeyTask : Task
         if (isServer && other.tag == "Player" && playerWithKey && other.GetComponent<NetworkIdentity>().netId == playerWithKey.GetComponent<NetworkIdentity>().netId)
         {
             keyHere = true;
+            TargetRpcSendMessage(other.gameObject.GetComponent<NetworkIdentity>().connectionToClient, "Press 'E' to finish the task");
         }
     }
 
@@ -124,7 +124,17 @@ public class KeyTask : Task
     {
         FinishTask();
     }
-
+    
+    /// <summary>
+    /// Sends a message to the choosen player.
+    /// </summary>
+    /// <param name="target">The players NetworkConnecton</param>
+    /// <param name="message">The message for the player to recieve</param>
+    [TargetRpc]
+    void TargetRpcSendMessage(NetworkConnection target, string message)
+    {
+        NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
+    }
 
 
 }

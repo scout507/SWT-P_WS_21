@@ -49,7 +49,7 @@ public class FetchTask : Task
         taskDescription =
             "Find the remaining "
             + (maxItems - currentItems).ToString()
-            + " barrels and bring them to PLACEHOLDER";
+            + " barrels and bring them to the main building";
     }
 
     /// <summary>
