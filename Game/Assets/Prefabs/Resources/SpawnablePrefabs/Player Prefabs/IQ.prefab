@@ -1828,7 +1828,7 @@ MonoBehaviour:
   syncInterval: 0.1
   gunDamage: 10
   fireRate: 0
-  weaoponRange: 0
+  weaponRange: 0
   gunEnd: {fileID: 0}
   gun: {fileID: 4750852372870405371, guid: 15b8ccd08f1aa424e8a5f27c13c74002, type: 3}
   gunMount: {fileID: 4903176535373345665}
@@ -1958,7 +1958,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 10
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -2128,7 +2128,7 @@ MonoBehaviour:
   syncInterval: 0.1
   gunDamage: 0
   fireRate: 0
-  weaoponRange: 0
+  weaponRange: 0
   gunEnd: {fileID: 0}
   gun: {fileID: 6697091580636379084, guid: 0dc993c100a881e4188fd83cd71513e6, type: 3}
   gunMount: {fileID: 4903176535373345665}
