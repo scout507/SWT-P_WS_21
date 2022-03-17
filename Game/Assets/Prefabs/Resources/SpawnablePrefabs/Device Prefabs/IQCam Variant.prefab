@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1103911356297832560, guid: 0626f0694f83d654a9022d15c7f94db1, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719914172780959922, guid: 0626f0694f83d654a9022d15c7f94db1, type: 3}
+      propertyPath: m_AssetId
+      value: edf24628d628e4546a879191f99d4198
+      objectReference: {fileID: 0}
     - target: {fileID: 3717437773836652138, guid: 0626f0694f83d654a9022d15c7f94db1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7041521826398166441, guid: 0626f0694f83d654a9022d15c7f94db1, type: 3}
       propertyPath: m_Name
-      value: IQCam
+      value: IQCam Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0626f0694f83d654a9022d15c7f94db1, type: 3}

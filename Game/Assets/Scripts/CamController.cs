@@ -63,7 +63,8 @@ public class CamController : Device
     /// <param name="other"></param>
     private void OnCollisionEnter(Collision other)
     {
-        if (other.collider.transform.gameObject.layer == 0 || other.collider.transform.gameObject.layer == 7 || other.collider.transform.gameObject.layer == 8 || other.collider.transform.gameObject.layer == 9)
+        Debug.Log(other.collider.gameObject);
+        if (other.gameObject.tag == "Player" || other.collider.transform.gameObject.layer == 7 || other.collider.transform.gameObject.layer == 8 || other.collider.transform.gameObject.layer == 9)
         {
             return;
         }
