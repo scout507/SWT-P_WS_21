@@ -30,7 +30,7 @@ public abstract class Classes : NetworkBehaviour
     /// </summary>
     private void Start()
     {
-        if(!isLocalPlayer) return;
+        if (!isLocalPlayer) return;
         selectedWeapon = 1;
         SwitchWeapon(selectedWeapon, selectedWeapon);
         SetHasMelee();
