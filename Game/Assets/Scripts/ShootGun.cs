@@ -24,7 +24,7 @@ public abstract class ShootGun : NetworkBehaviour
     /// <summary>
     /// Range for gun
     /// </summary>
-    public float weaoponRange;
+    public float weaponRange;
 
     /// <summary>
     /// Gun end for animations

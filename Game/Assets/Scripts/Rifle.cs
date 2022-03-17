@@ -15,10 +15,11 @@ public class Rifle : ShootGun
         this.gunDamage = 50;
         this.fireRate = 1f;
         this.reloadDelay = 0.7f;
-        this.weaoponRange = 200f;
+        this.weaponRange = 200f;
         this.gunAmmo = 4;
         this.recoil = 20f;
         this.magSize = 4;
+        this.triggerRange = 20f;
         this.isReloading = false;
         audioController = this.GetComponent<AudioController>();
     }
@@ -91,7 +92,7 @@ public class Rifle : ShootGun
         gunAmmo--;
         audioController.CmdPlayGunSound(4);
         TriggerAggro();
-        if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange))
+        if (Physics.Raycast(rayOrigin, direction, out hit, weaponRange))
         {
             Debug.Log("In Range!");
             Debug.DrawLine(rayOrigin, hit.point, Color.green, 0.5f);
@@ -115,7 +116,7 @@ public class Rifle : ShootGun
         else
         {
             Debug.Log("Out of Range!");
-            Debug.DrawRay(rayOrigin, direction * weaoponRange, Color.red, 0.5f);
+            Debug.DrawRay(rayOrigin, direction * weaponRange, Color.red, 0.5f);
         }
         Recoil();
     }

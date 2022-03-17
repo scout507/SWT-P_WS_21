@@ -1141,7 +1141,7 @@ MonoBehaviour:
   syncInterval: 0.1
   aggroRadius: 10
   damage: 1
-  hp: 100
+  hp: 50
   moveSpeed: 5
   awake: 0
   atkRange: 2

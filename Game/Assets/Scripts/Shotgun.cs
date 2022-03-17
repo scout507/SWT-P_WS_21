@@ -20,11 +20,12 @@ public class Shotgun : ShootGun
         this.gunDamage = 5;
         this.fireRate = 0.25f;
         this.reloadDelay = 0.25f;
-        this.weaoponRange = 50f;
+        this.weaponRange = 50f;
         this.gunAmmo = 8;
         this.recoil = 10f;
         this.magSize = 8;
         this.isReloading = false;
+        this.triggerRange = 25f;
         audioController = this.GetComponent<AudioController>();
     }
 
@@ -106,7 +107,7 @@ public class Shotgun : ShootGun
             direction +=
                 Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.right)
                 * Camera.main.transform.forward;
-            if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange))
+            if (Physics.Raycast(rayOrigin, direction, out hit, weaponRange))
             {
                 Debug.Log("In Range!");
                 Debug.DrawLine(rayOrigin, hit.point, Color.green, 0.5f);
@@ -129,7 +130,7 @@ public class Shotgun : ShootGun
             }
             else
             {
-                Debug.DrawRay(rayOrigin, direction * weaoponRange, Color.red, 0.5f);
+                Debug.DrawRay(rayOrigin, direction * weaponRange, Color.red, 0.5f);
                 Debug.Log("Out of Range!");
             }
         }
