@@ -115,6 +115,7 @@ public class Health : NetworkBehaviour
     [Command]
     void CmdDestroyPlayer()
     {
+        gameObject.tag = "Untagged";
         GameObject deadPlayer = Instantiate(deadPlayerPrefab, transform.position, transform.rotation);
         GameObject spectator = Instantiate(spectatorPlayerPrefab, transform.position + Vector3.up * 5, transform.rotation);
 

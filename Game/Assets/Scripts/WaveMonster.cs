@@ -149,6 +149,7 @@ public class WaveMonster : MonsterController
                     distance <= shortestDistance
                     && nav.CalculatePath(target.transform.position, navMeshPath)
                     && navMeshPath.status == NavMeshPathStatus.PathComplete
+                    && target.tag != "Untagged"
                 )
                 {
                     shortestDistance = distance;
