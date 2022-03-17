@@ -32,7 +32,7 @@ public class Turret : NetworkBehaviour
     /// <summary>
     /// Rotation speed of the turret
     /// </summary>
-    private float rotateSpeed = 0.5f;
+    private float rotateSpeed = 1.5f;
 
     /// <summary>
     /// Damage amount of the Turret
@@ -123,7 +123,6 @@ public class Turret : NetworkBehaviour
         rpcturretFireAnimationn();
         if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
         {
-            Debug.DrawRay(rayOrigin, direction * weaoponRange, Color.green, 10);
             if (hit.collider.gameObject.tag == "Player")
             {
                 RpcHitPlayer();
@@ -142,7 +141,6 @@ public class Turret : NetworkBehaviour
         }
         else
         {
-            Debug.DrawRay(rayOrigin, direction * weaoponRange, Color.red, 10);
             RpcOutOfRange(hit.point);
         }
 
@@ -155,7 +153,7 @@ public class Turret : NetworkBehaviour
     [ClientRpc]
     void RpcHitPlayer()
     {
-        Debug.Log("Turret: Hit Player!");
+
     }
 
     /// <summary>
@@ -164,7 +162,7 @@ public class Turret : NetworkBehaviour
     [ClientRpc]
     void RpcHitMonster()
     {
-        Debug.Log("Turret: Hit Monster!");
+
     }
 
     /// <summary>
@@ -174,7 +172,7 @@ public class Turret : NetworkBehaviour
     [ClientRpc]
     void RpcOutOfRange(Vector3 hit)
     {
-        Debug.Log("Turret: Out of Range!");
+
     }
 
     /// <summary>
@@ -184,7 +182,7 @@ public class Turret : NetworkBehaviour
     [ClientRpc]
     void RpcHitWall(Vector3 hit)
     {
-        Debug.Log("Turret: Hit Wall!");
+
     }
 
     /// <summary>
@@ -248,10 +246,6 @@ public class Turret : NetworkBehaviour
             controlTurretPlayer.enabled = true;
             controlTurretPlayer.turret = gameObject.GetComponent<Turret>();
             controlTurretPlayer.playerinUseID = playerNIDinUse.netId;
-        }
-        else
-        {
-            Debug.Log("Turret in Use");
         }
     }
 

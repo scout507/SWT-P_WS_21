@@ -80,10 +80,13 @@ public class Shotgun : ShootGun
         {
             nextReload = Time.time + reloadDelay;
             gunAmmo++;
+            if (gunAmmo % 4 == 0)
+            {
+                audioController.CmdPlayGunSound(7);
+            }
         }
         if (gunAmmo == magSize)
         {
-            audioController.CmdPlayGunSound(7);
             isReloading = false;
         }
     }
