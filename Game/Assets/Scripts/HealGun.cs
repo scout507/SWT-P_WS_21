@@ -18,10 +18,13 @@ public class HealGun : ShootGun
         this.gunDamage = -15;
         this.fireRate = 0.25f;
         this.reloadDelay = 0.5f;
-        this.weaoponRange = 5f;
+        this.weaponRange = 5f;
         this.gunAmmo = 1;
         this.isReloading = false;
         this.recoil = 0f;
+        this.magSize = 1;
+        this.triggerRange = 0f;
+        audioController = this.GetComponent<AudioController>();
     }
 
     /// <summary>
@@ -98,7 +101,7 @@ public class HealGun : ShootGun
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
         gunAmmo--;
-        if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
+        if (Physics.Raycast(rayOrigin, direction, out hit, weaponRange, ~0))
         {
             Debug.Log("In Range!");
             Debug.DrawLine(rayOrigin, hit.point, Color.green, 0.5f);
@@ -114,7 +117,7 @@ public class HealGun : ShootGun
         else
         {
             Debug.Log("Out of Range!");
-            Debug.DrawRay(rayOrigin, direction * weaoponRange, Color.red, 0.5f);
+            Debug.DrawRay(rayOrigin, direction * weaponRange, Color.red, 0.5f);
         }
         Recoil();
     }
