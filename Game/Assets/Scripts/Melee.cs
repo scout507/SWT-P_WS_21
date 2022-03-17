@@ -90,6 +90,7 @@ public class Melee : ShootGun
     /// <param name="other">The collider of the gameobject which hit this gameobject.</param>
     private void OnTriggerEnter(Collider other)
     {
+        if(!isLocalPlayer) return;
         if (other.transform.root.gameObject.CompareTag("Player"))
         {
             other.transform.root.GetComponent<Melee>().meleeHit(gameObject);

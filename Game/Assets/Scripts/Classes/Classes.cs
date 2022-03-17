@@ -12,7 +12,7 @@ public abstract class Classes : NetworkBehaviour
     /// <summary>
     /// hasMelee is important for the animator
     /// </summary>
-    public bool hasMelee;
+    [SyncVar] public bool hasMelee;
 
     /// <summary>
     /// newWeapon saves the new weapon when the weapon is changed
@@ -30,6 +30,7 @@ public abstract class Classes : NetworkBehaviour
     /// </summary>
     private void Start()
     {
+        if(!isLocalPlayer) return;
         selectedWeapon = 1;
         SwitchWeapon(selectedWeapon, selectedWeapon);
         SetHasMelee();
