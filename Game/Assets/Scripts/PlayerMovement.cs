@@ -272,7 +272,7 @@ public class PlayerMovement : NetworkBehaviour
         gameObject.layer = 0;
         foreach (Transform child in gameObject.transform)
         {
-            child.gameObject.layer = 0;
+            setLayerDefault(child);
         }
         Cursor.lockState = CursorLockMode.Locked;
         cam.SetActive(true);
@@ -320,7 +320,6 @@ public class PlayerMovement : NetworkBehaviour
     void Crouch()
     {
         controller.center = new Vector3(0, -0.1f, 0);
-        controller.radius = 0.4f;
         controller.height = 1.35f;
         // move ybot y to -0.824f
         cameraMountPoint.transform.localPosition = new Vector3(0.085f, 0.26f, 0.06f);
@@ -334,7 +333,6 @@ public class PlayerMovement : NetworkBehaviour
     void Uncrouch()
     {
         controller.center = new Vector3(0, 0, 0);
-        controller.radius = 0.35f;
         controller.height = 1.65f;
         // move ybot y to -0.92f
         cameraMountPoint.transform.localPosition = new Vector3(0f, 0.756f, 0.05f);
@@ -523,6 +521,15 @@ public class PlayerMovement : NetworkBehaviour
         if (col.gameObject.tag == "Ladder")
         {
             insideLadder = false;
+        }
+    }
+
+    private void setLayerDefault(Transform gameObjectChild)
+    {
+        gameObjectChild.gameObject.layer = 0;
+        foreach (Transform child in gameObjectChild)
+        {
+            setLayerDefault(child);
         }
     }
 }
