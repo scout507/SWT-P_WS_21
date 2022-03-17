@@ -12,7 +12,7 @@ public abstract class Classes : NetworkBehaviour
     /// <summary>
     /// hasMelee is important for the animator
     /// </summary>
-    public bool hasMelee;
+    [SyncVar] public bool hasMelee;
 
     /// <summary>
     /// newWeapon saves the new weapon when the weapon is changed
@@ -23,13 +23,18 @@ public abstract class Classes : NetworkBehaviour
     /// selectedWeapon saves the selected weapon, if it is changed the function SwitchWeapon is called
     /// </summary>
     [SyncVar(hook = nameof(SwitchWeapon))]
-    public int selectedWeapon = 0;
+    public int selectedWeapon = 1;
 
     /// <summary>
     /// When a player prefab is spawns, this selects the first weapon.
     /// </summary>
     private void Start()
     {
+        if (!isLocalPlayer)
+        {
+            SwitchWeapon(selectedWeapon, selectedWeapon);
+            return;
+        }
         selectedWeapon = 1;
         SwitchWeapon(selectedWeapon, selectedWeapon);
         SetHasMelee();
@@ -66,4 +71,14 @@ public abstract class Classes : NetworkBehaviour
     /// SetHasMelee sets hasMelee in correct class
     /// </summary>
     public abstract void SetHasMelee();
+
+    /// <summary>
+    /// This is called when a melee weapon hits the monster.
+    /// </summary>
+    /// <param name="other">The collider of the gameobject which hit this gameobject.</param>
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.root.GetComponent<Melee>())
+            other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
+    }
 }
