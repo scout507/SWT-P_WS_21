@@ -69,6 +69,9 @@ $(function() {
   <div class="headertitle"><div class="title">Task Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Base class for the ingame tasks. Every task must inherit from this class. Handles basic information about the task, which is used by the task manager.  
+ <a href="class_task.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Task:</div>
 <div class="dyncontent">
@@ -76,7 +79,8 @@ Inheritance diagram for Task:</div>
   <img src="class_task.png" usemap="#Task_map" alt=""/>
   <map id="Task_map" name="Task_map">
 <area href="class_fetch_task.html" title="Class for the &#39;FetchTask&#39;-task. Inherits from Task." alt="FetchTask" shape="rect" coords="0,112,116,136"/>
-<area href="class_task_timer.html" alt="TaskTimer" shape="rect" coords="126,112,242,136"/>
+<area href="class_key_task.html" title="This class implements the &#39;KeyTask&#39;. Inherits from Task." alt="KeyTask" shape="rect" coords="126,112,242,136"/>
+<area href="class_task_timer.html" title="This class implements the Defence/Timer task. Inherits from Task." alt="TaskTimer" shape="rect" coords="252,112,368,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -107,7 +111,7 @@ Vector3&#160;</td><td class="memItemRight" valign="bottom"><b>spawn</b></td></tr
 <tr class="separator:ae635f72017a9459b60f40fc5bee5339d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13d308203949f40afa931c6bb9ad7fe9"><td class="memItemLeft" align="right" valign="top"><a id="a13d308203949f40afa931c6bb9ad7fe9" name="a13d308203949f40afa931c6bb9ad7fe9"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
-<tr class="memdesc:a13d308203949f40afa931c6bb9ad7fe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id of the task, assinged by the <a class="el" href="class_task_manager.html">TaskManager</a>. Can be used to identify the <a class="el" href="class_task.html">Task</a>.<br /></td></tr>
+<tr class="memdesc:a13d308203949f40afa931c6bb9ad7fe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id of the task, assinged by the <a class="el" href="class_task_manager.html" title="Reponsible for handling the tasks in an active round. Chooses and spawns the tasks and keeps track of...">TaskManager</a>. Can be used to identify the <a class="el" href="class_task.html" title="Base class for the ingame tasks. Every task must inherit from this class. Handles basic information a...">Task</a>.<br /></td></tr>
 <tr class="separator:a13d308203949f40afa931c6bb9ad7fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15816482f88ca69dfbe9a7498ecf262b"><td class="memItemLeft" align="right" valign="top"><a id="a15816482f88ca69dfbe9a7498ecf262b" name="a15816482f88ca69dfbe9a7498ecf262b"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>taskName</b></td></tr>
@@ -125,8 +129,14 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>progress</b></td></t
 readonly SyncList&lt; uint &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>players</b> = new SyncList&lt;uint&gt;()</td></tr>
 <tr class="memdesc:a8d05caff67206a3f62b157058cb97417"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of all Players within the interactable radius<br /></td></tr>
 <tr class="separator:a8d05caff67206a3f62b157058cb97417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32271edae61ca893c9873286eff39f79"><td class="memItemLeft" align="right" valign="top"><a id="a32271edae61ca893c9873286eff39f79" name="a32271edae61ca893c9873286eff39f79"></a>
+<a class="el" href="class_destructable_object.html">DestructableObject</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dObjScript</b></td></tr>
+<tr class="memdesc:a32271edae61ca893c9873286eff39f79"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_destructable_object.html" title="This class is used to make non player objects attackable for the zombies. If you want to use this,...">DestructableObject</a> script to track the health of the task and make it attackable.<br /></td></tr>
+<tr class="separator:a32271edae61ca893c9873286eff39f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Base class for the ingame tasks. Every task must inherit from this class. Handles basic information about the task, which is used by the task manager. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>Task.cs</li>
 </ul>
 </div><!-- contents -->

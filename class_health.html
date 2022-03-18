@@ -86,11 +86,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6d0b05e55f62a4bdbd0d9049834ec5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c71af798c6185e71f4f999a3818ddb9"><td class="memItemLeft" align="right" valign="top"><a id="a2c71af798c6185e71f4f999a3818ddb9" name="a2c71af798c6185e71f4f999a3818ddb9"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>TargetDamage</b> ()</td></tr>
-<tr class="memdesc:a2c71af798c6185e71f4f999a3818ddb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The methode TargetDamage is called when a player is hit. It can then trigger an animation or something similar. <br /></td></tr>
+<tr class="memdesc:a2c71af798c6185e71f4f999a3818ddb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The method TargetDamage is called when a player is hit. It can then trigger an animation or something similar. <br /></td></tr>
 <tr class="separator:a2c71af798c6185e71f4f999a3818ddb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9767f521bb5acd0c12d3fef5164e39f3"><td class="memItemLeft" align="right" valign="top"><a id="a9767f521bb5acd0c12d3fef5164e39f3" name="a9767f521bb5acd0c12d3fef5164e39f3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>GotHealed</b> ()</td></tr>
-<tr class="memdesc:a9767f521bb5acd0c12d3fef5164e39f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The methode GotHealed is called when a player is healed. It can then trigger an animation or something similar. <br /></td></tr>
+<tr class="memdesc:a9767f521bb5acd0c12d3fef5164e39f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The method GotHealed is called when a player is healed. It can then trigger an animation or something similar. <br /></td></tr>
 <tr class="separator:a9767f521bb5acd0c12d3fef5164e39f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -99,9 +99,6 @@ Public Attributes</h2></td></tr>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>health</b> = 100</td></tr>
 <tr class="memdesc:a3a88c607ce77007b4f46ee774629309e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable for <a class="el" href="class_health.html" title="The Health class manages the player&#39;s health points. It is also responsible for capturing damage and ...">Health</a>, synced on all Clients <br /></td></tr>
 <tr class="separator:a3a88c607ce77007b4f46ee774629309e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b50919bbcca3645c3e22c5d619cfd62"><td class="memItemLeft" align="right" valign="top"><a id="a5b50919bbcca3645c3e22c5d619cfd62" name="a5b50919bbcca3645c3e22c5d619cfd62"></a>
-<a class="el" href="class_health_bar.html">HealthBar</a>&#160;</td><td class="memItemRight" valign="bottom"><b>healthBar</b></td></tr>
-<tr class="separator:a5b50919bbcca3645c3e22c5d619cfd62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefb51e805c40333fcd3556f381c54b64"><td class="memItemLeft" align="right" valign="top"><a id="aefb51e805c40333fcd3556f381c54b64" name="aefb51e805c40333fcd3556f381c54b64"></a>
 GameObject&#160;</td><td class="memItemRight" valign="bottom"><b>deadPlayerPrefab</b> = null</td></tr>
 <tr class="memdesc:aefb51e805c40333fcd3556f381c54b64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the prefab for a dead player.<br /></td></tr>
@@ -114,6 +111,10 @@ GameObject&#160;</td><td class="memItemRight" valign="bottom"><b>spectatorPlayer
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isDead</b> = false</td></tr>
 <tr class="memdesc:a92c4adf7611d274d95e6a10d8d8476e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is true when the player is dead.<br /></td></tr>
 <tr class="separator:a92c4adf7611d274d95e6a10d8d8476e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9ced1f3dbce7150e18e11fab30a2031"><td class="memItemLeft" align="right" valign="top"><a id="ab9ced1f3dbce7150e18e11fab30a2031" name="ab9ced1f3dbce7150e18e11fab30a2031"></a>
+<a class="el" href="class_audio_controller.html">AudioController</a>&#160;</td><td class="memItemRight" valign="bottom"><b>audioController</b></td></tr>
+<tr class="memdesc:ab9ced1f3dbce7150e18e11fab30a2031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio Script that controlls Gun <a class="el" href="class_sound.html" title="Implement the class for one sound.">Sound</a><br /></td></tr>
+<tr class="separator:ab9ced1f3dbce7150e18e11fab30a2031"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="class_health.html" title="The Health class manages the player&#39;s health points. It is also responsible for capturing damage and ...">Health</a> class manages the player's health points. It is also responsible for capturing damage and also the death of the player. </p>

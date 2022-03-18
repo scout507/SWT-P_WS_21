@@ -69,6 +69,9 @@ $(function() {
   <div class="headertitle"><div class="title">CamController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This Script is responsible for the right position of a thrown camera, for managing the owner of the camera and for destroying the gameobject in case of its death.  
+ <a href="class_cam_controller.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for CamController:</div>
 <div class="dyncontent">
@@ -81,38 +84,120 @@ Inheritance diagram for CamController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa2b096750d34c37306ad72ee6bdd977b"><td class="memItemLeft" align="right" valign="top"><a id="aa2b096750d34c37306ad72ee6bdd977b" name="aa2b096750d34c37306ad72ee6bdd977b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetOwner</b> (GameObject newOwner)</td></tr>
+<tr class="memitem:aa2b096750d34c37306ad72ee6bdd977b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cam_controller.html#aa2b096750d34c37306ad72ee6bdd977b">SetOwner</a> (GameObject newOwner)</td></tr>
+<tr class="memdesc:aa2b096750d34c37306ad72ee6bdd977b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function sets the owner of the camera.  <a href="class_cam_controller.html#aa2b096750d34c37306ad72ee6bdd977b">More...</a><br /></td></tr>
 <tr class="separator:aa2b096750d34c37306ad72ee6bdd977b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3efe90c97bf3880925b4e5c5e71a27c4"><td class="memItemLeft" align="right" valign="top"><a id="a3efe90c97bf3880925b4e5c5e71a27c4" name="a3efe90c97bf3880925b4e5c5e71a27c4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>CmdSetNumber</b> (int number)</td></tr>
+<tr class="memitem:a3efe90c97bf3880925b4e5c5e71a27c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cam_controller.html#a3efe90c97bf3880925b4e5c5e71a27c4">CmdSetNumber</a> (int number)</td></tr>
+<tr class="memdesc:a3efe90c97bf3880925b4e5c5e71a27c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This command calls the function for setting the right index of the camera.  <a href="class_cam_controller.html#a3efe90c97bf3880925b4e5c5e71a27c4">More...</a><br /></td></tr>
 <tr class="separator:a3efe90c97bf3880925b4e5c5e71a27c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab27685f5920b1c8b70d1195a42fdeecb"><td class="memItemLeft" align="right" valign="top"><a id="ab27685f5920b1c8b70d1195a42fdeecb" name="ab27685f5920b1c8b70d1195a42fdeecb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetNumber</b> (int number)</td></tr>
+<tr class="memitem:ab27685f5920b1c8b70d1195a42fdeecb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cam_controller.html#ab27685f5920b1c8b70d1195a42fdeecb">SetNumber</a> (int number)</td></tr>
+<tr class="memdesc:ab27685f5920b1c8b70d1195a42fdeecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This sets the right index of the camera on the server.  <a href="class_cam_controller.html#ab27685f5920b1c8b70d1195a42fdeecb">More...</a><br /></td></tr>
 <tr class="separator:ab27685f5920b1c8b70d1195a42fdeecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6667ca163d7145add9b228d06c905c4"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cam_controller.html#aa6667ca163d7145add9b228d06c905c4">TargetDeath</a> ()</td></tr>
+<tr class="memdesc:aa6667ca163d7145add9b228d06c905c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function destroys the camera and returns the players perspective to the character if the camera was in use.  <a href="class_cam_controller.html#aa6667ca163d7145add9b228d06c905c4">More...</a><br /></td></tr>
 <tr class="separator:aa6667ca163d7145add9b228d06c905c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e437c6f9d3abfe8250ad805f367e641"><td class="memItemLeft" align="right" valign="top"><a id="a8e437c6f9d3abfe8250ad805f367e641" name="a8e437c6f9d3abfe8250ad805f367e641"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>CmdSetActive</b> ()</td></tr>
+<tr class="memdesc:a8e437c6f9d3abfe8250ad805f367e641"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the isActiv flag depending on whether it is used at the moment or not. <br /></td></tr>
 <tr class="separator:a8e437c6f9d3abfe8250ad805f367e641"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_device"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_device')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_device.html">Device</a></td></tr>
 <tr class="memitem:a0d03f9599814d1f09f0f967b2f647941 inherit pub_methods_class_device"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_device.html#a0d03f9599814d1f09f0f967b2f647941">TakeDamage</a> (int amount)</td></tr>
 <tr class="memdesc:a0d03f9599814d1f09f0f967b2f647941 inherit pub_methods_class_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">The method TakeDamage is responsible for suffering damage.  <a href="class_device.html#a0d03f9599814d1f09f0f967b2f647941">More...</a><br /></td></tr>
 <tr class="separator:a0d03f9599814d1f09f0f967b2f647941 inherit pub_methods_class_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac33fcbc757ed8e0f1a8f5db107e9f72f inherit pub_methods_class_device"><td class="memItemLeft" align="right" valign="top"><a id="ac33fcbc757ed8e0f1a8f5db107e9f72f" name="ac33fcbc757ed8e0f1a8f5db107e9f72f"></a>
-abstract void&#160;</td><td class="memItemRight" valign="bottom"><b>TargetDeath</b> ()</td></tr>
+<tr class="memitem:ac33fcbc757ed8e0f1a8f5db107e9f72f inherit pub_methods_class_device"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_device.html#ac33fcbc757ed8e0f1a8f5db107e9f72f">TargetDeath</a> ()</td></tr>
 <tr class="separator:ac33fcbc757ed8e0f1a8f5db107e9f72f inherit pub_methods_class_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e9b2a63ec9aba3d18401ceccd47f401 inherit pub_methods_class_device"><td class="memItemLeft" align="right" valign="top"><a id="a1e9b2a63ec9aba3d18401ceccd47f401" name="a1e9b2a63ec9aba3d18401ceccd47f401"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RpcDestroyDevice</b> (GameObject device)</td></tr>
+<tr class="memitem:a1e9b2a63ec9aba3d18401ceccd47f401 inherit pub_methods_class_device"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_device.html#a1e9b2a63ec9aba3d18401ceccd47f401">RpcDestroyDevice</a> (GameObject device)</td></tr>
+<tr class="memdesc:a1e9b2a63ec9aba3d18401ceccd47f401 inherit pub_methods_class_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the device on all clients  <a href="class_device.html#a1e9b2a63ec9aba3d18401ceccd47f401">More...</a><br /></td></tr>
 <tr class="separator:a1e9b2a63ec9aba3d18401ceccd47f401 inherit pub_methods_class_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a6fc8c4daf5902d444a77ec4db210a048"><td class="memItemLeft" align="right" valign="top"><a id="a6fc8c4daf5902d444a77ec4db210a048" name="a6fc8c4daf5902d444a77ec4db210a048"></a>
 Transform&#160;</td><td class="memItemRight" valign="bottom"><b>cameraMount</b></td></tr>
+<tr class="memdesc:a6fc8c4daf5902d444a77ec4db210a048"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the point, where the camera is mounted when an player enters it. <br /></td></tr>
 <tr class="separator:a6fc8c4daf5902d444a77ec4db210a048"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >This Script is responsible for the right position of a thrown camera, for managing the owner of the camera and for destroying the gameobject in case of its death. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3efe90c97bf3880925b4e5c5e71a27c4" name="a3efe90c97bf3880925b4e5c5e71a27c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3efe90c97bf3880925b4e5c5e71a27c4">&#9670;&nbsp;</a></span>CmdSetNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CamController.CmdSetNumber </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This command calls the function for setting the right index of the camera. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>Index in List of set up cameras.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab27685f5920b1c8b70d1195a42fdeecb" name="ab27685f5920b1c8b70d1195a42fdeecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab27685f5920b1c8b70d1195a42fdeecb">&#9670;&nbsp;</a></span>SetNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CamController.SetNumber </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This sets the right index of the camera on the server. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>Index in List of set up cameras.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa2b096750d34c37306ad72ee6bdd977b" name="aa2b096750d34c37306ad72ee6bdd977b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2b096750d34c37306ad72ee6bdd977b">&#9670;&nbsp;</a></span>SetOwner()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CamController.SetOwner </td>
+          <td>(</td>
+          <td class="paramtype">GameObject&#160;</td>
+          <td class="paramname"><em>newOwner</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function sets the owner of the camera. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newOwner</td><td>The game object of the new owner.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aa6667ca163d7145add9b228d06c905c4" name="aa6667ca163d7145add9b228d06c905c4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa6667ca163d7145add9b228d06c905c4">&#9670;&nbsp;</a></span>TargetDeath()</h2>
 
@@ -135,6 +220,8 @@ Transform&#160;</td><td class="memItemRight" valign="bottom"><b>cameraMount</b><
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>This function destroys the camera and returns the players perspective to the character if the camera was in use. </p>
 
 <p>Implements <a class="el" href="class_device.html">Device</a>.</p>
 

@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['healgun_0',['HealGun',['../class_heal_gun.html',1,'']]],
-  ['health_1',['Health',['../class_health.html',1,'']]],
-  ['healthbar_2',['HealthBar',['../class_health_bar.html',1,'']]],
-  ['hunter_3',['Hunter',['../class_hunter.html',1,'']]]
+  ['ingamemenu_0',['IngameMenu',['../class_ingame_menu.html',1,'']]],
+  ['interactable_1',['Interactable',['../class_interactable.html',1,'']]],
+  ['inventory_2',['Inventory',['../class_inventory.html',1,'']]],
+  ['iq_3',['IQ',['../class_i_q.html',1,'']]],
+  ['iqcam_4',['IQCam',['../class_i_q_cam.html',1,'']]]
 ];

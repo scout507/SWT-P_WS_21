@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['task_0',['Task',['../class_task.html',1,'']]],
-  ['taskmanager_1',['TaskManager',['../class_task_manager.html',1,'']]],
-  ['tasktimer_2',['TaskTimer',['../class_task_timer.html',1,'']]]
+  ['wavemonster_0',['WaveMonster',['../class_wave_monster.html',1,'']]]
 ];

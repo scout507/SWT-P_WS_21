@@ -78,25 +78,20 @@ Inheritance diagram for AudioController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a25a9d490bca57d49ce4fac8abd1beb4a"><td class="memItemLeft" align="right" valign="top"><a id="a25a9d490bca57d49ce4fac8abd1beb4a" name="a25a9d490bca57d49ce4fac8abd1beb4a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>PlayGunSound</b> (int weaponNumber)</td></tr>
-<tr class="memdesc:a25a9d490bca57d49ce4fac8abd1beb4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method is called on Weapon Usage, once per shot WeaponNumbe is the Number of the Used weapon, Number is linked to a SoundClip 0 = <a class="el" href="class_pistol.html">Pistol</a>; 1 = <a class="el" href="class_m_p.html">MP</a> ; 2 = <a class="el" href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun.">Shotgun</a> ; 3 = <a class="el" href="class_melee.html">Melee</a> ; 4 = <a class="el" href="class_rifle.html">Rifle</a> <br /></td></tr>
-<tr class="separator:a25a9d490bca57d49ce4fac8abd1beb4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a282bc44a0a906d598f03102e8ff4ab34"><td class="memItemLeft" align="right" valign="top"><a id="a282bc44a0a906d598f03102e8ff4ab34" name="a282bc44a0a906d598f03102e8ff4ab34"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>CmdPlayGunSound</b> (int weaponNumber)</td></tr>
+<tr class="memdesc:a282bc44a0a906d598f03102e8ff4ab34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method is called on Weapon Usage, once per shot WeaponNumbe is the Number of the Used weapon, Number is linked to a SoundClip 0 = <a class="el" href="class_pistol.html">Pistol</a>; 1 = <a class="el" href="class_m_p.html">MP</a> ; 2 = <a class="el" href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun.">Shotgun</a> ; 3 = <a class="el" href="class_melee.html">Melee</a> ; 4 = <a class="el" href="class_rifle.html">Rifle</a> 5 = <a class="el" href="class_pistol.html">Pistol</a> reload; 6 = <a class="el" href="class_m_p.html">MP</a> reload; 7 = <a class="el" href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun.">Shotgun</a> reload; 8 = <a class="el" href="class_rifle.html">Rifle</a> reload <br /></td></tr>
+<tr class="separator:a282bc44a0a906d598f03102e8ff4ab34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a488a657995b63285d9ba1e4a339fa41d"><td class="memItemLeft" align="right" valign="top"><a id="a488a657995b63285d9ba1e4a339fa41d" name="a488a657995b63285d9ba1e4a339fa41d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>CmdPlayDmgTakenSound</b> (int min, int max)</td></tr>
+<tr class="memdesc:a488a657995b63285d9ba1e4a339fa41d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method is called when the <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a> takes Damage with a changeg pitch value and different Damage <a class="el" href="class_sound.html" title="Implement the class for one sound.">Sound</a> every time its called <br /></td></tr>
+<tr class="separator:a488a657995b63285d9ba1e4a339fa41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a0c43e4f3caa2db514c1bbcf5eb3e532d"><td class="memItemLeft" align="right" valign="top"><a id="a0c43e4f3caa2db514c1bbcf5eb3e532d" name="a0c43e4f3caa2db514c1bbcf5eb3e532d"></a>
 AudioSource&#160;</td><td class="memItemRight" valign="bottom"><b>audioSource</b></td></tr>
 <tr class="separator:a0c43e4f3caa2db514c1bbcf5eb3e532d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4dea972b4df4c7fb3e145a1c0c2e2a5"><td class="memItemLeft" align="right" valign="top"><a id="ae4dea972b4df4c7fb3e145a1c0c2e2a5" name="ae4dea972b4df4c7fb3e145a1c0c2e2a5"></a>
-AudioClip[]&#160;</td><td class="memItemRight" valign="bottom"><b>audioClips</b></td></tr>
-<tr class="separator:ae4dea972b4df4c7fb3e145a1c0c2e2a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae48fb393067403701a2a9b4617d2ae50"><td class="memItemLeft" align="right" valign="top"><a id="ae48fb393067403701a2a9b4617d2ae50" name="ae48fb393067403701a2a9b4617d2ae50"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>stepRate</b> = 0.5f</td></tr>
-<tr class="separator:ae48fb393067403701a2a9b4617d2ae50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a645c178d94f22f49123b67e209192332"><td class="memItemLeft" align="right" valign="top"><a id="a645c178d94f22f49123b67e209192332" name="a645c178d94f22f49123b67e209192332"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>stepCoolDown</b></td></tr>
-<tr class="separator:a645c178d94f22f49123b67e209192332"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>AudioController.cs</li>

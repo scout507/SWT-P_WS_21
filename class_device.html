@@ -74,7 +74,7 @@ Inheritance diagram for Device:</div>
  <div class="center">
   <img src="class_device.png" usemap="#Device_map" alt=""/>
   <map id="Device_map" name="Device_map">
-<area href="class_cam_controller.html" alt="CamController" shape="rect" coords="0,112,116,136"/>
+<area href="class_cam_controller.html" title="This Script is responsible for the right position of a thrown camera, for managing the owner of the c..." alt="CamController" shape="rect" coords="0,112,116,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -83,14 +83,39 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0d03f9599814d1f09f0f967b2f647941"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_device.html#a0d03f9599814d1f09f0f967b2f647941">TakeDamage</a> (int amount)</td></tr>
 <tr class="memdesc:a0d03f9599814d1f09f0f967b2f647941"><td class="mdescLeft">&#160;</td><td class="mdescRight">The method TakeDamage is responsible for suffering damage.  <a href="class_device.html#a0d03f9599814d1f09f0f967b2f647941">More...</a><br /></td></tr>
 <tr class="separator:a0d03f9599814d1f09f0f967b2f647941"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac33fcbc757ed8e0f1a8f5db107e9f72f"><td class="memItemLeft" align="right" valign="top"><a id="ac33fcbc757ed8e0f1a8f5db107e9f72f" name="ac33fcbc757ed8e0f1a8f5db107e9f72f"></a>
-abstract void&#160;</td><td class="memItemRight" valign="bottom"><b>TargetDeath</b> ()</td></tr>
+<tr class="memitem:ac33fcbc757ed8e0f1a8f5db107e9f72f"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_device.html#ac33fcbc757ed8e0f1a8f5db107e9f72f">TargetDeath</a> ()</td></tr>
 <tr class="separator:ac33fcbc757ed8e0f1a8f5db107e9f72f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e9b2a63ec9aba3d18401ceccd47f401"><td class="memItemLeft" align="right" valign="top"><a id="a1e9b2a63ec9aba3d18401ceccd47f401" name="a1e9b2a63ec9aba3d18401ceccd47f401"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RpcDestroyDevice</b> (GameObject device)</td></tr>
+<tr class="memitem:a1e9b2a63ec9aba3d18401ceccd47f401"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_device.html#a1e9b2a63ec9aba3d18401ceccd47f401">RpcDestroyDevice</a> (GameObject device)</td></tr>
+<tr class="memdesc:a1e9b2a63ec9aba3d18401ceccd47f401"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the device on all clients  <a href="class_device.html#a1e9b2a63ec9aba3d18401ceccd47f401">More...</a><br /></td></tr>
 <tr class="separator:a1e9b2a63ec9aba3d18401ceccd47f401"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1e9b2a63ec9aba3d18401ceccd47f401" name="a1e9b2a63ec9aba3d18401ceccd47f401"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e9b2a63ec9aba3d18401ceccd47f401">&#9670;&nbsp;</a></span>RpcDestroyDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Device.RpcDestroyDevice </td>
+          <td>(</td>
+          <td class="paramtype">GameObject&#160;</td>
+          <td class="paramname"><em>device</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destroys the device on all clients </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device</td><td><a class="el" href="class_device.html">Device</a> which should be destroyed</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a0d03f9599814d1f09f0f967b2f647941" name="a0d03f9599814d1f09f0f967b2f647941"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0d03f9599814d1f09f0f967b2f647941">&#9670;&nbsp;</a></span>TakeDamage()</h2>
 
@@ -114,6 +139,33 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>RpcDestroyDevice</b> 
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ac33fcbc757ed8e0f1a8f5db107e9f72f" name="ac33fcbc757ed8e0f1a8f5db107e9f72f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac33fcbc757ed8e0f1a8f5db107e9f72f">&#9670;&nbsp;</a></span>TargetDeath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">abstract void Device.TargetDeath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_cam_controller.html#aa6667ca163d7145add9b228d06c905c4">CamController</a>.</p>
 
 </div>
 </div>

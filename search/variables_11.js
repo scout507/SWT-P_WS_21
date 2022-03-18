@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['weaoponrange_0',['weaoponRange',['../class_shoot_gun.html#af1cc5cca48259adf6ef66f07c276502d',1,'ShootGun']]]
+  ['volume_0',['volume',['../class_sound.html#a7ab1335f27bd340c389568889823cc00',1,'Sound.volume()'],['../class_soundmanager.html#ad23732dc990510e96e72694935a86caf',1,'Soundmanager.volume()']]],
+  ['volumeslider_1',['volumeSlider',['../class_ingame_menu.html#a997f3c40e81f0dd64db3adc79d46b4ae',1,'IngameMenu.volumeSlider()'],['../class_menu.html#a7a2a4f59dd3dc7e32a8685ca3f2f3c57',1,'Menu.volumeSlider()']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game: WeaponUI Class Reference</title>
+<title>Game: ZombieAudioController Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,70 +64,41 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="class_weapon_u_i-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">WeaponUI Class Reference</div></div>
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="class_zombie_audio_controller-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">ZombieAudioController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
-Inheritance diagram for WeaponUI:</div>
+Inheritance diagram for ZombieAudioController:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="class_weapon_u_i.png" alt=""/>
+  <img src="class_zombie_audio_controller.png" alt=""/>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a86de610173cd3ee745a72a12c64f2b29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_u_i.html#a86de610173cd3ee745a72a12c64f2b29">UpdateInfo</a> (Sprite weaponIcon, int magazineSize, int magazineCount)</td></tr>
-<tr class="memdesc:a86de610173cd3ee745a72a12c64f2b29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to update the info on the Weapon UI, has to be used when the weapon is changed. when you change the weapon, Update the UI: Update weapon: Reference to Weapon UI: <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a> HUD script:  <a href="class_weapon_u_i.html#a86de610173cd3ee745a72a12c64f2b29">More...</a><br /></td></tr>
-<tr class="separator:a86de610173cd3ee745a72a12c64f2b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad51d7cdfad727f6557f2863736b53c11"><td class="memItemLeft" align="right" valign="top"><a id="ad51d7cdfad727f6557f2863736b53c11" name="ad51d7cdfad727f6557f2863736b53c11"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>RPCPlayZombieDmgSound</b> (int selected)</td></tr>
+<tr class="memdesc:ad51d7cdfad727f6557f2863736b53c11"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ClientRpC for the Zombie <a class="el" href="class_sound.html" title="Implement the class for one sound.">Sound</a>, when the Zombie took Damage <br /></td></tr>
+<tr class="separator:ad51d7cdfad727f6557f2863736b53c11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9fce53ff97abf36b4ba7ca438391479"><td class="memItemLeft" align="right" valign="top"><a id="ac9fce53ff97abf36b4ba7ca438391479" name="ac9fce53ff97abf36b4ba7ca438391479"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>RPCPlayZombieDeathSound</b> (int selected)</td></tr>
+<tr class="memdesc:ac9fce53ff97abf36b4ba7ca438391479"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ClientRpC for the Zombie <a class="el" href="class_sound.html" title="Implement the class for one sound.">Sound</a>, when the Zombie Died <br /></td></tr>
+<tr class="separator:ac9fce53ff97abf36b4ba7ca438391479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a747f18b4f12927fa07c55a6d61810176"><td class="memItemLeft" align="right" valign="top"><a id="a747f18b4f12927fa07c55a6d61810176" name="a747f18b4f12927fa07c55a6d61810176"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>RPCPlayZombieAttackSound</b> (int selected)</td></tr>
+<tr class="memdesc:a747f18b4f12927fa07c55a6d61810176"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ClientRpC for the Zombie <a class="el" href="class_sound.html" title="Implement the class for one sound.">Sound</a>, when the Zombie Attacked <br /></td></tr>
+<tr class="separator:a747f18b4f12927fa07c55a6d61810176"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a44df9d886141886f81dd6900868ff7aa"><td class="memItemLeft" align="right" valign="top"><a id="a44df9d886141886f81dd6900868ff7aa" name="a44df9d886141886f81dd6900868ff7aa"></a>
+AudioSource&#160;</td><td class="memItemRight" valign="bottom"><b>audioSource</b></td></tr>
+<tr class="separator:a44df9d886141886f81dd6900868ff7aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a86de610173cd3ee745a72a12c64f2b29" name="a86de610173cd3ee745a72a12c64f2b29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86de610173cd3ee745a72a12c64f2b29">&#9670;&nbsp;</a></span>UpdateInfo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void WeaponUI.UpdateInfo </td>
-          <td>(</td>
-          <td class="paramtype">Sprite&#160;</td>
-          <td class="paramname"><em>weaponIcon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>magazineSize</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>magazineCount</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Function to update the info on the Weapon UI, has to be used when the weapon is changed. when you change the weapon, Update the UI: Update weapon: Reference to Weapon UI: <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a> HUD script: </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">weaponIcon</td><td></td></tr>
-    <tr><td class="paramname">magazineSize</td><td></td></tr>
-    <tr><td class="paramname">magazineCount</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>WeaponUI.cs</li>
+<li>ZombieAudioController.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

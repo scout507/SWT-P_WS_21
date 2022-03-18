@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['sounds_0',['sounds',['../class_soundmanager.html#a85343a6e13ac48bab75e62e023dec5a4',1,'Soundmanager']]],
-  ['spawn_1',['spawn',['../class_task.html#ae635f72017a9459b60f40fc5bee5339d',1,'Task']]],
-  ['spectatorplayerprefab_2',['spectatorPlayerPrefab',['../class_health.html#a598e34445c1c4611d84c1ce0048d19c6',1,'Health']]],
-  ['speedh_3',['speedH',['../class_spectator.html#a53e3f7352da48e8d245a1cf12d3682a0',1,'Spectator']]],
-  ['speedv_4',['speedV',['../class_spectator.html#a2b29dde6f9525b0aa0ba1c574f7fab68',1,'Spectator']]]
+  ['recoil_0',['recoil',['../class_shoot_gun.html#a7e566d4d25065f874c5c879152d5a392',1,'ShootGun']]],
+  ['reloaddelay_1',['reloadDelay',['../class_shoot_gun.html#a28a8eff99aefba9bc3a533bfd0a0c376',1,'ShootGun']]],
+  ['remainingcams_2',['remainingCams',['../class_i_q_cam.html#aabfe93bb61a2e59023e4b8107354a61a',1,'IQCam']]],
+  ['roomplayers_3',['roomPlayers',['../class_network_manager_lobby.html#a69de78ac448a1ee9c0dc537d5589ca9c',1,'NetworkManagerLobby']]]
 ];
