@@ -1776,7 +1776,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.65
-  m_Radius: 0.8
+  m_Radius: 0.7
   m_SlopeLimit: 0
   m_StepOffset: 0
   m_SkinWidth: 0.08
@@ -2287,12 +2287,9 @@ MonoBehaviour:
   syncInterval: 0.1
   device: {fileID: 4785279838882829785, guid: 52004729eb4bb254e9518c0b6fdd71b9, type: 3}
   cam: {fileID: 9084510970874009076, guid: edf24628d628e4546a879191f99d4198, type: 3}
-  remainingCams: 3
   deviceMount: {fileID: 4903176535373345665}
   throwPoint: {fileID: 646350672531502630}
   inventory: {fileID: 6555504856947454190}
-  setCamerasCount: 0
-  lastActiveCam: 0
   icon: {fileID: 21300000, guid: eb7cf23d2d94cad40b9335378e89baf0, type: 3}
 --- !u!114 &6555504856947454190
 MonoBehaviour:
