@@ -1,14 +1,8 @@
 var searchData=
 [
-  ['pendingplayers_0',['pendingPlayers',['../class_mirror_1_1_network_room_manager.html#a205ba6fde1487cb142d5ce5d35c848e0',1,'Mirror::NetworkRoomManager']]],
-  ['pitch_1',['pitch',['../class_sound.html#aef4ee55185bf12b9b2b2ca037a8c621a',1,'Sound']]],
-  ['planksinspector_2',['planksInspector',['../class_fence_interaction.html#a9432363709e51fa9ac925cfe3b4c2068',1,'FenceInteraction']]],
-  ['player_3',['player',['../class_compass.html#a1c873719f5bf915657302d2faccf18c3',1,'Compass.player()'],['../class_minimap.html#aae34d556a44e7efb70a7c62c9ee6d876',1,'Minimap.player()']]],
-  ['playercanvasobject_4',['PlayerCanvasObject',['../class_player_canvas.html#a1e382ffe3a41a6dd795507502c4a8bfb',1,'PlayerCanvas']]],
-  ['playername_5',['playerName',['../class_player_name_input.html#afe05966bdec71a56930c9c62c3d7fc2a',1,'PlayerNameInput']]],
-  ['playerprefab_6',['playerPrefab',['../class_mirror_1_1_network_manager.html#a81bcbc73d62c047faf0e9c73fb6ffd63',1,'Mirror::NetworkManager']]],
-  ['players_7',['players',['../class_monster_controller.html#ae297c37a00c866b6eca07f331dd3f9a2',1,'MonsterController.players()'],['../class_task.html#a8d05caff67206a3f62b157058cb97417',1,'Task.players()']]],
-  ['playerspawnmethod_8',['playerSpawnMethod',['../class_mirror_1_1_network_manager.html#ae6167e3960b1a34e09ea97868d1cc60e',1,'Mirror::NetworkManager']]],
-  ['position_9',['Position',['../class_mirror_1_1_network_reader.html#a8c3a88c7273f1f31e96935e80768b1a1',1,'Mirror.NetworkReader.Position()'],['../class_mirror_1_1_network_writer.html#ac70038113ba5ddc857ea0c187b5eac16',1,'Mirror.NetworkWriter.Position()']]],
-  ['progress_10',['progress',['../class_task.html#a156373f99c36bcc2c1a58d565283f835',1,'Task']]]
+  ['sounds_0',['sounds',['../class_soundmanager.html#a85343a6e13ac48bab75e62e023dec5a4',1,'Soundmanager']]],
+  ['spawn_1',['spawn',['../class_task.html#ae635f72017a9459b60f40fc5bee5339d',1,'Task']]],
+  ['spectatorplayerprefab_2',['spectatorPlayerPrefab',['../class_health.html#a598e34445c1c4611d84c1ce0048d19c6',1,'Health']]],
+  ['speedh_3',['speedH',['../class_spectator.html#a53e3f7352da48e8d245a1cf12d3682a0',1,'Spectator']]],
+  ['speedv_4',['speedV',['../class_spectator.html#a2b29dde6f9525b0aa0ba1c574f7fab68',1,'Spectator']]]
 ];

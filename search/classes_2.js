@@ -1,23 +1,6 @@
 var searchData=
 [
   ['camcontroller_0',['CamController',['../class_cam_controller.html',1,'']]],
-  ['changeownermessage_1',['ChangeOwnerMessage',['../struct_mirror_1_1_change_owner_message.html',1,'Mirror']]],
-  ['classes_2',['Classes',['../class_classes.html',1,'']]],
-  ['client_3',['Client',['../class_telepathy_1_1_client.html',1,'Telepathy']]],
-  ['clientattribute_4',['ClientAttribute',['../class_mirror_1_1_client_attribute.html',1,'Mirror']]],
-  ['clientcallbackattribute_5',['ClientCallbackAttribute',['../class_mirror_1_1_client_callback_attribute.html',1,'Mirror']]],
-  ['clientconnectionstate_6',['ClientConnectionState',['../class_telepathy_1_1_client_connection_state.html',1,'Telepathy']]],
-  ['clientrpcattribute_7',['ClientRpcAttribute',['../class_mirror_1_1_client_rpc_attribute.html',1,'Mirror']]],
-  ['clientrpcresult_8',['ClientRpcResult',['../struct_mirror_1_1_weaver_1_1_network_behaviour_processor_1_1_client_rpc_result.html',1,'Mirror::Weaver::NetworkBehaviourProcessor']]],
-  ['clientsyncstate_9',['ClientSyncState',['../class_mirror_1_1_experimental_1_1_network_rigidbody2_d_1_1_client_sync_state.html',1,'Mirror.Experimental.NetworkRigidbody2D.ClientSyncState'],['../class_mirror_1_1_experimental_1_1_network_rigidbody_1_1_client_sync_state.html',1,'Mirror.Experimental.NetworkRigidbody.ClientSyncState']]],
-  ['cmdresult_10',['CmdResult',['../struct_mirror_1_1_weaver_1_1_network_behaviour_processor_1_1_cmd_result.html',1,'Mirror::Weaver::NetworkBehaviourProcessor']]],
-  ['commandattribute_11',['CommandAttribute',['../class_mirror_1_1_command_attribute.html',1,'Mirror']]],
-  ['commandinfo_12',['CommandInfo',['../struct_mirror_1_1_remote_calls_1_1_command_info.html',1,'Mirror::RemoteCalls']]],
-  ['commandmessage_13',['CommandMessage',['../struct_mirror_1_1_command_message.html',1,'Mirror']]],
-  ['common_14',['Common',['../class_telepathy_1_1_common.html',1,'Telepathy']]],
-  ['compass_15',['Compass',['../class_compass.html',1,'']]],
-  ['compilationfinishedlogger_16',['CompilationFinishedLogger',['../class_mirror_1_1_weaver_1_1_compilation_finished_logger.html',1,'Mirror::Weaver']]],
-  ['compiledassemblyfromfile_17',['CompiledAssemblyFromFile',['../class_mirror_1_1_weaver_1_1_compiled_assembly_from_file.html',1,'Mirror::Weaver']]],
-  ['config_18',['Config',['../struct_mirror_1_1_simple_web_1_1_receive_loop_1_1_config.html',1,'Mirror.SimpleWeb.ReceiveLoop.Config'],['../struct_mirror_1_1_simple_web_1_1_send_loop_1_1_config.html',1,'Mirror.SimpleWeb.SendLoop.Config']]],
-  ['connectionstate_19',['ConnectionState',['../class_telepathy_1_1_connection_state.html',1,'Telepathy']]]
+  ['classes_1',['Classes',['../class_classes.html',1,'']]],
+  ['compass_2',['Compass',['../class_compass.html',1,'']]]
 ];

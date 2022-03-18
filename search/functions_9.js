@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['joinlobby_0',['JoinLobby',['../class_join_lobby_menu.html#ae8fd5c76e8f5bfe85463d5493e12aefe',1,'JoinLobbyMenu']]]
+  ['loadmainmenu_0',['loadMainMenu',['../class_ingame_menu.html#a150a0601f8dfc5c67564048989d02b2f',1,'IngameMenu']]]
 ];

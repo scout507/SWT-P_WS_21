@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['queuedmessage_0',['QueuedMessage',['../struct_mirror_1_1_queued_message.html',1,'Mirror']]]
+  ['task_0',['Task',['../class_task.html',1,'']]],
+  ['taskmanager_1',['TaskManager',['../class_task_manager.html',1,'']]],
+  ['tasktimer_2',['TaskTimer',['../class_task_timer.html',1,'']]]
 ];
