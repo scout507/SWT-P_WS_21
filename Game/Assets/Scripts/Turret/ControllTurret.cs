@@ -27,6 +27,10 @@ public class ControllTurret : NetworkBehaviour
     /// </summary>
     [SerializeField] GameObject cameraMount;
 
+    /// <summary>
+    /// Firerate of the Turret
+    /// </summary>
+    [SerializeField] float fireRate = 1f;
 
     /// <summary>
     /// checks which weapon script is active
@@ -38,11 +42,6 @@ public class ControllTurret : NetworkBehaviour
     /// Checks if the Player is in the Turret
     /// </summary>
     private bool inVehicle = false;
-
-    /// <summary>
-    /// Firerate of the Turret
-    /// </summary>
-    [SerializeField] float fireRate = 1f;
 
     /// <summary>
     /// Fire rate of the Turret

@@ -1,22 +1,65 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+
+/* created by: SWT-P_WS_21/22 */
+
+
+/// <summary>
+/// The Script to handle the Sounds on the Monster
+/// </summary>
 public class ZombieAudioController : NetworkBehaviour
 {
+    /// <summary>
+    /// The Audio Source that is attached to the Monster
+    /// </summary>
+    public AudioSource audioSource;
 
-    public AudioSource audioSource; // The Audio Source that is attached to the Monster
-    float stepCoolDown; // The Time until the next Footstep Sound is Played
-    float idleCooldown; // The Time until the next Idle Sound is Played
+    /// <summary>
+    /// The Audio Clips, Zombie Footstep Sounds
+    /// </summary>
+    [SerializeField] AudioClip[] monsterFootsteps;
 
-    [SerializeField] AudioClip[] monsterFootsteps; // The Audio Clips, Zombie Footstep Sounds
-    [SerializeField] AudioClip[] monsterIdleSound; // The Audio Clips, Zombie Footstep Sounds
-    [SerializeField] AudioClip[] monsterDmgTakenSound; // The Audio Clips, Zombie Injured and Death Sounds
-    [SerializeField] AudioClip[] monsterAttackSound; // The Audio Clips, Zombie Attack Sounds
-    int monsterFootstep; // The selected Zombie Footstep Sound
-    int monsterIdle; // The selected Zombie Idle Sound 
-    bool isAlive = true;
+    /// <summary>
+    /// The Audio Clips, Zombie Footstep Sounds
+    /// </summary>
+    [SerializeField] AudioClip[] monsterIdleSound;
+
+    /// <summary>
+    /// The Audio Clips, Zombie Injured and Death Sounds
+    /// </summary>
+    [SerializeField] AudioClip[] monsterDmgTakenSound;
+
+    /// <summary>
+    /// The Audio Clips, Zombie Attack Sounds
+    /// </summary>
+    [SerializeField] AudioClip[] monsterAttackSound;
+
+    /// <summary>
+    /// The Time until the next Footstep Sound is Played
+    /// </summary>
+    private float stepCoolDown;
+
+    /// <summary>
+    /// The Time until the next Idle Sound is Played
+    /// </summary>
+    private float idleCooldown;
+
+    /// <summary>
+    /// The selected Zombie Footstep Sound
+    /// </summary>
+    private int monsterFootstep;
+
+    /// <summary>
+    /// The selected Zombie Idle Sound 
+    /// </summary>
+    private int monsterIdle;
+
+    /// <summary>
+    /// Checks if the zombie is alive, stops Footsteps and Idle Sounds when dead
+    /// </summary>
+    private bool isAlive = true;
+
 
     private void Start()
     {
@@ -25,6 +68,10 @@ public class ZombieAudioController : NetworkBehaviour
         monsterIdle = Random.Range(0, 7);
     }
 
+    /// <summary>
+    /// The Footstep Sounds gets called every time the last Sound stopped
+    /// The Idle Sounds gets called every 10*Idle Sound length
+    /// </summary>
     void Update()
     {
         if (!isServer) return;

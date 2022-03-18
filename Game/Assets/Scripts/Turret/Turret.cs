@@ -16,24 +16,6 @@ public class Turret : NetworkBehaviour
     /// </summary>
     public bool inUse = false;
 
-
-    /// <summary>
-    /// Saves the Network Id from the player that is using the Turret
-    /// </summary>
-    private NetworkIdentity playerNIDinUse;
-
-
-    /// <summary>
-    /// Reference to the controllTurret Script on the Player Object
-    /// </summary>
-    private ControllTurret controlTurretPlayer;
-
-
-    /// <summary>
-    /// Rotation speed of the turret
-    /// </summary>
-    private float rotateSpeed = 1.5f;
-
     /// <summary>
     /// Damage amount of the Turret
     /// </summary>
@@ -50,6 +32,21 @@ public class Turret : NetworkBehaviour
     [SerializeField] ParticleSystem shotflash;
 
     /// <summary>
+    /// Saves the Network Id from the player that is using the Turret
+    /// </summary>
+    private NetworkIdentity playerNIDinUse;
+
+    /// <summary>
+    /// Reference to the controllTurret Script on the Player Object
+    /// </summary>
+    private ControllTurret controlTurretPlayer;
+
+    /// <summary>
+    /// Rotation speed of the turret
+    /// </summary>
+    private float rotateSpeed = 1.5f;
+
+    /// <summary>
     /// AudioSource used when shooting
     /// </summary>
     private AudioSource audiosource;
@@ -58,6 +55,39 @@ public class Turret : NetworkBehaviour
     private void Start()
     {
         audiosource = this.GetComponent<AudioSource>();
+    }
+
+    /// <summary>
+    /// When the player is close enough to the Turret, he gets Authority to interact with it
+    /// </summary>
+    /// <param name="other"></param>
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player" && inUse == false)
+        {
+            CMDGetAuthority(GetComponent<NetworkIdentity>(), other.gameObject.GetComponent<NetworkIdentity>());
+            inUse = true;
+            playerNIDinUse = other.gameObject.GetComponent<NetworkIdentity>();
+            controlTurretPlayer = other.gameObject.GetComponent<ControllTurret>();
+            controlTurretPlayer.enabled = true;
+            controlTurretPlayer.turret = gameObject.GetComponent<Turret>();
+            controlTurretPlayer.playerinUseID = playerNIDinUse.netId;
+        }
+    }
+
+
+    /// <summary>
+    /// When the player leaves the Turret Collider range, he can no longer interact with it
+    /// </summary>
+    /// <param name="other"></param>
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<NetworkIdentity>().netId == playerNIDinUse.netId)
+        {
+            inUse = false;
+            controlTurretPlayer = other.gameObject.GetComponent<ControllTurret>();
+            controlTurretPlayer.enabled = false;
+        }
     }
 
 
@@ -179,40 +209,6 @@ public class Turret : NetworkBehaviour
     public void CMDRemoveAuthority(NetworkIdentity thisnetworkId)
     {
         thisnetworkId.RemoveClientAuthority();
-    }
-
-
-    /// <summary>
-    /// When the player is close enough to the Turret, he gets Authority to interact with it
-    /// </summary>
-    /// <param name="other"></param>
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player" && inUse == false)
-        {
-            CMDGetAuthority(GetComponent<NetworkIdentity>(), other.gameObject.GetComponent<NetworkIdentity>());
-            inUse = true;
-            playerNIDinUse = other.gameObject.GetComponent<NetworkIdentity>();
-            controlTurretPlayer = other.gameObject.GetComponent<ControllTurret>();
-            controlTurretPlayer.enabled = true;
-            controlTurretPlayer.turret = gameObject.GetComponent<Turret>();
-            controlTurretPlayer.playerinUseID = playerNIDinUse.netId;
-        }
-    }
-
-
-    /// <summary>
-    /// When the player leaves the Turret Collider range, he can no longer interact with it
-    /// </summary>
-    /// <param name="other"></param>
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<NetworkIdentity>().netId == playerNIDinUse.netId)
-        {
-            inUse = false;
-            controlTurretPlayer = other.gameObject.GetComponent<ControllTurret>();
-            controlTurretPlayer.enabled = false;
-        }
     }
 
 }
