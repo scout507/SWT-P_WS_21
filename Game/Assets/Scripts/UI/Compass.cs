@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This script changes the direction of the Compass, based on a Transform Objects-Movement.
+/// </summary>
 public class Compass : MonoBehaviour
 {
     /// <summary>

@@ -5,21 +5,25 @@ using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This script controlls the change of the Healthbar.
+/// </summary>
 public class HealthBar : MonoBehaviour
 {
     /// <summary>
-    /// Slider to adjust the Size
+    /// Slider to adjust the size
     /// </summary>
     Slider slider;
+
     /// <summary>
     /// Image of the ColorFilling
     /// </summary>
     public Image HPColor;
+
     /// <summary>
-    /// Reference to teh HealthScript
+    /// Reference to the HealthScript
     /// </summary>
     Health healthScript;
-
 
     private void Start()
     {
@@ -32,8 +36,10 @@ public class HealthBar : MonoBehaviour
 
     void Update()
     {
-        if(healthScript.health >= 0) slider.value = healthScript.health;
-        else slider.value = 0;
+        if (healthScript.health >= 0)
+            slider.value = healthScript.health;
+        else
+            slider.value = 0;
         ColorChanger();
     }
 
