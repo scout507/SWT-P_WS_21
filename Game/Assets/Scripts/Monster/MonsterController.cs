@@ -67,9 +67,11 @@ public class MonsterController : NetworkBehaviour
     [SerializeField]
     Transform groundCheck;
 
+    /// <summary>Ground check distance to the floor</summary>
     [SerializeField]
     float groundDistance = 0.4f;
 
+    /// <summary>Ground layer mask</summary>
     [SerializeField]
     LayerMask groundMask;
 
