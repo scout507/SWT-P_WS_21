@@ -1,11 +1,9 @@
+/* created by: SWT-P_WS_21/22 */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
-
-/* created by: SWT-P_WS_21/22 */
-
 
 public class WeaponUI : NetworkBehaviour
 {
@@ -18,19 +16,18 @@ public class WeaponUI : NetworkBehaviour
     /// </summary>
     private Text magazineSizeText;
     /// <summary>
-    /// amoutn of magazines per weapon
+    /// amount of magazines per weapon
     /// </summary>
     private Text magazineCountText;
 
     /// <summary>
     /// Function to update the info on the Weapon UI, has to be used when the weapon is changed.
-    /// when you change the weapon, Update the UI:
-    /// Update weapon:
-    /// Reference to Weapon UI:
-    /// Player HUD script:
     /// </summary>
+    /// Weapon Icon-Image
     /// <param name="weaponIcon"></param>
+    /// ammount of ammo in a magazine
     /// <param name="magazineSize"></param>
+    /// amount of magazines per weapon
     /// <param name="magazineCount"></param>
     public void UpdateInfo(Sprite weaponIcon, int magazineSize, int magazineCount)
     {

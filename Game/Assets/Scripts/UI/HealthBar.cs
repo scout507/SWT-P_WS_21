@@ -1,3 +1,4 @@
+/* created by: SWT-P_WS_21/22 */
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
@@ -10,7 +11,13 @@ public class HealthBar : MonoBehaviour
     /// Slider to adjust the Size
     /// </summary>
     Slider slider;
+    /// <summary>
+    /// Image of the ColorFilling
+    /// </summary>
     public Image HPColor;
+    /// <summary>
+    /// Reference to teh HealthScript
+    /// </summary>
     Health healthScript;
 
 
@@ -30,7 +37,9 @@ public class HealthBar : MonoBehaviour
         ColorChanger();
     }
 
-
+    /// <summary>
+    /// Changes the Color of the healthbar based on the value in it.
+    /// </summary>
     void ColorChanger()
     {
         Color healthColor = Color.Lerp(Color.red, Color.green, (slider.value / slider.maxValue));
