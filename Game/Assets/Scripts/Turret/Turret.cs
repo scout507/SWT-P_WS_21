@@ -20,13 +20,13 @@ public class Turret : NetworkBehaviour
     /// <summary>
     /// Saves the Network Id from the player that is using the Turret
     /// </summary>
-    NetworkIdentity playerNIDinUse;
+    private NetworkIdentity playerNIDinUse;
 
 
     /// <summary>
     /// Reference to the controllTurret Script on the Player Object
     /// </summary>
-    ControllTurret controlTurretPlayer;
+    private ControllTurret controlTurretPlayer;
 
 
     /// <summary>
@@ -52,7 +52,7 @@ public class Turret : NetworkBehaviour
     /// <summary>
     /// AudioSource used when shooting
     /// </summary>
-    AudioSource audiosource;
+    private AudioSource audiosource;
 
 
     private void Start()
@@ -125,65 +125,16 @@ public class Turret : NetworkBehaviour
         {
             if (hit.collider.gameObject.tag == "Player")
             {
-                RpcHitPlayer();
                 hit.transform.gameObject.GetComponent<Health>().TakeDamage(turretDamage);
 
             }
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Monster"))
             {
-                RpcHitMonster();
                 hit.transform.GetComponent<MonsterController>().TakeDamage(turretDamage);
             }
-            else
-            {
-                RpcHitWall(hit.point);
-            }
         }
-        else
-        {
-            RpcOutOfRange(hit.point);
-        }
-
-
     }
 
-    /// <summary>
-    /// Method is called when a Player is hit
-    /// </summary>
-    [ClientRpc]
-    void RpcHitPlayer()
-    {
-
-    }
-
-    /// <summary>
-    /// Method is called when a Monster is hit
-    /// </summary>
-    [ClientRpc]
-    void RpcHitMonster()
-    {
-
-    }
-
-    /// <summary>
-    /// Method is called when the Shoot range is to short
-    /// </summary>
-    /// <param name="hit">Position of point of impact</param>
-    [ClientRpc]
-    void RpcOutOfRange(Vector3 hit)
-    {
-
-    }
-
-    /// <summary>
-    /// Method is called when a wall is hit and notifies all Players about it
-    /// </summary>
-    /// <param name="hit">Position of point of impact</param>
-    [ClientRpc]
-    void RpcHitWall(Vector3 hit)
-    {
-
-    }
 
     /// <summary>
     /// Method is called when a Player wants to enter the Vehicle
