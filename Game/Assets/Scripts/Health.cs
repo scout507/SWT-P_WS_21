@@ -27,6 +27,8 @@ public class Health : NetworkBehaviour
     public bool isDead = false;
     /// <summary>Audio Script that controlls Gun Sound</summary>
     public AudioController audioController;
+    /// <summary>UI element responsible for flashing red on beeing hit.</summary>
+    public GameObject hitflash;
 
     void Start()
     {
@@ -70,12 +72,21 @@ public class Health : NetworkBehaviour
     }
 
     /// <summary>
+    /// Disables the hitflash UI element.
+    /// </summary>
+    void DisableHitFlash()
+    {
+        hitflash.SetActive(false);
+    }
+
+    /// <summary>
     /// The method TargetDamage is called when a player is hit. It can then trigger an animation or something similar.
     /// </summary>
     [TargetRpc]
     public void TargetDamage()
     {
-        Debug.Log("Took damage!");
+        hitflash.SetActive(true);
+        Invoke("DisableHitFlash", 0.2f);
     }
 
     /// <summary>
