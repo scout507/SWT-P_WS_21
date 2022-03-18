@@ -7,21 +7,22 @@ using UnityEngine;
 
 public class MP : ShootGun
 {
-
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// The AudioController is set
     /// </summary>
-    /// 
-
-
+    ///
     void Start()
     {
         this.gunDamage = 5;
         this.fireRate = 0.1f;
-        this.weaoponRange = 50f;
+        this.reloadDelay = 0.5f;
+        this.weaponRange = 50f;
         this.gunAmmo = 30;
         this.recoil = 2.5f;
+        this.magSize = 30;
+        this.triggerRange = 15f;
+        this.isReloading = false;
         audioController = this.GetComponent<AudioController>();
     }
 
@@ -35,25 +36,50 @@ public class MP : ShootGun
         {
             return;
         }
-        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        if (canInteract)
         {
-            nextFire = Time.time + fireRate;
-            if (gunAmmo > 0)
+            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+            if (Input.GetButton("Fire1") && Time.time > nextFire)
             {
-                Shoot();
+                nextFire = Time.time + fireRate;
+                if (gunAmmo > 0)
+                {
+                    isReloading = false;
+                    Shoot();
+                }
+                else
+                {
+                    Debug.Log("Out of Ammo!");
+                }
             }
-            else
+
+            if (
+                Input.GetKeyDown(KeyCode.R)
+                && Time.time > nextReload
+                && !Input.GetButton("Fire1")
+            )
             {
-                Debug.Log("Out of Ammo!");
+                isReloading = true;
+                nextReload = Time.time + reloadDelay;
+            }
+            if (isReloading)
+            {
+                Reload();
             }
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.R))
+    /// <summary>
+    /// MP is reloaded in full magazins, but should not instantly be reloaded, so it is reloaded after a certain time after the button is pressed
+    /// </summary>
+    public override void Reload()
+    {
+        if (Time.time > nextReload)
         {
+            audioController.CmdPlayGunSound(6);
             gunAmmo = magSize;
+            isReloading = false;
         }
-
-        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
     }
 
     /// <summary>
@@ -65,8 +91,9 @@ public class MP : ShootGun
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
         gunAmmo--;
-        audioController.PlayGunSound(1);
-        if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
+        audioController.CmdPlayGunSound(1);
+        TriggerAggro();
+        if (Physics.Raycast(rayOrigin, direction, out hit, weaponRange))
         {
             Debug.Log("In Range!");
             Debug.DrawLine(rayOrigin, hit.point, Color.green, 0.5f);
@@ -76,7 +103,6 @@ public class MP : ShootGun
             }
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Monster"))
             {
-                Debug.Log("Shoot() Layer = Monster");
                 CmdShootMonster(hit.collider.transform.root.gameObject, gunDamage); // Calls TakeDamage on the monster hit
             }
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Device"))
@@ -91,7 +117,7 @@ public class MP : ShootGun
         else
         {
             Debug.Log("Out of Range!");
-            Debug.DrawRay(rayOrigin, direction * weaoponRange, Color.red, 0.5f);
+            Debug.DrawRay(rayOrigin, direction * weaponRange, Color.red, 0.5f);
         }
         Recoil();
     }

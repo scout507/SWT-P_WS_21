@@ -9,6 +9,11 @@ using System.Linq;
 /// </summary>
 public class PlayerSpawnSystem : NetworkBehaviour
 {
+    /// <summary>Spawn point of the player prefab</summary>///
+    Vector3 spawn = new Vector3(0.8f, 6.46f,-13.87f);
+    /// <summary>Offset for spawning the players</summary>///
+    float offset = 0;
+
     /// <summary>
     /// Holds the prefabs for the player that can be spawned.
     /// Requires a minimum and maximum of 8 prefabs.
@@ -53,12 +58,13 @@ public class PlayerSpawnSystem : NetworkBehaviour
         GameObject playerInstance;
 
         if (playerPrefabs.Count == 0)
-            playerInstance = Instantiate(playerPrefabDefault);
+            playerInstance = Instantiate(playerPrefabDefault, new Vector3(spawn.x + offset, spawn.y, spawn.z), Quaternion.identity);
         else
         {
             int index = new System.Random().Next(playerPrefabs.Count);
-            playerInstance = Instantiate(playerPrefabs[index]);
+            playerInstance = Instantiate(playerPrefabs[index], new Vector3(spawn.x + offset, spawn.y, spawn.z), Quaternion.identity);
             playerPrefabs.RemoveAt(index);
+            offset += 1.5f;
         }
 
         playerInstance.GetComponent<Player>().displayName = conn.identity.GetComponent<NetworkGamePlayer>().displayName;

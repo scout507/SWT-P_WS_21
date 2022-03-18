@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class Melee : ShootGun
 {
-
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// </summary>
@@ -28,15 +27,26 @@ public class Melee : ShootGun
         {
             return;
         }
-
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+        if (canInteract)
         {
-            nextFire = Time.time + fireRate;
-            Shoot();
-        }
-        else
-        {
-            this.inAttack = false;
+            inventory.UpdateInfo(this.icon, 0, 0);
+            if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                Shoot();
+            }
+            else
+            {
+                if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+                {
+                    nextFire = Time.time + fireRate;
+                    Shoot();
+                }
+                else
+                {
+                    this.inAttack = false;
+                }
+            }
         }
     }
 
@@ -45,8 +55,16 @@ public class Melee : ShootGun
     /// </summary>
     public override void Shoot()
     {
-        audioController.PlayGunSound(3);
+        audioController.CmdPlayGunSound(3);
         this.inAttack = true;
+    }
+
+    /// <summary>
+    /// Melee does not need Reload function, but because it is necessary for abstract class ShootGun
+    /// </summary>
+    public override void Reload()
+    {
+        throw new System.NotImplementedException();
     }
 
     /// <summary>
@@ -64,18 +82,6 @@ public class Melee : ShootGun
         gunMount.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         gunMount.GetComponentInChildren<CapsuleCollider>().enabled = false;
         yield return null;
-    }
-
-    /// <summary>
-    /// This is called when a melee weapon hits a player.
-    /// </summary>
-    /// <param name="other">The collider of the gameobject which hit this gameobject.</param>
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.transform.root.gameObject.CompareTag("Player"))
-        {
-            other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
-        }
     }
 
     /// <summary>

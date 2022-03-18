@@ -15,54 +15,104 @@ public abstract class ShootGun : NetworkBehaviour
     /// Damage output for gun
     /// </summary>
     public int gunDamage;
+
     /// <summary>
     /// Firerate for gun
     /// </summary>
     public float fireRate;
+
     /// <summary>
     /// Range for gun
     /// </summary>
-    public float weaoponRange;
+    public float weaponRange;
+
     /// <summary>
     /// Gun end for animations
     /// </summary>
     public Transform gunEnd;
+
     /// <summary>
     /// Prefab of gun
     /// </summary>
     public GameObject gun;
+
     /// <summary>
     /// Point where gun is loaded
     /// </summary>
     public Transform gunMount;
+
     /// <summary>
     /// Ammunition of gun
     /// </summary>
     public int gunAmmo;
+
     /// <summary>
     /// Maximum Ammo
     /// </summary>
     public int magSize;
+
     /// <summary>
     /// Time of the next shot you can take
     /// </summary>
     public float nextFire;
+
+    /// <summary>
+    /// Time of the next reload you can take
+    /// </summary>
+    public float nextReload;
+
+    /// <summary>
+    /// Time of the next reload you can take
+    /// </summary>
+    public float reloadDelay;
+
     /// <summary>
     /// Set ammount of Recoil per Shot
     /// </summary>
     public float recoil;
+
     /// <summary>
     /// Icon of the Weapon
     /// </summary>
     public Sprite icon;
+
     /// <summary>
     /// Weapon-Inventory of the Player
     /// </summary>
     public Inventory inventory;
+
     /// <summary>True when player is attacking</summary>
-    public bool inAttack;
+    [SyncVar] public bool inAttack;
+
     /// <summary>Audio Script that controlls Gun Sound</summary>
     public AudioController audioController;
+
+    /// <summary>The range at witch shots can trigger zombies.</summary>
+    public float triggerRange = 15f;
+
+    /// <summary>true if the player can do inputs.</summary>
+    public bool canInteract = true;
+
+    /// <summary>Flag if player is reloading.</summary>
+    public bool isReloading = false;
+
+    /// <summary>
+    /// Checks for nearby zombies and triggers them.
+    /// </summary>
+    public void TriggerAggro()
+    {
+        Collider[] nearbyZombies = Physics.OverlapSphere(
+            this.gameObject.transform.position,
+            triggerRange
+        );
+        foreach (Collider nearbyZombie in nearbyZombies)
+        {
+            if (nearbyZombie.GetComponent<MonsterController>())
+            {
+                CmdTriggerMonster(nearbyZombie.gameObject, this.gameObject);
+            }
+        }
+    }
 
     /// <summary>
     /// Gets called when player is hit.
@@ -101,6 +151,17 @@ public abstract class ShootGun : NetworkBehaviour
     }
 
     /// <summary>
+    /// Calls the AggroMob method to trigger nearby monsters.
+    /// </summary>
+    /// <param name="monster">The monster to trigger</param>
+    /// <param name="player">The player triggering it.</param>
+    [Command]
+    public void CmdTriggerMonster(GameObject monster, GameObject player)
+    {
+        monster.GetComponent<MonsterController>().AggroMob(player);
+    }
+
+    /// <summary>
     /// Function for hit on wall, can start Animation or something on point of hit.
     /// </summary>
     /// <param name="hit">Position of point of impact.</param>
@@ -134,14 +195,23 @@ public abstract class ShootGun : NetworkBehaviour
     private void OnEnable()
     {
         Instantiate(gun, gunMount);
-        if (isLocalPlayer) inventory = GetComponentInChildren<Inventory>();
-        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+        if (isLocalPlayer)
+        {
+            inventory = GetComponentInChildren<Inventory>();
+            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+        }
+
     }
 
     /// <summary>
     /// Implements a single shot, different for every weapon.
     /// </summary>
     public abstract void Shoot();
+
+    /// <summary>
+    /// Implements reloading, different for every weapon.
+    /// </summary>
+    public abstract void Reload();
 
     /// <summary>
     /// Very simple recoil for better representation of gun.
@@ -152,5 +222,4 @@ public abstract class ShootGun : NetworkBehaviour
         xRotation -= recoil;
         GetComponent<PlayerMovement>().SetXRotation(xRotation);
     }
-
 }

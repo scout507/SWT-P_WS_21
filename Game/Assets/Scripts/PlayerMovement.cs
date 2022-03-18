@@ -15,6 +15,9 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField]
     CharacterController controller;
 
+    /// <summary>Player camera</summary>
+    public GameObject cam;
+
     /// <summary>
     /// Prefab of the player's model
     /// </summary>
@@ -52,7 +55,7 @@ public class PlayerMovement : NetworkBehaviour
     float gravity = 19.62f;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     [SerializeField]
     float jumpHeight = 2f;
@@ -98,13 +101,13 @@ public class PlayerMovement : NetworkBehaviour
     Vector3 velocity;
 
     /// <summary>
-    /// Is the player currently on ground? 
+    /// Is the player currently on ground?
     /// </summary>
     [SyncVar]
     bool isGrounded = false;
 
     /// <summary>
-    /// Is the player currently in air? 
+    /// Is the player currently in air?
     /// </summary>
     [SyncVar]
     bool isAirborne = false;
@@ -146,6 +149,20 @@ public class PlayerMovement : NetworkBehaviour
     [SyncVar]
     int currentTaunt = 0;
 
+    /// <summary>
+    /// bool to check for a LAdderCollider
+    /// </summary>
+    bool insideLadder = false;
+
+    /// <summary>
+    /// The UP and DOWN speed for climbing ladders.
+    /// </summary>
+    public float speedUpDown = 10.0f;
+
+    /// <summary>
+    /// Transform-information of the player
+    /// </summary>
+    public Transform playerTransform;
     /// <summary>
     /// Returns the player's view pitch
     /// </summary>
@@ -255,13 +272,14 @@ public class PlayerMovement : NetworkBehaviour
         gameObject.layer = 0;
         foreach (Transform child in gameObject.transform)
         {
-            child.gameObject.layer = 0;
+            setLayerDefault(child);
         }
         Cursor.lockState = CursorLockMode.Locked;
-        Transform cameraTransform = Camera.main.gameObject.transform; // Find main camera which is part of the scene instead of the prefab
-        cameraTransform.parent = cameraMountPoint.transform; // Make the camera a child of the mount point
-        cameraTransform.position = cameraMountPoint.transform.position; // Set position/rotation same as the mount point
-        cameraTransform.rotation = cameraMountPoint.transform.rotation;
+        cam.SetActive(true);
+        //Transform cameraTransform = Camera.main.gameObject.transform; // Find main camera which is part of the scene instead of the prefab
+        //cameraTransform.parent = cameraMountPoint.transform; // Make the camera a child of the mount point
+        //cameraTransform.position = cameraMountPoint.transform.position; // Set position/rotation same as the mount point
+        //cameraTransform.rotation = cameraMountPoint.transform.rotation;
     }
 
     /// <summary>
@@ -302,7 +320,6 @@ public class PlayerMovement : NetworkBehaviour
     void Crouch()
     {
         controller.center = new Vector3(0, -0.1f, 0);
-        controller.radius = 0.4f;
         controller.height = 1.35f;
         // move ybot y to -0.824f
         cameraMountPoint.transform.localPosition = new Vector3(0.085f, 0.26f, 0.06f);
@@ -316,7 +333,6 @@ public class PlayerMovement : NetworkBehaviour
     void Uncrouch()
     {
         controller.center = new Vector3(0, 0, 0);
-        controller.radius = 0.35f;
         controller.height = 1.65f;
         // move ybot y to -0.92f
         cameraMountPoint.transform.localPosition = new Vector3(0f, 0.756f, 0.05f);
@@ -348,7 +364,7 @@ public class PlayerMovement : NetworkBehaviour
         if (!hitInteractable)
             return;
 
-        hit.collider.transform.root.gameObject.GetComponent<Interactable>().OnInteract();
+        hit.collider.transform.parent.gameObject.GetComponent<Interactable>().OnInteract();
     }
 
     /// <summary>
@@ -453,8 +469,11 @@ public class PlayerMovement : NetworkBehaviour
                 }
             }
 
-            velocity.y -= gravity * Time.deltaTime;
-            controller.Move(velocity * Time.deltaTime);
+            if (!insideLadder)
+            {
+                velocity.y -= gravity * Time.deltaTime;
+                controller.Move(velocity * Time.deltaTime);
+            }
 
             if (move.magnitude > 0.1f)
                 SetCurrentTaunt(0);
@@ -472,6 +491,45 @@ public class PlayerMovement : NetworkBehaviour
             {
                 Interact();
             }
+
+            if (insideLadder == true && Input.GetKey("w"))
+            {
+                SetIsGrounded(true);
+                playerTransform.transform.position += Vector3.up * speedUpDown;
+                Debug.Log("LAdderUp");
+            }
+
+            if (insideLadder == true && Input.GetKey("s"))
+            {
+                SetIsGrounded(true);
+                playerTransform.transform.position -= Vector3.up * speedUpDown;
+                Debug.Log("LAdderDown");
+            }
+        }
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Ladder")
+        {
+            insideLadder = true;
+        }
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.tag == "Ladder")
+        {
+            insideLadder = false;
+        }
+    }
+
+    private void setLayerDefault(Transform gameObjectChild)
+    {
+        gameObjectChild.gameObject.layer = 0;
+        foreach (Transform child in gameObjectChild)
+        {
+            setLayerDefault(child);
         }
     }
 }

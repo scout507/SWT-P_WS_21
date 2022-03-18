@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class Rifle : ShootGun
 {
-
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
     /// </summary>
@@ -15,9 +14,13 @@ public class Rifle : ShootGun
     {
         this.gunDamage = 50;
         this.fireRate = 1f;
-        this.weaoponRange = 200f;
+        this.reloadDelay = 0.7f;
+        this.weaponRange = 200f;
         this.gunAmmo = 4;
         this.recoil = 20f;
+        this.magSize = 4;
+        this.triggerRange = 20f;
+        this.isReloading = false;
         audioController = this.GetComponent<AudioController>();
     }
 
@@ -30,26 +33,52 @@ public class Rifle : ShootGun
         {
             return;
         }
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
-        {
-            if (isLocalPlayer) inventory = GetComponentInChildren<Inventory>();
-            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
-            nextFire = Time.time + fireRate;
-            if (gunAmmo > 0)
-            {
-                Shoot();
-            }
-            else
-            {
-                Debug.Log("Out of Ammo!");
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            gunAmmo = magSize;
-        }
 
-        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+        if (canInteract)
+        {
+            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+
+            if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                if (gunAmmo > 0)
+                {
+                    isReloading = false;
+                    Shoot();
+                }
+                else
+                {
+                    Debug.Log("Out of Ammo!");
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
+            {
+                isReloading = true;
+                nextReload = Time.time + reloadDelay;
+            }
+            if (isReloading)
+            {
+                Reload();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Rifle is reloaded one round after another till the magazin is full
+    /// </summary>
+    public override void Reload()
+    {
+        if (Time.time > nextReload && gunAmmo < magSize && isReloading)
+        {
+            nextReload = Time.time + reloadDelay;
+            gunAmmo++;
+            audioController.CmdPlayGunSound(8);
+        }
+        if (gunAmmo == magSize)
+        {
+            isReloading = false;
+        }
     }
 
     /// <summary>
@@ -61,8 +90,9 @@ public class Rifle : ShootGun
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
         gunAmmo--;
-        audioController.PlayGunSound(4);
-        if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
+        audioController.CmdPlayGunSound(4);
+        TriggerAggro();
+        if (Physics.Raycast(rayOrigin, direction, out hit, weaponRange))
         {
             Debug.Log("In Range!");
             Debug.DrawLine(rayOrigin, hit.point, Color.green, 0.5f);
@@ -86,9 +116,8 @@ public class Rifle : ShootGun
         else
         {
             Debug.Log("Out of Range!");
-            Debug.DrawRay(rayOrigin, direction * weaoponRange, Color.red, 0.5f);
+            Debug.DrawRay(rayOrigin, direction * weaponRange, Color.red, 0.5f);
         }
         Recoil();
     }
-
 }

@@ -1,29 +1,54 @@
+/* created by: SWT-P_WS_21/22 */
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This script controlls the change of the Healthbar.
+/// </summary>
 public class HealthBar : MonoBehaviour
 {
-    public Slider slider;
+    /// <summary>
+    /// Slider to adjust the size
+    /// </summary>
+    Slider slider;
 
     /// <summary>
-    /// sets the max health of the slider
+    /// Image of the ColorFilling
     /// </summary>
-    /// <param name="health"></param>
-    public void SetMaxHealth(int health)
+    public Image HPColor;
+
+    /// <summary>
+    /// Reference to the HealthScript
+    /// </summary>
+    Health healthScript;
+
+    private void Start()
     {
-        slider.maxValue = health;
-        slider.value = health;
+        healthScript = GetComponentInParent<Health>();
+        slider = GetComponent<Slider>();
+        slider.maxValue = healthScript.health;
+        slider.value = healthScript.health;
+        ColorChanger();
+    }
+
+    void Update()
+    {
+        if (healthScript.health >= 0)
+            slider.value = healthScript.health;
+        else
+            slider.value = 0;
+        ColorChanger();
     }
 
     /// <summary>
-    /// sets the current value of the slider
+    /// Changes the Color of the healthbar based on the value in it.
     /// </summary>
-    /// <param name="health"></param>
-    public void SetHealth(int health)
+    void ColorChanger()
     {
-        slider.value = health;
+        Color healthColor = Color.Lerp(Color.red, Color.green, (slider.value / slider.maxValue));
+        HPColor.color = healthColor;
     }
 }
