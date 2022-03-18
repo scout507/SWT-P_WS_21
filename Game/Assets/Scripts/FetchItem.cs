@@ -1,8 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+/* created by: SWT-P_WS_21/22 */
+
+/// <summary>
+/// Class used for the items of the 'FetchTask'. 
+/// Enables the item to be picked up and be registered by the FetchTask.
+/// </summary>
 public class FetchItem : NetworkBehaviour
 {
     /// <summary>List of nearby players (for server)</summary>
@@ -15,8 +20,6 @@ public class FetchItem : NetworkBehaviour
     [SyncVar] bool used;
     /// <summary>True when the light should be on</summary>
     public bool lightOn = true;
-
-
 
     /// <summary>
     /// Used for player-object interaction.

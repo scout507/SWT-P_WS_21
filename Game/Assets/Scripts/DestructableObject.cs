@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
@@ -7,7 +5,8 @@ using Mirror;
 
 
 /// <summary>
-/// Prototype script for destructable objects. 
+/// This class is used to make non player objects attackable for the zombies. If you want to use this, 
+/// make sure to set the 'DestructableObject' tag on the object holding this script. 
 /// </summary>
 public class DestructableObject : NetworkBehaviour
 {

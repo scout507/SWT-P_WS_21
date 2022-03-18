@@ -1,10 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+/* created by: SWT-P_WS_21/22 */
+
+/// <summary>
+/// Class for the 'Key' object of the 'KeyTask'.
+/// </summary>
 public class Key : NetworkBehaviour
 {
+    /// <summary>
+    /// Used for pickup by the player. The Gameobject gets destroyed on pickup.
+    /// </summary>
+    /// <param name="other">The collider that triggered this function.</param>
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" && isServer)

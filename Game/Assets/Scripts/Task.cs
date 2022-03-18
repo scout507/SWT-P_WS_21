@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
 /* created by: SWT-P_WS_21/22 */
 
-
+/// <summary>
+/// Base class for the ingame tasks. Every task must inherit from this class.
+/// Handles basic information about the task, which is used by the task manager.
+/// </summary>
 public class Task : NetworkBehaviour
 {
     /// <summary>True when the task is ready to be interacted with.</summary>
@@ -25,7 +26,7 @@ public class Task : NetworkBehaviour
     [SyncVar] public float progress;
     /// <summary>List of all Players within the interactable radius</summary>
     readonly public SyncList<uint> players = new SyncList<uint>();
-
+    /// <summary>DestructableObject script to track the health of the task and make it attackable.</summary>
     public DestructableObject dObjScript;
 
     /// <summary>

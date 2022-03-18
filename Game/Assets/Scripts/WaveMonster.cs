@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using Mirror;
+
 
 /* created by: SWT-P_WS_21/22 */
 
@@ -21,8 +20,11 @@ public class WaveMonster : MonsterController
     /// <summary>The refreshrate for target finding calculations</summary>
     float refreshRate = 2f;
 
+    /// <summary>True when the monster is near to a fence object. Used for prioritising fences over players</summary>
     bool prioritiseFence;
+    /// <summary>The script of the nearby fence for choosing a plank to attack</summary>
     FenceInteraction fenceScript;
+    /// <summary>The plank objects of a nearby fence</summary>
     GameObject[] planks;
 
 
@@ -54,7 +56,6 @@ public class WaveMonster : MonsterController
 
         if (!dead)
         {
-            damageTaken = false;
             attack = false;
 
             if (hp <= 0)
@@ -118,7 +119,7 @@ public class WaveMonster : MonsterController
     }
 
     /// <summary>
-    /// Selects a target for the monster to attack. 
+    /// Selects a target for the monster to attack. The prioritisation is fence>player>destructable object.
     /// </summary>
     /// <returns>Returns the target as a GameObject or null if there is no possible target</returns>
     GameObject ChooseTarget()
@@ -216,7 +217,10 @@ public class WaveMonster : MonsterController
         return newTarget;
     }
 
-
+    /// <summary>
+    /// Used for checking if the monster is near a fence object.
+    /// </summary>
+    /// <param name="other">The collider that triggered this function</param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Fence")
@@ -224,8 +228,15 @@ public class WaveMonster : MonsterController
             prioritiseFence = true;
             fenceScript = other.gameObject.GetComponent<FenceInteraction>();
         }
+        //This is needed here, since the MonsterController OnTriggerEnter gets overriden
+        if (other.transform.root.GetComponent<Melee>())
+            other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
     }
 
+    /// <summary>
+    /// Used to register the exit from a nearby fence.
+    /// </summary>
+    /// <param name="other">The collider that triggered this function</param>
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Fence")

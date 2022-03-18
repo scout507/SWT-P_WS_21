@@ -1,11 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
 /* created by: SWT-P_WS_21/22 */
 
-
+/// <summary>
+/// This class implements the Defence/Timer task. Inherits from Task.
+/// </summary>
 public class TaskTimer : Task
 {
     /// <summary>The spawnable zombies</summary>
@@ -141,6 +142,6 @@ public class TaskTimer : Task
     [TargetRpc]
     void TargetRpcSendMessage(NetworkConnection target, string message)
     {
-        if(NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
+        if (NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
     }
 }

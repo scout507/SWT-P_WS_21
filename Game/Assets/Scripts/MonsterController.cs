@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Animations;
 using Mirror;
 
 /* created by: SWT-P_WS_21/22 */
@@ -24,14 +23,6 @@ public class MonsterController : NetworkBehaviour
 
     /// <summary>The monsters movementspeed</summary>
     public float moveSpeed;
-
-    /// <summary> Monster's sideways velocity </summary>
-    [SyncVar]
-    float velocityX;
-
-    /// <summary> Monster's forwards velocity </summary>
-    [SyncVar]
-    float velocityZ;
 
     /// <summary>True when the monster aggro is triggered </summary>
     public bool awake;
@@ -58,10 +49,12 @@ public class MonsterController : NetworkBehaviour
     /// <summary>Timer for attacking</summary>
     public float atkTimer;
 
+    /// <summary>True when the monster is attacking</summary>
     [SyncVar]
     public bool attack;
 
-    public bool damageTaken;
+    /// <summary>Audio Script that controlls Gun Sound</summary>
+    public ZombieAudioController zombieAudioController;
 
     /// <summary>Stores the spawn spot</summary>
     Vector3 home;
@@ -93,8 +86,13 @@ public class MonsterController : NetworkBehaviour
     /// <summary>NavMeshAgent for navigation</summary>
     NavMeshAgent navAgent;
 
-    /// <summary>Audio Script that controlls Gun Sound</summary>
-    public ZombieAudioController zombieAudioController;
+    /// <summary> Monster's sideways velocity </summary>
+    [SyncVar]
+    float velocityX;
+
+    /// <summary> Monster's forwards velocity </summary>
+    [SyncVar]
+    float velocityZ;
 
 
 

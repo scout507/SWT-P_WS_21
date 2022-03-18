@@ -1,10 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Mirror;
 
+/* created by: SWT-P_WS_21/22 */
+
+/// <summary>
+/// This class is responsible for handling the chatbox displayed on the UI.
+/// If you want to use this class to send a message to a player,
+/// please call the AddMessage function.
+/// </summary>
 public class Chatbox : NetworkBehaviour
 {
     /// <summary>The UI component holding the textbox.</summary>
@@ -126,13 +132,12 @@ public class Chatbox : NetworkBehaviour
     }
 
     /// <summary>
-    /// Adds a new message to the UI. Can hold a maximum of 5 messages before it overrides the oldes one.
+    /// Adds a new message to the UI. If you want to send a message to a player, use this function.
+    /// Can hold a maximum of 5 messages before it overrides the oldes one.
     /// </summary>
     /// <param name="message"></param>
     public void AddMessage(string message)
     {
-        //TODO: Add notification sound
-
         for (int i = 4; i > 0; i--)
         {
             messages[i] = messages[i - 1];
@@ -144,7 +149,7 @@ public class Chatbox : NetworkBehaviour
     }
 
     /// <summary>
-    /// Updates the timers for message deletion
+    /// Updates the timers for message deletion.
     /// </summary>
     void UpdateTimers()
     {
@@ -220,6 +225,7 @@ public class Chatbox : NetworkBehaviour
 
     /// <summary>
     /// For distributing a message to other players.
+    /// Only used for player-to-player messages.
     /// </summary>
     /// <param name="message">Message to send.</param>
     /// <param name="target">The player GameObject to send it to.</param>
@@ -231,6 +237,7 @@ public class Chatbox : NetworkBehaviour
 
     /// <summary>
     /// Adds a given message to the checkbox of the target player.
+    /// Only used for player-to-player messages.
     /// </summary>
     /// <param name="target">NetworkConnection of the Target.</param>
     /// <param name="message">The message to deliver.</param>

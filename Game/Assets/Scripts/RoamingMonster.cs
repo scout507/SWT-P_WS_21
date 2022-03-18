@@ -65,7 +65,6 @@ public class RoamingMonster : MonsterController
         detectionTimer += Time.deltaTime;
         atkTimer += Time.deltaTime;
 
-        damageTaken = false;
         attack = false;
 
         if (detectionTimer >= detectionRate && !aggro)

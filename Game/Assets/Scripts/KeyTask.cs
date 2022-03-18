@@ -1,20 +1,24 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+/* created by: SWT-P_WS_21/22 */
+
+/// <summary>
+/// This class implements the 'KeyTask'. Inherits from Task.
+/// </summary>
 public class KeyTask : Task
 {
     /// <summary>The player object that holds the key</summary>
     [SyncVar] public GameObject playerWithKey;
+    /// <summary>The key prefab</summary>
+    public GameObject key;
     /// <summary>The zombie holding the key</summary>
     GameObject zombieWithKey;
     /// <summary>A list of all living roaming zombies</summary>
     List<GameObject> activeZombies;
     /// <summary>Monstercontroller of the zombieWithKey</summary>
     MonsterController zombieScript;
-    /// <summary>The key prefab</summary>
-    public GameObject key;
     /// <summary>Time before a new zombie is chosen</summary>
     float refreshTime = 10f;
     /// <summary>Timer for choosing a new zombie</summary>
@@ -124,7 +128,7 @@ public class KeyTask : Task
     {
         FinishTask();
     }
-    
+
     /// <summary>
     /// Sends a message to the choosen player.
     /// </summary>
@@ -133,7 +137,7 @@ public class KeyTask : Task
     [TargetRpc]
     void TargetRpcSendMessage(NetworkConnection target, string message)
     {
-        if(NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
+        if (NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
     }
 
 

@@ -1,17 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+
+/* created by: SWT-P_WS_21/22 */
 
 /// <summary>
 /// Class for the 'FetchTask'-task. Inherits from Task.
 /// </summary>
 public class FetchTask : Task
 {
-    /// <summary>List of all spawnable fetchItems</summary>
-    [SerializeField]
-    List<GameObject> fetchItems;
-
     /// <summary>The item to spawn</summary>
     [SerializeField]
     GameObject fetchItem;

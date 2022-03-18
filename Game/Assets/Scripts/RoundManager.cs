@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
@@ -11,6 +10,7 @@ using Mirror;
 public class RoundManager : NetworkBehaviour
 {
     // Player-related
+
     /// <summary>Amount of players in this round</summary>//
     public int totalPlayers;
 
@@ -43,6 +43,7 @@ public class RoundManager : NetworkBehaviour
     public string imposterNames = "";
 
     //NPC-related
+
     /// <summary>Zombiespawner-script</summary>//
     ZombieSpawner zombieSpawner;
 
@@ -51,6 +52,7 @@ public class RoundManager : NetworkBehaviour
     TaskManager taskManager;
 
     //Game-related
+
     /// <summary>Total time a round can take before beeing game over</summary>//
     [SerializeField]
     float timePerRound;
@@ -67,9 +69,9 @@ public class RoundManager : NetworkBehaviour
 
     /// <summary>True when the preperation phase is over</summary>//
     bool started;
-    
+
     /// <summary>Offset for the spawn-positions of the players</summary>//
-    float spawnOffset = 0; 
+    float spawnOffset = 0;
 
     /// <summary>
     /// Gets all dependencies
@@ -175,7 +177,7 @@ public class RoundManager : NetworkBehaviour
                 names += player.GetComponent<Player>().displayName + "\n";
             }
         }
-        SetImposterNames(names);
+        RpcSetImposterNames(names);
     }
 
     /// <summary>
@@ -218,7 +220,7 @@ public class RoundManager : NetworkBehaviour
         else
             hasWon = Winner.Nobody;
 
-        SetHasWon(hasWon);
+        RpcSetHasWon(hasWon);
     }
 
     /// <summary>
@@ -273,7 +275,7 @@ public class RoundManager : NetworkBehaviour
     [ClientRpc]
     void RpcMessage(string message)
     {
-        if(NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
+        if (NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
     }
 
     /// <summary>
@@ -283,13 +285,13 @@ public class RoundManager : NetworkBehaviour
     [TargetRpc]
     void TargetRpcTellImpostor(NetworkConnection target)
     {
-        if(NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage("You are the impostor");
+        if (NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage("You are the impostor");
     }
 
     /// <summary>Sync the "hasWon" variable from the server to the client.</summary>
     /// <param name="winner">Contains the winner type of the class Winner.</param>
     [ClientRpc]
-    void SetHasWon(Winner winner)
+    void RpcSetHasWon(Winner winner)
     {
         hasWon = winner;
     }
@@ -297,7 +299,7 @@ public class RoundManager : NetworkBehaviour
     /// <summary>Sync the "imposterNames" variable from the server to the client.</summary>
     /// <param name="names">Contains the impostor names.</param>
     [ClientRpc]
-    void SetImposterNames(string names)
+    void RpcSetImposterNames(string names)
     {
         imposterNames = names;
     }
