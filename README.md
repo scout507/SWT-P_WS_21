@@ -9,7 +9,7 @@
 > _DLPLACEHOLDER_
 
 ## Link zur Doku:
-> Dokumentation findest du [hier](https://scout507.github.io/SWT-P_WS_21/).
+> Dokumentation findest du [hier](https://scout507.github.io/SWT-P_WS_21/annotated.html).
 
 ## Wie kann man mitwirken:
 > Es stehen leider noch keine Pläne das Projekt aktiv weiter zu führen.
