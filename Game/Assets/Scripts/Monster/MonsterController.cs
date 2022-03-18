@@ -15,8 +15,11 @@ public class MonsterController : NetworkBehaviour
     /// <summary>Aggro radius of the monster</summary>
     public float aggroRadius;
 
-    /// <summary>Damage the monster does in one hit</summary>
+    /// <summary>Damage the monster does to a player in one hit</summary>
     public float damage;
+
+    /// <summary>Damage the monster does to a tasks/fences in one hit</summary>
+    public float buildingDamage;
 
     /// <summary>The monsters Hp</summary>
     public float hp;
@@ -158,7 +161,7 @@ public class MonsterController : NetworkBehaviour
             }
             else if (currentTarget.tag == "DestructableObject")
             {
-                currentTarget.GetComponent<DestructableObject>().TakeDamage(damage);
+                currentTarget.GetComponent<DestructableObject>().TakeDamage(buildingDamage);
             }
         }
     }
