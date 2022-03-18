@@ -46,14 +46,33 @@ public class ZombieAudioController : NetworkBehaviour
     }
 
     /// <summary>
+    /// Checks if there's a wall or an object between the player and the zombie.
+    /// Used to adjust volume for zombies behind walls, and under ground.
+    /// </summary>
+    /// <returns>Returns true if the zombie can raycast the player.</returns>
+    bool CheckWalls()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(NetworkClient.localPlayer.gameObject.transform.position, this.gameObject.transform.position, out hit, 30f))
+        {
+            if(hit.collider.gameObject.layer == 8) return false;
+            else return true;
+        }
+
+        return true;
+    }
+
+    /// <summary>
     /// The ClientRpC for the Zombie Footstep Sound
     /// </summary>
     [ClientRpc]
     void RPCPlayFootStepSound(float randomf)
     {
+        float vol = 0.4f;
+        if(CheckWalls()) vol *= 0.2f;
         if (!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.pitch = randomf;
-        audioSource.PlayOneShot(monsterFootsteps[monsterFootstep], 0.4f);
+        audioSource.PlayOneShot(monsterFootsteps[monsterFootstep], vol);
     }
 
     /// <summary>
@@ -61,9 +80,11 @@ public class ZombieAudioController : NetworkBehaviour
     /// </summary>
     [ClientRpc]
     void RPCPlayZombieIdleSound()
-    {
+    {   
+        float vol = 0.8f;
+        if(CheckWalls()) vol *= 0.2f;
         if (!audioSource) audioSource = this.GetComponent<AudioSource>();
-        audioSource.PlayOneShot(monsterIdleSound[monsterIdle], 0.8f);
+        audioSource.PlayOneShot(monsterIdleSound[monsterIdle], vol);
     }
 
     /// <summary>
@@ -72,8 +93,10 @@ public class ZombieAudioController : NetworkBehaviour
     [ClientRpc]
     public void RPCPlayZombieDmgSound(int selected)
     {
+        float vol = 0.6f;
+        if(CheckWalls()) vol *= 0.2f;
         if (!audioSource) audioSource = this.GetComponent<AudioSource>();
-        audioSource.PlayOneShot(monsterDmgTakenSound[selected], 0.6f);
+        audioSource.PlayOneShot(monsterDmgTakenSound[selected], vol);
     }
 
     /// <summary>
@@ -82,9 +105,11 @@ public class ZombieAudioController : NetworkBehaviour
     [ClientRpc]
     public void RPCPlayZombieDeathSound(int selected)
     {
+        float vol = 0.8f;
+        if(CheckWalls()) vol *= 0.2f;
         isAlive = false;
         if (!audioSource) audioSource = this.GetComponent<AudioSource>();
-        audioSource.PlayOneShot(monsterDmgTakenSound[selected], 0.8f);
+        audioSource.PlayOneShot(monsterDmgTakenSound[selected], vol);
     }
 
     /// <summary>
@@ -92,8 +117,10 @@ public class ZombieAudioController : NetworkBehaviour
     /// </summary>
     [ClientRpc]
     public void RPCPlayZombieAttackSound(int selected)
-    {
+    {   
+        float vol = 0.8f;
+        if(CheckWalls()) vol *= 0.2f;
         if (!audioSource) audioSource = this.GetComponent<AudioSource>();
-        audioSource.PlayOneShot(monsterAttackSound[selected], 0.8f);
+        audioSource.PlayOneShot(monsterAttackSound[selected], vol);
     }
 }
