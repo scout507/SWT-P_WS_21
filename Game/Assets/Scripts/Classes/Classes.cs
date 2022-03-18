@@ -37,6 +37,7 @@ public abstract class Classes : NetworkBehaviour
             SwitchWeapon(selectedWeapon, selectedWeapon);
             return;
         }
+        selectedWeapon = 1;
         SwitchWeapon(selectedWeapon, selectedWeapon);
         SetHasMelee();
     }
