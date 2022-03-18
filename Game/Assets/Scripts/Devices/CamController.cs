@@ -38,16 +38,6 @@ public class CamController : Device
     }
 
     /// <summary>
-    /// This command calls the function for setting the right index of the camera.
-    /// </summary>
-    /// <param name="number">Index in List of set up cameras.</param>
-    [Command]
-    public void CmdSetNumber(int number)
-    {
-        SetNumber(number);
-    }
-
-    /// <summary>
     /// This sets the right index of the camera on the server.
     /// </summary>
     /// <param name="number">Index in List of set up cameras.</param>
@@ -60,7 +50,7 @@ public class CamController : Device
     /// On collision the camera rotates in the correct position.
     /// The rotation depends on the orientation of the wall.
     /// </summary>
-    /// <param name="other"></param>
+    /// <param name="other">Data about the collision.</param>
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Player" || other.collider.transform.gameObject.layer == 7 || other.collider.transform.gameObject.layer == 8 || other.collider.transform.gameObject.layer == 9)
@@ -129,5 +119,15 @@ public class CamController : Device
     {
         if (isActiv) isActiv = false;
         else isActiv = true;
+    }
+
+    /// <summary>
+    /// This command calls the function for setting the right index of the camera.
+    /// </summary>
+    /// <param name="number">Index in List of set up cameras.</param>
+    [Command]
+    public void CmdSetNumber(int number)
+    {
+        SetNumber(number);
     }
 }

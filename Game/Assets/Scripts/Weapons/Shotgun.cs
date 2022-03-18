@@ -10,6 +10,10 @@ using UnityEngine;
 /// </summary>
 public class Shotgun : ShootGun
 {
+    /// <summary>
+    /// One shot with the shotgun fires a amount of pellets with random spread.
+    /// This variable defines the amount of pellets.
+    /// </summary>
     private int pelletAmount = 15;
 
     /// <summary>
@@ -72,6 +76,7 @@ public class Shotgun : ShootGun
         }
     }
 
+    /// <summary>
     /// Shotgun is reloaded one round after another till the magazin is full
     /// </summary>
     public override void Reload()

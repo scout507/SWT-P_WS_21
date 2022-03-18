@@ -4,14 +4,16 @@ using UnityEngine;
 
 /* created by: SWT-P_WS_21/22 */
 
-
+/// <summary>
+/// MP implements a simple submachine gun.
+/// It inherits from ShootGun.
+/// </summary>
 public class MP : ShootGun
 {
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
-    /// The AudioController is set
+    /// The AudioController is set.
     /// </summary>
-    ///
     void Start()
     {
         this.gunDamage = 5;

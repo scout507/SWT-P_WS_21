@@ -4,7 +4,10 @@ using UnityEngine;
 
 /* created by: SWT-P_WS_21/22 */
 
-
+/// <summary>
+/// Pistol implements a pistol.
+/// It inherits from ShootGun.
+/// </summary>
 public class Pistol : ShootGun
 {
     /// <summary>

@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/* edited by: SWT-P_WS_21/22*/
+/* created by: SWT-P_WS_21/22*/
+
 /// <summary>
-/// Bob is a class with a shotgun and a pistol
+/// Bob is a class with a shotgun and a pistol.
 /// </summary>
 public class Bob : Classes
 {
@@ -36,15 +37,12 @@ public class Bob : Classes
             }
         }
     }
-    public override int GetSelectedWeapon()
-    {
-        return selectedWeapon;
-    }
+
     /// <summary>
-    /// Handles change of weapons through enabling and disenabling the correct scripts on the player
+    /// Deactivates the script of the old weapon and activates the script of the new weapon.
     /// </summary>
-    /// <param name="oldWeapon"></param>
-    /// <param name="newWeapon"></param>
+    /// <param name="oldWeapon">Index of old weapon.</param>
+    /// <param name="newWeapon">Index of new weapon.</param>
     public override void SwitchWeapon(int oldWeapon, int newWeapon)
     {
         switch (oldWeapon)
@@ -72,7 +70,7 @@ public class Bob : Classes
     }
 
     /// <summary>
-    /// Bob does not have melee weapon
+    /// Bob does not have melee weapon, so the hasMelee flag is set false.
     /// </summary>
     public override void SetHasMelee()
     {

@@ -4,7 +4,10 @@ using UnityEngine;
 
 /* created by: SWT-P_WS_21/22 */
 
-
+/// <summary>
+/// Melee is responsible for the functions of the melee weapon, in our case a hammer.
+/// It inherits ShootGun, because this abstract class implements functions for making damage.
+/// </summary>
 public class Melee : ShootGun
 {
     /// <summary>
@@ -64,24 +67,7 @@ public class Melee : ShootGun
     /// </summary>
     public override void Reload()
     {
-        throw new System.NotImplementedException();
-    }
-
-    /// <summary>
-    /// Enables the colliders of the weapon and plays animation.
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator Hit()
-    {
-        gunMount.GetComponentInChildren<CapsuleCollider>().enabled = true;
-        for (int i = 0; i < 90; i += 2)
-        {
-            gunMount.transform.localRotation = Quaternion.Euler(90f, 0f, i);
-            yield return new WaitForEndOfFrame();
-        }
-        gunMount.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-        gunMount.GetComponentInChildren<CapsuleCollider>().enabled = false;
-        yield return null;
+        return;
     }
 
     /// <summary>
