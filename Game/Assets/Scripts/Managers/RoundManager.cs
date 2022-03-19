@@ -242,7 +242,7 @@ public class RoundManager : NetworkBehaviour
     {
         joinedPlayers++;
         players.Add(player.GetComponent<NetworkIdentity>().netId);
-        RpcJoinMessage(player.GetComponent<NetworkIdentity>().netId.ToString());
+        RpcJoinMessage(player.GetComponent<Player>().displayName.ToString());
         TargetRpcMoveToSpawn(player.GetComponent<NetworkIdentity>().connectionToClient, player, spawnOffset);
         spawnOffset += 1.5f;
     }
