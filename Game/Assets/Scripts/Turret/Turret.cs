@@ -11,44 +11,28 @@ using Mirror;
 public class Turret : NetworkBehaviour
 {
 
-    /// <summary>
-    /// checks if the Turret is in Use
-    /// </summary>
+    /// <summary>checks if the Turret is in Use</summary>
     public bool inUse = false;
 
-    /// <summary>
-    /// Damage amount of the Turret
-    /// </summary>
+    /// <summary>Damage amount of the Turret</summary>
     [SerializeField] int turretDamage = 20;
 
-    /// <summary>
-    /// Shooting range of the Turret
-    /// </summary>
+    /// <summary>Shooting range of the Turret</summary>
     [SerializeField] float weaoponRange = 30f;
 
-    /// <summary>
-    /// Particle system used when shooting
-    /// </summary>
+    /// <summary>Particle system used when shooting</summary>
     [SerializeField] ParticleSystem shotflash;
 
-    /// <summary>
-    /// Saves the Network Id from the player that is using the Turret
-    /// </summary>
+    /// <summary>Saves the Network Id from the player that is using the Turret</summary>
     private NetworkIdentity playerNIDinUse;
 
-    /// <summary>
-    /// Reference to the controllTurret Script on the Player Object
-    /// </summary>
+    /// <summary>Reference to the controllTurret Script on the Player Object</summary>
     private ControllTurret controlTurretPlayer;
 
-    /// <summary>
-    /// Rotation speed of the turret
-    /// </summary>
+    /// <summary>Rotation speed of the turret</summary>
     private float rotateSpeed = 1.5f;
 
-    /// <summary>
-    /// AudioSource used when shooting
-    /// </summary>
+    /// <summary>AudioSource used when shooting</summary>
     private AudioSource audiosource;
 
 
