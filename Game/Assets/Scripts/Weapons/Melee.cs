@@ -15,9 +15,9 @@ public class Melee : ShootGun
     /// </summary>
     void Start()
     {
-        this.gunDamage = 100;
+        this.gunDamage = 50;
         this.fireRate = 0.5f;
-
+        this.triggerRange = 0f;
         audioController = this.GetComponent<AudioController>();
     }
 
@@ -58,7 +58,7 @@ public class Melee : ShootGun
     /// </summary>
     public override void Shoot()
     {
-        audioController.CmdPlayGunSound(3);
+        audioController.CmdPlayGunSound(2);
         this.inAttack = true;
     }
 
