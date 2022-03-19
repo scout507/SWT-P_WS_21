@@ -8,28 +8,22 @@ using UnityEngine.UI;
 /// </summary>
 public class Inventory : MonoBehaviour
 {
-    /// <summary>
-    /// weapon Icon-Image
-    /// </summary>
+    /// <summary>Weapon Icon-Image</summary>
     public Image icon;
 
-    /// <summary>
-    /// ammount of ammo in a magazine
-    /// </summary>
+    /// <summary>Ammount of ammo in a magazine</summary>
     public Text currentAmmo;
 
-    /// <summary>
-    /// amount of magazines per weapon
-    /// </summary>
+    /// <summary>Amount of magazines per weapon</summary>
     public Text totalAmmo;
 
     /// <summary>
     /// Function to update the info on the Weapon UI, has to be used when the weapon is changed.
     /// When you change the weapon, update the UI.
     /// </summary>
-    /// <param name="weaponIcon"></param>
-    /// <param name="magazineSize"></param>
-    /// <param name="magazineCount"></param>
+    /// <param name="weaponIcon">The weapons icon sprite</param>
+    /// <param name="newCurrentAmmo">Current amount of ammo</param>
+    /// <param name="newTotalAmmo">Maximum mag size of the weapon</param>
     public void UpdateInfo(Sprite weaponIcon, int newCurrentAmmo, int newTotalAmmo)
     {
         icon.sprite = weaponIcon;

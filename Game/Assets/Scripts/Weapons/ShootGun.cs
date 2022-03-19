@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
@@ -87,6 +85,26 @@ public abstract class ShootGun : NetworkBehaviour
     }
 
     /// <summary>
+    /// Implements a single shot, different for every weapon.
+    /// </summary>
+    public abstract void Shoot();
+
+    /// <summary>
+    /// Implements reloading, different for every weapon.
+    /// </summary>
+    public abstract void Reload();
+
+    /// <summary>
+    /// Very simple recoil for better representation of gun.
+    /// </summary>
+    public void Recoil()
+    {
+        float xRotation = GetComponent<PlayerMovement>().GetXRotation();
+        xRotation -= recoil;
+        GetComponent<PlayerMovement>().SetXRotation(xRotation);
+    }
+
+    /// <summary>
     /// Destroys gameobject of gun when a new gun is equipped.
     /// </summary>
     private void OnDisable()
@@ -106,26 +124,6 @@ public abstract class ShootGun : NetworkBehaviour
             inventory.UpdateInfo(this.icon, this.gunAmmo, this.magSize);
         }
 
-    }
-
-    /// <summary>
-    /// Implements a single shot, different for every weapon.
-    /// </summary>
-    public abstract void Shoot();
-
-    /// <summary>
-    /// Implements reloading, different for every weapon.
-    /// </summary>
-    public abstract void Reload();
-
-    /// <summary>
-    /// Very simple recoil for better representation of gun.
-    /// </summary>
-    public void Recoil()
-    {
-        float xRotation = GetComponent<PlayerMovement>().GetXRotation();
-        xRotation -= recoil;
-        GetComponent<PlayerMovement>().SetXRotation(xRotation);
     }
 
     /// <summary>
@@ -179,6 +177,7 @@ public abstract class ShootGun : NetworkBehaviour
     [ClientRpc]
     public void RpcHitWall(Vector3 hit)
     {
+        //TODO: Add particle/soundeffect
         return;
     }
 
