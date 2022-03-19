@@ -18,7 +18,7 @@ public class MeetingButton : Interactable
     [SerializeField] private float cooldown;
 
     /// <summary>AudioSource of the meeting button to play sounds</summary>
-    [SerializeField] private AudioSource audioSource;
+    private AudioSource audioSource;
 
     /// <summary>
     /// Initializes the meeting button to be ready
@@ -26,6 +26,7 @@ public class MeetingButton : Interactable
     public override void Start()
     {
         base.Start();
+        audioSource = GetComponent<AudioSource>();
         isReady = true;
         cooldownTimer = 0;
     }

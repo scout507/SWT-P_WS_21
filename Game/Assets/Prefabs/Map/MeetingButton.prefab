@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6444935947891963783}
   - component: {fileID: 6444935947891963777}
-  - component: {fileID: 6444935947891963776}
   - component: {fileID: 6444935947891963778}
+  - component: {fileID: 7767334228605568569}
   m_Layer: 3
   m_Name: MeetingButton
   m_TagString: Untagged
@@ -139,22 +139,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6444935947891963776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6444935947891963782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f5fdadef70223847926d36d0027252e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  cooldown: 300
-  audioSource: {fileID: 6444935947891963777}
 --- !u!114 &6444935947891963778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +156,22 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 9857d4318b9624f7792591eff589c07d
   hasSpawned: 0
+--- !u!114 &7767334228605568569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444935947891963782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269a71c653197b44fa10c2ec4d753c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  cooldown: 30
+  audioSource: {fileID: 6444935947891963777}
 --- !u!1 &6444935948321075937
 GameObject:
   m_ObjectHideFlags: 0
