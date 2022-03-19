@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2377,7 +2377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000019073486, y: 382}
+  m_AnchoredPosition: {x: -0.000019073486, y: 409}
   m_SizeDelta: {x: 1380.3624, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &358880155
@@ -2511,7 +2511,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 500.79147, y: -114}
+  m_AnchoredPosition: {x: 442.7787, y: 5.000004}
   m_SizeDelta: {x: 816.8781, y: 475.4938}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &384010056
@@ -2546,7 +2546,18 @@ MonoBehaviour:
 
     reload
 
-    interact'
+    interact
+
+    use
+    chat messages
+
+    use chat
+
+    emotes
+
+    enter/leave
+
+    camera switch'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d89f8d4a692fb48449e06344a319e555, type: 2}
   m_sharedMaterial: {fileID: 3443817356749804247, guid: d89f8d4a692fb48449e06344a319e555, type: 2}
@@ -13216,7 +13227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -474.98715, y: -114}
+  m_AnchoredPosition: {x: -533, y: 5}
   m_SizeDelta: {x: 870.3456, y: 475.4938}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2009920674
@@ -13252,7 +13263,18 @@ MonoBehaviour:
 
     R   -
 
-    E   -'
+    E   -
+
+    Num 1-9   -
+
+    Num Enter   -
+
+    t
+    + 1/2/3   -
+
+    x   -
+
+    space   -'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d89f8d4a692fb48449e06344a319e555, type: 2}
   m_sharedMaterial: {fileID: 3443817356749804247, guid: d89f8d4a692fb48449e06344a319e555, type: 2}
