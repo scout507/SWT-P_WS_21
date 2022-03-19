@@ -157,13 +157,21 @@ public class MonsterController : NetworkBehaviour
             atkTimer = 0;
             if (currentTarget.tag == "Player")
             {
-                currentTarget.GetComponent<Health>().TakeDamage(Mathf.RoundToInt(damage)); //Health script uses int for health. Needs to be resolved
+                Invoke("AttackPlayer", 0.8f); //Delay to fit the animation
             }
             else if (currentTarget.tag == "DestructableObject")
             {
                 currentTarget.GetComponent<DestructableObject>().TakeDamage(buildingDamage);
             }
         }
+    }
+
+    /// <summary>
+    /// Calls damage on the player. Gets Invoked by Attack for syncing damage and animation.
+    /// </summary>
+    public void AttackPlayer()
+    {
+        if(currentTarget && currentTarget.GetComponent<Health>()) currentTarget.GetComponent<Health>().TakeDamage(Mathf.RoundToInt(damage));
     }
 
     /// <summary>
