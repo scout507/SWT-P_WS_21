@@ -1,9 +1,7 @@
-/* created by: SWT-P_WS_21/22 */
-using System.Collections;
-using System.Collections.Generic;
-using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
+
+/* created by: SWT-P_WS_21/22 */
 
 /// <summary>
 /// This script controlls the change of the Healthbar.
@@ -25,6 +23,9 @@ public class HealthBar : MonoBehaviour
     /// </summary>
     Health healthScript;
 
+    /// <summary>
+    /// Gets dependencies and sets up the healthbar.
+    /// </summary>
     private void Start()
     {
         healthScript = GetComponentInParent<Health>();
@@ -34,6 +35,9 @@ public class HealthBar : MonoBehaviour
         ColorChanger();
     }
 
+    /// <summary>
+    /// Updates the healthbar values.
+    /// </summary>
     void Update()
     {
         if (healthScript.health >= 0)
