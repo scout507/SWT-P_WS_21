@@ -1,9 +1,7 @@
-/* created by: SWT-P_WS_21/22 */
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Mirror;
+
+/* created by: SWT-P_WS_21/22 */
 
 /// <summary>
 /// This class handles the UI of each player.

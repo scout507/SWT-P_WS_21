@@ -1,7 +1,7 @@
-/* created by: SWT-P_WS_21/22 */
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/* created by: SWT-P_WS_21/22 */
+
 
 /// <summary>
 /// This script controlls the Transform-Information of the Minimap Camera.
