@@ -176,7 +176,7 @@ public class NetworkManagerLobby : NetworkManager
     {
         foreach (var player in roomPlayers)
         {
-            player.handleReadyToStart(isReadyToStart());
+            player.HandleReadyToStart(isReadyToStart());
         }
     }
 

@@ -9,11 +9,11 @@ using TMPro;
 public class NetworkRoomPlayer : NetworkBehaviour
 {
     /// <summary>A synchronised variable containing the name of the player or a placeholder.</summary>
-    [SyncVar(hook = nameof(handleDisplayNameChanged))]
+    [SyncVar(hook = nameof(HandleDisplayNameChanged))]
     public string displayName = "Loading...";
 
     /// <summary>Has the Boolean state whether a player is ready or not.</summary>
-    [SyncVar(hook = nameof(handleReadyStatusChanged))]
+    [SyncVar(hook = nameof(HandleReadyStatusChanged))]
     public bool isReady = false;
 
     /// <summary>Contains all playernems text UI elements.</summary>
@@ -45,7 +45,7 @@ public class NetworkRoomPlayer : NetworkBehaviour
     /// </summary>
     /// <param name="oldValue">Old boolean value</param>
     /// <param name="newValue">New boolean value</param>
-    public void handleReadyStatusChanged(bool oldValue, bool newValue) => UpdateDisplay();
+    public void HandleReadyStatusChanged(bool oldValue, bool newValue) => UpdateDisplay();
 
     /// <summary>
     /// Triggers when the variable "isLeader" changes.
@@ -53,7 +53,7 @@ public class NetworkRoomPlayer : NetworkBehaviour
     /// </summary>
     /// <param name="oldValue">Old display name</param>
     /// <param name="newValue">New display name</param>
-    public void handleDisplayNameChanged(string oldValue, string newValue) => UpdateDisplay();
+    public void HandleDisplayNameChanged(string oldValue, string newValue) => UpdateDisplay();
 
     /// <summary>
     /// Set funcion for isLeader.
@@ -103,7 +103,7 @@ public class NetworkRoomPlayer : NetworkBehaviour
     }
 
     /// <summary>Method to leave the lobby, stops the networkmanager and reset it.</summary>
-    public void leave()
+    public void Leave()
     {
         Room.StopHost();
     }
@@ -114,7 +114,7 @@ public class NetworkRoomPlayer : NetworkBehaviour
     /// Called from the Method "notifyPlayersOfReadyState" from "NetworkManagerLobby" class.
     /// </summary>
     /// <param name="readyToStart">true, when all the conditions for starting the game are met.</param>
-    public void handleReadyToStart(bool readyToStart)
+    public void HandleReadyToStart(bool readyToStart)
     {
         if (!isLeader)
             return;
