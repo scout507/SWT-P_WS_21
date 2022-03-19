@@ -197,7 +197,7 @@ public abstract class ShootGun : NetworkBehaviour
     [Command]
     public void CmdTriggerMonster(GameObject monster, GameObject player)
     {
-        monster.GetComponent<MonsterController>().AggroMob(player);
+        if(monster.GetComponent<MonsterController>()) monster.GetComponent<MonsterController>().AggroMob(player);
     }
 
     /// <summary>
