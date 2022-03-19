@@ -185,7 +185,7 @@ public class MonsterController : NetworkBehaviour
     }
 
     /// <summary>
-    /// Not useable yet. This method is going to be used for triggering monsters manually.
+    /// Aggros this monster if it doesnt have a target yet.
     /// </summary>
     /// <param name="player">The player that triggered the monster.</param>
     public void AggroMob(GameObject player)
