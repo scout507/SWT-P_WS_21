@@ -10,29 +10,19 @@ using Mirror;
 public class AmbienteAudio : NetworkBehaviour
 {
 
-    /// <summary>
-    /// The Ambiente Sounds that will be played
-    /// </summary>
+    /// <summary>The Ambiente Sounds that will be played</summary>
     [SerializeField] AudioClip[] ambienteSounds;
 
-    /// <summary>
-    /// The Audio Source that is attached to the Ambiente Box Prefab
-    /// </summary>
+    /// <summary>The Audio Source that is attached to the Ambiente Box Prefab</summary>
     private AudioSource audioSource;
 
-    /// <summary>
-    /// The Timer until the Thunder Storm Sound is played again
-    /// </summary>
+    /// <summary>The Timer until the Thunder Storm Sound is played again</summary>
     private float thundercd = 30;
 
-    /// <summary>
-    /// The Timer until the Wind Sound is played again
-    /// </summary>
+    /// <summary>The Timer until the Wind Sound is played again</summary>
     private float windcd;
 
-    /// <summary>
-    /// The Timer until the Music is played again
-    /// </summary>
+    /// <summary>The Timer until the Music is played again</summary>
     private float musiccd;
 
 

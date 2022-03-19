@@ -10,54 +10,34 @@ using Mirror;
 /// </summary>
 public class ZombieAudioController : NetworkBehaviour
 {
-    /// <summary>
-    /// The Audio Source that is attached to the Monster
-    /// </summary>
+    /// <summary>The Audio Source that is attached to the Monster</summary>
     public AudioSource audioSource;
 
-    /// <summary>
-    /// The Audio Clips, Zombie Footstep Sounds
-    /// </summary>
+    /// <summary>The Audio Clips, Zombie Footstep Sounds</summary>
     [SerializeField] AudioClip[] monsterFootsteps;
 
-    /// <summary>
-    /// The Audio Clips, Zombie Footstep Sounds
-    /// </summary>
+    /// <summary>The Audio Clips, Zombie Footstep Sounds</summary>
     [SerializeField] AudioClip[] monsterIdleSound;
 
-    /// <summary>
-    /// The Audio Clips, Zombie Injured and Death Sounds
-    /// </summary>
+    /// <summary>The Audio Clips, Zombie Injured and Death Sounds</summary>
     [SerializeField] AudioClip[] monsterDmgTakenSound;
 
-    /// <summary>
-    /// The Audio Clips, Zombie Attack Sounds
-    /// </summary>
+    /// <summary>The Audio Clips, Zombie Attack Sounds</summary>
     [SerializeField] AudioClip[] monsterAttackSound;
 
-    /// <summary>
-    /// The Time until the next Footstep Sound is Played
-    /// </summary>
+    /// <summary>The Time until the next Footstep Sound is Played</summary>
     private float stepCoolDown;
 
-    /// <summary>
-    /// The Time until the next Idle Sound is Played
-    /// </summary>
+    /// <summary>The Time until the next Idle Sound is Played</summary>
     private float idleCooldown;
 
-    /// <summary>
-    /// The selected Zombie Footstep Sound
-    /// </summary>
+    /// <summary>The selected Zombie Footstep Sound</summary>
     private int monsterFootstep;
 
-    /// <summary>
-    /// The selected Zombie Idle Sound 
-    /// </summary>
+    /// <summary>The selected Zombie Idle Sound </summary>
     private int monsterIdle;
 
-    /// <summary>
-    /// Checks if the zombie is alive, stops Footsteps and Idle Sounds when dead
-    /// </summary>
+    /// <summary>Checks if the zombie is alive, stops Footsteps and Idle Sounds when dead</summary>
     private bool isAlive = true;
 
 

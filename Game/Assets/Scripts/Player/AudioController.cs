@@ -10,27 +10,19 @@ using Mirror;
 public class AudioController : NetworkBehaviour
 {
 
-    /// <summary>
-    /// The Audio Source that is attached to the Player
-    /// </summary>
+    /// <summary>The Audio Source that is attached to the Player</summary>
     public AudioSource audioSource;
 
-    /// <summary>
-    /// The Audio Clips, Gun Sounds and Footstep Sounds
-    /// </summary>
+    /// <summary>The Audio Clips, Gun Sounds and Footstep Sounds</summary>
     [SerializeField] AudioClip[] gunSounds;
 
-    /// <summary>
-    /// The Audio Clips, Gun Sounds and Footstep Sounds
-    /// </summary>
+    /// <summary>The Audio Clips, Gun Sounds and Footstep Sounds</summary>
     [SerializeField] AudioClip[] playerSounds;
 
     /// <summary>The sound effect for chatbox messages</summary>
     [SerializeField] AudioClip messageClip;
 
-    /// <summary>
-    /// The Time until the next Footstep Sound is Played
-    /// </summary>
+    /// <summary>The Time until the next Footstep Sound is Played</summary>
     private float stepCoolDown;
 
 

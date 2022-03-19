@@ -12,70 +12,43 @@ using Mirror;
 public class ControllTurret : NetworkBehaviour
 {
 
-    /// <summary>
-    /// Reference to the Turret Gameobject
-    /// </summary>
+    /// <summary>Reference to the Turret Gameobject</summary>
     public Turret turret;
 
-    /// <summary>
-    /// Reference to the Player Network ID
-    /// </summary>
+    /// <summary>Reference to the Player Network ID</summary>
     public uint playerinUseID;
 
-    /// <summary>
-    /// Reference to the Player Camera Mount
-    /// </summary>
+    /// <summary>Reference to the Player Camera Mount</summary>
     [SerializeField] GameObject cameraMount;
 
-    /// <summary>
-    /// Firerate of the Turret
-    /// </summary>
+    /// <summary>Firerate of the Turret</summary>
     [SerializeField] float fireRate = 1f;
 
-    /// <summary>
-    /// checks which weapon script is active
-    /// 0 = Pistol; 1 = MP ; 2 = Shotgun ; 3 = Melee ; 4 = Rifle
-    /// </summary>
+    /// <summary>checks which weapon script is active   0 = Pistol; 1 = MP ; 2 = Shotgun ; 3 = Melee ; 4 = Rifle</summary>
     private int[] weaponScriptActive = new int[12];
 
-    /// <summary>
-    /// Checks if the Player is in the Turret
-    /// </summary>
+    /// <summary>Checks if the Player is in the Turret</summary>
     private bool inVehicle = false;
 
-    /// <summary>
-    /// Fire rate of the Turret
-    /// </summary>
+    /// <summary>Fire rate of the Turret</summary>
     private float nextFire = 0;
 
-    /// <summary>
-    /// Time until Player can enter the Tower again
-    /// </summary>
+    /// <summary>Time until Player can enter the Tower again</summary>
     private float exitTime;
 
-    /// <summary>
-    /// Time until Player can leave the Tower 
-    /// </summary>
+    /// <summary>Time until Player can leave the Tower </summary>
     private float enterTime;
 
-    /// <summary>
-    /// Gameobject of the Camera Mount on the Turret Object
-    /// </summary>
+    /// <summary>Gameobject of the Camera Mount on the Turret Object</summary>
     private GameObject turretCameraMount;
 
-    /// <summary>
-    /// Gameobject of the Player Camera Mount on the Player Object
-    /// </summary>
+    /// <summary>Gameobject of the Player Camera Mount on the Player Object</summary>
     private GameObject playerCameraMount;
 
-    /// <summary>
-    /// Gameobject of the Camera
-    /// </summary>
+    /// <summary>Gameobject of the Camera</summary>
     private GameObject playerCamera;
 
-    /// <summary>
-    /// Gameobject of the Player Mount on the Turret Object
-    /// </summary>
+    /// <summary>Gameobject of the Player Mount on the Turret Object</summary>
     private GameObject turretPlayerMount;
 
 
