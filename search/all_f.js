@@ -20,5 +20,6 @@ var searchData=
   ['playertasksui_17',['PlayerTasksUI',['../class_player_tasks_u_i.html',1,'']]],
   ['playertransform_18',['playerTransform',['../class_player_movement.html#afd9627e73c1c8128c0c583e5ab9515f1',1,'PlayerMovement']]],
   ['playerwithkey_19',['playerWithKey',['../class_key_task.html#acebbb04d7ecfedd6e7849517ac991aa7',1,'KeyTask']]],
-  ['progress_20',['progress',['../class_task.html#a156373f99c36bcc2c1a58d565283f835',1,'Task']]]
+  ['playmessagesound_20',['PlayMessageSound',['../class_audio_controller.html#a77b1f6331131fb80de7f2146a8e2ecc3',1,'AudioController']]],
+  ['progress_21',['progress',['../class_task.html#a156373f99c36bcc2c1a58d565283f835',1,'Task']]]
 ];

@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['hasmelee_0',['hasMelee',['../class_classes.html#a77706f0d64240bee6a9a79a84b2c383a',1,'Classes']]],
-  ['haswon_1',['hasWon',['../class_round_manager.html#a81041d889114f727bae5999a0f8f9767',1,'RoundManager']]],
-  ['health_2',['health',['../class_health.html#a3a88c607ce77007b4f46ee774629309e',1,'Health.health()'],['../class_destructable_object.html#a26afd09e0071aab6f19430e8746610ba',1,'DestructableObject.health()']]],
-  ['hp_3',['hp',['../class_monster_controller.html#ae8519979affca84c50b31edbaf91333e',1,'MonsterController']]],
-  ['hpcolor_4',['HPColor',['../class_health_bar.html#a48b2374fcc82e09503a8079d572b32bd',1,'HealthBar']]]
+  ['gameplayers_0',['gamePlayers',['../class_network_manager_lobby.html#a6caaaa58f04c32f70180e60b41e50bee',1,'NetworkManagerLobby']]],
+  ['gun_1',['gun',['../class_shoot_gun.html#ac9c94f1d09aa439831b8ba41b70aab29',1,'ShootGun']]],
+  ['gunammo_2',['gunAmmo',['../class_shoot_gun.html#ad5b3a593548a365cd2babd43aa4549be',1,'ShootGun']]],
+  ['gundamage_3',['gunDamage',['../class_shoot_gun.html#af1bb469ecd9f408a799258ccb09e3934',1,'ShootGun']]],
+  ['gunend_4',['gunEnd',['../class_shoot_gun.html#abfd52579d83093d3d7290df4c6be7d01',1,'ShootGun']]],
+  ['gunmount_5',['gunMount',['../class_shoot_gun.html#a6e9a93913b4da182cab6276e5a46c80f',1,'ShootGun']]]
 ];

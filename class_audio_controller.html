@@ -69,6 +69,9 @@ $(function() {
   <div class="headertitle"><div class="title">AudioController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The Script to handle the Sounds on the <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a>  
+ <a href="class_audio_controller.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for AudioController:</div>
 <div class="dyncontent">
@@ -78,9 +81,13 @@ Inheritance diagram for AudioController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a77b1f6331131fb80de7f2146a8e2ecc3"><td class="memItemLeft" align="right" valign="top"><a id="a77b1f6331131fb80de7f2146a8e2ecc3" name="a77b1f6331131fb80de7f2146a8e2ecc3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PlayMessageSound</b> ()</td></tr>
+<tr class="memdesc:a77b1f6331131fb80de7f2146a8e2ecc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the incoming message sound localy for one player. <br /></td></tr>
+<tr class="separator:a77b1f6331131fb80de7f2146a8e2ecc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a282bc44a0a906d598f03102e8ff4ab34"><td class="memItemLeft" align="right" valign="top"><a id="a282bc44a0a906d598f03102e8ff4ab34" name="a282bc44a0a906d598f03102e8ff4ab34"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>CmdPlayGunSound</b> (int weaponNumber)</td></tr>
-<tr class="memdesc:a282bc44a0a906d598f03102e8ff4ab34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method is called on Weapon Usage, once per shot WeaponNumbe is the Number of the Used weapon, Number is linked to a SoundClip 0 = <a class="el" href="class_pistol.html">Pistol</a>; 1 = <a class="el" href="class_m_p.html">MP</a> ; 2 = <a class="el" href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun.">Shotgun</a> ; 3 = <a class="el" href="class_melee.html">Melee</a> ; 4 = <a class="el" href="class_rifle.html">Rifle</a> 5 = <a class="el" href="class_pistol.html">Pistol</a> reload; 6 = <a class="el" href="class_m_p.html">MP</a> reload; 7 = <a class="el" href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun.">Shotgun</a> reload; 8 = <a class="el" href="class_rifle.html">Rifle</a> reload <br /></td></tr>
+<tr class="memdesc:a282bc44a0a906d598f03102e8ff4ab34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method is called on Weapon Usage, once per shot WeaponNumbe is the Number of the Used weapon, Number is linked to a SoundClip 0 = <a class="el" href="class_pistol.html" title="Pistol implements a pistol. It inherits from ShootGun.">Pistol</a>; 1 = <a class="el" href="class_m_p.html" title="MP implements a simple submachine gun. It inherits from ShootGun.">MP</a> ; 2 = <a class="el" href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun.">Shotgun</a> ; 3 = <a class="el" href="class_melee.html" title="Melee is responsible for the functions of the melee weapon, in our case a hammer. It inherits ShootGu...">Melee</a> ; 4 = <a class="el" href="class_rifle.html" title="Rifle implements a rifle. Only one class is able to zoom, so the zoom is handled in the class and not...">Rifle</a> 5 = <a class="el" href="class_pistol.html" title="Pistol implements a pistol. It inherits from ShootGun.">Pistol</a> reload; 6 = <a class="el" href="class_m_p.html" title="MP implements a simple submachine gun. It inherits from ShootGun.">MP</a> reload; 7 = <a class="el" href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun.">Shotgun</a> reload; 8 = <a class="el" href="class_rifle.html" title="Rifle implements a rifle. Only one class is able to zoom, so the zoom is handled in the class and not...">Rifle</a> reload <br /></td></tr>
 <tr class="separator:a282bc44a0a906d598f03102e8ff4ab34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a488a657995b63285d9ba1e4a339fa41d"><td class="memItemLeft" align="right" valign="top"><a id="a488a657995b63285d9ba1e4a339fa41d" name="a488a657995b63285d9ba1e4a339fa41d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>CmdPlayDmgTakenSound</b> (int min, int max)</td></tr>
@@ -91,9 +98,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>CmdPlayDmgTakenSound<
 Public Attributes</h2></td></tr>
 <tr class="memitem:a0c43e4f3caa2db514c1bbcf5eb3e532d"><td class="memItemLeft" align="right" valign="top"><a id="a0c43e4f3caa2db514c1bbcf5eb3e532d" name="a0c43e4f3caa2db514c1bbcf5eb3e532d"></a>
 AudioSource&#160;</td><td class="memItemRight" valign="bottom"><b>audioSource</b></td></tr>
+<tr class="memdesc:a0c43e4f3caa2db514c1bbcf5eb3e532d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Audio Source that is attached to the <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a> <br /></td></tr>
 <tr class="separator:a0c43e4f3caa2db514c1bbcf5eb3e532d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >The Script to handle the Sounds on the <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a> </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>AudioController.cs</li>
 </ul>
 </div><!-- contents -->

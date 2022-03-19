@@ -69,7 +69,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="class_i_q.html" title="IQ is a class with a MP and a pistol and can set up cameras">IQ</a> is a class with a <a class="el" href="class_m_p.html">MP</a> and a pistol and can set up cameras  
+<p><a class="el" href="class_i_q.html" title="IQ is a class with a MP and a pistol and can set up cameras">IQ</a> is a class with a <a class="el" href="class_m_p.html" title="MP implements a simple submachine gun. It inherits from ShootGun.">MP</a> and a pistol and can set up cameras  
  <a href="class_i_q.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for IQ:</div>
@@ -77,32 +77,31 @@ Inheritance diagram for IQ:</div>
  <div class="center">
   <img src="class_i_q.png" usemap="#IQ_map" alt=""/>
   <map id="IQ_map" name="IQ_map">
-<area href="class_classes.html" title="Classes is the abstract class of our classes" alt="Classes" shape="rect" coords="0,56,116,80"/>
+<area href="class_classes.html" title="Classes is the abstract class of our classes. Every Playerclass inherits from this one." alt="Classes" shape="rect" coords="0,56,116,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adba9aab9a6716ed662072b0af5e9b38a"><td class="memItemLeft" align="right" valign="top">override int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q.html#adba9aab9a6716ed662072b0af5e9b38a">GetSelectedWeapon</a> ()</td></tr>
-<tr class="separator:adba9aab9a6716ed662072b0af5e9b38a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0248ecba946e7b762989d6e1f84dd36d"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q.html#a0248ecba946e7b762989d6e1f84dd36d">SwitchWeapon</a> (int oldWeapon, int <a class="el" href="class_classes.html#aa874f7bb0939b21c31640a5946bf5e41">newWeapon</a>)</td></tr>
-<tr class="memdesc:a0248ecba946e7b762989d6e1f84dd36d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles change of weapons through enabling and disenabling the correct scripts on the player  <a href="class_i_q.html#a0248ecba946e7b762989d6e1f84dd36d">More...</a><br /></td></tr>
+<tr class="memdesc:a0248ecba946e7b762989d6e1f84dd36d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deactivates the script of the old weapon and activates the script of the new weapon.  <a href="class_i_q.html#a0248ecba946e7b762989d6e1f84dd36d">More...</a><br /></td></tr>
 <tr class="separator:a0248ecba946e7b762989d6e1f84dd36d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7250fd21393a885332662d2c8448318b"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q.html#a7250fd21393a885332662d2c8448318b">SetHasMelee</a> ()</td></tr>
-<tr class="memdesc:a7250fd21393a885332662d2c8448318b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_i_q.html" title="IQ is a class with a MP and a pistol and can set up cameras">IQ</a> does not have melee weapon  <a href="class_i_q.html#a7250fd21393a885332662d2c8448318b">More...</a><br /></td></tr>
+<tr class="memdesc:a7250fd21393a885332662d2c8448318b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_i_q.html" title="IQ is a class with a MP and a pistol and can set up cameras">IQ</a> does not have melee weapon, so the hasMelee flag is set false.  <a href="class_i_q.html#a7250fd21393a885332662d2c8448318b">More...</a><br /></td></tr>
 <tr class="separator:a7250fd21393a885332662d2c8448318b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_classes"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_classes')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_classes.html">Classes</a></td></tr>
-<tr class="memitem:a0fa2247f102d576edc28978cb85359ce inherit pub_methods_class_classes"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classes.html#a0fa2247f102d576edc28978cb85359ce">CmdSwitchWeapon</a> (int <a class="el" href="class_classes.html#aa874f7bb0939b21c31640a5946bf5e41">newWeapon</a>)</td></tr>
-<tr class="memdesc:a0fa2247f102d576edc28978cb85359ce inherit pub_methods_class_classes"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switching weapons is handled by the server. This methode changes the index of the selected weapon to the new weapon.  <a href="class_classes.html#a0fa2247f102d576edc28978cb85359ce">More...</a><br /></td></tr>
-<tr class="separator:a0fa2247f102d576edc28978cb85359ce inherit pub_methods_class_classes"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a293deda7201016af24d6a761c321f3dd inherit pub_methods_class_classes"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classes.html#a293deda7201016af24d6a761c321f3dd">SwitchWeapon</a> (int oldWeapon, int <a class="el" href="class_classes.html#aa874f7bb0939b21c31640a5946bf5e41">newWeapon</a>)</td></tr>
 <tr class="memdesc:a293deda7201016af24d6a761c321f3dd inherit pub_methods_class_classes"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deactivates the script of the old weapon and activates the script of the new weapon.  <a href="class_classes.html#a293deda7201016af24d6a761c321f3dd">More...</a><br /></td></tr>
 <tr class="separator:a293deda7201016af24d6a761c321f3dd inherit pub_methods_class_classes"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a520ca2670b6c032d4566e16fc0bff31a inherit pub_methods_class_classes"><td class="memItemLeft" align="right" valign="top">abstract int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classes.html#a520ca2670b6c032d4566e16fc0bff31a">GetSelectedWeapon</a> ()</td></tr>
-<tr class="separator:a520ca2670b6c032d4566e16fc0bff31a inherit pub_methods_class_classes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84b36761b3acf33a5c79197ea2db6d05 inherit pub_methods_class_classes"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classes.html#a84b36761b3acf33a5c79197ea2db6d05">GetSelectedWeapon</a> ()</td></tr>
+<tr class="memdesc:a84b36761b3acf33a5c79197ea2db6d05 inherit pub_methods_class_classes"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the selected weapon.  <a href="class_classes.html#a84b36761b3acf33a5c79197ea2db6d05">More...</a><br /></td></tr>
+<tr class="separator:a84b36761b3acf33a5c79197ea2db6d05 inherit pub_methods_class_classes"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae87590d2d40dbec94a8a7fb5cc3127f8 inherit pub_methods_class_classes"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classes.html#ae87590d2d40dbec94a8a7fb5cc3127f8">SetHasMelee</a> ()</td></tr>
 <tr class="memdesc:ae87590d2d40dbec94a8a7fb5cc3127f8 inherit pub_methods_class_classes"><td class="mdescLeft">&#160;</td><td class="mdescRight">SetHasMelee sets hasMelee in correct class  <a href="class_classes.html#ae87590d2d40dbec94a8a7fb5cc3127f8">More...</a><br /></td></tr>
 <tr class="separator:ae87590d2d40dbec94a8a7fb5cc3127f8 inherit pub_methods_class_classes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fa2247f102d576edc28978cb85359ce inherit pub_methods_class_classes"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classes.html#a0fa2247f102d576edc28978cb85359ce">CmdSwitchWeapon</a> (int <a class="el" href="class_classes.html#aa874f7bb0939b21c31640a5946bf5e41">newWeapon</a>)</td></tr>
+<tr class="memdesc:a0fa2247f102d576edc28978cb85359ce inherit pub_methods_class_classes"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switching weapons is handled by the server. This methode changes the index of the selected weapon to the new weapon.  <a href="class_classes.html#a0fa2247f102d576edc28978cb85359ce">More...</a><br /></td></tr>
+<tr class="separator:a0fa2247f102d576edc28978cb85359ce inherit pub_methods_class_classes"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -121,38 +120,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>selectedWeapon</b> = 1
 <tr class="separator:ad8984d27b74993bf8edf946c9dc4ae1d inherit pub_attribs_class_classes"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p ><a class="el" href="class_i_q.html" title="IQ is a class with a MP and a pistol and can set up cameras">IQ</a> is a class with a <a class="el" href="class_m_p.html">MP</a> and a pistol and can set up cameras </p>
+<div class="textblock"><p ><a class="el" href="class_i_q.html" title="IQ is a class with a MP and a pistol and can set up cameras">IQ</a> is a class with a <a class="el" href="class_m_p.html" title="MP implements a simple submachine gun. It inherits from ShootGun.">MP</a> and a pistol and can set up cameras </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="adba9aab9a6716ed662072b0af5e9b38a" name="adba9aab9a6716ed662072b0af5e9b38a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adba9aab9a6716ed662072b0af5e9b38a">&#9670;&nbsp;</a></span>GetSelectedWeapon()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">override int IQ.GetSelectedWeapon </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p></p>
-<dl class="section return"><dt>Returns</dt><dd>selectedWeapon for animator</dd></dl>
-
-<p>Implements <a class="el" href="class_classes.html#a520ca2670b6c032d4566e16fc0bff31a">Classes</a>.</p>
-
-</div>
-</div>
 <a id="a7250fd21393a885332662d2c8448318b" name="a7250fd21393a885332662d2c8448318b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7250fd21393a885332662d2c8448318b">&#9670;&nbsp;</a></span>SetHasMelee()</h2>
 
@@ -176,7 +145,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>selectedWeapon</b> = 1
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_i_q.html" title="IQ is a class with a MP and a pistol and can set up cameras">IQ</a> does not have melee weapon </p>
+<p><a class="el" href="class_i_q.html" title="IQ is a class with a MP and a pistol and can set up cameras">IQ</a> does not have melee weapon, so the hasMelee flag is set false. </p>
 
 <p>Implements <a class="el" href="class_classes.html#ae87590d2d40dbec94a8a7fb5cc3127f8">Classes</a>.</p>
 
@@ -216,11 +185,11 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>selectedWeapon</b> = 1
 </table>
 </div><div class="memdoc">
 
-<p>Handles change of weapons through enabling and disenabling the correct scripts on the player </p>
+<p>Deactivates the script of the old weapon and activates the script of the new weapon. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">oldWeapon</td><td></td></tr>
-    <tr><td class="paramname">newWeapon</td><td></td></tr>
+    <tr><td class="paramname">oldWeapon</td><td>Index of old weapon.</td></tr>
+    <tr><td class="paramname">newWeapon</td><td>Index of new weapon.</td></tr>
   </table>
   </dd>
 </dl>

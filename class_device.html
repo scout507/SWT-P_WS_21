@@ -68,6 +68,9 @@ $(function() {
   <div class="headertitle"><div class="title">Device Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This is the abstract classes for devices. It handles the health and destruction of the devices.  
+ <a href="class_device.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Device:</div>
 <div class="dyncontent">
@@ -84,12 +87,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0d03f9599814d1f09f0f967b2f647941"><td class="mdescLeft">&#160;</td><td class="mdescRight">The method TakeDamage is responsible for suffering damage.  <a href="class_device.html#a0d03f9599814d1f09f0f967b2f647941">More...</a><br /></td></tr>
 <tr class="separator:a0d03f9599814d1f09f0f967b2f647941"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac33fcbc757ed8e0f1a8f5db107e9f72f"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_device.html#ac33fcbc757ed8e0f1a8f5db107e9f72f">TargetDeath</a> ()</td></tr>
+<tr class="memdesc:ac33fcbc757ed8e0f1a8f5db107e9f72f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This methode defines what happens, when the device is destroyed. Different devices behave different in case of destruction.  <a href="class_device.html#ac33fcbc757ed8e0f1a8f5db107e9f72f">More...</a><br /></td></tr>
 <tr class="separator:ac33fcbc757ed8e0f1a8f5db107e9f72f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e9b2a63ec9aba3d18401ceccd47f401"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_device.html#a1e9b2a63ec9aba3d18401ceccd47f401">RpcDestroyDevice</a> (GameObject device)</td></tr>
 <tr class="memdesc:a1e9b2a63ec9aba3d18401ceccd47f401"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the device on all clients  <a href="class_device.html#a1e9b2a63ec9aba3d18401ceccd47f401">More...</a><br /></td></tr>
 <tr class="separator:a1e9b2a63ec9aba3d18401ceccd47f401"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >This is the abstract classes for devices. It handles the health and destruction of the devices. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1e9b2a63ec9aba3d18401ceccd47f401" name="a1e9b2a63ec9aba3d18401ceccd47f401"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1e9b2a63ec9aba3d18401ceccd47f401">&#9670;&nbsp;</a></span>RpcDestroyDevice()</h2>
 
@@ -109,7 +115,7 @@ Public Member Functions</h2></td></tr>
 <p>Destroys the device on all clients </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">device</td><td><a class="el" href="class_device.html">Device</a> which should be destroyed</td></tr>
+    <tr><td class="paramname">device</td><td><a class="el" href="class_device.html" title="This is the abstract classes for devices. It handles the health and destruction of the devices.">Device</a> which should be destroyed</td></tr>
   </table>
   </dd>
 </dl>
@@ -164,6 +170,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>This methode defines what happens, when the device is destroyed. Different devices behave different in case of destruction. </p>
 
 <p>Implemented in <a class="el" href="class_cam_controller.html#aa6667ca163d7145add9b228d06c905c4">CamController</a>.</p>
 

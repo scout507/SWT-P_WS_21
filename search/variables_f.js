@@ -1,17 +1,10 @@
 var searchData=
 [
-  ['taskdescription_0',['taskDescription',['../class_task.html#abc1112df9f1cc4353af76bea1da74d9f',1,'Task']]],
-  ['taskname_1',['taskName',['../class_task.html#a15816482f88ca69dfbe9a7498ecf262b',1,'Task']]],
-  ['taskscreated_2',['tasksCreated',['../class_task_manager.html#a1f6376ca8025c86afad8374a296f147f',1,'TaskManager']]],
-  ['throwpoint_3',['throwPoint',['../class_i_q_cam.html#aa162ac46ac8f8e2e31708c9954411e18',1,'IQCam']]],
-  ['time_4',['time',['../class_end_game_menu.html#a4c6801092c02bbf496ce921105818285',1,'EndGameMenu']]],
-  ['timeperplankinseconds_5',['timePerPlankInSeconds',['../class_fence_interaction.html#a85ab84ca1105b8558d917a2bdf059938',1,'FenceInteraction']]],
-  ['timertext_6',['timerText',['../class_end_game_menu.html#a218a4f873f496b067a639337763abced',1,'EndGameMenu']]],
-  ['title_7',['title',['../class_end_game_menu.html#abf89c0655fe76fcc58476d561f9e887a',1,'EndGameMenu']]],
-  ['toggle_8',['toggle',['../class_ingame_menu.html#a5fec229572d439072aeb61eeb9e8b057',1,'IngameMenu']]],
-  ['togglefullscreen_9',['toggleFullscreen',['../class_menu.html#ab4e4745db7ac07e0f6bf64308f1718b4',1,'Menu']]],
-  ['totalammo_10',['totalAmmo',['../class_inventory.html#aa01bdaa28ef60341be07501365dc3f1b',1,'Inventory']]],
-  ['totalplayers_11',['totalPlayers',['../class_round_manager.html#a11d22c2c18ed59a69bee5663e79c5037',1,'RoundManager']]],
-  ['triggerrange_12',['triggerRange',['../class_shoot_gun.html#a7cbc4b1709eda81b4004fff64f5f9de4',1,'ShootGun']]],
-  ['turret_13',['turret',['../class_controll_turret.html#aaa906a312249635bab0511313cf9c50a',1,'ControllTurret']]]
+  ['selectedweapon_0',['selectedWeapon',['../class_classes.html#ad8984d27b74993bf8edf946c9dc4ae1d',1,'Classes']]],
+  ['sounds_1',['sounds',['../class_soundmanager.html#a85343a6e13ac48bab75e62e023dec5a4',1,'Soundmanager']]],
+  ['spawn_2',['spawn',['../class_task.html#ae635f72017a9459b60f40fc5bee5339d',1,'Task']]],
+  ['spectatorplayerprefab_3',['spectatorPlayerPrefab',['../class_health.html#a598e34445c1c4611d84c1ce0048d19c6',1,'Health']]],
+  ['speedh_4',['speedH',['../class_spectator.html#a53e3f7352da48e8d245a1cf12d3682a0',1,'Spectator']]],
+  ['speedupdown_5',['speedUpDown',['../class_player_movement.html#a10ff8acace8b4674fd6b44730065616b',1,'PlayerMovement']]],
+  ['speedv_6',['speedV',['../class_spectator.html#a2b29dde6f9525b0aa0ba1c574f7fab68',1,'Spectator']]]
 ];

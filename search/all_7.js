@@ -9,8 +9,9 @@ var searchData=
   ['health_6',['Health',['../class_health.html',1,'']]],
   ['health_7',['health',['../class_health.html#a3a88c607ce77007b4f46ee774629309e',1,'Health.health()'],['../class_destructable_object.html#a26afd09e0071aab6f19430e8746610ba',1,'DestructableObject.health()']]],
   ['healthbar_8',['HealthBar',['../class_health_bar.html',1,'']]],
-  ['host_9',['host',['../class_menu.html#a76696f055531f5e3cb341100143043db',1,'Menu']]],
-  ['hp_10',['hp',['../class_monster_controller.html#ae8519979affca84c50b31edbaf91333e',1,'MonsterController']]],
-  ['hpcolor_11',['HPColor',['../class_health_bar.html#a48b2374fcc82e09503a8079d572b32bd',1,'HealthBar']]],
-  ['hunter_12',['Hunter',['../class_hunter.html',1,'']]]
+  ['hitflash_9',['hitflash',['../class_health.html#a42b259001534bc076f116cc8a8c9fc17',1,'Health']]],
+  ['host_10',['host',['../class_menu.html#a76696f055531f5e3cb341100143043db',1,'Menu']]],
+  ['hp_11',['hp',['../class_monster_controller.html#ae8519979affca84c50b31edbaf91333e',1,'MonsterController']]],
+  ['hpcolor_12',['HPColor',['../class_health_bar.html#a48b2374fcc82e09503a8079d572b32bd',1,'HealthBar']]],
+  ['hunter_13',['Hunter',['../class_hunter.html',1,'']]]
 ];

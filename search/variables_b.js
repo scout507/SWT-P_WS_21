@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['name_0',['name',['../class_sound.html#a6232daa7d1f983315cc0d10cf776ab76',1,'Sound']]],
-  ['nav_1',['nav',['../class_monster_controller.html#a11f8a40bcb2bab1909996fd7170903a5',1,'MonsterController']]],
-  ['newweapon_2',['newWeapon',['../class_classes.html#aa874f7bb0939b21c31640a5946bf5e41',1,'Classes']]],
-  ['nextfire_3',['nextFire',['../class_shoot_gun.html#a068ce8700fc40f2a4e872dab9ac328ea',1,'ShootGun']]],
-  ['nextreload_4',['nextReload',['../class_shoot_gun.html#abd81957b874fca6a097e68bd38987742',1,'ShootGun']]]
+  ['magsize_0',['magSize',['../class_shoot_gun.html#a7c0f8ed476a9d68e3e97b43b8bfb0f01',1,'ShootGun']]],
+  ['maxhealth_1',['maxHealth',['../class_destructable_object.html#a31395416684f05945fd1569586116da6',1,'DestructableObject']]],
+  ['minimapcam_2',['MinimapCam',['../class_player_canvas.html#a4b1705aa5c0c510d34e8658ec56204bc',1,'PlayerCanvas']]],
+  ['movementspeed_3',['movementSpeed',['../class_spectator.html#ab1d81b467258f0cf21a790f80e5014f4',1,'Spectator']]],
+  ['movespeed_4',['moveSpeed',['../class_monster_controller.html#ac61a31efa277d192bc0fbaf8143bf783',1,'MonsterController']]]
 ];

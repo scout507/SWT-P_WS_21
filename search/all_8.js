@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['icon_0',['icon',['../class_i_q_cam.html#adcc5c8a12771b311a4c660a6dd6bf86f',1,'IQCam.icon()'],['../class_shoot_gun.html#a63cb3bedf1be673672849945bf501ac7',1,'ShootGun.icon()'],['../class_inventory.html#a37359990e2887e5bcc39b56f361e1ecb',1,'Inventory.icon()']]],
+  ['icon_0',['icon',['../class_inventory.html#a37359990e2887e5bcc39b56f361e1ecb',1,'Inventory.icon()'],['../class_shoot_gun.html#a63cb3bedf1be673672849945bf501ac7',1,'ShootGun.icon()']]],
   ['id_1',['id',['../class_task.html#a13d308203949f40afa931c6bb9ad7fe9',1,'Task']]],
   ['imposternames_2',['imposterNames',['../class_round_manager.html#a946fb1576deedc588a99b7e627bc1d53',1,'RoundManager']]],
   ['impostortext_3',['impostorText',['../class_end_game_menu.html#a11686605ac8dc1a455af72c48a17d375',1,'EndGameMenu']]],
@@ -13,7 +13,7 @@ var searchData=
   ['interactable_10',['Interactable',['../class_interactable.html',1,'']]],
   ['inuse_11',['inUse',['../class_turret.html#a4656c0b81b7cb7e17722f6cfc31e4d42',1,'Turret']]],
   ['inventory_12',['Inventory',['../class_inventory.html',1,'']]],
-  ['inventory_13',['inventory',['../class_i_q_cam.html#a7ecaf53b2e7f28811be18e3ae9aee694',1,'IQCam.inventory()'],['../class_shoot_gun.html#a756c3bc2a79776475b10bb3ac93f02f0',1,'ShootGun.inventory()']]],
+  ['inventory_13',['inventory',['../class_shoot_gun.html#a756c3bc2a79776475b10bb3ac93f02f0',1,'ShootGun']]],
   ['iq_14',['IQ',['../class_i_q.html',1,'']]],
   ['iqcam_15',['IQCam',['../class_i_q_cam.html',1,'']]],
   ['isdead_16',['isDead',['../class_health.html#a92c4adf7611d274d95e6a10d8d8476e6',1,'Health']]],

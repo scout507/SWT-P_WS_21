@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['cam_0',['cam',['../class_i_q_cam.html#a760d5a44dd3cd9c87b8a40472daea41f',1,'IQCam.cam()'],['../class_player_movement.html#aab75df6df32083a559f031ca3b52c116',1,'PlayerMovement.cam()']]],
+  ['cam_0',['cam',['../class_player_movement.html#aab75df6df32083a559f031ca3b52c116',1,'PlayerMovement']]],
   ['camcontroller_1',['CamController',['../class_cam_controller.html',1,'']]],
   ['cameramount_2',['cameraMount',['../class_cam_controller.html#a6fc8c4daf5902d444a77ec4db210a048',1,'CamController']]],
   ['caninteract_3',['canInteract',['../class_shoot_gun.html#a7a336f64988e0f7de5ded44a54764cfd',1,'ShootGun']]],
-  ['changevolume_4',['changeVolume',['../class_menu.html#a1e331016ee26ee993a449c9da59e5871',1,'Menu.changeVolume()'],['../class_ingame_menu.html#a87fc95ef587c2884945547ebc8d3f9ba',1,'IngameMenu.changeVolume()']]],
+  ['changevolume_4',['changeVolume',['../class_ingame_menu.html#a87fc95ef587c2884945547ebc8d3f9ba',1,'IngameMenu.changeVolume()'],['../class_menu.html#a1e331016ee26ee993a449c9da59e5871',1,'Menu.changeVolume()']]],
   ['chatbox_5',['Chatbox',['../class_chatbox.html',1,'']]],
   ['checkallfinished_6',['CheckAllFinished',['../class_task_manager.html#a3e581d61b3b8aad7be6fc44bf27fc866',1,'TaskManager']]],
   ['checkgrounded_7',['CheckGrounded',['../class_monster_controller.html#ad3b276a47ba6546d24cc5a842a6316ac',1,'MonsterController.CheckGrounded()'],['../class_player_movement.html#a797284c7f18f2fdeba850c3c1b5a490a',1,'PlayerMovement.CheckGrounded()']]],

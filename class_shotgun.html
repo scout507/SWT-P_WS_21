@@ -84,6 +84,7 @@ Inheritance diagram for Shotgun:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae8b7b18ed12aaf068a236f34ffc3489c"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shotgun.html#ae8b7b18ed12aaf068a236f34ffc3489c">Reload</a> ()</td></tr>
+<tr class="memdesc:ae8b7b18ed12aaf068a236f34ffc3489c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun.">Shotgun</a> is reloaded one round after another till the magazin is full  <a href="class_shotgun.html#ae8b7b18ed12aaf068a236f34ffc3489c">More...</a><br /></td></tr>
 <tr class="separator:ae8b7b18ed12aaf068a236f34ffc3489c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9737237930b171e07950982e5a7ae14b"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shotgun.html#a9737237930b171e07950982e5a7ae14b">Shoot</a> ()</td></tr>
 <tr class="memdesc:a9737237930b171e07950982e5a7ae14b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shoots one shot defined by the attributes of the specific gun, here it fires multiple rounds in a random pattern.  <a href="class_shotgun.html#a9737237930b171e07950982e5a7ae14b">More...</a><br /></td></tr>
@@ -93,6 +94,16 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>TriggerAggro</b> ()</td></tr>
 <tr class="memdesc:a6a65ad536b8008432976bf5b421df1d2 inherit pub_methods_class_shoot_gun"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for nearby zombies and triggers them. <br /></td></tr>
 <tr class="separator:a6a65ad536b8008432976bf5b421df1d2 inherit pub_methods_class_shoot_gun"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96f340ed0e48ec12bda7af30e4b8e819 inherit pub_methods_class_shoot_gun"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_gun.html#a96f340ed0e48ec12bda7af30e4b8e819">Shoot</a> ()</td></tr>
+<tr class="memdesc:a96f340ed0e48ec12bda7af30e4b8e819 inherit pub_methods_class_shoot_gun"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements a single shot, different for every weapon.  <a href="class_shoot_gun.html#a96f340ed0e48ec12bda7af30e4b8e819">More...</a><br /></td></tr>
+<tr class="separator:a96f340ed0e48ec12bda7af30e4b8e819 inherit pub_methods_class_shoot_gun"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cf092493f9580f67fd82e0031128909 inherit pub_methods_class_shoot_gun"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_gun.html#a6cf092493f9580f67fd82e0031128909">Reload</a> ()</td></tr>
+<tr class="memdesc:a6cf092493f9580f67fd82e0031128909 inherit pub_methods_class_shoot_gun"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements reloading, different for every weapon.  <a href="class_shoot_gun.html#a6cf092493f9580f67fd82e0031128909">More...</a><br /></td></tr>
+<tr class="separator:a6cf092493f9580f67fd82e0031128909 inherit pub_methods_class_shoot_gun"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa48019105790c4be9275b69c0796b5bc inherit pub_methods_class_shoot_gun"><td class="memItemLeft" align="right" valign="top"><a id="aa48019105790c4be9275b69c0796b5bc" name="aa48019105790c4be9275b69c0796b5bc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Recoil</b> ()</td></tr>
+<tr class="memdesc:aa48019105790c4be9275b69c0796b5bc inherit pub_methods_class_shoot_gun"><td class="mdescLeft">&#160;</td><td class="mdescRight">Very simple recoil for better representation of gun. <br /></td></tr>
+<tr class="separator:aa48019105790c4be9275b69c0796b5bc inherit pub_methods_class_shoot_gun"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12eb93c9ece8726e2a53a94d9e85e9b2 inherit pub_methods_class_shoot_gun"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_gun.html#a12eb93c9ece8726e2a53a94d9e85e9b2">CmdShootPlayer</a> (GameObject player, int damageAmount)</td></tr>
 <tr class="memdesc:a12eb93c9ece8726e2a53a94d9e85e9b2 inherit pub_methods_class_shoot_gun"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called when player is hit.  <a href="class_shoot_gun.html#a12eb93c9ece8726e2a53a94d9e85e9b2">More...</a><br /></td></tr>
 <tr class="separator:a12eb93c9ece8726e2a53a94d9e85e9b2 inherit pub_methods_class_shoot_gun"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,16 +122,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>TriggerAggro</b> ()</
 <tr class="memitem:afbf797981c0b90f3c0a30007989f24e3 inherit pub_methods_class_shoot_gun"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_gun.html#afbf797981c0b90f3c0a30007989f24e3">CmdShootWall</a> (Vector3 hit)</td></tr>
 <tr class="memdesc:afbf797981c0b90f3c0a30007989f24e3 inherit pub_methods_class_shoot_gun"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method for server, so it can deploy the point of impact of hit on a wall to all clients.  <a href="class_shoot_gun.html#afbf797981c0b90f3c0a30007989f24e3">More...</a><br /></td></tr>
 <tr class="separator:afbf797981c0b90f3c0a30007989f24e3 inherit pub_methods_class_shoot_gun"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96f340ed0e48ec12bda7af30e4b8e819 inherit pub_methods_class_shoot_gun"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_gun.html#a96f340ed0e48ec12bda7af30e4b8e819">Shoot</a> ()</td></tr>
-<tr class="memdesc:a96f340ed0e48ec12bda7af30e4b8e819 inherit pub_methods_class_shoot_gun"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements a single shot, different for every weapon.  <a href="class_shoot_gun.html#a96f340ed0e48ec12bda7af30e4b8e819">More...</a><br /></td></tr>
-<tr class="separator:a96f340ed0e48ec12bda7af30e4b8e819 inherit pub_methods_class_shoot_gun"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cf092493f9580f67fd82e0031128909 inherit pub_methods_class_shoot_gun"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_gun.html#a6cf092493f9580f67fd82e0031128909">Reload</a> ()</td></tr>
-<tr class="memdesc:a6cf092493f9580f67fd82e0031128909 inherit pub_methods_class_shoot_gun"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements reloading, different for every weapon.  <a href="class_shoot_gun.html#a6cf092493f9580f67fd82e0031128909">More...</a><br /></td></tr>
-<tr class="separator:a6cf092493f9580f67fd82e0031128909 inherit pub_methods_class_shoot_gun"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa48019105790c4be9275b69c0796b5bc inherit pub_methods_class_shoot_gun"><td class="memItemLeft" align="right" valign="top"><a id="aa48019105790c4be9275b69c0796b5bc" name="aa48019105790c4be9275b69c0796b5bc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Recoil</b> ()</td></tr>
-<tr class="memdesc:aa48019105790c4be9275b69c0796b5bc inherit pub_methods_class_shoot_gun"><td class="mdescLeft">&#160;</td><td class="mdescRight">Very simple recoil for better representation of gun. <br /></td></tr>
-<tr class="separator:aa48019105790c4be9275b69c0796b5bc inherit pub_methods_class_shoot_gun"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -227,7 +228,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isReloading</b> = fal
   </tr>
 </table>
 </div><div class="memdoc">
-<p ><a class="el" href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun.">Shotgun</a> is reloaded one round after another till the magazin is full </p>
+
+<p><a class="el" href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun.">Shotgun</a> is reloaded one round after another till the magazin is full </p>
 
 <p>Implements <a class="el" href="class_shoot_gun.html#a6cf092493f9580f67fd82e0031128909">ShootGun</a>.</p>
 
