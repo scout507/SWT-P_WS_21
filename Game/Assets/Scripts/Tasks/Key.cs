@@ -16,8 +16,10 @@ public class Key : NetworkBehaviour
     {
         if (other.tag == "Player" && isServer)
         {
-            GameObject.FindObjectOfType<KeyTask>().GetComponent<KeyTask>().playerWithKey = other.gameObject;
-            GameObject.FindObjectOfType<KeyTask>().GetComponent<KeyTask>().taskDescription = "Use the key to access the electronics in the south-east building";
+            KeyTask keyTask = GameObject.FindObjectOfType<KeyTask>().GetComponent<KeyTask>();
+            keyTask.playerWithKey = other.gameObject;
+            keyTask.taskDescription = "Use the key to access the electronics in the south-east building";
+            keyTask.playerDroppedKey = true;
             TargetRpcSendMessage(other.gameObject.GetComponent<NetworkIdentity>().connectionToClient, "You picked up the key!");
         }
     }

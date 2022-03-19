@@ -155,15 +155,23 @@ public class MonsterController : NetworkBehaviour
             zombieAudioController.RPCPlayZombieAttackSound(Random.Range(0, 5));
             attack = true;
             atkTimer = 0;
-            if (currentTarget.tag == "Player")
+            if (currentTarget.tag == "Player" && currentTarget.GetComponent<Health>())
             {
-                currentTarget.GetComponent<Health>().TakeDamage(Mathf.RoundToInt(damage)); //Health script uses int for health. Needs to be resolved
+                Invoke("AttackPlayer", 0.8f); //Delay to fit the animation
             }
             else if (currentTarget.tag == "DestructableObject")
             {
                 currentTarget.GetComponent<DestructableObject>().TakeDamage(buildingDamage);
             }
         }
+    }
+
+    /// <summary>
+    /// Calls damage on the player. Gets Invoked by Attack for syncing damage and animation.
+    /// </summary>
+    public void AttackPlayer()
+    {
+        if(currentTarget && currentTarget.GetComponent<Health>()) currentTarget.GetComponent<Health>().TakeDamage(Mathf.RoundToInt(damage));
     }
 
     /// <summary>
@@ -185,7 +193,7 @@ public class MonsterController : NetworkBehaviour
     }
 
     /// <summary>
-    /// Not useable yet. This method is going to be used for triggering monsters manually.
+    /// Aggros this monster if it doesnt have a target yet.
     /// </summary>
     /// <param name="player">The player that triggered the monster.</param>
     public void AggroMob(GameObject player)

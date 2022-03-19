@@ -52,7 +52,7 @@ public class FetchItem : NetworkBehaviour
         {
             players.Add(other.GetComponent<NetworkIdentity>().netId);
             RpcSyncList(players);
-            TargetRpcSendMessage(other.gameObject.GetComponent<NetworkIdentity>().connectionToClient, "Press 'E' to pick up the barrel");
+            if(!used) TargetRpcSendMessage(other.gameObject.GetComponent<NetworkIdentity>().connectionToClient, "Press 'E' to pick up the barrel");
         }
     }
 

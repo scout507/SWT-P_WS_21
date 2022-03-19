@@ -119,7 +119,7 @@ public class TaskTimer : Task
     {
         if (other.tag == "Player" && isServer)
         {
-            TargetRpcSendMessage(other.gameObject.GetComponent<NetworkIdentity>().connectionToClient, "Press 'E' to start the Defence-task");
+            if(!started) TargetRpcSendMessage(other.gameObject.GetComponent<NetworkIdentity>().connectionToClient, "Press 'E' to start the Defence-task");
             players.Add(other.GetComponent<NetworkIdentity>().netId);
         }
     }
