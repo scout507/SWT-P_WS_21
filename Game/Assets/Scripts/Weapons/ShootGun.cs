@@ -131,7 +131,7 @@ public abstract class ShootGun : NetworkBehaviour
         if (isLocalPlayer)
         {
             inventory = GetComponentInChildren<Inventory>();
-            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+            inventory.UpdateInfo(this.icon, this.gunAmmo, this.magSize);
         }
 
     }

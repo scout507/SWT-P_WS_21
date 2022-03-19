@@ -45,12 +45,12 @@ public class Shotgun : ShootGun
 
         if (canInteract)
         {
-            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+            inventory.UpdateInfo(this.icon, this.gunAmmo, this.magSize);
 
             if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
             {
                 inventory = GetComponentInChildren<Inventory>();
-                inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+                inventory.UpdateInfo(this.icon, this.gunAmmo, this.magSize);
                 nextFire = Time.time + fireRate;
                 if (gunAmmo > 0)
                 {

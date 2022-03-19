@@ -39,7 +39,7 @@ public class Pistol : ShootGun
 
         if (canInteract)
         {
-            inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
+            inventory.UpdateInfo(this.icon, this.gunAmmo, this.magSize);
 
             if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
             {

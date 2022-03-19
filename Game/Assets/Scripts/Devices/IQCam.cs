@@ -94,7 +94,7 @@ public class IQCam : NetworkBehaviour
         {
             return;
         }
-        inventory.UpdateInfo(icon, remainingCams, 0);
+        inventory.UpdateInfo(icon, remainingCams, 3);
         if (Input.GetButtonDown("Fire1") && Time.time > nextThrow && !isInCams)
         {
             nextThrow = Time.time + throwRate;
