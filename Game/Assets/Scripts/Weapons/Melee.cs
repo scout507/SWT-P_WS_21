@@ -18,6 +18,8 @@ public class Melee : ShootGun
         this.gunDamage = 50;
         this.fireRate = 0.5f;
         this.triggerRange = 0f;
+        this.gunAmmo = 0; 
+        this.magSize = 0;
         audioController = this.GetComponent<AudioController>();
     }
 
