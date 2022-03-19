@@ -199,7 +199,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 386149115403895629}
         m_TargetAssemblyTypeName: IngameMenu, Assembly-CSharp
-        m_MethodName: loadMainMenu
+        m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -465,8 +465,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+      - m_Target: {fileID: 386149115403895629}
+        m_TargetAssemblyTypeName: IngameMenu, Assembly-CSharp
         m_MethodName: SetFullscreen
         m_Mode: 1
         m_Arguments:
@@ -3283,8 +3283,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+      - m_Target: {fileID: 386149115403895629}
+        m_TargetAssemblyTypeName: IngameMenu, Assembly-CSharp
         m_MethodName: SetQuality
         m_Mode: 0
         m_Arguments:
@@ -3617,8 +3617,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+      - m_Target: {fileID: 386149115403895629}
+        m_TargetAssemblyTypeName: IngameMenu, Assembly-CSharp
         m_MethodName: SetResolution
         m_Mode: 0
         m_Arguments:
@@ -4690,7 +4690,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 386149115403895629}
         m_TargetAssemblyTypeName: IngameMenu, Assembly-CSharp
-        m_MethodName: changeVolume
+        m_MethodName: ChangeVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

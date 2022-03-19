@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Mirror;
 using TMPro;
@@ -17,30 +15,30 @@ public class IngameMenu : NetworkBehaviour
     /// <summary>Holds the volume slider of the UI.</summary>
     public Slider volumeSlider;
 
-    /// <summary>true, if the window is to be fullscreen.</summary>
-    bool isFullscreen;
-
-    /// <summary>Holds all possible resolutions for the client.</summary>
-    Resolution[] resolutions;
-
     /// <summary>Contains the user interface dropdown for the resolution of game</summary>
     public TMP_Dropdown dropdownResolution;
 
-    /// <summary>Contains the user interface dropdown for the resolution of game</summary>
+    /// <summary>Contains the user interface dropdown for the quality of game</summary>
     public TMP_Dropdown dropdownQuality;
 
     /// <summary>Keeps the toggel element out of the UI for fullscreen mode.</summary>
     public Toggle toggle;
 
+    /// <summary>true, if the window is to be fullscreen.</summary>
+    private bool isFullscreen;
+
+    /// <summary>Holds all possible resolutions for the client.</summary>
+    private Resolution[] resolutions;
+
     /// <summary>
-    /// Sets all default values and generates the list for the resolutions.
+    /// Sets all default values and call the method to generates the list for the resolutions.
     /// </summary>
     void Start()
     {
         toggle.isOn = Screen.fullScreen;
         isFullscreen = Screen.fullScreen;
         dropdownQuality.value = QualitySettings.GetQualityLevel();
-        generateResolutionList();
+        GenerateResolutionList();
     }
 
     /// <summary>
@@ -55,35 +53,16 @@ public class IngameMenu : NetworkBehaviour
             Input.GetKeyDown(KeyCode.Escape)
             && FindObjectOfType<RoundManager>().hasWon == Winner.None
         )
-            toggleMenu();
+            ToggleMenu();
     }
 
     /// <summary>
-    /// Generates for the UI all elements for the resolutions.
+    /// Opens/closes the ingame menu.
+    /// Stops/starts the inputs for movement etc.
+    /// Restores or hides the mouse cursor again.
+    /// Sets the value for the volume slider in the ui.
     /// </summary>
-    private void generateResolutionList()
-    {
-        resolutions = Screen.resolutions;
-        dropdownResolution.ClearOptions();
-        List<string> options = new List<string>();
-        int currentResolutionIndex = 0;
-        int index = 0;
-
-        foreach (var item in resolutions)
-        {
-            options.Add(item.width + " x " + item.height);
-            if (item.height == Screen.height && item.width == Screen.width)
-                currentResolutionIndex = index;
-            index++;
-        }
-        dropdownResolution.AddOptions(options);
-        dropdownResolution.value = currentResolutionIndex;
-    }
-
-    /// <summary>
-    /// Opens the ingame menu.
-    /// </summary>
-    public void toggleMenu()
+    public void ToggleMenu()
     {
         NetworkIdentity player = connectionToServer.identity;
         inGameMenuCanvas.enabled = !inGameMenuCanvas.enabled;
@@ -100,7 +79,6 @@ public class IngameMenu : NetworkBehaviour
         if (player.GetComponent<AudioListener>())
             volumeSlider.value = AudioListener.volume;
 
-
         Cursor.visible = inGameMenuCanvas.enabled;
         Cursor.lockState = inGameMenuCanvas.enabled
             ? CursorLockMode.Confined
@@ -110,15 +88,15 @@ public class IngameMenu : NetworkBehaviour
     /// <summary>
     /// Cancels the connection and takes the player back to the main menu.
     /// </summary>
-    public void loadMainMenu()
+    public void LoadMainMenu()
     {
         NetworkManager.singleton.StopHost();
     }
 
     /// <summary>
-    /// Method to change the volume for the sound manager.
+    /// Method to change the volume.
     /// </summary>
-    public void changeVolume()
+    public void ChangeVolume()
     {
         AudioListener.volume = volumeSlider.value;
     }
@@ -135,7 +113,7 @@ public class IngameMenu : NetworkBehaviour
     /// <summary>
     /// Sets the quality of the game to the passed index.
     /// </summary>
-    /// <param name="index">From 0 to 5; 0 => very bad; 5 => ultra settings</param>
+    /// <param name="index">Given index for the quality. (identifiable in "project settings -> quality")</param>
     public void SetQuality(int index)
     {
         QualitySettings.SetQualityLevel(index);
@@ -149,5 +127,27 @@ public class IngameMenu : NetworkBehaviour
     {
         Resolution resolution = resolutions[index];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+
+    /// <summary>
+    /// Generates for the UI all elements for the resolutions.
+    /// </summary>
+    private void GenerateResolutionList()
+    {
+        resolutions = Screen.resolutions;
+        dropdownResolution.ClearOptions();
+        List<string> options = new List<string>();
+        int currentResolutionIndex = 0;
+        int index = 0;
+
+        foreach (var item in resolutions)
+        {
+            options.Add(item.width + " x " + item.height);
+            if (item.height == Screen.height && item.width == Screen.width)
+                currentResolutionIndex = index;
+            index++;
+        }
+        dropdownResolution.AddOptions(options);
+        dropdownResolution.value = currentResolutionIndex;
     }
 }

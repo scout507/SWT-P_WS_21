@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+
+// created by: SWT-P_WS_21/22
 
 /// <summary>This class holds variables which are needed on the player prefab.</summary>
 public class Player : NetworkBehaviour
@@ -15,7 +15,8 @@ public class Player : NetworkBehaviour
     /// </summary>
     void Start()
     {
-        if (!isLocalPlayer) return;
+        if (!isLocalPlayer)
+            return;
         CmdRegisterPlayer();
     }
 
@@ -25,6 +26,9 @@ public class Player : NetworkBehaviour
     [Command]
     void CmdRegisterPlayer()
     {
-        GameObject.FindGameObjectWithTag("Manager").GetComponent<RoundManager>().Register(this.gameObject);
+        GameObject
+            .FindGameObjectWithTag("Manager")
+            .GetComponent<RoundManager>()
+            .Register(this.gameObject);
     }
 }

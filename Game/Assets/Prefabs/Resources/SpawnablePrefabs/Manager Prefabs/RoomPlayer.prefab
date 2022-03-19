@@ -1836,6 +1836,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  displayName: Loading...
+  isReady: 0
   playerNameTexts:
   - {fileID: 7426521288163498441}
   - {fileID: 145363999906386928}
@@ -1856,8 +1858,6 @@ MonoBehaviour:
   - {fileID: 2732798657692174268}
   startGameButton: {fileID: 3009035291089232741}
   canvas: {fileID: 2153790569780937124}
-  displayName: Loading...
-  isReady: 0
 --- !u!1 &3899901906061533181
 GameObject:
   m_ObjectHideFlags: 0
@@ -2516,7 +2516,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6369713485113490369}
         m_TargetAssemblyTypeName: NetworkRoomPlayer, Assembly-CSharp
-        m_MethodName: leave
+        m_MethodName: Leave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -7,14 +5,11 @@ using Mirror;
 
 /* created by: SWT-P_WS_21/22 */
 
-
-/// <summary>
-/// This class processes the interactions of the lobby UI.
-/// </summary>
+/// <summary>This class processes the interactions of the lobby UI./// </summary>
 public class JoinLobbyMenu : MonoBehaviour
 {
-    [Header("UI")]
     /// <summary>Holds the game object that defines the host UI of the Lobby UI.</summary>
+    [Header("UI")]
     [SerializeField]
     private GameObject landingPagePanel = null;
 
@@ -25,6 +20,24 @@ public class JoinLobbyMenu : MonoBehaviour
     /// <summary>Holds the Join button of the Lobby UI.</summary>
     [SerializeField]
     private Button joinButton = null;
+
+    /// <summary>
+    /// Inserts the IP address from the vaiable "ipAdressInputField" into the network manager.
+    /// The client is then started via the network manager and the join button is deactivated, 
+    /// so that the user does not trigger the function again afterwards.
+    /// </summary>
+    public void JoinLobby()
+    {
+        if (!string.IsNullOrEmpty(ipAdressInputField.text))
+        {
+            string ipAdress = ipAdressInputField.text;
+
+            NetworkManager.singleton.networkAddress = ipAdress;
+            NetworkManager.singleton.StartClient();
+
+            joinButton.interactable = false;
+        }
+    }
 
     /// <summary>
     /// Called when the object of the class in the scene will activated.
@@ -47,25 +60,7 @@ public class JoinLobbyMenu : MonoBehaviour
     }
 
     /// <summary>
-    /// Inserts the IP address from the vaiable "ipAdressInputField" into the network manager.
-    /// The client is then started via the network manager and the Join button is deactivated, 
-    /// so that the user does not trigger the function again afterwards.
-    /// </summary>
-    public void JoinLobby()
-    {
-        if (!string.IsNullOrEmpty(ipAdressInputField.text))
-        {
-            string ipAdress = ipAdressInputField.text;
-
-            NetworkManager.singleton.networkAddress = ipAdress;
-            NetworkManager.singleton.StartClient();
-
-            joinButton.interactable = false;
-        }
-    }
-
-    /// <summary>
-    /// Activates the join button.
+    /// Activates the join button after connected to server.
     /// Deactivates its own GameObject in the UI and the game object that defines the host UI of the Lobby UI.
     /// </summary>
     private void HandleClientConnected()
@@ -76,7 +71,7 @@ public class JoinLobbyMenu : MonoBehaviour
     }
 
     /// <summary>
-    /// Activates the join button.
+    /// Activates the join button after connection failed to server.
     /// </summary>
     private void HandleClientDisconnected()
     {

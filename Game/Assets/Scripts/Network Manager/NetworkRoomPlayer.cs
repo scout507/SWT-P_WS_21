@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
@@ -10,8 +8,16 @@ using TMPro;
 /// <summary>This class is needed for the prefab of a client in the lobby.</summary>
 public class NetworkRoomPlayer : NetworkBehaviour
 {
-    [Header("UI")]
+    /// <summary>A synchronised variable containing the name of the player or a placeholder.</summary>
+    [SyncVar(hook = nameof(HandleDisplayNameChanged))]
+    public string displayName = "Loading...";
+
+    /// <summary>Has the Boolean state whether a player is ready or not.</summary>
+    [SyncVar(hook = nameof(HandleReadyStatusChanged))]
+    public bool isReady = false;
+
     /// <summary>Contains all playernems text UI elements.</summary>
+    [Header("UI")]
     [SerializeField]
     private TMP_Text[] playerNameTexts;
 
@@ -27,15 +33,7 @@ public class NetworkRoomPlayer : NetworkBehaviour
     [SerializeField]
     private GameObject canvas;
 
-    /// <summary>A synchronised variable containing the name of the player or a placeholder.</summary>
-    [SyncVar(hook = nameof(handleDisplayNameChanged))]
-    public string displayName = "Loading...";
-
-    /// <summary>Has the Boolean state whether a player is ready or not.</summary>
-    [SyncVar(hook = nameof(handleReadyStatusChanged))]
-    public bool isReady = false;
-
-    /// <summary>Has the Boolean status of whether a player is the lobby leader.</summary>
+    /// <summary>true, if player is the lobby leader.</summary>
     private bool isLeader;
 
     /// <summary>Holds the network manager of the UI Lobby.</summary>
@@ -45,21 +43,21 @@ public class NetworkRoomPlayer : NetworkBehaviour
     /// Triggers when the variable "isReady" changes.
     /// Then calls "UpdateDisplay()".
     /// </summary>
-    /// <param name="oldValue">Old variable</param>
-    /// <param name="newValue">New variable</param>
-    public void handleReadyStatusChanged(bool oldValue, bool newValue) => UpdateDisplay();
+    /// <param name="oldValue">Old boolean value</param>
+    /// <param name="newValue">New boolean value</param>
+    public void HandleReadyStatusChanged(bool oldValue, bool newValue) => UpdateDisplay();
 
     /// <summary>
     /// Triggers when the variable "isLeader" changes.
     /// Then calls "UpdateDisplay()".
     /// </summary>
-    /// <param name="oldValue">Old variable</param>
-    /// <param name="newValue">New variable</param>
-    public void handleDisplayNameChanged(string oldValue, string newValue) => UpdateDisplay();
+    /// <param name="oldValue">Old display name</param>
+    /// <param name="newValue">New display name</param>
+    public void HandleDisplayNameChanged(string oldValue, string newValue) => UpdateDisplay();
 
     /// <summary>
     /// Set funcion for isLeader.
-    /// Activates the "startGameButton" in the UI.
+    /// Activates the "startGameButton" in the UI, if player is lobby leader.
     /// </summary>
     /// <value>Set value for "isLeader". Is a boolean.</value>
     public bool IsLeader
@@ -68,22 +66,6 @@ public class NetworkRoomPlayer : NetworkBehaviour
         {
             isLeader = value;
             startGameButton.gameObject.SetActive(true);
-        }
-    }
-
-    /// <summary>
-    /// Get funcion for the "room" variable. 
-    /// Checks whether the variable "room" is null:
-    /// If true, the varibale is assigned an instance by the network manager.
-    /// If False, then the variable is returned.
-    /// </summary>
-    private NetworkManagerLobby Room
-    {
-        get
-        {
-            if (room != null)
-                return room;
-            return room = NetworkManager.singleton as NetworkManagerLobby;
         }
     }
 
@@ -120,6 +102,41 @@ public class NetworkRoomPlayer : NetworkBehaviour
         UpdateDisplay();
     }
 
+    /// <summary>Method to leave the lobby, stops the networkmanager and reset it.</summary>
+    public void Leave()
+    {
+        Room.StopHost();
+    }
+
+    /// <summary>
+    /// Makes the "startGameButton" interactive if the client is lobby leader and
+    /// all the conditions for starting the game are met.
+    /// Called from the Method "notifyPlayersOfReadyState" from "NetworkManagerLobby" class.
+    /// </summary>
+    /// <param name="readyToStart">true, when all the conditions for starting the game are met.</param>
+    public void HandleReadyToStart(bool readyToStart)
+    {
+        if (!isLeader)
+            return;
+        startGameButton.interactable = readyToStart;
+    }
+
+    /// <summary>
+    /// Get funcion for the "room" variable. 
+    /// Checks whether the variable "room" is null:
+    /// If true, the varibale is assigned an instance by the network manager.
+    /// If False, then the variable is returned.
+    /// </summary>
+    private NetworkManagerLobby Room
+    {
+        get
+        {
+            if (room != null)
+                return room;
+            return room = NetworkManager.singleton as NetworkManagerLobby;
+        }
+    }
+
     /// <summary>
     /// Updated the player names and their ready status in the UI.
     /// The authority check, prevents access to the method without having the authority.
@@ -154,22 +171,6 @@ public class NetworkRoomPlayer : NetworkBehaviour
         }
     }
 
-    public void leave()
-    {
-        Room.StopHost();
-    }
-
-    /// <summary>
-    /// Makes the "startGameButton" interactive if the client is lobby leader.
-    /// </summary>
-    /// <param name="readyToStart"></param>
-    public void handleReadyToStart(bool readyToStart)
-    {
-        if (!isLeader)
-            return;
-        startGameButton.interactable = readyToStart;
-    }
-
     /// <summary>
     /// This command sets the value of "displayName" to the synchronised variable "this.displayName".
     /// </summary>
@@ -188,7 +189,7 @@ public class NetworkRoomPlayer : NetworkBehaviour
     {
         isReady = !isReady;
 
-        Room.notifyPlayersOfReadyState();
+        Room.NotifyPlayersOfReadyState();
     }
 
     /// <summary>
@@ -201,6 +202,6 @@ public class NetworkRoomPlayer : NetworkBehaviour
         if (Room.roomPlayers[0].connectionToClient != connectionToClient)
             return;
 
-        Room.startGame();
+        Room.StartGame();
     }
 }
