@@ -1141,11 +1141,10 @@ MonoBehaviour:
   syncInterval: 0.1
   aggroRadius: 15
   damage: 10
-  buildingDamage: 0
   hp: 50
   moveSpeed: 5
   awake: 0
-  atkRange: 1.5
+  atkRange: 2
   atkCooldown: 1
   dead: 0
   players: []
@@ -1153,15 +1152,16 @@ MonoBehaviour:
   aggro: 0
   atkTimer: 0
   attack: 0
-  zombieAudioController: {fileID: 0}
+  damageTaken: 0
   nav: {fileID: 0}
-  animator: {fileID: 8903686764230930558}
   groundCheck: {fileID: 8903686764973335868}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  animator: {fileID: 8903686764230930558}
   networkAnimator: {fileID: 8903686763907575695}
+  zombieAudioController: {fileID: 0}
   detectionRate: 1.5
   deAggroRate: 5
   detectedPlayer: 0
