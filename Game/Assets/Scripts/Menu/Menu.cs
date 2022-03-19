@@ -107,7 +107,7 @@ public class Menu : MonoBehaviour
 
         foreach (var item in resolutions)
         {
-            options.Add(item.width + " x " + item.height);
+            options.Add(item.width + " x " + item.height + " @ " + item.refreshRate + " Hz");
             if (item.height == Screen.height && item.width == Screen.width)
                 currentResolutionIndex = index;
             index++;
