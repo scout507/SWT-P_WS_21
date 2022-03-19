@@ -22,7 +22,8 @@ public class Chatbox : NetworkBehaviour
     TMP_InputField chatBoxUI;
 
     /// <summary>Cooldown for the message sound effect</summary>
-    [SerializeField] float audioCooldown = 0.5f;
+    [SerializeField]
+    float audioCooldown = 0.5f;
 
     /// <summary>The text component of the textbox.</summary>
     TextMeshProUGUI textBox;
@@ -83,6 +84,7 @@ public class Chatbox : NetworkBehaviour
             if (Input.GetKeyDown(KeyCode.KeypadEnter))
             {
                 typing = false;
+                chatBoxUI.DeactivateInputField();
                 chatBoxUI.GetComponent<Image>().color -= new Color(0, 0, 0, 0.8f);
                 if (chatBoxUI.text.Length > 0)
                     SubmitMessage(chatText.text);
@@ -92,8 +94,11 @@ public class Chatbox : NetworkBehaviour
         {
             typing = true;
             chatBoxUI.GetComponent<Image>().color += new Color(0, 0, 0, 0.8f);
-            chatBoxUI.Select();
+            chatBoxUI.ActivateInputField();
         }
+
+        if (!typing)
+            chatBoxUI.text = "";
 
         //Quick-Chat
 
