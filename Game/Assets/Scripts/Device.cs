@@ -4,7 +4,7 @@ using UnityEngine;
 using Mirror;
 
 abstract public class Device : NetworkBehaviour
-{
+{   
     [SyncVar]
     [SerializeField]
     int health = 30;
@@ -19,8 +19,7 @@ abstract public class Device : NetworkBehaviour
         {
             return;
         }
-        else
-        {
+        else{
             health -= amount;
         }
 
@@ -36,18 +35,12 @@ abstract public class Device : NetworkBehaviour
     /// <param name="other">The collider of the gameobject which hit this gameobject.</param>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.root.GetComponent<Melee>())
-        {
-            other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
-        }
+        other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
     }
 
     abstract public void TargetDeath();
 
-    /// <summary>
-    /// Destroys the device on all clients
-    /// </summary>
-    /// <param name="device">Device which should be destroyed</param>
+
     [ClientRpc]
     public void RpcDestroyDevice(GameObject device)
     {

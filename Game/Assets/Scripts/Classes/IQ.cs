@@ -3,52 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /* edited by: SWT-P_WS_21/22*/
-/// <summary>
-/// IQ is a class with a MP and a pistol and can set up cameras
-/// </summary>
 public class IQ : Classes
 {
-    /// <summary>
-    /// Update checks input if player wants to change weapon
-    /// </summary>
     void Update()
     {
         if (!isLocalPlayer) return;
-        if (GetComponent<PlayerMovement>().active)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon < 3)
         {
-            if (Input.GetAxis("Mouse ScrollWheel") < 0f && selectedWeapon < 3)
-            {
-                newWeapon = selectedWeapon + 1;
-                CmdSwitchWeapon(newWeapon);
-            }
-            if (Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon > 1)
-            {
-                newWeapon = selectedWeapon - 1;
-                CmdSwitchWeapon(newWeapon);
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                CmdSwitchWeapon(1);
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                CmdSwitchWeapon(2);
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                CmdSwitchWeapon(3);
-            }
+            newWeapon = selectedWeapon + 1;
+            CmdSwitchWeapon(newWeapon);
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f && selectedWeapon > 1)
+        {
+            newWeapon = selectedWeapon - 1;
+            CmdSwitchWeapon(newWeapon);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            CmdSwitchWeapon(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            CmdSwitchWeapon(2);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            CmdSwitchWeapon(3);
         }
     }
-    public override int GetSelectedWeapon()
-    {
-        return selectedWeapon;
-    }
-    /// <summary>
-    /// Handles change of weapons through enabling and disenabling the correct scripts on the player
-    /// </summary>
-    /// <param name="oldWeapon"></param>
-    /// <param name="newWeapon"></param>
+
     public override void SwitchWeapon(int oldWeapon, int newWeapon)
     {
         switch (oldWeapon)
@@ -80,10 +63,6 @@ public class IQ : Classes
                 break;
         }
     }
-
-    /// <summary>
-    /// IQ does not have melee weapon
-    /// </summary>
     public override void SetHasMelee()
     {
         this.hasMelee = false;

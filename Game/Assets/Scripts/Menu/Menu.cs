@@ -20,36 +20,23 @@ public class Menu : MonoBehaviour
     /// <summary>Holds all possible resolutions for the client.</summary>
     Resolution[] resolutions;
 
-    /// <summary>Contains the user interface dropdown for the resolution of game</summary>
-    public TMP_Dropdown dropdownResolution;
-
-    /// <summary>Contains the user interface dropdown for the resolution of game</summary>
-    public TMP_Dropdown dropdownQuality;
+    /// <summary>Contains the user interface dropdown for the quality of game</summary>
+    public TMP_Dropdown dropdown;
 
     /// <summary>Keeps the toggel element out of the UI for fullscreen mode.</summary>
-    public Toggle toggleFullscreen;
+    public Toggle toggle;
 
     /// <summary>
     /// Sets all default values and generates the list for the resolutions.
     /// </summary>
     void Start()
     {
-        toggleFullscreen.isOn = Screen.fullScreen;
+        toggle.isOn = Screen.fullScreen;
         isFullscreen = Screen.fullScreen;
-        volumeSlider.value = FindObjectOfType<AudioSource>().volume;
-        dropdownQuality.value = QualitySettings.GetQualityLevel();
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined;
-        generateResolutionList();
-    }
-
-    /// <summary>
-    /// Generates for the UI all elements for the resolutions.
-    /// </summary>
-    private void generateResolutionList()
-    {
+        volumeSlider.value = FindObjectOfType<Soundmanager>().volume;
         resolutions = Screen.resolutions;
-        dropdownResolution.ClearOptions();
+        dropdown.ClearOptions();
+
         List<string> options = new List<string>();
         int currentResolutionIndex = 0;
         int index = 0;
@@ -57,13 +44,16 @@ public class Menu : MonoBehaviour
         foreach (var item in resolutions)
         {
             options.Add(item.width + " x " + item.height);
-            if (item.height == Screen.height && item.width == Screen.width)
+            if (
+                item.height == Screen.currentResolution.height
+                && item.width == Screen.currentResolution.width
+            )
                 currentResolutionIndex = index;
             index++;
         }
 
-        dropdownResolution.AddOptions(options);
-        dropdownResolution.value = currentResolutionIndex;
+        dropdown.AddOptions(options);
+        dropdown.value = currentResolutionIndex;
     }
 
     /// <summary>
@@ -79,7 +69,7 @@ public class Menu : MonoBehaviour
     /// </summary>
     public void changeVolume()
     {
-        AudioListener.volume = volumeSlider.value;
+        FindObjectOfType<Soundmanager>().volume = volumeSlider.value;
     }
 
     /// <summary>
@@ -115,6 +105,6 @@ public class Menu : MonoBehaviour
     /// </summary>
     public void host()
     {
-        NetworkManager.singleton.StartHost();
+        (NetworkManager.singleton as NetworkManagerLobby).StartHost();
     }
 }

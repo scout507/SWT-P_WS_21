@@ -10,19 +10,14 @@ public class Spectator : NetworkBehaviour
 {
     /// <summary>How quickly the viewer can move forward.</summary>
     public float movementSpeed = 1;
-
     /// <summary>Horizontal movement speed.</summary>
     public float speedH = 2;
-
     /// <summary>Vertical movement speed.</summary>
     public float speedV = 2;
-
     /// <summary>Rotation on the y axis.</summary>
     private float yaw = 0;
-
     /// <summary>Rotation on the z axis.</summary>
     private float pitch = 0;
-
     /// <summary>Is true if the script is to be active.</summary>
     public bool active = true;
 
@@ -59,10 +54,8 @@ public class Spectator : NetworkBehaviour
 
             transform.eulerAngles = new Vector3(pitch, yaw, 0);
             transform.position +=
-                (
-                    transform.TransformDirection(Vector3.forward) * v
-                    + transform.TransformDirection(Vector3.right) * h
-                ) * movementSpeed;
+                transform.TransformDirection(Vector3.forward) * v
+                + transform.TransformDirection(Vector3.right) * h;
         }
     }
 }

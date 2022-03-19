@@ -7,7 +7,6 @@ using Mirror;
 public class Player : NetworkBehaviour
 {
     /// <summary>Name of the player.</summary>
-    [SyncVar]
     public string displayName = "";
 
     /// <summary>

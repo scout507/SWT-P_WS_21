@@ -237,5 +237,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  health: 30
   cameraMount: {fileID: 9093076881334802520}

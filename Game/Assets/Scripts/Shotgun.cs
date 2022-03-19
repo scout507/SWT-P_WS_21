@@ -10,6 +10,7 @@ using UnityEngine;
 /// </summary>
 public class Shotgun : ShootGun
 {
+
     private int pelletAmount = 15;
 
     /// <summary>
@@ -19,13 +20,9 @@ public class Shotgun : ShootGun
     {
         this.gunDamage = 5;
         this.fireRate = 0.25f;
-        this.reloadDelay = 0.25f;
-        this.weaponRange = 50f;
+        this.weaoponRange = 50f;
         this.gunAmmo = 8;
         this.recoil = 10f;
-        this.magSize = 8;
-        this.isReloading = false;
-        this.triggerRange = 25f;
         audioController = this.GetComponent<AudioController>();
     }
 
@@ -38,57 +35,27 @@ public class Shotgun : ShootGun
         {
             return;
         }
-
-        if (canInteract)
+        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
+            inventory = GetComponentInChildren<Inventory>();
             inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
-
-            if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+            nextFire = Time.time + fireRate;
+            if (gunAmmo > 0)
             {
-                inventory = GetComponentInChildren<Inventory>();
-                inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
-                nextFire = Time.time + fireRate;
-                if (gunAmmo > 0)
-                {
-                    isReloading = false;
-                    Shoot();
-                }
-                else
-                {
-                    Debug.Log("Out of Ammo!");
-                }
+                Shoot();
             }
-
-            if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
+            else
             {
-                isReloading = true;
-                nextReload = Time.time + reloadDelay;
-            }
-
-            if (isReloading)
-            {
-                Reload();
+                Debug.Log("Out of Ammo!");
             }
         }
-    }
 
-    /// Shotgun is reloaded one round after another till the magazin is full
-    /// </summary>
-    public override void Reload()
-    {
-        if (Time.time > nextReload && gunAmmo < magSize && isReloading)
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            nextReload = Time.time + reloadDelay;
-            gunAmmo++;
-            if (gunAmmo % 4 == 0)
-            {
-                audioController.CmdPlayGunSound(7);
-            }
+            gunAmmo = magSize;
         }
-        if (gunAmmo == magSize)
-        {
-            isReloading = false;
-        }
+
+        inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
     }
 
     /// <summary>
@@ -100,17 +67,13 @@ public class Shotgun : ShootGun
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
         gunAmmo--;
-        audioController.CmdPlayGunSound(2);
-        TriggerAggro();
+        audioController.PlayGunSound(2);
         for (int i = 0; i < pelletAmount; i++)
         {
-            direction +=
-                Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.up)
-                * Camera.main.transform.forward;
-            direction +=
-                Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.right)
-                * Camera.main.transform.forward;
-            if (Physics.Raycast(rayOrigin, direction, out hit, weaponRange))
+
+            direction += Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.up) * Camera.main.transform.forward;
+            direction += Quaternion.AngleAxis(Random.Range(-40f, 40f), Camera.main.transform.right) * Camera.main.transform.forward;
+            if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
             {
                 Debug.Log("In Range!");
                 Debug.DrawLine(rayOrigin, hit.point, Color.green, 0.5f);
@@ -133,10 +96,11 @@ public class Shotgun : ShootGun
             }
             else
             {
-                Debug.DrawRay(rayOrigin, direction * weaponRange, Color.red, 0.5f);
+                Debug.DrawRay(rayOrigin, direction * weaoponRange, Color.red, 0.5f);
                 Debug.Log("Out of Range!");
             }
         }
         Recoil();
     }
+
 }

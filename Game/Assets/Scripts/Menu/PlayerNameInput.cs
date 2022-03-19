@@ -29,11 +29,9 @@ public class PlayerNameInput : MonoBehaviour
     /// </summary>
     public void continueButtonPressed()
     {
-        if (!string.IsNullOrEmpty(nameInput.text.Trim()))
+        if (!string.IsNullOrEmpty(nameInput.text))
         {
-            string name = nameInput.text.Replace(" ", "_");
-            int len = name.Length < 15 ? name.Length : 15;
-            playerName = name.Substring(0, len);
+            playerName = nameInput.text;
             this.nameMenu.SetActive(false);
             this.hostMenu.SetActive(true);
         }

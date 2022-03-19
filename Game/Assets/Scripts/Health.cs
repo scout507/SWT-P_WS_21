@@ -17,7 +17,7 @@ public class Health : NetworkBehaviour
     [SyncVar]
     public int health = 100;
 
-    HealthBar healthBar;
+    public HealthBar healthBar;
 
     /// <summary>Holds the prefab for a dead player.</summary>
     public GameObject deadPlayerPrefab = null;
@@ -25,16 +25,12 @@ public class Health : NetworkBehaviour
     public GameObject spectatorPlayerPrefab = null;
     /// <summary>Is true when the player is dead.</summary>
     public bool isDead = false;
-    /// <summary>Audio Script that controlls Gun Sound</summary>
-    public AudioController audioController;
 
     void Start()
     {
-        if (!isLocalPlayer) return;
 
-        healthBar = GetComponentInChildren<HealthBar>();
         health = 100;
-        audioController = this.GetComponent<AudioController>();
+        healthBar.SetMaxHealth(health);
     }
 
     /// <summary>
@@ -56,21 +52,24 @@ public class Health : NetworkBehaviour
             health -= amount;
             if (health > 0)
             {
-                TargetRpcDamageSounds(connectionToClient, 1, 10);
+                healthBar.SetHealth(health);
+            }
+            else
+            {
+                healthBar.SetHealth(0);
             }
         }
         if (amount > 0) TargetDamage();
         else GotHealed();
         if (health <= 0 && !isDead)
         {
-            TargetRpcDamageSounds(connectionToClient, 10, 11);
             isDead = true;
             TargetDeath();
         }
     }
 
     /// <summary>
-    /// The method TargetDamage is called when a player is hit. It can then trigger an animation or something similar.
+    /// The methode TargetDamage is called when a player is hit. It can then trigger an animation or something similar.
     /// </summary>
     [TargetRpc]
     public void TargetDamage()
@@ -79,27 +78,16 @@ public class Health : NetworkBehaviour
     }
 
     /// <summary>
-    /// The method GotHealed is called when a player is healed. It can then trigger an animation or something similar.
+    /// The methode GotHealed is called when a player is healed. It can then trigger an animation or something similar.
     /// </summary>
     [TargetRpc]
     public void GotHealed()
     {
         Debug.Log("Got healed!");
     }
-    /// <summary>
-    /// Triggers a damage sound on a player that got hit.
-    /// </summary>
-    /// <param name="target">Player that got hit</param>
-    /// <param name="min">Soundindex</param>
-    /// <param name="max">Soundindex</param>
-    [TargetRpc]
-    void TargetRpcDamageSounds(NetworkConnection target, int min, int max)
-    {
-        audioController.CmdPlayDmgTakenSound(min, max);
-    }
 
     /// <summary>
-    /// The method TargetDeath is called when a player dies. It destroys the gameobject of the player and resets the main camera.
+    /// The methode TargetDeath is called when a player dies. It destroys the gameobject of the player and resets the main camera.
     /// </summary>
     [TargetRpc]
     void TargetDeath()
@@ -115,7 +103,6 @@ public class Health : NetworkBehaviour
     [Command]
     void CmdDestroyPlayer()
     {
-        gameObject.tag = "Untagged";
         GameObject deadPlayer = Instantiate(deadPlayerPrefab, transform.position, transform.rotation);
         GameObject spectator = Instantiate(spectatorPlayerPrefab, transform.position + Vector3.up * 5, transform.rotation);
 

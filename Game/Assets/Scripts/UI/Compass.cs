@@ -1,12 +1,11 @@
-/* created by: SWT-P_WS_21/22 */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// This script changes the direction of the Compass, based on a Transform Objects-Movement.
-/// </summary>
+/* created by: SWT-P_WS_21/22 */
+
+
 public class Compass : MonoBehaviour
 {
     /// <summary>

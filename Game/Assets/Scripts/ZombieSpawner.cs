@@ -55,7 +55,7 @@ public class ZombieSpawner : NetworkBehaviour
     /// All spawing positions for roaming zombies
     /// </summary>
     [SerializeField]
-    List<GameObject> roamerSpawns;
+    GameObject[] roamerSpawns;
 
     /// <summary>
     /// Spawns first wave at start of game
@@ -90,7 +90,7 @@ public class ZombieSpawner : NetworkBehaviour
     {
         for (int i = 0; i < zombiesAmount; i++)
         {
-            GameObject spawn = waveSpawns[Random.Range(0, waveSpawns.Length)];
+            GameObject spawn = waveSpawns[Random.Range(0,waveSpawns.Length)];
             GameObject spawnedZombie = (GameObject)Instantiate(waveZombie, spawn.transform.position + new Vector3(i, 0, 0), Quaternion.identity);
             NetworkServer.Spawn(spawnedZombie);
         }
@@ -102,7 +102,7 @@ public class ZombieSpawner : NetworkBehaviour
     /// <returns>String of remaining time</returns>
     public string TimeToNextWaveString()
     {
-        float timeToNextWave = (float)(nextWave - NetworkTime.time);
+        float timeToNextWave = (float) (nextWave - NetworkTime.time);
         int minutes = (int)Mathf.Floor(timeToNextWave / 60);
         int seconds = (int)Mathf.Floor(timeToNextWave % 60);
         return minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0');
@@ -115,9 +115,8 @@ public class ZombieSpawner : NetworkBehaviour
     {
         for (int i = 0; i < roamerAmount; i++)
         {
-            GameObject spawn = roamerSpawns[Random.Range(0, roamerSpawns.Count)];
-            roamerSpawns.Remove(spawn);
-            GameObject spawnedZombie = (GameObject)Instantiate(roamingZombie, spawn.transform.position, Quaternion.identity);
+            GameObject spawn = roamerSpawns[Random.Range(0,roamerSpawns.Length)];
+            GameObject spawnedZombie = (GameObject)Instantiate(roamingZombie, spawn.transform.position + new Vector3(i, 0, 0), Quaternion.identity);
             NetworkServer.Spawn(spawnedZombie);
         }
 
