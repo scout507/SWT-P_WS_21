@@ -5,7 +5,7 @@ using Mirror;
 
 
 /// <summary>
-/// The Script to handle the Ambiente Sounds on the Map
+/// The Script to handle the Ambiente Sounds on the Map.
 /// </summary>
 public class AmbienteAudio : NetworkBehaviour
 {
@@ -25,7 +25,9 @@ public class AmbienteAudio : NetworkBehaviour
     /// <summary>The Timer until the Music is played again</summary>
     private float musiccd;
 
-
+    /// <summary>
+    /// Gets dependencies.
+    /// </summary>
     void Start()
     {
         audioSource = this.GetComponent<AudioSource>();

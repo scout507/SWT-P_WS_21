@@ -5,7 +5,7 @@ using Mirror;
 
 /* created by: SWT-P_WS_21/22 */
 
-/// <summary>This class processes the interactions of the lobby UI./// </summary>
+/// <summary>This class processes the interactions of the lobby UI.</summary>
 public class JoinLobbyMenu : MonoBehaviour
 {
     /// <summary>Holds the game object that defines the host UI of the Lobby UI.</summary>

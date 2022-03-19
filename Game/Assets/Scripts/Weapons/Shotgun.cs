@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /* created by: SWT-P_WS_21/22 */
@@ -53,10 +51,6 @@ public class Shotgun : ShootGun
                 {
                     isReloading = false;
                     Shoot();
-                }
-                else
-                {
-                    Debug.Log("Out of Ammo!");
                 }
             }
 

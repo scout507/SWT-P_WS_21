@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
@@ -30,28 +28,31 @@ public class IQCam : NetworkBehaviour
     /// <summary>Sprite for the UI.</summary>
     [SerializeField] Sprite icon;
 
-    /// <summary>Count of remaining cams.</summary>
+    /// <summary>Count of remaining cams</summary>
     int remainingCams = 3;
 
-    /// <summary>Time when next camera can be thrown.</summary>
+    /// <summary>Time when next camera can be thrown</summary>
     float nextThrow;
 
-    /// <summary>Rate in which cameras can be set up.</summary>
+    /// <summary>Rate in which cameras can be set up</summary>
     float throwRate = 0.25f;
 
-    /// <summary>Flag if player is in cams.</summary>
+    /// <summary>Flag if player is in cams</summary>
     bool isInCams = false;
 
-    /// <summary>Array of cameras which are set up.</summary>
+    /// <summary>Array of cameras which are set up</summary>
     private GameObject[] cameras = new GameObject[3];
 
-    /// <summary>Tracks how many cameras are set up.</summary>
+    /// <summary>Tracks how many cameras are set up</summary>
     private int setCamerasCount = 0;
 
-    /// <summary>Tracks which camera was last activ.</summary>
+    /// <summary>Tracks which camera was last activ</summary>
     private int lastActiveCam = 0;
 
-    /// <summary>The correct rotation and the destruction of cameras is controlled in CamController.This script needs a way to set the camera activ and to get the right camera, it is saved in this variable.</summary>
+    /// <summary>
+    /// The correct rotation and the destruction of cameras is controlled in CamController. 
+    /// This script needs a way to set the camera activ and to get the right camera, it is saved in this variable.
+    /// </summary>
     CamController activeCam;
 
     /// <summary>Update() function is responsible for getting the user input.

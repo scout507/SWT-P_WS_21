@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
@@ -84,7 +82,7 @@ public class ControllTurret : NetworkBehaviour
                 playerCamera.transform.rotation = turretCameraMount.transform.rotation;
 
 
-                turret.enterVehicle();
+                turret.CmdEnterVehicle();
                 inVehicle = true;
 
                 gameObject.GetComponent<PlayerMovement>().enabled = false;
@@ -224,7 +222,7 @@ public class ControllTurret : NetworkBehaviour
                     gameObject.GetComponent<Knut>().enabled = true;
                 }
 
-                turret.exitVehicle();
+                turret.CmdExitVehicle();
 
                 exitTime = Time.time + 1f;
             }
@@ -232,7 +230,7 @@ public class ControllTurret : NetworkBehaviour
             if (inVehicle && Input.GetButtonDown("Fire1") && Time.time > nextFire)
             {
                 nextFire = Time.time + fireRate;
-                turret.Shoot();
+                turret.CmdShoot();
             }
         }
     }

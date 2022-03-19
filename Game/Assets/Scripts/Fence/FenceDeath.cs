@@ -1,14 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /* created by: SWT-P_WS_21/22 */
 
+/// <summary>
+/// Reponsible for disabling destroyed planks.
+/// </summary>
 public class FenceDeath : MonoBehaviour
 {
-    /// <summary>
-    /// Holds the "DestructableObject" component of the Game object.
-    /// </summary>
+    /// <summary>Holds the "DestructableObject" component of the Game object.</summary>
     DestructableObject board;
 
     /// <summary>

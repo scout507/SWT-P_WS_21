@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /* created by: SWT-P_WS_21/22 */
@@ -48,10 +46,6 @@ public class HealGun : ShootGun
                 {
                     Shoot();
                 }
-                else
-                {
-                    Debug.Log("Out of Ammo!");
-                }
             }
             if (Input.GetButtonDown("Fire3") && Time.time > nextFire)
             {
@@ -60,10 +54,6 @@ public class HealGun : ShootGun
                 {
                     CmdShootPlayer(this.gameObject, gunDamage);
                     gunAmmo--;
-                }
-                else
-                {
-                    Debug.Log("Out of Ammo!");
                 }
             }
 
@@ -103,21 +93,15 @@ public class HealGun : ShootGun
         gunAmmo--;
         if (Physics.Raycast(rayOrigin, direction, out hit, weaponRange, ~0))
         {
-            Debug.Log("In Range!");
-            Debug.DrawLine(rayOrigin, hit.point, Color.green, 0.5f);
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
-                CmdShootPlayer(hit.collider.transform.root.gameObject, gunDamage); // Gets Parent of Collider and calls function for hit on Player
+                // Gets Parent of Collider and calls function for hit on Player
+                CmdShootPlayer(hit.collider.transform.root.gameObject, gunDamage);
             }
             else
             {
                 CmdShootWall(hit.point);
             }
-        }
-        else
-        {
-            Debug.Log("Out of Range!");
-            Debug.DrawRay(rayOrigin, direction * weaponRange, Color.red, 0.5f);
         }
         Recoil();
     }

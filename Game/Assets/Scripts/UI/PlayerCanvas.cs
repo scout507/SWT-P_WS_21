@@ -9,23 +9,17 @@ using Mirror;
 /// </summary>
 public class PlayerCanvas : NetworkBehaviour
 {
-    /// <summary>
-    /// the canvas on the player model.
-    /// </summary>
+    /// <summary>the canvas on the player model.</summary>
     public GameObject PlayerCanvasObject;
 
-    /// <summary>
-    /// the camera for the minimap.
-    /// </summary>
+    /// <summary> the camera for the minimap.</summary>
     public GameObject MinimapCam;
 
-    /// <summary>
-    /// the weapon loadout of the player.
-    /// </summary>
+    /// <summary>the weapon loadout of the player.</summary>
     private Inventory inventory;
 
     /// <summary>
-    /// Start is called before the first frame update
+    /// Activates the canvas and minimap of the player HUD.
     /// </summary>
     void Start()
     {
@@ -38,9 +32,9 @@ public class PlayerCanvas : NetworkBehaviour
     }
 
     /// <summary>
-    /// updates the current inventory text and icon to the currently wielded weapon
+    /// updates the current inventory text and icon to the currently wielded weapon.
     /// </summary>
-    /// <param name="newWeapon"></param>
+    /// <param name="newWeapon">Script of the weapon in use.</param>
     public void UpdateWeaponUI(ShootGun newWeapon)
     {
         inventory.UpdateInfo(newWeapon.icon, newWeapon.gunAmmo, 0);

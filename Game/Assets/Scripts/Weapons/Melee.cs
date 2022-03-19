@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /* created by: SWT-P_WS_21/22 */
@@ -18,7 +16,7 @@ public class Melee : ShootGun
         this.gunDamage = 50;
         this.fireRate = 0.5f;
         this.triggerRange = 0f;
-        this.gunAmmo = 0; 
+        this.gunAmmo = 0;
         this.magSize = 0;
         audioController = this.GetComponent<AudioController>();
     }
@@ -75,7 +73,7 @@ public class Melee : ShootGun
     /// <summary>
     /// Deals damage to a gameobject which is hit.
     /// </summary>
-    /// <param name="attackedOpponent"></param>
+    /// <param name="attackedOpponent">The gameobject that is beeing attacked</param>
     public void meleeHit(GameObject attackedOpponent)
     {
         if (attackedOpponent.layer == LayerMask.NameToLayer("Player"))

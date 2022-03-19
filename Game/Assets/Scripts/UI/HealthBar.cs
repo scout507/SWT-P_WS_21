@@ -8,19 +8,13 @@ using UnityEngine.UI;
 /// </summary>
 public class HealthBar : MonoBehaviour
 {
-    /// <summary>
-    /// Slider to adjust the size
-    /// </summary>
-    Slider slider;
-
-    /// <summary>
-    /// Image of the ColorFilling
-    /// </summary>
+    /// <summary>Image of the ColorFilling</summary>
     public Image HPColor;
 
-    /// <summary>
-    /// Reference to the HealthScript
-    /// </summary>
+    /// <summary>Slider to adjust the size</summary>
+    Slider slider;
+
+    /// <summary>Reference to the HealthScript</summary>
     Health healthScript;
 
     /// <summary>

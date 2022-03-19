@@ -40,7 +40,9 @@ public class ZombieAudioController : NetworkBehaviour
     /// <summary>Checks if the zombie is alive, stops Footsteps and Idle Sounds when dead</summary>
     private bool isAlive = true;
 
-
+    /// <summary>
+    /// Gets dependencies.
+    /// </summary>
     private void Start()
     {
         audioSource = this.GetComponent<AudioSource>();
@@ -90,31 +92,6 @@ public class ZombieAudioController : NetworkBehaviour
     }
 
     /// <summary>
-    /// The ClientRpC for the Zombie Footstep Sound
-    /// </summary>
-    [ClientRpc]
-    void RPCPlayFootStepSound(float randomf)
-    {
-        float vol = 0.4f;
-        if (CheckWalls()) vol *= 0.2f;
-        if (!audioSource) audioSource = this.GetComponent<AudioSource>();
-        audioSource.pitch = randomf;
-        audioSource.PlayOneShot(monsterFootsteps[monsterFootstep], vol);
-    }
-
-    /// <summary>
-    /// The ClientRpC for the Zombie Idle Sound
-    /// </summary>
-    [ClientRpc]
-    void RPCPlayZombieIdleSound()
-    {
-        float vol = 0.8f;
-        if (CheckWalls()) vol *= 0.2f;
-        if (!audioSource) audioSource = this.GetComponent<AudioSource>();
-        audioSource.PlayOneShot(monsterIdleSound[monsterIdle], vol);
-    }
-
-    /// <summary>
     /// The ClientRpC for the Zombie Sound, when the Zombie took Damage
     /// </summary>
     [ClientRpc]
@@ -150,4 +127,30 @@ public class ZombieAudioController : NetworkBehaviour
         if (!audioSource) audioSource = this.GetComponent<AudioSource>();
         audioSource.PlayOneShot(monsterAttackSound[selected], vol);
     }
+
+    /// <summary>
+    /// The ClientRpC for the Zombie Footstep Sound
+    /// </summary>
+    [ClientRpc]
+    void RPCPlayFootStepSound(float randomf)
+    {
+        float vol = 0.4f;
+        if (CheckWalls()) vol *= 0.2f;
+        if (!audioSource) audioSource = this.GetComponent<AudioSource>();
+        audioSource.pitch = randomf;
+        audioSource.PlayOneShot(monsterFootsteps[monsterFootstep], vol);
+    }
+
+    /// <summary>
+    /// The ClientRpC for the Zombie Idle Sound
+    /// </summary>
+    [ClientRpc]
+    void RPCPlayZombieIdleSound()
+    {
+        float vol = 0.8f;
+        if (CheckWalls()) vol *= 0.2f;
+        if (!audioSource) audioSource = this.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(monsterIdleSound[monsterIdle], vol);
+    }
+
 }

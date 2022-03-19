@@ -1,16 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
-using System;
+
 
 /* created by: SWT-P_WS_21/22 */
 
+/// <summary>
+/// Responsible for player-fence interaction.
+/// </summary>
 public class FenceInteraction : NetworkBehaviour
 {
-    /// <summary>
-    /// true = when a player has started the repair mechanism
-    /// </summary>
+    /// <summary>true = when a player has started the repair mechanism</summary>
     [SyncVar]
     public bool used = false;
 
@@ -20,6 +20,12 @@ public class FenceInteraction : NetworkBehaviour
     /// <typeparam name="GameObject">The individual planks</typeparam>
     /// <returns>List of game objects</returns>
     public List<GameObject> planksInspector = new List<GameObject>();
+
+    /// <summary>The required time to repair a plank.</summary>
+    public float timePerPlankInSeconds = 3;
+
+    /// <summary>The player who uses the repair mechanism.</summary>
+    public uint activPlayer = 0;
 
     /// <summary>
     /// Holds the game objects of the "planksInspector" list, as a SyncList.
@@ -42,20 +48,8 @@ public class FenceInteraction : NetworkBehaviour
     /// <returns>List of uint´s</returns>
     readonly SyncList<uint> players = new SyncList<uint>();
 
-    /// <summary>
-    /// Is counted up with time.
-    /// </summary>
+    /// <summary>Is counted up with time. </summary>
     float timer = 0;
-
-    /// <summary>
-    /// The required time to repair a plank.
-    /// </summary>
-    public float timePerPlankInSeconds = 3;
-
-    /// <summary>
-    /// The player who uses the repair mechanism.
-    /// </summary>
-    public uint activPlayer = 0;
 
     /// <summary>
     /// Executed only by the server.
@@ -140,7 +134,7 @@ public class FenceInteraction : NetworkBehaviour
         )
         {
             players.Add(player.GetComponent<NetworkIdentity>().netId);
-            targetRpcSendMessage(player.GetComponent<NetworkIdentity>().connectionToClient, "Press [E] to repair.");
+            TargetRpcSendMessage(player.GetComponent<NetworkIdentity>().connectionToClient, "Press [E] to repair.");
         }
     }
 
@@ -170,8 +164,8 @@ public class FenceInteraction : NetworkBehaviour
     }
 
     [TargetRpc]
-    void targetRpcSendMessage(NetworkConnection target, string message)
+    void TargetRpcSendMessage(NetworkConnection target, string message)
     {
-        if(NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
+        if (NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
     }
 }
