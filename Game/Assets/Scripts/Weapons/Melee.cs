@@ -65,7 +65,7 @@ public class Melee : ShootGun
     }
 
     /// <summary>
-    /// Melee does not need Reload function, but because it is necessary for abstract class ShootGun
+    /// Melee does not need Reload function, but it is necessary for abstract class ShootGun.
     /// </summary>
     public override void Reload()
     {

@@ -11,80 +11,52 @@ using UnityEngine;
 /// </summary>
 public abstract class ShootGun : NetworkBehaviour
 {
-    /// <summary>
-    /// Damage output for gun
-    /// </summary>
+    /// <summary>Damage output for gun.</summary>
     public int gunDamage;
 
-    /// <summary>
-    /// Firerate for gun
-    /// </summary>
+    /// <summary>Firerate for gun.</summary>
     public float fireRate;
 
-    /// <summary>
-    /// Range for gun
-    /// </summary>
+    /// <summary>Range for gun.</summary>
     public float weaponRange;
 
-    /// <summary>
-    /// Gun end for animations
-    /// </summary>
+    /// <summary>Gun end for animations.</summary>
     public Transform gunEnd;
 
-    /// <summary>
-    /// Prefab of gun
-    /// </summary>
+    /// <summary>Prefab of gun.</summary>
     public GameObject gun;
 
-    /// <summary>
-    /// Point where gun is loaded
-    /// </summary>
+    /// <summary>Point where gun is loaded.</summary>
     public Transform gunMount;
 
-    /// <summary>
-    /// Ammunition of gun
-    /// </summary>
+    /// <summary>Ammunition of gun.</summary>
     public int gunAmmo;
 
-    /// <summary>
-    /// Maximum Ammo
-    /// </summary>
+    /// <summary>Maximum Ammo in one magazin..</summary>
     public int magSize;
 
-    /// <summary>
-    /// Time of the next shot you can take
-    /// </summary>
+    /// <summary>Time of the next shot you can take.</summary>
     public float nextFire;
 
-    /// <summary>
-    /// Time of the next reload you can take
-    /// </summary>
+    /// <summary>Time of the next reload you can take.</summary>
     public float nextReload;
 
-    /// <summary>
-    /// Time of the next reload you can take
-    /// </summary>
+    /// <summary>Delay time, so the reload does not happen instantly.</summary>
     public float reloadDelay;
 
-    /// <summary>
-    /// Set ammount of Recoil per Shot
-    /// </summary>
+    /// <summary>Set ammount of Recoil per Shot.</summary>
     public float recoil;
 
-    /// <summary>
-    /// Icon of the Weapon
-    /// </summary>
+    /// <summary>Icon of the Weapon for the UI.</summary>
     public Sprite icon;
 
-    /// <summary>
-    /// Weapon-Inventory of the Player
-    /// </summary>
+    /// <summary>Weapon-Inventory of the Player.</summary>
     public Inventory inventory;
 
-    /// <summary>True when player is attacking</summary>
+    /// <summary>True when player is attacking.</summary>
     [SyncVar] public bool inAttack;
 
-    /// <summary>Audio Script that controlls Gun Sound</summary>
+    /// <summary>Audio Script that controlls Gun Sound.</summary>
     public AudioController audioController;
 
     /// <summary>The range at witch shots can trigger zombies.</summary>
@@ -207,7 +179,7 @@ public abstract class ShootGun : NetworkBehaviour
     [ClientRpc]
     public void RpcHitWall(Vector3 hit)
     {
-        Debug.Log("Hit Wall!");
+        return;
     }
 
     /// <summary>

@@ -11,80 +11,50 @@ using Mirror;
 /// </summary>
 public class IQCam : NetworkBehaviour
 {
-    /// <summary>
-    /// device is the device in the hands of IQ, which is rendered if she has cameras ready
-    /// </summary>
+    /// <summary>This variable represents the device in the hands of IQ, which is rendered if she has her gadget ready.</summary>
     [SerializeField] GameObject device;
 
-    /// <summary>
-    /// cam is the gameobject of the cam, which is spawned when she sets one up
-    /// </summary>
+    /// <summary>This variable is the gameobject of the cam, which is spawned when she sets one up</summary>
     [SerializeField] GameObject cam;
 
-    /// <summary>
-    /// Point where device is loaded
-    /// </summary>
+    /// <summary>Point where device is loaded.</summary>
     [SerializeField] Transform deviceMount;
 
-    /// <summary>
-    /// Point where camera is spawned
-    /// </summary>
+    /// <summary>Point where camera is spawned</summary>
     [SerializeField] Transform throwPoint;
 
-    /// <summary>
-    /// Weapon inventory of player
-    /// </summary>
+    /// <summary>Weapon inventory of player</summary>
     [SerializeField]
     Inventory inventory;
 
-    /// <summary>
-    /// Sprite for the UI.
-    /// </summary>
+    /// <summary>Sprite for the UI.</summary>
     [SerializeField] Sprite icon;
 
-    /// <summary>
-    /// Count of remaining cams
-    /// </summary>
+    /// <summary>Count of remaining cams.</summary>
     int remainingCams = 3;
 
-    /// <summary>
-    /// Time when next camera can be thrown
-    /// </summary>
+    /// <summary>Time when next camera can be thrown.</summary>
     float nextThrow;
 
-    /// <summary>
-    /// Rate in which cameras can be set up
-    /// </summary>
+    /// <summary>Rate in which cameras can be set up.</summary>
     float throwRate = 0.25f;
 
-    /// <summary>
-    /// Flag if player is in cams
-    /// </summary>
+    /// <summary>Flag if player is in cams.</summary>
     bool isInCams = false;
 
-    /// <summary>
-    /// Array of cameras which are set up
-    /// </summary>
+    /// <summary>Array of cameras which are set up.</summary>
     private GameObject[] cameras = new GameObject[3];
 
-    /// <summary>
-    /// Tracks how many cameras are set up
-    /// </summary>
+    /// <summary>Tracks how many cameras are set up.</summary>
     private int setCamerasCount = 0;
 
-    /// <summary>
-    /// Tracks which camera was last activ
-    /// </summary>
+    /// <summary>Tracks which camera was last activ.</summary>
     private int lastActiveCam = 0;
 
-    /// <summary>
-    /// The correct rotation and the destruction of cameras is controlled in CamController.
-    /// This script needs a way to set the camera activ and to get the right camera, it is saved in this variable.
-    /// </summary>
+    /// <summary>The correct rotation and the destruction of cameras is controlled in CamController.This script needs a way to set the camera activ and to get the right camera, it is saved in this variable.</summary>
     CamController activeCam;
 
-    /// <summary>
-    /// Update() function is responsible for getting the user input.
+    /// <summary>Update() function is responsible for getting the user input.
     /// If Fire1 Button is pressed and the player is not activ in a camera, a new camera is thrown.
     /// On Key X the player can enter or leave the camera view.
     /// </summary>
@@ -103,12 +73,8 @@ public class IQCam : NetworkBehaviour
                 CmdSetNewCam(Camera.main.transform.forward);
                 --remainingCams;
             }
-            else
-            {
-                Debug.Log("Out of Cams!");
-            }
         }
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetButtonDown("Fire2"))
         {
             if (!isInCams && setCamerasCount > 0)
             {

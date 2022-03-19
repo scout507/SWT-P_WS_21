@@ -10,11 +10,8 @@ using Mirror;
 /// </summary>
 abstract public class Device : NetworkBehaviour
 {
-    /// <summary>
-    /// These are the healtpoints of the device.
-    /// </summary>
+    /// <summary>These are the healtpoints of the device.</summary>
     [SyncVar]
-    [SerializeField]
     int health = 30;
 
     /// <summary>

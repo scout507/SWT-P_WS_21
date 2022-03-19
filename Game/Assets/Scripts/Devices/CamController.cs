@@ -11,21 +11,16 @@ using Mirror;
 /// </summary>
 public class CamController : Device
 {
-    /// <summary>
-    /// This is the point, where the camera is mounted when an player enters it.
-    /// </summary>
+    /// <summary>This is the point, where the camera is mounted when an player enters it.</summary>
     public Transform cameraMount;
-    /// <summary>
-    /// This is the owner of the camera.
-    /// </summary>
+
+    /// <summary>This is the owner of the camera.</summary>
     GameObject owner;
-    /// <summary>
-    /// This is the index of the camera in the list of set up cameras of the owner.
-    /// </summary>
+
+    /// <summary>This is the index of the camera in the list of set up cameras of the owner.</summary>
     int numberOfCam;
-    /// <summary>
-    /// This flag indicates if a player uses the camera at the moment.
-    /// </summary>
+
+    /// <summary>This flag indicates if a player uses the camera at the moment.</summary>
     bool isActiv = false;
 
     /// <summary>
