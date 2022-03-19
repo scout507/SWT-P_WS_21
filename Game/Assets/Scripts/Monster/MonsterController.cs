@@ -155,7 +155,7 @@ public class MonsterController : NetworkBehaviour
             zombieAudioController.RPCPlayZombieAttackSound(Random.Range(0, 5));
             attack = true;
             atkTimer = 0;
-            if (currentTarget.tag == "Player")
+            if (currentTarget.tag == "Player" && currentTarget.GetComponent<Health>())
             {
                 Invoke("AttackPlayer", 0.8f); //Delay to fit the animation
             }
