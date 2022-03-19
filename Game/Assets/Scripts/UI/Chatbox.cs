@@ -21,6 +21,9 @@ public class Chatbox : NetworkBehaviour
     [SerializeField]
     TMP_InputField chatBoxUI;
 
+    /// <summary>Cooldown for the message sound effect</summary>
+    [SerializeField] float audioCooldown = 0.5f;
+
     /// <summary>The text component of the textbox.</summary>
     TextMeshProUGUI textBox;
 
@@ -42,6 +45,12 @@ public class Chatbox : NetworkBehaviour
     /// <summary>True when the player opened the chat</summary>
     bool typing;
 
+    /// <summary>Audiocontroller for playing sounds</summary>
+    AudioController audioController;
+
+    /// <summary>Timer for tracking the last message sound</summary>
+    float audioTimer;
+
     /// <summary>
     /// Fetches dependencies
     /// </summary>
@@ -54,6 +63,7 @@ public class Chatbox : NetworkBehaviour
         chatText = chatBoxUI.GetComponentInChildren<TextMeshProUGUI>();
         playerName = GetComponent<Player>().displayName;
         chatBoxUI.GetComponent<Image>().color -= new Color(0, 0, 0, 0.8f);
+        audioController = GetComponent<AudioController>();
     }
 
     /// <summary>
@@ -65,6 +75,8 @@ public class Chatbox : NetworkBehaviour
             return;
         UpdateTimers();
         UpdateText();
+
+        audioTimer += Time.deltaTime;
 
         if (typing)
         {
@@ -135,9 +147,14 @@ public class Chatbox : NetworkBehaviour
     /// Adds a new message to the UI. If you want to send a message to a player, use this function.
     /// Can hold a maximum of 5 messages before it overrides the oldes one.
     /// </summary>
-    /// <param name="message"></param>
+    /// <param name="message">The message you want to send</param>
     public void AddMessage(string message)
     {
+        if (audioController && audioTimer >= audioCooldown)
+        {
+            audioController.PlayMessageSound();
+            audioTimer = 0;
+        }
         for (int i = 4; i > 0; i--)
         {
             messages[i] = messages[i - 1];

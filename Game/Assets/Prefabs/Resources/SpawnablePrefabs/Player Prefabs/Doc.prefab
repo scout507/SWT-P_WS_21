@@ -4171,6 +4171,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 79031379aac2d9644a2bcc3d67ea89d8, type: 3}
   - {fileID: 8300000, guid: cc448769b2787ef4d877bcc9e772e876, type: 3}
   - {fileID: 8300000, guid: f0f794c67e9233d468a38d165590d253, type: 3}
+  messageClip: {fileID: 8300000, guid: 67d7a528fccc3b549a8fb757c2f1af48, type: 3}
 --- !u!114 &5384902223931467612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4251,8 +4252,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   turret: {fileID: 0}
-  cameraMount: {fileID: 5475456744313192730}
   playerinUseID: 0
+  cameraMount: {fileID: 5475456744313192730}
   fireRate: 1
 --- !u!114 &5076903145676599781
 MonoBehaviour:

@@ -25,6 +25,9 @@ public class AudioController : NetworkBehaviour
     /// </summary>
     [SerializeField] AudioClip[] playerSounds;
 
+    /// <summary>The sound effect for chatbox messages</summary>
+    [SerializeField] AudioClip messageClip;
+
     /// <summary>
     /// The Time until the next Footstep Sound is Played
     /// </summary>
@@ -53,6 +56,15 @@ public class AudioController : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Plays the incoming message sound localy for one player.
+    /// </summary>
+    public void PlayMessageSound()
+    {
+        if (!audioSource) audioSource = this.GetComponent<AudioSource>();
+        audioSource.pitch = 1f;
+        audioSource.PlayOneShot(messageClip, 0.2f);
+    }
 
     /// <summary>
     /// The Command for the Footstep Sound
