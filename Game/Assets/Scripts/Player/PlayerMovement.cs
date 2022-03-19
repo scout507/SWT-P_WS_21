@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
@@ -19,75 +17,51 @@ public class PlayerMovement : NetworkBehaviour
     /// <summary>Player camera</summary>
     public GameObject cam;
 
-    /// <summary>
-    /// Prefab of the player's model
-    /// </summary>
+    /// <summary>Prefab of the player's model</summary>
     [SerializeField]
     GameObject playerModel;
 
-    /// <summary>
-    /// Move vector relative to the player
-    /// </summary>
+    /// <summary>Move vector relative to the player</summary>
     [SyncVar]
     Vector3 moveRelative;
 
-    /// <summary>
-    /// Walking speed multiplier
-    /// </summary>
+    /// <summary>Walking speed multiplier</summary>
     [SerializeField]
     float speed = 9f;
 
-    /// <summary>
-    /// Sprint speed multiplier
-    /// </summary>
+    /// <summary>Sprint speed multiplier</summary>
     [SerializeField]
     float sprintSpeedMultiplier = 1.5f;
 
-    /// <summary>
-    /// Crouch speed multiplier
-    /// </summary>
+    /// <summary>Crouch speed multiplier</summary>
     [SerializeField]
     float crouchSpeedMultiplier = .33f;
 
-    /// <summary>
-    /// Gravity force to apply to the player
-    /// </summary>
+    /// <summary>Gravity force to apply to the player</summary>
     [SerializeField]
     float gravity = 19.62f;
 
-    /// <summary>
-    /// Player's jump height
-    /// </summary>
+    /// <summary>Player's jump height</summary>
     [SerializeField]
     float jumpHeight = 2f;
 
-    /// <summary>
-    /// Player's current stamina
-    /// </summary>
+    /// <summary>Player's current stamina</summary>
     [SerializeField]
     float stamina = 10f;
 
-    /// <summary>
-    /// Maximum stamina
-    /// </summary>
+    /// <summary>Maximum stamina</summary>
     [SerializeField]
     float staminaMax = 10f;
 
-    /// <summary>
-    /// Stamina to drain
-    /// </summary>
+    /// <summary>Stamina to drain</summary>
     [SerializeField]
     float staminaDrain = .33f;
 
-    /// <summary>
-    /// Stamina to regain
-    /// </summary>
+    /// <summary>Stamina to regain</summary>
     [SerializeField]
     float staminaRegen = .01f;
 
-    /// <summary>
-    /// Is the player's stamina on cooldown / is the player currently exhausted?
-    /// </summary>
+    /// <summary>Is the player's stamina on cooldown / is the player currently exhausted?</summary>
     bool staminaOnCooldown = false;
 
     /// <summary>Transform used by the ground check</summary>
@@ -105,33 +79,23 @@ public class PlayerMovement : NetworkBehaviour
     /// <summary>Velocity vector used for gravity</summary>
     Vector3 velocity;
 
-    /// <summary>
-    /// Is the player currently on ground?
-    /// </summary>
+    /// <summary>Is the player currently on ground?</summary>
     [SyncVar]
     bool isGrounded = false;
 
-    /// <summary>
-    /// Is the player currently in air?
-    /// </summary>
+    /// <summary>Is the player currently in air?</summary>
     [SyncVar]
     bool isAirborne = false;
 
-    /// <summary>
-    /// Is the player currently sprinting?
-    /// </summary>
+    /// <summary>Is the player currently sprinting?</summary>
     [SyncVar]
     bool isSprinting = false;
 
-    /// <summary>
-    /// Is the player currently crouching?
-    /// </summary>
+    /// <summary>Is the player currently crouching?</summary>
     [SyncVar]
     bool isCrouching = false;
 
-    /// <summary>
-    /// Is the player currently prone?
-    /// </summary>
+    /// <summary>Is the player currently prone?</summary>
     bool isProne = false;
 
     ///<summary>Player's mouse view sensitivity</summary>
@@ -142,111 +106,24 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField]
     public GameObject cameraMountPoint;
 
-    /// <summary>
-    /// Initial pitch of the player's view
-    /// </summary>
+    /// <summary>Initial pitch of the player's view</summary>
     float xRotation = 0f;
 
     /// <summary>Is true if the script is to be active.</summary>
     public bool active = true;
 
-    /// <summary>
-    /// Player's current taunt (0 = none)
-    /// </summary>
+    /// <summary>Player's current taunt (0 = none)</summary>
     [SyncVar]
     int currentTaunt = 0;
 
-    /// <summary>
-    /// bool to check for a LAdderCollider
-    /// </summary>
+    /// <summary>bool to check for a LAdderCollider</summary>
     bool insideLadder = false;
 
-    /// <summary>
-    /// The UP and DOWN speed for climbing ladders.
-    /// </summary>
+    /// <summary>The UP and DOWN speed for climbing ladders.</summary>
     public float speedUpDown = 10.0f;
 
-    /// <summary>
-    /// Transform-information of the player
-    /// </summary>
+    /// <summary>Transform-information of the player</summary>
     public Transform playerTransform;
-
-    /// <summary>
-    /// Returns the player's view pitch
-    /// </summary>
-    public float GetPitch()
-    {
-        return xRotation;
-    }
-
-    /// <summary>
-    /// Getter for the player's taunt
-    /// </summary>
-    public int GetCurrentTaunt()
-    {
-        return currentTaunt;
-    }
-
-    /// <summary>
-    /// Returns move vector relative to player, used for animations
-    /// </summary>
-    public Vector3 GetMoveRelative()
-    {
-        return moveRelative;
-    }
-
-    /// <summary>
-    /// Getter for isGrounded
-    /// </summary>
-    public bool GetIsGrounded()
-    {
-        return isGrounded;
-    }
-
-    /// <summary>
-    /// Returns if the player is crouching
-    /// </summary>
-    public bool GetIsCrouching()
-    {
-        return isCrouching;
-    }
-
-    /// <summary>
-    /// Getter for isProne
-    /// </summary>
-    public bool GetIsProne()
-    {
-        return isProne;
-    }
-
-    /// <summary>
-    /// Getter for isAirborne
-    /// </summary>
-    public bool GetIsAirborne()
-    {
-        return isAirborne;
-    }
-
-    /// <summary>
-    /// Getter for currently selected weapon (id)
-    /// </summary>
-    public int GetSelectedWeapon()
-    {
-        return GetComponent<Classes>().GetSelectedWeapon();
-    }
-
-    /// <summary>Getter for the player's view pitch</summary>
-    /// <returns>The player's view pitch in degrees</returns>
-    public float GetXRotation()
-    {
-        return xRotation;
-    }
-
-    /// <summary>Setter for the player's view pitch</summary>
-    public void SetXRotation(float newXRotation)
-    {
-        xRotation = newXRotation;
-    }
 
     /// <summary>
     /// When a player starts a client and enters a game the layer of the gameObject of the local player is set to default and
@@ -264,38 +141,8 @@ public class PlayerMovement : NetworkBehaviour
     }
 
     /// <summary>
-    /// Checks if the player is currently on ground
-    /// </summary>
-    /// <returns>Returns true or false</returns>
-    public bool CheckGrounded()
-    {
-        return Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-    }
-
-    /// <summary>
-    /// Checks if the player is currently on sprinting
-    /// </summary>
-    /// <returns>Returns true or false</returns>
-    bool CheckSprinting(Vector3 forward)
-    {
-        if (staminaOnCooldown)
-        {
-            return false;
-        }
-        else
-        {
-            return (
-                isGrounded
-                && Input.GetAxis("Vertical") > 0.1f
-                && forward.magnitude > 0.1f
-                && Input.GetButton("Sprint")
-                && stamina > 0
-            );
-        }
-    }
-
-    /// <summary>
     /// The Update methode is responsible for the movement and the changing of weapons.
+    /// Only runs localy. Registers player input and switches between different forms of movement.
     /// </summary>
     void Update()
     {
@@ -433,6 +280,116 @@ public class PlayerMovement : NetworkBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Returns the player's view pitch
+    /// </summary>
+    public float GetPitch()
+    {
+        return xRotation;
+    }
+
+    /// <summary>
+    /// Getter for the player's taunt
+    /// </summary>
+    public int GetCurrentTaunt()
+    {
+        return currentTaunt;
+    }
+
+    /// <summary>
+    /// Returns move vector relative to player, used for animations
+    /// </summary>
+    public Vector3 GetMoveRelative()
+    {
+        return moveRelative;
+    }
+
+    /// <summary>
+    /// Getter for isGrounded
+    /// </summary>
+    public bool GetIsGrounded()
+    {
+        return isGrounded;
+    }
+
+    /// <summary>
+    /// Returns if the player is crouching
+    /// </summary>
+    public bool GetIsCrouching()
+    {
+        return isCrouching;
+    }
+
+    /// <summary>
+    /// Getter for isProne
+    /// </summary>
+    public bool GetIsProne()
+    {
+        return isProne;
+    }
+
+    /// <summary>
+    /// Getter for isAirborne
+    /// </summary>
+    public bool GetIsAirborne()
+    {
+        return isAirborne;
+    }
+
+    /// <summary>
+    /// Getter for currently selected weapon (id)
+    /// </summary>
+    public int GetSelectedWeapon()
+    {
+        return GetComponent<Classes>().GetSelectedWeapon();
+    }
+
+    /// <summary>Getter for the player's view pitch</summary>
+    /// <returns>The player's view pitch in degrees</returns>
+    public float GetXRotation()
+    {
+        return xRotation;
+    }
+
+    /// <summary>Setter for the player's view pitch</summary>
+    public void SetXRotation(float newXRotation)
+    {
+        xRotation = newXRotation;
+    }
+
+    /// <summary>
+    /// Checks if the player is currently on ground
+    /// </summary>
+    /// <returns>Returns true or false</returns>
+    public bool CheckGrounded()
+    {
+        return Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+    }
+
+    /// <summary>
+    /// Checks if the player is currently on sprinting
+    /// </summary>
+    /// <returns>Returns true or false</returns>
+    bool CheckSprinting(Vector3 forward)
+    {
+        if (staminaOnCooldown)
+        {
+            return false;
+        }
+        else
+        {
+            return (
+                isGrounded
+                && Input.GetAxis("Vertical") > 0.1f
+                && forward.magnitude > 0.1f
+                && Input.GetButton("Sprint")
+                && stamina > 0
+            );
+        }
+    }
+
+
     /// <summary>Enables ladder movement</summary>
     void OnTriggerEnter(Collider col)
     {
@@ -458,6 +415,25 @@ public class PlayerMovement : NetworkBehaviour
         {
             setLayerDefault(child);
         }
+    }
+
+    /// <summary>Sends command to the server that the player tried to interact</summary>
+    [Command]
+    public void CmdInteract()
+    {
+        RaycastHit hit;
+        bool hitInteractable = Physics.Raycast(
+            cameraMountPoint.transform.position,
+            cameraMountPoint.transform.forward,
+            out hit,
+            2,
+            (1 << 3)
+        );
+
+        if (!hitInteractable)
+            return;
+
+        hit.collider.transform.parent.gameObject.GetComponent<Interactable>().OnInteract();
     }
 
     /// <summary>
@@ -520,22 +496,4 @@ public class PlayerMovement : NetworkBehaviour
         isAirborne = newIsAirborne;
     }
 
-    /// <summary>Sends command to the server that the player tried to interact</summary>
-    [Command]
-    public void CmdInteract()
-    {
-        RaycastHit hit;
-        bool hitInteractable = Physics.Raycast(
-            cameraMountPoint.transform.position,
-            cameraMountPoint.transform.forward,
-            out hit,
-            2,
-            (1 << 3)
-        );
-
-        if (!hitInteractable)
-            return;
-
-        hit.collider.transform.parent.gameObject.GetComponent<Interactable>().OnInteract();
-    }
 }

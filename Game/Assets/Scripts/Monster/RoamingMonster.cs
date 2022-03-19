@@ -51,7 +51,9 @@ public class RoamingMonster : MonsterController
     }
 
     /// <summary>
-    /// Responsible for the ai behaviour.
+    /// Responsible for the ai behaviour. 
+    /// Does target finding and player detection.
+    /// Only runs on server.
     /// </summary>
     void Update()
     {

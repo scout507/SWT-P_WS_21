@@ -32,7 +32,7 @@ public class KeyTask : Task
 
 
     /// <summary>
-    /// Handles player-interaction. 
+    /// Handles player-interaction. Spawns key on zombie/player death.
     /// </summary>
     private void Update()
     {

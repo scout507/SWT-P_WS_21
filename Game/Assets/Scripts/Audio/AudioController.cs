@@ -25,7 +25,9 @@ public class AudioController : NetworkBehaviour
     /// <summary>The Time until the next Footstep Sound is Played</summary>
     private float stepCoolDown;
 
-
+    /// <summary>
+    /// Gets dependencies.
+    /// </summary>
     private void Start()
     {
         audioSource = this.GetComponent<AudioSource>();

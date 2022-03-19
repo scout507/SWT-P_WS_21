@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Animations.Rigging;
 using Mirror;
 
 /* created by: SWT-P_WS_21/22 */
@@ -20,7 +17,7 @@ public class MonsterAnimationStateController : NetworkBehaviour
     [SerializeField] MonsterController monsterController;
 
     /// <summary>
-    /// Update the monster's animation parameters
+    /// Update the monster's animation parameters.
     /// </summary>
     void Update()
     {

@@ -67,7 +67,7 @@ public class Chatbox : NetworkBehaviour
     }
 
     /// <summary>
-    /// Registers input.
+    /// Registers input. And triggers message sending.
     /// </summary>
     void Update()
     {

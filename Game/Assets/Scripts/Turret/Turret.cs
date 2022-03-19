@@ -107,7 +107,7 @@ public class Turret : NetworkBehaviour
     /// Calls the Particle System animation on all Clients
     /// </summary>
     [ClientRpc]
-    public void rpcturretFireAnimationn()
+    public void RpcturretFireAnimationn()
     {
         shotflash.Play();
     }
@@ -126,7 +126,7 @@ public class Turret : NetworkBehaviour
     /// Shoots one shot defined by the attributes of the specific gun
     /// </summary>
     [Command]
-    public void Shoot()
+    public void CmdShoot()
     {
 
         RaycastHit hit;
@@ -134,7 +134,7 @@ public class Turret : NetworkBehaviour
         Vector3 direction = gameObject.transform.GetChild(0).forward;
 
         RPCTurretShotSound();
-        rpcturretFireAnimationn();
+        RpcturretFireAnimationn();
         if (Physics.Raycast(rayOrigin, direction, out hit, weaoponRange, ~0))
         {
             if (hit.collider.gameObject.tag == "Player")
@@ -154,7 +154,7 @@ public class Turret : NetworkBehaviour
     /// Method is called when a Player wants to enter the Vehicle
     /// </summary>
     [Command]
-    public void enterVehicle()
+    public void CmdEnterVehicle()
     {
         inUse = true;
 
@@ -164,7 +164,7 @@ public class Turret : NetworkBehaviour
     /// Method is called when a Player wants to exit the Vehicle
     /// </summary>
     [Command]
-    public void exitVehicle()
+    public void CmdExitVehicle()
     {
         inUse = false;
         controlTurretPlayer.enabled = false;

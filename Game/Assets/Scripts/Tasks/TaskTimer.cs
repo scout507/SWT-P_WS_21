@@ -27,7 +27,8 @@ public class TaskTimer : Task
     float fails;
 
     /// <summary>
-    /// Handles Client interaction. Also handles the timer on the server.
+    /// Handles Client interaction. Checks for task completion.
+    /// Spawns zombies and ticks up health until completion.
     /// </summary>
     void Update()
     {
@@ -119,7 +120,7 @@ public class TaskTimer : Task
     {
         if (other.tag == "Player" && isServer)
         {
-            if(!started) TargetRpcSendMessage(other.gameObject.GetComponent<NetworkIdentity>().connectionToClient, "Press 'E' to start the Defence-task");
+            if (!started) TargetRpcSendMessage(other.gameObject.GetComponent<NetworkIdentity>().connectionToClient, "Press 'E' to start the Defence-task");
             players.Add(other.GetComponent<NetworkIdentity>().netId);
         }
     }

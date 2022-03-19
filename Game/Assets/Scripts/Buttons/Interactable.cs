@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
@@ -21,5 +19,5 @@ public class Interactable : NetworkBehaviour
     /// <summary>
     /// Interaction handler to be overridden by derived class
     /// </summary>
-    public virtual void OnInteract(){}
+    public virtual void OnInteract() { }
 }

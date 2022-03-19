@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -59,11 +58,15 @@ public class MonsterController : NetworkBehaviour
     /// <summary>Audio Script that controlls Gun Sound</summary>
     public ZombieAudioController zombieAudioController;
 
-    /// <summary>Stores the spawn spot</summary>
-    Vector3 home;
-
     /// <summary>Holds NavMeshAgent for navigation</summary>
     public NavMeshAgent nav;
+
+    /// <summary>The monster's animator</summary>
+    [SerializeField]
+    public Animator animator;
+
+    /// <summary>Stores the spawn spot</summary>
+    Vector3 home;
 
     /// <summary>Used to ground the monster</summary>
     [Header("Grounding")]
@@ -77,10 +80,6 @@ public class MonsterController : NetworkBehaviour
     /// <summary>Ground layer mask</summary>
     [SerializeField]
     LayerMask groundMask;
-
-    /// <summary>The monster's animator</summary>
-    [SerializeField]
-    public Animator animator;
 
     /// <summary>
     /// Monster's network Animator
@@ -98,8 +97,6 @@ public class MonsterController : NetworkBehaviour
     /// <summary> Monster's forwards velocity </summary>
     [SyncVar]
     float velocityZ;
-
-
 
     /// <summary>
     ///  Makes a list containing all active players within aggro-radius.
@@ -171,7 +168,7 @@ public class MonsterController : NetworkBehaviour
     /// </summary>
     public void AttackPlayer()
     {
-        if(currentTarget && currentTarget.GetComponent<Health>()) currentTarget.GetComponent<Health>().TakeDamage(Mathf.RoundToInt(damage));
+        if (currentTarget && currentTarget.GetComponent<Health>()) currentTarget.GetComponent<Health>().TakeDamage(Mathf.RoundToInt(damage));
     }
 
     /// <summary>
@@ -204,17 +201,6 @@ public class MonsterController : NetworkBehaviour
             aggro = true;
         }
     }
-
-    /// <summary>
-    /// This is called when a melee weapon hits the monster.
-    /// </summary>
-    /// <param name="other">The collider of the gameobject which hit this gameobject.</param>
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.transform.root.GetComponent<Melee>())
-            other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
-    }
-
 
     /// <summary>
     /// Checks if the monster is currently on ground
@@ -256,4 +242,15 @@ public class MonsterController : NetworkBehaviour
     {
         this.velocityZ = velocityZ;
     }
+
+    /// <summary>
+    /// This is called when a melee weapon hits the monster.
+    /// </summary>
+    /// <param name="other">The collider of the gameobject which hit this gameobject.</param>
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.root.GetComponent<Melee>())
+            other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
+    }
+
 }

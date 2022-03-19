@@ -22,8 +22,10 @@ public class WaveMonster : MonsterController
 
     /// <summary>True when the monster is near to a fence object. Used for prioritising fences over players</summary>
     bool prioritiseFence;
+
     /// <summary>The script of the nearby fence for choosing a plank to attack</summary>
     FenceInteraction fenceScript;
+
     /// <summary>The plank objects of a nearby fence</summary>
     GameObject[] planks;
 
@@ -43,7 +45,9 @@ public class WaveMonster : MonsterController
     }
 
     /// <summary>
-    /// Handling the target finding
+    /// Responsible for the ai behaviour. 
+    /// Does target finding and player detection.
+    /// Only runs on server.
     /// </summary>
     void Update()
     {

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
@@ -17,7 +15,6 @@ public class Health : NetworkBehaviour
 
     /// <summary>Reference to the UI element HealthBar.</summary>
     HealthBar healthBar;
-
     /// <summary>Holds the prefab for a dead player.</summary>
     public GameObject deadPlayerPrefab = null;
     /// <summary>Holds the prefab for a spectator.</summary>
@@ -37,7 +34,6 @@ public class Health : NetworkBehaviour
         if (!isLocalPlayer) return;
 
         healthBar = GetComponentInChildren<HealthBar>();
-        health = 100;
         audioController = this.GetComponent<AudioController>();
     }
 
@@ -64,6 +60,7 @@ public class Health : NetworkBehaviour
             }
         }
         if (amount > 0) TargetDamage();
+        else TargetRpcGotHealed();
         if (health <= 0 && !isDead)
         {
             TargetRpcDamageSounds(connectionToClient, 10, 11);
@@ -88,6 +85,15 @@ public class Health : NetworkBehaviour
     {
         hitflash.SetActive(true);
         Invoke("DisableHitFlash", 0.2f);
+    }
+
+    /// <summary>
+    /// The method GotHealed is called when a player is healed. It can then trigger an animation or something similar.
+    /// </summary>
+    [TargetRpc]
+    public void TargetRpcGotHealed()
+    {
+        //TODO: Add animation/sound for healing. (Missing healing animation for current player-model)
     }
 
     /// <summary>

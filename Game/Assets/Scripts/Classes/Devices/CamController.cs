@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
@@ -42,6 +40,23 @@ public class CamController : Device
     }
 
     /// <summary>
+    /// This function destroys the camera and returns the players perspective to the character if the camera was in use.
+    /// </summary>
+    public override void TargetDeath()
+    {
+        if (!isServer)
+        {
+            return;
+        }
+        if (isActiv)
+        {
+            TargetReturnToPlayer(owner.GetComponent<NetworkIdentity>().connectionToClient);
+        }
+        TargetRemoveDevice(owner.GetComponent<NetworkIdentity>().connectionToClient, numberOfCam);
+        RpcDestroyDevice(gameObject);
+    }
+
+    /// <summary>
     /// On collision the camera rotates in the correct position.
     /// The rotation depends on the orientation of the wall.
     /// </summary>
@@ -69,20 +84,23 @@ public class CamController : Device
     }
 
     /// <summary>
-    /// This function destroys the camera and returns the players perspective to the character if the camera was in use.
+    /// Sets the isActiv flag depending on whether it is used at the moment or not.
     /// </summary>
-    public override void TargetDeath()
+    [Command]
+    public void CmdSetActive()
     {
-        if (!isServer)
-        {
-            return;
-        }
-        if (isActiv)
-        {
-            TargetReturnToPlayer(owner.GetComponent<NetworkIdentity>().connectionToClient);
-        }
-        TargetRemoveDevice(owner.GetComponent<NetworkIdentity>().connectionToClient, numberOfCam);
-        RpcDestroyDevice(gameObject);
+        if (isActiv) isActiv = false;
+        else isActiv = true;
+    }
+
+    /// <summary>
+    /// This command calls the function for setting the right index of the camera.
+    /// </summary>
+    /// <param name="number">Index in List of set up cameras.</param>
+    [Command]
+    public void CmdSetNumber(int number)
+    {
+        SetNumber(number);
     }
 
     /// <summary>
@@ -106,23 +124,4 @@ public class CamController : Device
         deviceOwner.identity.GetComponent<IQCam>().ReturnToPlayer();
     }
 
-    /// <summary>
-    /// Sets the isActiv flag depending on whether it is used at the moment or not.
-    /// </summary>
-    [Command]
-    public void CmdSetActive()
-    {
-        if (isActiv) isActiv = false;
-        else isActiv = true;
-    }
-
-    /// <summary>
-    /// This command calls the function for setting the right index of the camera.
-    /// </summary>
-    /// <param name="number">Index in List of set up cameras.</param>
-    [Command]
-    public void CmdSetNumber(int number)
-    {
-        SetNumber(number);
-    }
 }

@@ -52,7 +52,7 @@ public class FetchItem : NetworkBehaviour
         {
             players.Add(other.GetComponent<NetworkIdentity>().netId);
             RpcSyncList(players);
-            if(!used) TargetRpcSendMessage(other.gameObject.GetComponent<NetworkIdentity>().connectionToClient, "Press 'E' to pick up the barrel");
+            if (!used) TargetRpcSendMessage(other.gameObject.GetComponent<NetworkIdentity>().connectionToClient, "Press 'E' to pick up the barrel");
         }
     }
 
@@ -142,7 +142,7 @@ public class FetchItem : NetworkBehaviour
     [TargetRpc]
     void TargetRpcSendMessage(NetworkConnection target, string message)
     {
-        if(NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
+        if (NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
     }
 
 }

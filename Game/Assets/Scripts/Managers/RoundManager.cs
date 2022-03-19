@@ -9,13 +9,22 @@ using Mirror;
 /// </summary>
 public class RoundManager : NetworkBehaviour
 {
-    // Player-related
 
     /// <summary>Amount of players in this round</summary>//
     public int totalPlayers;
 
+    /// <summary>Holds the winner, standard moderately none.</summary>
+    public Winner hasWon = Winner.None;
+
+    /// <summary>Holds the impostor names. Each name is separated by a paragraph.</summary>
+    public string imposterNames = "";
+
     /// <summary>Amount of players that have joined this round</summary>//
     int joinedPlayers;
+
+    /// <summary>The player's spawn as an empty game-object</summary>//
+    [SerializeField]
+    GameObject playerSpawn;
 
     /// <summary>A list containing all net ID's of players </summary>//
     List<uint> players = new List<uint>();
@@ -26,32 +35,17 @@ public class RoundManager : NetworkBehaviour
     /// <summary>Net-ID of the impostor</summary>//
     uint impostor;
 
-    /// <summary>The player's spawn as an empty game-object</summary>//
-    [SerializeField]
-    GameObject playerSpawn;
-
     /// <summary>Refresh rate for searching for active players</summary>//
     float playerRefreshTime = 1f;
 
     /// <summary>Timer for searching for active players</summary>//
     float playerRefreshTimer;
 
-    /// <summary>Holds the winner, standard moderately none.</summary>
-    public Winner hasWon = Winner.None;
-
-    /// <summary>Holds the impostor names. Each name is separated by a paragraph.</summary>
-    public string imposterNames = "";
-
-    //NPC-related
-
     /// <summary>Zombiespawner-script</summary>//
     ZombieSpawner zombieSpawner;
 
-    // Task-related
     /// <summary>TaskManager-script</summary>//
     TaskManager taskManager;
-
-    //Game-related
 
     /// <summary>Total time a round can take before beeing game over</summary>//
     [SerializeField]
@@ -74,7 +68,7 @@ public class RoundManager : NetworkBehaviour
     float spawnOffset = 0;
 
     /// <summary>
-    /// Gets all dependencies
+    /// Gets all dependencies.
     /// </summary>
     void Start()
     {
@@ -87,7 +81,7 @@ public class RoundManager : NetworkBehaviour
     }
 
     /// <summary>
-    /// Handles timers and checks for state changes
+    /// Handles timers and checks for state changes.
     /// </summary>
     void Update()
     {
@@ -128,6 +122,19 @@ public class RoundManager : NetworkBehaviour
     }
 
     /// <summary>
+    /// This is used by the player to register once they joined the game. Adds the player to the players list.
+    /// </summary>
+    /// <param name="player">The gameobject of the player that calls this method.</param>
+    public void Register(GameObject player)
+    {
+        joinedPlayers++;
+        players.Add(player.GetComponent<NetworkIdentity>().netId);
+        RpcJoinMessage(player.GetComponent<Player>().displayName.ToString());
+        TargetRpcMoveToSpawn(player.GetComponent<NetworkIdentity>().connectionToClient, player, spawnOffset);
+        spawnOffset += 1.5f;
+    }
+
+    /// <summary>
     /// Used for getting a list of all active (alive) players
     /// </summary>
     /// <returns>A list of net-ID's of all active players.</returns>
@@ -163,7 +170,6 @@ public class RoundManager : NetworkBehaviour
     void ChooseImpostor()
     {
         impostor = players[Random.Range(0, players.Count)];
-        //TODO: Tell the impostor he's chosen as impostor
 
         GameObject[] playersArray = GameObject.FindGameObjectsWithTag("Player");
 
@@ -230,21 +236,7 @@ public class RoundManager : NetworkBehaviour
     {
         ChooseImpostor();
         started = true;
-        //TODO: Open doors and maybe some other stuff
         RpcMessage("The game has started");
-    }
-
-    /// <summary>
-    /// This is used by the player to register once they joined the game. Adds the player to the players list.
-    /// </summary>
-    /// <param name="player">The gameobject of the player that calls this method.</param>
-    public void Register(GameObject player)
-    {
-        joinedPlayers++;
-        players.Add(player.GetComponent<NetworkIdentity>().netId);
-        RpcJoinMessage(player.GetComponent<Player>().displayName.ToString());
-        TargetRpcMoveToSpawn(player.GetComponent<NetworkIdentity>().connectionToClient, player, spawnOffset);
-        spawnOffset += 1.5f;
     }
 
     /// <summary>
@@ -258,17 +250,6 @@ public class RoundManager : NetworkBehaviour
     }
 
     /// <summary>
-    /// Moves a player to the spawn position on the map.
-    /// </summary>
-    /// <param name="target">ConnectionToClient of the player</param>
-    /// <param name="player">The gameobject of the player that needs to be moved</param>
-    [TargetRpc]
-    void TargetRpcMoveToSpawn(NetworkConnection target, GameObject player, float offset)
-    {
-        player.transform.position = new Vector3(playerSpawn.transform.position.x + offset, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
-    }
-
-    /// <summary>
     /// Sends a message to all clients chatboxes.
     /// </summary>
     /// <param name="message"></param>
@@ -276,16 +257,6 @@ public class RoundManager : NetworkBehaviour
     void RpcMessage(string message)
     {
         if (NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
-    }
-
-    /// <summary>
-    /// Sends a message to the chosen impostor.
-    /// </summary>
-    /// <param name="target">ConnectionToClient of the impostor</param>
-    [TargetRpc]
-    void TargetRpcTellImpostor(NetworkConnection target)
-    {
-        if (NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage("You are the impostor");
     }
 
     /// <summary>Sync the "hasWon" variable from the server to the client.</summary>
@@ -303,4 +274,26 @@ public class RoundManager : NetworkBehaviour
     {
         imposterNames = names;
     }
+
+    /// <summary>
+    /// Sends a message to the chosen impostor.
+    /// </summary>
+    /// <param name="target">ConnectionToClient of the impostor</param>
+    [TargetRpc]
+    void TargetRpcTellImpostor(NetworkConnection target)
+    {
+        if (NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage("You are the impostor");
+    }
+
+    /// <summary>
+    /// Moves a player to the spawn position on the map.
+    /// </summary>
+    /// <param name="target">ConnectionToClient of the player</param>
+    /// <param name="player">The gameobject of the player that needs to be moved</param>
+    [TargetRpc]
+    void TargetRpcMoveToSpawn(NetworkConnection target, GameObject player, float offset)
+    {
+        player.transform.position = new Vector3(playerSpawn.transform.position.x + offset, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
+    }
+
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
@@ -36,6 +34,11 @@ abstract public class Device : NetworkBehaviour
     }
 
     /// <summary>
+    /// This methode defines what happens, when the device is destroyed. Different devices behave different in case of destruction.
+    /// </summary>
+    abstract public void TargetDeath();
+
+    /// <summary>
     /// This is called when a melee weapon hits the Device.
     /// </summary>
     /// <param name="other">The collider of the gameobject which hit this gameobject.</param>
@@ -46,11 +49,6 @@ abstract public class Device : NetworkBehaviour
             other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
         }
     }
-
-    /// <summary>
-    /// This methode defines what happens, when the device is destroyed. Different devices behave different in case of destruction.
-    /// </summary>
-    abstract public void TargetDeath();
 
     /// <summary>
     /// Destroys the device on all clients

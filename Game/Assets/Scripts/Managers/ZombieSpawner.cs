@@ -1,59 +1,44 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
 /* created by: SWT-P_WS_21/22 */
 
-
+/// <summary>
+/// Responsible for spawning zombies during a round.
+/// </summary>
 public class ZombieSpawner : NetworkBehaviour
 {
-    /// <summary>
-    /// Prefab of spawnable enemy
-    /// </summary>
+    /// <summary>Prefab of spawnable enemy</summary>
     [SerializeField]
     GameObject waveZombie;
 
 
-    /// <summary>
-    /// Prefab of roaming zombies.
-    /// </summary>
+    /// <summary>Prefab of roaming zombies.</summary>
     [SerializeField]
     GameObject roamingZombie;
 
-    /// <summary>
-    /// Seconds to next wave
-    /// </summary>
+    /// <summary>Seconds to next wave</summary>
     [SyncVar]
     double nextWave = 0d;
 
-    /// <summary>
-    /// Time between waves in seconds
-    /// </summary>
+    /// <summary>Time between waves in seconds</summary>
     [SerializeField]
     int timeBetweenWave = 600;
 
-    /// <summary>
-    /// Number of enemys per wave
-    /// </summary>
+    /// <summary>Number of enemys per wave</summary>
     [SerializeField]
     int zombiesAmount = 10;
 
-    /// <summary>
-    /// Number of roaming zombies
-    /// </summary>
+    /// <summary>Number of roaming zombies</summary>
     [SerializeField]
     int roamerAmount = 15;
 
-    /// <summary>
-    /// All places where a wave can spawn
-    /// </summary>
+    /// <summary>All places where a wave can spawn</summary>
     [SerializeField]
     GameObject[] waveSpawns;
 
-    /// <summary>
-    /// All spawing positions for roaming zombies
-    /// </summary>
+    /// <summary>All spawing positions for roaming zombies</summary>
     [SerializeField]
     List<GameObject> roamerSpawns;
 
@@ -84,19 +69,6 @@ public class ZombieSpawner : NetworkBehaviour
     }
 
     /// <summary>
-    /// Spawns wave of enemys
-    /// </summary>
-    void SpawnWave()
-    {
-        for (int i = 0; i < zombiesAmount; i++)
-        {
-            GameObject spawn = waveSpawns[Random.Range(0, waveSpawns.Length)];
-            GameObject spawnedZombie = (GameObject)Instantiate(waveZombie, spawn.transform.position, Quaternion.identity);
-            NetworkServer.Spawn(spawnedZombie);
-        }
-    }
-
-    /// <summary>
     /// Returns string of remaining time
     /// </summary>
     /// <returns>String of remaining time</returns>
@@ -123,5 +95,18 @@ public class ZombieSpawner : NetworkBehaviour
 
         nextWave = NetworkTime.time + timeBetweenWave;
 
+    }
+
+    /// <summary>
+    /// Spawns wave of enemys
+    /// </summary>
+    void SpawnWave()
+    {
+        for (int i = 0; i < zombiesAmount; i++)
+        {
+            GameObject spawn = waveSpawns[Random.Range(0, waveSpawns.Length)];
+            GameObject spawnedZombie = (GameObject)Instantiate(waveZombie, spawn.transform.position, Quaternion.identity);
+            NetworkServer.Spawn(spawnedZombie);
+        }
     }
 }

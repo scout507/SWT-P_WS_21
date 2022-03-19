@@ -37,15 +37,6 @@ public class Task : NetworkBehaviour
         dObjScript = GetComponent<DestructableObject>();
     }
 
-
-    /// <summary>
-    /// Used to upgrade the health while building the task.
-    /// </summary>
-    private void UpdateHealth()
-    {
-        dObjScript.SetHealth(progress);
-    }
-
     /// <summary>
     /// Used to finish the task.
     /// </summary>
@@ -67,6 +58,14 @@ public class Task : NetworkBehaviour
         done = false;
         progress = 0;
         UpdateHealth();
+    }
+
+    /// <summary>
+    /// Used to upgrade the health while building the task.
+    /// </summary>
+    private void UpdateHealth()
+    {
+        dObjScript.SetHealth(progress);
     }
 
     /// <summary>
