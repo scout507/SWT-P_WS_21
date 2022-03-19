@@ -14,62 +14,74 @@ public class IQCam : NetworkBehaviour
     /// <summary>
     /// device is the device in the hands of IQ, which is rendered if she has cameras ready
     /// </summary>
-    public GameObject device;
+    [SerializeField] GameObject device;
+
     /// <summary>
     /// cam is the gameobject of the cam, which is spawned when she sets one up
     /// </summary>
-    public GameObject cam;
+    [SerializeField] GameObject cam;
+
+    /// <summary>
+    /// Point where device is loaded
+    /// </summary>
+    [SerializeField] Transform deviceMount;
+
+    /// <summary>
+    /// Point where camera is spawned
+    /// </summary>
+    [SerializeField] Transform throwPoint;
+
+    /// <summary>
+    /// Weapon inventory of player
+    /// </summary>
+    [SerializeField]
+    Inventory inventory;
+
+    /// <summary>
+    /// Sprite for the UI.
+    /// </summary>
+    [SerializeField] Sprite icon;
+
     /// <summary>
     /// Count of remaining cams
     /// </summary>
-    public int remainingCams = 3;
+    int remainingCams = 3;
+
     /// <summary>
     /// Time when next camera can be thrown
     /// </summary>
     float nextThrow;
+
     /// <summary>
     /// Rate in which cameras can be set up
     /// </summary>
     float throwRate = 0.25f;
+
     /// <summary>
     /// Flag if player is in cams
     /// </summary>
     bool isInCams = false;
-    /// <summary>
-    /// Point where device is loaded
-    /// </summary>
-    public Transform deviceMount;
-    /// <summary>
-    /// Point where camera is spawned
-    /// </summary>
-    public Transform throwPoint;
+
     /// <summary>
     /// Array of cameras which are set up
     /// </summary>
     private GameObject[] cameras = new GameObject[3];
-    /// <summary>
-    /// Weapon inventory of player
-    /// </summary>
-    public Inventory inventory;
+
     /// <summary>
     /// Tracks how many cameras are set up
     /// </summary>
-    [SerializeField]
     private int setCamerasCount = 0;
+
     /// <summary>
     /// Tracks which camera was last activ
     /// </summary>
-    [SerializeField]
     private int lastActiveCam = 0;
+
     /// <summary>
     /// The correct rotation and the destruction of cameras is controlled in CamController.
     /// This script needs a way to set the camera activ and to get the right camera, it is saved in this variable.
     /// </summary>
     CamController activeCam;
-    /// <summary>
-    /// Sprite for the UI.
-    /// </summary>
-    public Sprite icon;
 
     /// <summary>
     /// Update() function is responsible for getting the user input.
@@ -206,6 +218,22 @@ public class IQCam : NetworkBehaviour
     }
 
     /// <summary>
+    /// Destroys gameobject of device when a new gun is equipped.
+    /// </summary>
+    private void OnDisable()
+    {
+        Destroy(deviceMount.GetChild(0).gameObject);
+    }
+
+    /// <summary>
+    /// Loads prefab of gun when this device is equipped.
+    /// </summary>
+    private void OnEnable()
+    {
+        Instantiate(device, deviceMount);
+    }
+
+    /// <summary>
     /// Sets the owner of a newly set up camera to the right player.
     /// Host and Guest need different methods.
     /// </summary>
@@ -241,21 +269,5 @@ public class IQCam : NetworkBehaviour
         spawnedCamera.GetComponent<CamController>().SetOwner(gameObject);
         TargetSetNewCam(GetComponent<NetworkIdentity>().connectionToClient, spawnedCamera);
         setCamerasCount++;
-    }
-
-    /// <summary>
-    /// Destroys gameobject of device when a new gun is equipped.
-    /// </summary>
-    private void OnDisable()
-    {
-        Destroy(deviceMount.GetChild(0).gameObject);
-    }
-
-    /// <summary>
-    /// Loads prefab of gun when this device is equipped.
-    /// </summary>
-    private void OnEnable()
-    {
-        Instantiate(device, deviceMount);
     }
 }

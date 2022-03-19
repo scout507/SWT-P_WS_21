@@ -3,8 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+/* created by: SWT-P_WS_21/22 */
+
+/// <summary>
+/// This is the abstract classes for devices. It handles the health and destruction of the devices.
+/// </summary>
 abstract public class Device : NetworkBehaviour
 {
+    /// <summary>
+    /// These are the healtpoints of the device.
+    /// </summary>
     [SyncVar]
     [SerializeField]
     int health = 30;
@@ -42,6 +50,9 @@ abstract public class Device : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// This methode defines what happens, when the device is destroyed. Different devices behave different in case of destruction.
+    /// </summary>
     abstract public void TargetDeath();
 
     /// <summary>

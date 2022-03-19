@@ -16,24 +16,6 @@ public class Turret : NetworkBehaviour
     /// </summary>
     public bool inUse = false;
 
-
-    /// <summary>
-    /// Saves the Network Id from the player that is using the Turret
-    /// </summary>
-    NetworkIdentity playerNIDinUse;
-
-
-    /// <summary>
-    /// Reference to the controllTurret Script on the Player Object
-    /// </summary>
-    ControllTurret controlTurretPlayer;
-
-
-    /// <summary>
-    /// Rotation speed of the turret
-    /// </summary>
-    private float rotateSpeed = 1.5f;
-
     /// <summary>
     /// Damage amount of the Turret
     /// </summary>
@@ -50,14 +32,62 @@ public class Turret : NetworkBehaviour
     [SerializeField] ParticleSystem shotflash;
 
     /// <summary>
+    /// Saves the Network Id from the player that is using the Turret
+    /// </summary>
+    private NetworkIdentity playerNIDinUse;
+
+    /// <summary>
+    /// Reference to the controllTurret Script on the Player Object
+    /// </summary>
+    private ControllTurret controlTurretPlayer;
+
+    /// <summary>
+    /// Rotation speed of the turret
+    /// </summary>
+    private float rotateSpeed = 1.5f;
+
+    /// <summary>
     /// AudioSource used when shooting
     /// </summary>
-    AudioSource audiosource;
+    private AudioSource audiosource;
 
 
     private void Start()
     {
         audiosource = this.GetComponent<AudioSource>();
+    }
+
+    /// <summary>
+    /// When the player is close enough to the Turret, he gets Authority to interact with it
+    /// </summary>
+    /// <param name="other"></param>
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player" && inUse == false)
+        {
+            CMDGetAuthority(GetComponent<NetworkIdentity>(), other.gameObject.GetComponent<NetworkIdentity>());
+            inUse = true;
+            playerNIDinUse = other.gameObject.GetComponent<NetworkIdentity>();
+            controlTurretPlayer = other.gameObject.GetComponent<ControllTurret>();
+            controlTurretPlayer.enabled = true;
+            controlTurretPlayer.turret = gameObject.GetComponent<Turret>();
+            controlTurretPlayer.playerinUseID = playerNIDinUse.netId;
+        }
+    }
+
+
+    /// <summary>
+    /// When the player leaves the Turret Collider range, he can no longer interact with it
+    /// </summary>
+    /// <param name="other"></param>
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<NetworkIdentity>().netId == playerNIDinUse.netId)
+        {
+            inUse = false;
+            controlTurretPlayer = other.gameObject.GetComponent<ControllTurret>();
+            controlTurretPlayer.enabled = false;
+        }
     }
 
 
@@ -125,65 +155,16 @@ public class Turret : NetworkBehaviour
         {
             if (hit.collider.gameObject.tag == "Player")
             {
-                RpcHitPlayer();
                 hit.transform.gameObject.GetComponent<Health>().TakeDamage(turretDamage);
 
             }
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Monster"))
             {
-                RpcHitMonster();
                 hit.transform.GetComponent<MonsterController>().TakeDamage(turretDamage);
             }
-            else
-            {
-                RpcHitWall(hit.point);
-            }
         }
-        else
-        {
-            RpcOutOfRange(hit.point);
-        }
-
-
     }
 
-    /// <summary>
-    /// Method is called when a Player is hit
-    /// </summary>
-    [ClientRpc]
-    void RpcHitPlayer()
-    {
-
-    }
-
-    /// <summary>
-    /// Method is called when a Monster is hit
-    /// </summary>
-    [ClientRpc]
-    void RpcHitMonster()
-    {
-
-    }
-
-    /// <summary>
-    /// Method is called when the Shoot range is to short
-    /// </summary>
-    /// <param name="hit">Position of point of impact</param>
-    [ClientRpc]
-    void RpcOutOfRange(Vector3 hit)
-    {
-
-    }
-
-    /// <summary>
-    /// Method is called when a wall is hit and notifies all Players about it
-    /// </summary>
-    /// <param name="hit">Position of point of impact</param>
-    [ClientRpc]
-    void RpcHitWall(Vector3 hit)
-    {
-
-    }
 
     /// <summary>
     /// Method is called when a Player wants to enter the Vehicle
@@ -228,40 +209,6 @@ public class Turret : NetworkBehaviour
     public void CMDRemoveAuthority(NetworkIdentity thisnetworkId)
     {
         thisnetworkId.RemoveClientAuthority();
-    }
-
-
-    /// <summary>
-    /// When the player is close enough to the Turret, he gets Authority to interact with it
-    /// </summary>
-    /// <param name="other"></param>
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player" && inUse == false)
-        {
-            CMDGetAuthority(GetComponent<NetworkIdentity>(), other.gameObject.GetComponent<NetworkIdentity>());
-            inUse = true;
-            playerNIDinUse = other.gameObject.GetComponent<NetworkIdentity>();
-            controlTurretPlayer = other.gameObject.GetComponent<ControllTurret>();
-            controlTurretPlayer.enabled = true;
-            controlTurretPlayer.turret = gameObject.GetComponent<Turret>();
-            controlTurretPlayer.playerinUseID = playerNIDinUse.netId;
-        }
-    }
-
-
-    /// <summary>
-    /// When the player leaves the Turret Collider range, he can no longer interact with it
-    /// </summary>
-    /// <param name="other"></param>
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<NetworkIdentity>().netId == playerNIDinUse.netId)
-        {
-            inUse = false;
-            controlTurretPlayer = other.gameObject.GetComponent<ControllTurret>();
-            controlTurretPlayer.enabled = false;
-        }
     }
 
 }

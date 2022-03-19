@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
-/* edited by: SWT-P_WS_21/22*/
+/* created by: SWT-P_WS_21/22*/
+
 /// <summary>
-/// Classes is the abstract class of our classes
+/// Classes is the abstract class of our classes.
+/// Every Playerclass inherits from this one.
 /// </summary>
 public abstract class Classes : NetworkBehaviour
 {
@@ -41,15 +43,6 @@ public abstract class Classes : NetworkBehaviour
     }
 
 
-    /// <summary>
-    /// Switching weapons is handled by the server. This methode changes the index of the selected weapon to the new weapon.
-    /// </summary>
-    /// <param name="newWeapon">Index of new weapon which is now selected.</param>
-    [Command]
-    public void CmdSwitchWeapon(int newWeapon)
-    {
-        selectedWeapon = newWeapon;
-    }
 
     /// <summary>
     /// Deactivates the script of the old weapon and activates the script of the new weapon.
@@ -59,13 +52,13 @@ public abstract class Classes : NetworkBehaviour
     public abstract void SwitchWeapon(int oldWeapon, int newWeapon);
 
     /// <summary>
-    /// 
+    /// Returns the number of the selected weapon.
     /// </summary>
     /// <returns>selectedWeapon for animator</returns>
-    public abstract int GetSelectedWeapon();
-    // {
-    //    return selectedWeapon;
-    //}
+    public int GetSelectedWeapon()
+    {
+        return selectedWeapon;
+    }
 
     /// <summary>
     /// SetHasMelee sets hasMelee in correct class
@@ -80,5 +73,15 @@ public abstract class Classes : NetworkBehaviour
     {
         if (other.transform.root.GetComponent<Melee>())
             other.transform.root.GetComponent<Melee>().meleeHit(gameObject);
+    }
+
+    /// <summary>
+    /// Switching weapons is handled by the server. This methode changes the index of the selected weapon to the new weapon.
+    /// </summary>
+    /// <param name="newWeapon">Index of new weapon which is now selected.</param>
+    [Command]
+    public void CmdSwitchWeapon(int newWeapon)
+    {
+        selectedWeapon = newWeapon;
     }
 }

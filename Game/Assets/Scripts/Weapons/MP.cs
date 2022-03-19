@@ -4,28 +4,33 @@ using UnityEngine;
 
 /* created by: SWT-P_WS_21/22 */
 
-
-public class Pistol : ShootGun
+/// <summary>
+/// MP implements a simple submachine gun.
+/// It inherits from ShootGun.
+/// </summary>
+public class MP : ShootGun
 {
     /// <summary>
     /// In Start the different attributes for this gun are inizialized.
+    /// The AudioController is set.
     /// </summary>
-    private void Start()
+    void Start()
     {
-        this.gunDamage = 10;
-        this.fireRate = 0.25f;
+        this.gunDamage = 5;
+        this.fireRate = 0.1f;
         this.reloadDelay = 0.5f;
         this.weaponRange = 50f;
-        this.gunAmmo = 8;
-        this.recoil = 3f;
-        this.magSize = 8;
-        this.triggerRange = 10f;
+        this.gunAmmo = 30;
+        this.recoil = 2.5f;
+        this.magSize = 30;
+        this.triggerRange = 15f;
         this.isReloading = false;
         audioController = this.GetComponent<AudioController>();
     }
 
     /// <summary>
-    /// Processes the input of the player.
+    /// Processes the input of the player. Because the MP is a full automatic gun, the Shoot() method is called as long as the fire button is pressed and there are rounds left in
+    /// the magazin.
     /// </summary>
     void Update()
     {
@@ -33,12 +38,10 @@ public class Pistol : ShootGun
         {
             return;
         }
-
         if (canInteract)
         {
             inventory.UpdateInfo(this.icon, this.gunAmmo, 0);
-
-            if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+            if (Input.GetButton("Fire1") && Time.time > nextFire)
             {
                 nextFire = Time.time + fireRate;
                 if (gunAmmo > 0)
@@ -52,12 +55,15 @@ public class Pistol : ShootGun
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
+            if (
+                Input.GetKeyDown(KeyCode.R)
+                && Time.time > nextReload
+                && !Input.GetButton("Fire1")
+            )
             {
                 isReloading = true;
                 nextReload = Time.time + reloadDelay;
             }
-
             if (isReloading)
             {
                 Reload();
@@ -66,13 +72,13 @@ public class Pistol : ShootGun
     }
 
     /// <summary>
-    /// Pistol is reloaded in full magazins, but should not instantly be reloaded, so it is reloaded after a certain time after the button is pressed
+    /// MP is reloaded in full magazins, but should not instantly be reloaded, so it is reloaded after a certain time after the button is pressed
     /// </summary>
     public override void Reload()
     {
         if (Time.time > nextReload)
         {
-            audioController.CmdPlayGunSound(5);
+            audioController.CmdPlayGunSound(6);
             gunAmmo = magSize;
             isReloading = false;
         }
@@ -87,7 +93,7 @@ public class Pistol : ShootGun
         Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Vector3 direction = Camera.main.transform.forward;
         gunAmmo--;
-        audioController.CmdPlayGunSound(0);
+        audioController.CmdPlayGunSound(1);
         TriggerAggro();
         if (Physics.Raycast(rayOrigin, direction, out hit, weaponRange))
         {

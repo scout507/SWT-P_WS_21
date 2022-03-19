@@ -1,16 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+/* created by: SWT-P_WS_21/22 */
+
+
+/// <summary>
+/// The Script to handle the Sounds on the Player
+/// </summary>
 public class AudioController : NetworkBehaviour
 {
 
-    public AudioSource audioSource; // The Audio Source that is attached to the Player
+    /// <summary>
+    /// The Audio Source that is attached to the Player
+    /// </summary>
+    public AudioSource audioSource;
 
-    [SerializeField] AudioClip[] gunSounds; // The Audio Clips, Gun Sounds and Footstep Sounds
-    [SerializeField] AudioClip[] playerSounds; // The Audio Clips, Gun Sounds and Footstep Sounds
-    float stepCoolDown; // The Time until the next Footstep Sound is Played
+    /// <summary>
+    /// The Audio Clips, Gun Sounds and Footstep Sounds
+    /// </summary>
+    [SerializeField] AudioClip[] gunSounds;
+
+    /// <summary>
+    /// The Audio Clips, Gun Sounds and Footstep Sounds
+    /// </summary>
+    [SerializeField] AudioClip[] playerSounds;
+
+    /// <summary>The sound effect for chatbox messages</summary>
+    [SerializeField] AudioClip messageClip;
+
+    /// <summary>
+    /// The Time until the next Footstep Sound is Played
+    /// </summary>
+    private float stepCoolDown;
 
 
     private void Start()
@@ -35,6 +56,15 @@ public class AudioController : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Plays the incoming message sound localy for one player.
+    /// </summary>
+    public void PlayMessageSound()
+    {
+        if (!audioSource) audioSource = this.GetComponent<AudioSource>();
+        audioSource.pitch = 1f;
+        audioSource.PlayOneShot(messageClip, 0.2f);
+    }
 
     /// <summary>
     /// The Command for the Footstep Sound

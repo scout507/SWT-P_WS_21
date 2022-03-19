@@ -4,7 +4,10 @@ using UnityEngine;
 
 /* created by: SWT-P_WS_21/22 */
 
-
+/// <summary>
+/// Rifle implements a rifle. Only one class is able to zoom, so the zoom is handled in the class and not here.
+/// It inherits from ShootGun.
+/// </summary>
 public class Rifle : ShootGun
 {
     /// <summary>
@@ -65,7 +68,7 @@ public class Rifle : ShootGun
     }
 
     /// <summary>
-    /// Rifle is reloaded one round after another till the magazin is full
+    /// Rifle is reloaded one round after another till the magazin is full.
     /// </summary>
     public override void Reload()
     {

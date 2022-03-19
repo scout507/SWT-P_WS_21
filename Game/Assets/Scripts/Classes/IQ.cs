@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/* edited by: SWT-P_WS_21/22*/
+/* created by: SWT-P_WS_21/22*/
+
 /// <summary>
 /// IQ is a class with a MP and a pistol and can set up cameras
 /// </summary>
 public class IQ : Classes
 {
     /// <summary>
-    /// Update checks input if player wants to change weapon
+    /// Update checks input if player wants to change weapon.
     /// </summary>
     void Update()
     {
@@ -40,15 +41,12 @@ public class IQ : Classes
             }
         }
     }
-    public override int GetSelectedWeapon()
-    {
-        return selectedWeapon;
-    }
+
     /// <summary>
-    /// Handles change of weapons through enabling and disenabling the correct scripts on the player
+    /// Deactivates the script of the old weapon and activates the script of the new weapon.
     /// </summary>
-    /// <param name="oldWeapon"></param>
-    /// <param name="newWeapon"></param>
+    /// <param name="oldWeapon">Index of old weapon.</param>
+    /// <param name="newWeapon">Index of new weapon.</param>
     public override void SwitchWeapon(int oldWeapon, int newWeapon)
     {
         switch (oldWeapon)
@@ -82,7 +80,7 @@ public class IQ : Classes
     }
 
     /// <summary>
-    /// IQ does not have melee weapon
+    /// IQ does not have melee weapon, so the hasMelee flag is set false.
     /// </summary>
     public override void SetHasMelee()
     {
