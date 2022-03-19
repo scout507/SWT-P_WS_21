@@ -91,7 +91,7 @@ public class ZombieSpawner : NetworkBehaviour
         for (int i = 0; i < zombiesAmount; i++)
         {
             GameObject spawn = waveSpawns[Random.Range(0, waveSpawns.Length)];
-            GameObject spawnedZombie = (GameObject)Instantiate(waveZombie, spawn.transform.position + new Vector3(i, 0, 0), Quaternion.identity);
+            GameObject spawnedZombie = (GameObject)Instantiate(waveZombie, spawn.transform.position, Quaternion.identity);
             NetworkServer.Spawn(spawnedZombie);
         }
     }
