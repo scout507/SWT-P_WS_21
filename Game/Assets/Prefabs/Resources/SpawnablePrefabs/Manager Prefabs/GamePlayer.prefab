@@ -4112,7 +4112,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 386149115403895629}
         m_TargetAssemblyTypeName: IngameMenu, Assembly-CSharp
-        m_MethodName: loadMainMenu
+        m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
