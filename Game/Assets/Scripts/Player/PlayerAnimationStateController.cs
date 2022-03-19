@@ -6,32 +6,28 @@ using Mirror;
 
 /* created by: SWT-P_WS_21/22 */
 
-
+/// <summary>Controller for player animations</summary>
 public class PlayerAnimationStateController : NetworkBehaviour
 {
-    /// <summary>
-    /// Player's Animator
-    /// </summary>
+    /// <summary>Player's Animator</summary>
     [SerializeField] Animator animator;
 
-    /// <summary>
-    /// Player's Movement Script
-    /// </summary>
+    /// <summary>Player's Movement Script</summary>
     [SerializeField] PlayerMovement playerMovement;
 
+    /// <summary>Player's class script</summary>
     [SerializeField] Classes playerClass;
 
-    /// <summary>
-    /// Player's Rig
-    /// </summary>
+    /// <summary>Player's Rig</summary>
     [SerializeField] Rig rig;
 
+    /// <summary>Set initial paramaters on start</summary>
     void Start()
     {
         animator.SetBool("isKnut", playerClass.hasMelee);
     }
 
-    // Update is called once per frame
+    /// <summary>Update player's animation parameters</summary>
     void Update()
     {
         Vector3 velocity = playerMovement.GetMoveRelative();

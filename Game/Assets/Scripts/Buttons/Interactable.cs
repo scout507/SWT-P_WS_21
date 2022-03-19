@@ -21,8 +21,5 @@ public class Interactable : NetworkBehaviour
     /// <summary>
     /// Interaction handler to be overridden by derived class
     /// </summary>
-    public virtual void OnInteract()
-    {
-        Debug.Log("OnInteract() not implemented for " + gameObject.name);
-    }
+    public virtual void OnInteract(){}
 }

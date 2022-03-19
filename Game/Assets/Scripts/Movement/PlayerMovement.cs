@@ -12,6 +12,7 @@ using UnityEngine;
 /// </summary>
 public class PlayerMovement : NetworkBehaviour
 {
+    /// <summary>Player's character controller</summary>
     [SerializeField]
     CharacterController controller;
 
@@ -55,7 +56,7 @@ public class PlayerMovement : NetworkBehaviour
     float gravity = 19.62f;
 
     /// <summary>
-    ///
+    /// Player's jump height
     /// </summary>
     [SerializeField]
     float jumpHeight = 2f;
@@ -89,15 +90,19 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     bool staminaOnCooldown = false;
 
+    /// <summary>Transform used by the ground check</summary>
     [SerializeField]
     Transform groundCheck;
 
+    /// <summary>Ground-check's distance to the floor</summary>
     [SerializeField]
     float groundDistance = 0.4f;
 
+    /// <summary>Ground layer mask used for on ground detection</summary>
     [SerializeField]
     LayerMask groundMask;
 
+    /// <summary>Velocity vector used for gravity</summary>
     Vector3 velocity;
 
     /// <summary>
@@ -129,9 +134,11 @@ public class PlayerMovement : NetworkBehaviour
     /// </summary>
     bool isProne = false;
 
+    ///<summary>Player's mouse view sensitivity</summary>
     [SerializeField]
     float mouseSensitivity = 100f;
 
+    /// <summary>Player's point where the camera is mounted</summary>
     [SerializeField]
     public GameObject cameraMountPoint;
 
@@ -163,6 +170,7 @@ public class PlayerMovement : NetworkBehaviour
     /// Transform-information of the player
     /// </summary>
     public Transform playerTransform;
+
     /// <summary>
     /// Returns the player's view pitch
     /// </summary>
@@ -227,40 +235,17 @@ public class PlayerMovement : NetworkBehaviour
         return GetComponent<Classes>().GetSelectedWeapon();
     }
 
-    /// <summary>
-    /// Sets the player's relative move vector
-    /// </summary>
-    [Command]
-    void SetMoveRelative(Vector3 newMoveRelative)
+    /// <summary>Getter for the player's view pitch</summary>
+    /// <returns>The player's view pitch in degrees</returns>
+    public float GetXRotation()
     {
-        moveRelative = newMoveRelative;
+        return xRotation;
     }
 
-    /// <summary>
-    /// Sets the player's current taunt
-    /// </summary>
-    [Command]
-    void SetCurrentTaunt(int taunt)
+    /// <summary>Setter for the player's view pitch</summary>
+    public void SetXRotation(float newXRotation)
     {
-        currentTaunt = taunt;
-    }
-
-    /// <summary>
-    /// Sets the player's isGrounded
-    /// </summary>
-    [Command]
-    void SetIsGrounded(bool newIsGrounded)
-    {
-        isGrounded = newIsGrounded;
-    }
-
-    /// <summary>
-    /// Sets the player's isAirborne
-    /// </summary>
-    [Command]
-    void SetIsAirborne(bool newIsAirborne)
-    {
-        isAirborne = newIsAirborne;
+        xRotation = newXRotation;
     }
 
     /// <summary>
@@ -276,10 +261,6 @@ public class PlayerMovement : NetworkBehaviour
         }
         Cursor.lockState = CursorLockMode.Locked;
         cam.SetActive(true);
-        //Transform cameraTransform = Camera.main.gameObject.transform; // Find main camera which is part of the scene instead of the prefab
-        //cameraTransform.parent = cameraMountPoint.transform; // Make the camera a child of the mount point
-        //cameraTransform.position = cameraMountPoint.transform.position; // Set position/rotation same as the mount point
-        //cameraTransform.rotation = cameraMountPoint.transform.rotation;
     }
 
     /// <summary>
@@ -314,60 +295,6 @@ public class PlayerMovement : NetworkBehaviour
     }
 
     /// <summary>
-    /// Toggles player's position to crouched
-    /// </summary>
-    [Command]
-    void Crouch()
-    {
-        controller.center = new Vector3(0, -0.1f, 0);
-        controller.height = 1.35f;
-        // move ybot y to -0.824f
-        cameraMountPoint.transform.localPosition = new Vector3(0.085f, 0.26f, 0.06f);
-        isCrouching = true;
-    }
-
-    /// <summary>
-    /// Toggles player's position to uncrouched
-    /// </summary>
-    [Command]
-    void Uncrouch()
-    {
-        controller.center = new Vector3(0, 0, 0);
-        controller.height = 1.65f;
-        // move ybot y to -0.92f
-        cameraMountPoint.transform.localPosition = new Vector3(0f, 0.756f, 0.05f);
-        isCrouching = false;
-    }
-
-    public float GetXRotation()
-    {
-        return xRotation;
-    }
-
-    public void SetXRotation(float newXRotation)
-    {
-        xRotation = newXRotation;
-    }
-
-    [Command]
-    public void Interact()
-    {
-        RaycastHit hit;
-        bool hitInteractable = Physics.Raycast(
-            cameraMountPoint.transform.position,
-            cameraMountPoint.transform.forward,
-            out hit,
-            2,
-            (1 << 3)
-        );
-
-        if (!hitInteractable)
-            return;
-
-        hit.collider.transform.parent.gameObject.GetComponent<Interactable>().OnInteract();
-    }
-
-    /// <summary>
     /// The Update methode is responsible for the movement and the changing of weapons.
     /// </summary>
     void Update()
@@ -379,12 +306,12 @@ public class PlayerMovement : NetworkBehaviour
 
         if (active)
         {
-            SetIsGrounded(CheckGrounded());
+            CmdSetIsGrounded(CheckGrounded());
 
             if (isGrounded && velocity.y < 0)
             {
                 velocity.y = -2f;
-                SetIsAirborne(false);
+                CmdSetIsAirborne(false);
             }
 
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
@@ -404,7 +331,7 @@ public class PlayerMovement : NetworkBehaviour
             {
                 if (isCrouching)
                 {
-                    Uncrouch();
+                    CmdUncrouch();
                 }
 
                 forward *= sprintSpeedMultiplier;
@@ -448,12 +375,12 @@ public class PlayerMovement : NetworkBehaviour
             }
 
             controller.Move(move * Time.deltaTime);
-            SetMoveRelative(transform.InverseTransformDirection(move));
+            CmdSetMoveRelative(transform.InverseTransformDirection(move));
 
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
-                Uncrouch();
-                SetIsAirborne(true);
+                CmdUncrouch();
+                CmdSetIsAirborne(true);
                 velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
             }
 
@@ -461,11 +388,11 @@ public class PlayerMovement : NetworkBehaviour
             {
                 if (!isCrouching)
                 {
-                    Crouch();
+                    CmdCrouch();
                 }
                 else
                 {
-                    Uncrouch();
+                    CmdUncrouch();
                 }
             }
 
@@ -476,36 +403,37 @@ public class PlayerMovement : NetworkBehaviour
             }
 
             if (move.magnitude > 0.1f)
-                SetCurrentTaunt(0);
+                CmdSetCurrentTaunt(0);
             if (Input.GetKey("t"))
             {
                 if (Input.GetKeyDown("1"))
-                    SetCurrentTaunt(1);
+                    CmdSetCurrentTaunt(1);
                 if (Input.GetKeyDown("2"))
-                    SetCurrentTaunt(2);
+                    CmdSetCurrentTaunt(2);
                 if (Input.GetKeyDown("3"))
-                    SetCurrentTaunt(3);
+                    CmdSetCurrentTaunt(3);
             }
 
             if (Input.GetButtonDown("Interact"))
             {
-                Interact();
+                CmdInteract();
             }
 
             if (insideLadder == true && Input.GetKey("w"))
             {
-                SetIsGrounded(true);
+                CmdSetIsGrounded(true);
                 playerTransform.transform.position += Vector3.up * speedUpDown;
             }
 
             if (insideLadder == true && Input.GetKey("s"))
             {
-                SetIsGrounded(true);
+                CmdSetIsGrounded(true);
                 playerTransform.transform.position -= Vector3.up * speedUpDown;
             }
         }
     }
 
+    /// <summary>Enables ladder movement</summary>
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Ladder")
@@ -514,6 +442,7 @@ public class PlayerMovement : NetworkBehaviour
         }
     }
 
+    /// <summary>Disables ladder movement</summary>
     void OnTriggerExit(Collider col)
     {
         if (col.gameObject.tag == "Ladder")
@@ -529,5 +458,84 @@ public class PlayerMovement : NetworkBehaviour
         {
             setLayerDefault(child);
         }
+    }
+
+    /// <summary>
+    /// Toggles player's position to crouched
+    /// </summary>
+    [Command]
+    void CmdCrouch()
+    {
+        controller.center = new Vector3(0, -0.1f, 0);
+        controller.height = 1.35f;
+        cameraMountPoint.transform.localPosition = new Vector3(0.085f, 0.26f, 0.06f);
+        isCrouching = true;
+    }
+
+    /// <summary>
+    /// Toggles player's position to uncrouched
+    /// </summary>
+    [Command]
+    void CmdUncrouch()
+    {
+        controller.center = new Vector3(0, 0, 0);
+        controller.height = 1.65f;
+        cameraMountPoint.transform.localPosition = new Vector3(0f, 0.756f, 0.05f);
+        isCrouching = false;
+    }
+
+    /// <summary>
+    /// Sets the player's relative move vector
+    /// </summary>
+    [Command]
+    void CmdSetMoveRelative(Vector3 newMoveRelative)
+    {
+        moveRelative = newMoveRelative;
+    }
+
+    /// <summary>
+    /// Sets the player's current taunt
+    /// </summary>
+    [Command]
+    void CmdSetCurrentTaunt(int taunt)
+    {
+        currentTaunt = taunt;
+    }
+
+    /// <summary>
+    /// Sets the player's isGrounded
+    /// </summary>
+    [Command]
+    void CmdSetIsGrounded(bool newIsGrounded)
+    {
+        isGrounded = newIsGrounded;
+    }
+
+    /// <summary>
+    /// Sets the player's isAirborne
+    /// </summary>
+    [Command]
+    void CmdSetIsAirborne(bool newIsAirborne)
+    {
+        isAirborne = newIsAirborne;
+    }
+
+    /// <summary>Sends command to the server that the player tried to interact</summary>
+    [Command]
+    public void CmdInteract()
+    {
+        RaycastHit hit;
+        bool hitInteractable = Physics.Raycast(
+            cameraMountPoint.transform.position,
+            cameraMountPoint.transform.forward,
+            out hit,
+            2,
+            (1 << 3)
+        );
+
+        if (!hitInteractable)
+            return;
+
+        hit.collider.transform.parent.gameObject.GetComponent<Interactable>().OnInteract();
     }
 }
