@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
@@ -17,18 +15,19 @@ public class Spectator : NetworkBehaviour
     /// <summary>Vertical movement speed.</summary>
     public float speedV = 2;
 
+    /// <summary>Is true if the script is to be active.</summary>
+    public bool active = true;
+
     /// <summary>Rotation on the y axis.</summary>
     private float yaw = 0;
 
     /// <summary>Rotation on the z axis.</summary>
     private float pitch = 0;
 
-    /// <summary>Is true if the script is to be active.</summary>
-    public bool active = true;
-
     /// <summary>
-    /// If the player is the locale player, 
-    /// the camera is dragged to the game object at the beginning.
+    /// Called if the player is the locale player, 
+    /// the camera is dragged to the game object at the beginning and the cursor
+    /// will be locked.
     /// </summary>
     public override void OnStartLocalPlayer()
     {

@@ -3792,7 +3792,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 160680105}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: changeVolume
+        m_MethodName: ChangeVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6869,7 +6869,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 160680105}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: exitGame
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10383,7 +10383,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 160680105}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: host
+        m_MethodName: Host
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10935,14 +10935,14 @@ MonoBehaviour:
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs: []
+  roomPlayers: []
+  gamePlayers: []
   minPlayers: 1
   menuScene: Assets/Scenes/Menu.unity
   gameScene: Assets/Scenes/1. Final Final.unity
   roomPlayerPrefab: {fileID: 6369713485113490369, guid: 45676aec1e544a7449f4c69b64c55a96, type: 3}
   gamePlayerPrefab: {fileID: 6726831642852333111, guid: 5868e60051b776f49a082279beec57b1, type: 3}
   playerSpawnSystem: {fileID: 7912372823320429736, guid: 0dc330197fca6c440a338ef0288a9252, type: 3}
-  roomPlayers: []
-  gamePlayers: []
 --- !u!4 &1763231321
 Transform:
   m_ObjectHideFlags: 0
@@ -12118,7 +12118,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 543891047}
         m_TargetAssemblyTypeName: PlayerNameInput, Assembly-CSharp
-        m_MethodName: continueButtonPressed
+        m_MethodName: ContinueButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

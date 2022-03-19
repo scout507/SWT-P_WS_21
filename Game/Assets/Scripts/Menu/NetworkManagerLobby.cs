@@ -7,10 +7,26 @@ using System.Collections.Generic;
 
 /* created by: SWT-P_WS_21/22 */
 
-
-/// <summary>Class implements the Network Manager for the Start Lobby.</summary>
+/// <summary>Class implements the network manager for the game.</summary>
 public class NetworkManagerLobby : NetworkManager
 {
+    /// <summary>Holds the objects of all clients prefabs, as a list.</summary>
+    [SerializeField]
+    public List<NetworkRoomPlayer> roomPlayers = new List<NetworkRoomPlayer>();
+
+    /// <summary>Holds the objects of all clients ingame prefabs, as a list.</summary>
+    [SerializeField]
+    public List<NetworkGamePlayer> gamePlayers = new List<NetworkGamePlayer>();
+
+    /// <summary>Holds method "HandleClientConnected" defined by the class "JoinLobbyMenu".</summary>
+    public static event Action OnClientConnected;
+
+    /// <summary>Holds method "HandleClientDisconnected" defined by the class "JoinLobbyMenu".</summary>
+    public static event Action OnClientDisconnected;
+
+    /// <summary>Holds method "SpawnPlayer" defined by the class "PlayerSpawnSystem".</summary>
+    public static event Action<NetworkConnection> OnServerReadied;
+
     /// <summary>Specifies the minimum number of clients required.</summary>
     [SerializeField]
     private int minPlayers = 2;
@@ -20,41 +36,28 @@ public class NetworkManagerLobby : NetworkManager
     [SerializeField]
     private string menuScene = "";
 
+    /// <summary>Specifies the name of the game scene.</summary>
     [Scene]
     [SerializeField]
     private string gameScene = "";
 
+    /// <summary>Specifies which prefab is to be used for the clients in the lobby.</summary>
     [Header("Room")]
-    /// <summary>Specifies which prefab is to be used for the clients.</summary>
     [SerializeField]
     private NetworkRoomPlayer roomPlayerPrefab = null;
 
-    [Header("Game")]
     /// <summary>Specifies which prefab is to be used for the clients in the game.</summary>
+    [Header("Game")]
     [SerializeField]
     private NetworkGamePlayer gamePlayerPrefab = null;
 
+    /// <summary>Hold the prefab of the spawn system.</summary>
     [SerializeField]
     private GameObject playerSpawnSystem = null;
 
-    /// <summary>Holds the object of all clients prefabs, as a list.</summary>
-    [SerializeField]
-    public List<NetworkRoomPlayer> roomPlayers = new List<NetworkRoomPlayer>();
-
-    /// <summary>Holds the object of all clients ingame prefabs, as a list.</summary>
-    [SerializeField]
-    public List<NetworkGamePlayer> gamePlayers = new List<NetworkGamePlayer>();
-
-    /// <summary>Holds methods defined by the class "JoinLobbyMenu".</summary>
-    public static event Action OnClientConnected;
-
-    /// <summary>Holds methods defined by the class "JoinLobbyMenu".</summary>
-    public static event Action OnClientDisconnected;
-
-    public static event Action<NetworkConnection> OnServerReadied;
-
     /// <summary>
-    /// Loads all available prefabs when the host server is started.
+    /// Loads all available prefabs from the folder "Assets/Prefabs/Resources/SpawnablePrefabs" 
+    /// when the host server is started.
     /// </summary>
     public override void OnStartServer()
     {
@@ -62,7 +65,8 @@ public class NetworkManagerLobby : NetworkManager
     }
 
     /// <summary>
-    /// Loads all available prefabs when the client is started and registers them with the client-networkmanager.
+    /// Loads all available prefabs from the folder "Assets/Prefabs/Resources/SpawnablePrefabs" 
+    /// when the client is started and registers them with the client-networkmanager.
     /// </summary>
     public override void OnStartClient()
     {
@@ -99,9 +103,9 @@ public class NetworkManagerLobby : NetworkManager
     /// <summary>
     /// When a client connecting to the server, checks whether the maximum number of clients has already been 
     /// reached and whether the client connecting is in the menu scene.
+    /// Maximum number is reached => Client will be disconnected. 
+    /// Client not in the menu scene => Client will be disconnected. 
     /// </summary>
-    /// Maximale Anzahl ist erreicht => Client wird disconnected
-    /// Client nicht in der Menü Szene => Client wird disconnected
     /// <param name="conn">Network connection from client to server and server to client.</param>
     public override void OnServerConnect(NetworkConnection conn)
     {
@@ -180,8 +184,8 @@ public class NetworkManagerLobby : NetworkManager
     /// Checks that all the requirements for starting the game have been met.
     /// </summary>
     /// <returns>
-    /// false = minimum number of players not reached
-    /// false = all players are not yet ready
+    /// false = minimum number of players not reached. 
+    /// false = all players are not yet ready. 
     /// otherwise true
     /// </returns>
     public bool isReadyToStart()
@@ -198,7 +202,7 @@ public class NetworkManagerLobby : NetworkManager
 
     /// <summary>
     /// Starts the game from the host.
-    /// Starts only when all players are ready.
+    /// Starts only when the ready condition are met.
     /// </summary>
     public void startGame()
     {

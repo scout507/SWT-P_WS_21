@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+// created by: SWT-P_WS_21/22
 
 /// <summary>Needed for a spawn point in the scene, indicates in which direction this looks.</summary>
 public class PlayerSpawnPoint : MonoBehaviour

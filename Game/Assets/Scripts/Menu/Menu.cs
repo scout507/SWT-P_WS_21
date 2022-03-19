@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using Mirror;
@@ -14,23 +12,24 @@ public class Menu : MonoBehaviour
     /// <summary>Holds the volume slider of the UI.</summary>
     public Slider volumeSlider;
 
-    /// <summary>true, if the window is to be fullscreen.</summary>
-    bool isFullscreen;
-
-    /// <summary>Holds all possible resolutions for the client.</summary>
-    Resolution[] resolutions;
-
     /// <summary>Contains the user interface dropdown for the resolution of game</summary>
     public TMP_Dropdown dropdownResolution;
 
-    /// <summary>Contains the user interface dropdown for the resolution of game</summary>
+    /// <summary>Contains the user interface dropdown for the quality of game</summary>
     public TMP_Dropdown dropdownQuality;
 
     /// <summary>Keeps the toggel element out of the UI for fullscreen mode.</summary>
     public Toggle toggleFullscreen;
 
+    /// <summary>true, if the window is to be fullscreen.</summary>
+    private bool isFullscreen;
+
+    /// <summary>Holds all possible resolutions for the client.</summary>
+    private Resolution[] resolutions;
+
     /// <summary>
-    /// Sets all default values and generates the list for the resolutions.
+    /// Sets all default values and calls the method to generates the list for the resolutions.
+    /// Makes the mouse pointer and attracts it to the game window.
     /// </summary>
     void Start()
     {
@@ -40,44 +39,21 @@ public class Menu : MonoBehaviour
         dropdownQuality.value = QualitySettings.GetQualityLevel();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
-        generateResolutionList();
-    }
-
-    /// <summary>
-    /// Generates for the UI all elements for the resolutions.
-    /// </summary>
-    private void generateResolutionList()
-    {
-        resolutions = Screen.resolutions;
-        dropdownResolution.ClearOptions();
-        List<string> options = new List<string>();
-        int currentResolutionIndex = 0;
-        int index = 0;
-
-        foreach (var item in resolutions)
-        {
-            options.Add(item.width + " x " + item.height);
-            if (item.height == Screen.height && item.width == Screen.width)
-                currentResolutionIndex = index;
-            index++;
-        }
-
-        dropdownResolution.AddOptions(options);
-        dropdownResolution.value = currentResolutionIndex;
+        GenerateResolutionList();
     }
 
     /// <summary>
     /// Method to close the game
     /// </summary>
-    public void exitGame()
+    public void ExitGame()
     {
         Application.Quit();
     }
 
     /// <summary>
-    /// Method to change the volume for the sound manager.
+    /// Method to change the volume.
     /// </summary>
-    public void changeVolume()
+    public void ChangeVolume()
     {
         AudioListener.volume = volumeSlider.value;
     }
@@ -94,7 +70,7 @@ public class Menu : MonoBehaviour
     /// <summary>
     /// Sets the quality of the game to the passed index.
     /// </summary>
-    /// <param name="index">From 0 to 5; 0 => very bad; 5 => ultra settings</param>
+    /// <param name="index">Given index for the quality. (identifiable in "project settings -> quality")</param>
     public void SetQuality(int index)
     {
         QualitySettings.SetQualityLevel(index);
@@ -113,8 +89,31 @@ public class Menu : MonoBehaviour
     /// <summary>
     /// Starts a local server to host the game.
     /// </summary>
-    public void host()
+    public void Host()
     {
         NetworkManager.singleton.StartHost();
+    }
+
+    /// <summary>
+    /// Generates for the UI all elements for the resolutions.
+    /// </summary>
+    private void GenerateResolutionList()
+    {
+        resolutions = Screen.resolutions;
+        dropdownResolution.ClearOptions();
+        List<string> options = new List<string>();
+        int currentResolutionIndex = 0;
+        int index = 0;
+
+        foreach (var item in resolutions)
+        {
+            options.Add(item.width + " x " + item.height);
+            if (item.height == Screen.height && item.width == Screen.width)
+                currentResolutionIndex = index;
+            index++;
+        }
+
+        dropdownResolution.AddOptions(options);
+        dropdownResolution.value = currentResolutionIndex;
     }
 }
