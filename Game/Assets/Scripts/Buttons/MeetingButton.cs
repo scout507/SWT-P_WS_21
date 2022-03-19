@@ -10,26 +10,21 @@ using Mirror;
 /// </summary>
 public class MeetingButton : Interactable
 {
-    /// <summary>
-    /// Is the meeting button ready to be interacted with?
-    /// </summary>
+    /// <summary>Is the meeting button ready to be interacted with?</summary>
     [SyncVar] private bool isReady;
 
-    /// <summary>
-    /// Cooldown timer used to determine if the meeting button can be used again
-    /// </summary>
+    /// <summary>Cooldown timer used to determine if the meeting button can be used again</summary>
     [SyncVar] private float cooldownTimer;
 
-    /// <summary>
-    /// Cooldown time to wait before the meeting button is usable again
-    /// </summary>
+    /// <summary>Cooldown time to wait before the meeting button is usable again</summary>
     [SerializeField] private float cooldown;
 
-    /// <summary>
-    /// AudioSource of the meeting button to play sounds
-    /// </summary>
+    /// <summary>AudioSource of the meeting button to play sounds</summary>
     [SerializeField] private AudioSource audioSource;
 
+    /// <summary>
+    /// Initializes the meeting button to be ready
+    /// </summary>
     public override void Start()
     {
         base.Start();
@@ -37,6 +32,9 @@ public class MeetingButton : Interactable
         cooldownTimer = 0;
     }
 
+    /// <summary>
+    /// Update cooldown timer and ready status
+    /// </summary>
     void Update()
     {
         if (cooldownTimer > 0)
