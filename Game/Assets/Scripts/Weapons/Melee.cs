@@ -58,7 +58,7 @@ public class Melee : ShootGun
     /// </summary>
     public override void Shoot()
     {
-        audioController.CmdPlayGunSound(2);
+        audioController.CmdPlayGunSound(3);
         this.inAttack = true;
     }
 
