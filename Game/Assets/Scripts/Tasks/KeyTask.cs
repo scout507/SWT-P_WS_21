@@ -13,6 +13,8 @@ public class KeyTask : Task
     [SyncVar] public GameObject playerWithKey;
     /// <summary>The key prefab</summary>
     public GameObject key;
+    /// <summary>True when a key drops from a dead player. Gets set to false on key pickup</summary>
+    [SyncVar] public bool playerDroppedKey;
     /// <summary>The zombie holding the key</summary>
     GameObject zombieWithKey;
     /// <summary>A list of all living roaming zombies</summary>
@@ -59,9 +61,10 @@ public class KeyTask : Task
             SpawnKey(zombieWithKey.transform.position);
         }
 
-        if (playerWithKey != null && playerWithKey.GetComponent<Health>().health <= 0)
+        if (playerWithKey != null && playerWithKey.GetComponent<Health>().health <= 0 && !playerDroppedKey)
         {
             SpawnKey(playerWithKey.transform.position);
+            playerDroppedKey = true;
         }
     }
 
