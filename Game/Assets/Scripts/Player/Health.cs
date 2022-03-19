@@ -11,12 +11,11 @@ using Mirror;
 /// </summary>
 public class Health : NetworkBehaviour
 {
-    /// <summary>
-    /// Variable for Health, synced on all Clients
-    /// </summary>
+    /// <summary>Variable for Health, synced on all Clients.</summary>
     [SyncVar]
     public int health = 100;
 
+    /// <summary>Reference to the UI element HealthBar.</summary>
     HealthBar healthBar;
 
     /// <summary>Holds the prefab for a dead player.</summary>
@@ -30,6 +29,9 @@ public class Health : NetworkBehaviour
     /// <summary>UI element responsible for flashing red on beeing hit.</summary>
     public GameObject hitflash;
 
+    /// <summary>
+    /// In the start function the needed variables are set.
+    /// </summary>
     void Start()
     {
         if (!isLocalPlayer) return;
@@ -62,7 +64,6 @@ public class Health : NetworkBehaviour
             }
         }
         if (amount > 0) TargetDamage();
-        else GotHealed();
         if (health <= 0 && !isDead)
         {
             TargetRpcDamageSounds(connectionToClient, 10, 11);
@@ -90,14 +91,6 @@ public class Health : NetworkBehaviour
     }
 
     /// <summary>
-    /// The method GotHealed is called when a player is healed. It can then trigger an animation or something similar.
-    /// </summary>
-    [TargetRpc]
-    public void GotHealed()
-    {
-        Debug.Log("Got healed!");
-    }
-    /// <summary>
     /// Triggers a damage sound on a player that got hit.
     /// </summary>
     /// <param name="target">Player that got hit</param>
@@ -115,7 +108,6 @@ public class Health : NetworkBehaviour
     [TargetRpc]
     void TargetDeath()
     {
-        Debug.Log("You are Dead");
         CmdDestroyPlayer();
     }
 

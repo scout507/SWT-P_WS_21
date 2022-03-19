@@ -10,10 +10,7 @@ using UnityEngine;
 /// </summary>
 public class Shotgun : ShootGun
 {
-    /// <summary>
-    /// One shot with the shotgun fires a amount of pellets with random spread.
-    /// This variable defines the amount of pellets.
-    /// </summary>
+    /// <summary>One shot with the shotgun fires a amount of pellets with random spread. This variable defines the amount of pellets.</summary>
     private int pelletAmount = 15;
 
     /// <summary>
@@ -77,7 +74,7 @@ public class Shotgun : ShootGun
     }
 
     /// <summary>
-    /// Shotgun is reloaded one round after another till the magazin is full
+    /// Shotgun is reloaded one round after another till the magazin is full.
     /// </summary>
     public override void Reload()
     {
@@ -117,8 +114,6 @@ public class Shotgun : ShootGun
                 * Camera.main.transform.forward;
             if (Physics.Raycast(rayOrigin, direction, out hit, weaponRange))
             {
-                Debug.Log("In Range!");
-                Debug.DrawLine(rayOrigin, hit.point, Color.green, 0.5f);
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
                     CmdShootPlayer(hit.collider.transform.root.gameObject, gunDamage); // Gets Parent of Collider and calls function for hit on Player
@@ -135,11 +130,6 @@ public class Shotgun : ShootGun
                 {
                     CmdShootWall(hit.point);
                 }
-            }
-            else
-            {
-                Debug.DrawRay(rayOrigin, direction * weaponRange, Color.red, 0.5f);
-                Debug.Log("Out of Range!");
             }
         }
         Recoil();

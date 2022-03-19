@@ -49,10 +49,6 @@ public class Pistol : ShootGun
                     isReloading = false;
                     Shoot();
                 }
-                else
-                {
-                    Debug.Log("Out of Ammo!");
-                }
             }
 
             if (Input.GetKeyDown(KeyCode.R) && Time.time > nextReload && !Input.GetButton("Fire1"))
@@ -94,8 +90,6 @@ public class Pistol : ShootGun
         TriggerAggro();
         if (Physics.Raycast(rayOrigin, direction, out hit, weaponRange))
         {
-            Debug.Log("In Range!");
-            Debug.DrawLine(rayOrigin, hit.point, Color.green, 0.5f);
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 CmdShootPlayer(hit.collider.transform.root.gameObject, gunDamage); // Gets Parent of Collider and calls function for hit on Player
@@ -112,11 +106,6 @@ public class Pistol : ShootGun
             {
                 CmdShootWall(hit.point);
             }
-        }
-        else
-        {
-            Debug.Log("Out of Range!");
-            Debug.DrawRay(rayOrigin, direction * weaponRange, Color.red, 0.5f);
         }
         Recoil();
     }

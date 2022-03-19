@@ -11,19 +11,13 @@ using UnityEngine;
 /// </summary>
 public abstract class Classes : NetworkBehaviour
 {
-    /// <summary>
-    /// hasMelee is important for the animator
-    /// </summary>
+    /// <summary>hasMelee is important for the animator. Set true if class has melee weapon, false if not.</summary>
     [SyncVar] public bool hasMelee;
 
-    /// <summary>
-    /// newWeapon saves the new weapon when the weapon is changed
-    /// </summary>
+    /// <summary>newWeapon saves the new weapon when the weapon is changed.</summary>
     public int newWeapon = 0;
 
-    /// <summary>
-    /// selectedWeapon saves the selected weapon, if it is changed the function SwitchWeapon is called
-    /// </summary>
+    ///<summary>selectedWeapon saves the selected weapon, if it is changed the function SwitchWeapon is called.</summary>
     [SyncVar(hook = nameof(SwitchWeapon))]
     public int selectedWeapon = 1;
 

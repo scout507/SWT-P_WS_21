@@ -9,9 +9,7 @@ using UnityEngine;
 /// </summary>
 public class Hunter : Classes
 {
-    /// <summary>
-    /// Flag for tracking the state of zoom
-    /// </summary>
+    /// <summary>Flag for tracking the state of zoom.</summary>
     bool isInZoom = false;
 
     /// <summary>
