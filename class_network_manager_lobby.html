@@ -71,7 +71,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Class implements the Network Manager for the Start Lobby. 
+<p>Class implements the network manager for the game. 
  <a href="class_network_manager_lobby.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for NetworkManagerLobby:</div>
@@ -84,11 +84,11 @@ Inheritance diagram for NetworkManagerLobby:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9c4a42c75c2657638b390fc0719b0854"><td class="memItemLeft" align="right" valign="top"><a id="a9c4a42c75c2657638b390fc0719b0854" name="a9c4a42c75c2657638b390fc0719b0854"></a>
 override void&#160;</td><td class="memItemRight" valign="bottom"><b>OnStartServer</b> ()</td></tr>
-<tr class="memdesc:a9c4a42c75c2657638b390fc0719b0854"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads all available prefabs when the host server is started. <br /></td></tr>
+<tr class="memdesc:a9c4a42c75c2657638b390fc0719b0854"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads all available prefabs from the folder "Assets/Prefabs/Resources/SpawnablePrefabs" when the host server is started. <br /></td></tr>
 <tr class="separator:a9c4a42c75c2657638b390fc0719b0854"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51900a340a734bfd83d2b06029d64173"><td class="memItemLeft" align="right" valign="top"><a id="a51900a340a734bfd83d2b06029d64173" name="a51900a340a734bfd83d2b06029d64173"></a>
 override void&#160;</td><td class="memItemRight" valign="bottom"><b>OnStartClient</b> ()</td></tr>
-<tr class="memdesc:a51900a340a734bfd83d2b06029d64173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads all available prefabs when the client is started and registers them with the client-networkmanager. <br /></td></tr>
+<tr class="memdesc:a51900a340a734bfd83d2b06029d64173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads all available prefabs from the folder "Assets/Prefabs/Resources/SpawnablePrefabs" when the client is started and registers them with the client-networkmanager. <br /></td></tr>
 <tr class="separator:a51900a340a734bfd83d2b06029d64173"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6c5dc10c0b53fa13dc5853a918a8db8"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_manager_lobby.html#ac6c5dc10c0b53fa13dc5853a918a8db8">OnClientConnect</a> (NetworkConnection conn)</td></tr>
 <tr class="memdesc:ac6c5dc10c0b53fa13dc5853a918a8db8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is called on the client when it is connected to a server and calls the function that is stored in "OnClientConnected".  <a href="class_network_manager_lobby.html#ac6c5dc10c0b53fa13dc5853a918a8db8">More...</a><br /></td></tr>
@@ -97,7 +97,7 @@ override void&#160;</td><td class="memItemRight" valign="bottom"><b>OnStartClien
 <tr class="memdesc:a750ee18b67abe7a736db0f349be4210f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is called on the client when it is disconnected to a server and calls the function that is stored in "OnClientDisconnected".  <a href="class_network_manager_lobby.html#a750ee18b67abe7a736db0f349be4210f">More...</a><br /></td></tr>
 <tr class="separator:a750ee18b67abe7a736db0f349be4210f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03dade20972d921dd031a168cad5bf73"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_manager_lobby.html#a03dade20972d921dd031a168cad5bf73">OnServerConnect</a> (NetworkConnection conn)</td></tr>
-<tr class="memdesc:a03dade20972d921dd031a168cad5bf73"><td class="mdescLeft">&#160;</td><td class="mdescRight">When a client connecting to the server, checks whether the maximum number of clients has already been reached and whether the client connecting is in the menu scene.  <a href="class_network_manager_lobby.html#a03dade20972d921dd031a168cad5bf73">More...</a><br /></td></tr>
+<tr class="memdesc:a03dade20972d921dd031a168cad5bf73"><td class="mdescLeft">&#160;</td><td class="mdescRight">When a client connecting to the server, checks whether the maximum number of clients has already been reached and whether the client connecting is in the menu scene. Maximum number is reached =&gt; Client will be disconnected. Client not in the menu scene =&gt; Client will be disconnected.  <a href="class_network_manager_lobby.html#a03dade20972d921dd031a168cad5bf73">More...</a><br /></td></tr>
 <tr class="separator:a03dade20972d921dd031a168cad5bf73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad80459f1b3c230ca993952e7e9ba6c48"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_manager_lobby.html#ad80459f1b3c230ca993952e7e9ba6c48">OnServerAddPlayer</a> (NetworkConnection conn)</td></tr>
 <tr class="memdesc:ad80459f1b3c230ca993952e7e9ba6c48"><td class="mdescLeft">&#160;</td><td class="mdescRight">When a client wants to connect to the server, it is checked whether it is in the correct scene and whether it is the leader. Then a prefab for the client is instantiated and the method "NetworkServer.AddPlayerForConnection()" is called.  <a href="class_network_manager_lobby.html#ad80459f1b3c230ca993952e7e9ba6c48">More...</a><br /></td></tr>
@@ -109,17 +109,17 @@ override void&#160;</td><td class="memItemRight" valign="bottom"><b>OnStartClien
 override void&#160;</td><td class="memItemRight" valign="bottom"><b>OnStopServer</b> ()</td></tr>
 <tr class="memdesc:ab0abc178f440e2cd966e912095f11333"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is called when a server is stopped - including when a host is stopped. Empties the "roomPlayers" list. <br /></td></tr>
 <tr class="separator:ab0abc178f440e2cd966e912095f11333"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76569e12e044af67e8319e1c207c5378"><td class="memItemLeft" align="right" valign="top"><a id="a76569e12e044af67e8319e1c207c5378" name="a76569e12e044af67e8319e1c207c5378"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>notifyPlayersOfReadyState</b> ()</td></tr>
-<tr class="memdesc:a76569e12e044af67e8319e1c207c5378"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the method "handleReadyToStart()" for all clients in the "roomPlayers" list. <br /></td></tr>
-<tr class="separator:a76569e12e044af67e8319e1c207c5378"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5295cf80d34f1b922a83b0233d299549"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_manager_lobby.html#a5295cf80d34f1b922a83b0233d299549">isReadyToStart</a> ()</td></tr>
-<tr class="memdesc:a5295cf80d34f1b922a83b0233d299549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that all the requirements for starting the game have been met.  <a href="class_network_manager_lobby.html#a5295cf80d34f1b922a83b0233d299549">More...</a><br /></td></tr>
-<tr class="separator:a5295cf80d34f1b922a83b0233d299549"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a933653883a818cd1460caca8c0af7e84"><td class="memItemLeft" align="right" valign="top"><a id="a933653883a818cd1460caca8c0af7e84" name="a933653883a818cd1460caca8c0af7e84"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>startGame</b> ()</td></tr>
-<tr class="memdesc:a933653883a818cd1460caca8c0af7e84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the game from the host. Starts only when all players are ready. <br /></td></tr>
-<tr class="separator:a933653883a818cd1460caca8c0af7e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9407abcd5cbdaccf6a4ca60e45fe43a7"><td class="memItemLeft" align="right" valign="top"><a id="a9407abcd5cbdaccf6a4ca60e45fe43a7" name="a9407abcd5cbdaccf6a4ca60e45fe43a7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifyPlayersOfReadyState</b> ()</td></tr>
+<tr class="memdesc:a9407abcd5cbdaccf6a4ca60e45fe43a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the method "handleReadyToStart()" for all clients in the "roomPlayers" list. <br /></td></tr>
+<tr class="separator:a9407abcd5cbdaccf6a4ca60e45fe43a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7106b89ac4d5f88b464d80f46cebbfe2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_manager_lobby.html#a7106b89ac4d5f88b464d80f46cebbfe2">IsReadyToStart</a> ()</td></tr>
+<tr class="memdesc:a7106b89ac4d5f88b464d80f46cebbfe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that all the requirements for starting the game have been met.  <a href="class_network_manager_lobby.html#a7106b89ac4d5f88b464d80f46cebbfe2">More...</a><br /></td></tr>
+<tr class="separator:a7106b89ac4d5f88b464d80f46cebbfe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ab2dde8a95ccef4d9bfccedb8ab4732"><td class="memItemLeft" align="right" valign="top"><a id="a9ab2dde8a95ccef4d9bfccedb8ab4732" name="a9ab2dde8a95ccef4d9bfccedb8ab4732"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>StartGame</b> ()</td></tr>
+<tr class="memdesc:a9ab2dde8a95ccef4d9bfccedb8ab4732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the game from the host. Starts only when the ready condition are met. <br /></td></tr>
+<tr class="separator:a9ab2dde8a95ccef4d9bfccedb8ab4732"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a401b2414ea4e901cd4565c5b3c98ad45"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_manager_lobby.html#a401b2414ea4e901cd4565c5b3c98ad45">ServerChangeScene</a> (string newSceneName)</td></tr>
 <tr class="memdesc:a401b2414ea4e901cd4565c5b3c98ad45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the scene from the server and all clients to the game scene. Changes the prefabs from the players to the prefabs for the game.  <a href="class_network_manager_lobby.html#a401b2414ea4e901cd4565c5b3c98ad45">More...</a><br /></td></tr>
 <tr class="separator:a401b2414ea4e901cd4565c5b3c98ad45"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,38 +134,39 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>startGame</b> ()</td>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a69de78ac448a1ee9c0dc537d5589ca9c"><td class="memItemLeft" align="right" valign="top"><a id="a69de78ac448a1ee9c0dc537d5589ca9c" name="a69de78ac448a1ee9c0dc537d5589ca9c"></a>
 List&lt; <a class="el" href="class_network_room_player.html">NetworkRoomPlayer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>roomPlayers</b> = new List&lt;<a class="el" href="class_network_room_player.html">NetworkRoomPlayer</a>&gt;()</td></tr>
-<tr class="memdesc:a69de78ac448a1ee9c0dc537d5589ca9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the object of all clients prefabs, as a list.<br /></td></tr>
+<tr class="memdesc:a69de78ac448a1ee9c0dc537d5589ca9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the objects of all clients prefabs, as a list.<br /></td></tr>
 <tr class="separator:a69de78ac448a1ee9c0dc537d5589ca9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6caaaa58f04c32f70180e60b41e50bee"><td class="memItemLeft" align="right" valign="top"><a id="a6caaaa58f04c32f70180e60b41e50bee" name="a6caaaa58f04c32f70180e60b41e50bee"></a>
 List&lt; <a class="el" href="class_network_game_player.html">NetworkGamePlayer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>gamePlayers</b> = new List&lt;<a class="el" href="class_network_game_player.html">NetworkGamePlayer</a>&gt;()</td></tr>
-<tr class="memdesc:a6caaaa58f04c32f70180e60b41e50bee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the object of all clients ingame prefabs, as a list.<br /></td></tr>
+<tr class="memdesc:a6caaaa58f04c32f70180e60b41e50bee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the objects of all clients ingame prefabs, as a list.<br /></td></tr>
 <tr class="separator:a6caaaa58f04c32f70180e60b41e50bee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="events" name="events"></a>
 Events</h2></td></tr>
 <tr class="memitem:a255bcd07ced40e612a06ee2566771438"><td class="memItemLeft" align="right" valign="top"><a id="a255bcd07ced40e612a06ee2566771438" name="a255bcd07ced40e612a06ee2566771438"></a>
 static Action&#160;</td><td class="memItemRight" valign="bottom"><b>OnClientConnected</b></td></tr>
-<tr class="memdesc:a255bcd07ced40e612a06ee2566771438"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds methods defined by the class "JoinLobbyMenu".<br /></td></tr>
+<tr class="memdesc:a255bcd07ced40e612a06ee2566771438"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds method "HandleClientConnected" defined by the class "JoinLobbyMenu".<br /></td></tr>
 <tr class="separator:a255bcd07ced40e612a06ee2566771438"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89daffe57d342d65422e1b908dcdfb2e"><td class="memItemLeft" align="right" valign="top"><a id="a89daffe57d342d65422e1b908dcdfb2e" name="a89daffe57d342d65422e1b908dcdfb2e"></a>
 static Action&#160;</td><td class="memItemRight" valign="bottom"><b>OnClientDisconnected</b></td></tr>
-<tr class="memdesc:a89daffe57d342d65422e1b908dcdfb2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds methods defined by the class "JoinLobbyMenu".<br /></td></tr>
+<tr class="memdesc:a89daffe57d342d65422e1b908dcdfb2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds method "HandleClientDisconnected" defined by the class "JoinLobbyMenu".<br /></td></tr>
 <tr class="separator:a89daffe57d342d65422e1b908dcdfb2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca8443854be4b2bbd59b11ba877e2a88"><td class="memItemLeft" align="right" valign="top"><a id="aca8443854be4b2bbd59b11ba877e2a88" name="aca8443854be4b2bbd59b11ba877e2a88"></a>
 static Action&lt; NetworkConnection &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>OnServerReadied</b></td></tr>
+<tr class="memdesc:aca8443854be4b2bbd59b11ba877e2a88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds method "SpawnPlayer" defined by the class "PlayerSpawnSystem".<br /></td></tr>
 <tr class="separator:aca8443854be4b2bbd59b11ba877e2a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Class implements the Network Manager for the Start Lobby.</p>
+<div class="textblock"><p >Class implements the network manager for the game.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5295cf80d34f1b922a83b0233d299549" name="a5295cf80d34f1b922a83b0233d299549"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5295cf80d34f1b922a83b0233d299549">&#9670;&nbsp;</a></span>isReadyToStart()</h2>
+<a id="a7106b89ac4d5f88b464d80f46cebbfe2" name="a7106b89ac4d5f88b464d80f46cebbfe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7106b89ac4d5f88b464d80f46cebbfe2">&#9670;&nbsp;</a></span>IsReadyToStart()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool NetworkManagerLobby.isReadyToStart </td>
+          <td class="memname">bool NetworkManagerLobby.IsReadyToStart </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -174,7 +175,7 @@ static Action&lt; NetworkConnection &gt;&#160;</td><td class="memItemRight" vali
 </div><div class="memdoc">
 
 <p>Checks that all the requirements for starting the game have been met. </p>
-<dl class="section return"><dt>Returns</dt><dd>false = minimum number of players not reached false = all players are not yet ready otherwise true </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>false = minimum number of players not reached. false = all players are not yet ready. otherwise true </dd></dl>
 
 </div>
 </div>
@@ -272,8 +273,8 @@ static Action&lt; NetworkConnection &gt;&#160;</td><td class="memItemRight" vali
       </table>
 </div><div class="memdoc">
 
-<p>When a client connecting to the server, checks whether the maximum number of clients has already been reached and whether the client connecting is in the menu scene. </p>
-<p >Maximale Anzahl ist erreicht =&gt; Client wird disconnected Client nicht in der Menü Szene =&gt; Client wird disconnected </p><dl class="params"><dt>Parameters</dt><dd>
+<p>When a client connecting to the server, checks whether the maximum number of clients has already been reached and whether the client connecting is in the menu scene. Maximum number is reached =&gt; Client will be disconnected. Client not in the menu scene =&gt; Client will be disconnected. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">conn</td><td>Network connection from client to server and server to client.</td></tr>
   </table>

@@ -82,12 +82,12 @@ Inheritance diagram for NetworkRoomPlayer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1ec3542859bd332b9a499959663c972c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_room_player.html#a1ec3542859bd332b9a499959663c972c">handleReadyStatusChanged</a> (bool oldValue, bool newValue)</td></tr>
-<tr class="memdesc:a1ec3542859bd332b9a499959663c972c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers when the variable "isReady" changes. Then calls "UpdateDisplay()".  <a href="class_network_room_player.html#a1ec3542859bd332b9a499959663c972c">More...</a><br /></td></tr>
-<tr class="separator:a1ec3542859bd332b9a499959663c972c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad91b698a1338ab01861807754272f7c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_room_player.html#ad91b698a1338ab01861807754272f7c4">handleDisplayNameChanged</a> (string oldValue, string newValue)</td></tr>
-<tr class="memdesc:ad91b698a1338ab01861807754272f7c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers when the variable "isLeader" changes. Then calls "UpdateDisplay()".  <a href="class_network_room_player.html#ad91b698a1338ab01861807754272f7c4">More...</a><br /></td></tr>
-<tr class="separator:ad91b698a1338ab01861807754272f7c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2db644a408d4ec01933acfd294d5c06f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_room_player.html#a2db644a408d4ec01933acfd294d5c06f">HandleReadyStatusChanged</a> (bool oldValue, bool newValue)</td></tr>
+<tr class="memdesc:a2db644a408d4ec01933acfd294d5c06f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers when the variable "isReady" changes. Then calls "UpdateDisplay()".  <a href="class_network_room_player.html#a2db644a408d4ec01933acfd294d5c06f">More...</a><br /></td></tr>
+<tr class="separator:a2db644a408d4ec01933acfd294d5c06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd831b0544de903c40cfb45173c7b227"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_room_player.html#acd831b0544de903c40cfb45173c7b227">HandleDisplayNameChanged</a> (string oldValue, string newValue)</td></tr>
+<tr class="memdesc:acd831b0544de903c40cfb45173c7b227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers when the variable "isLeader" changes. Then calls "UpdateDisplay()".  <a href="class_network_room_player.html#acd831b0544de903c40cfb45173c7b227">More...</a><br /></td></tr>
+<tr class="separator:acd831b0544de903c40cfb45173c7b227"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9fc393ccb1e6b87beb1220c11ecf5ce"><td class="memItemLeft" align="right" valign="top"><a id="aa9fc393ccb1e6b87beb1220c11ecf5ce" name="aa9fc393ccb1e6b87beb1220c11ecf5ce"></a>
 override void&#160;</td><td class="memItemRight" valign="bottom"><b>OnStartAuthority</b> ()</td></tr>
 <tr class="memdesc:aa9fc393ccb1e6b87beb1220c11ecf5ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers the method "CmdSetDisplayName()" when the object is started if the client has the authority. <br /></td></tr>
@@ -100,12 +100,13 @@ override void&#160;</td><td class="memItemRight" valign="bottom"><b>OnStartClien
 override void&#160;</td><td class="memItemRight" valign="bottom"><b>OnStopClient</b> ()</td></tr>
 <tr class="memdesc:ab6cd46dabeed0d933ab8b49fab320877"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers when the client/host stops. Removes the client from the "roomPlayers" list of the network manager. The method "UpdateDisplay()" is then called. <br /></td></tr>
 <tr class="separator:ab6cd46dabeed0d933ab8b49fab320877"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3719093de746a341107aa93a91b7c246"><td class="memItemLeft" align="right" valign="top"><a id="a3719093de746a341107aa93a91b7c246" name="a3719093de746a341107aa93a91b7c246"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>leave</b> ()</td></tr>
-<tr class="separator:a3719093de746a341107aa93a91b7c246"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32176847b11a339cc65055f5e26892a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_room_player.html#a32176847b11a339cc65055f5e26892a1">handleReadyToStart</a> (bool readyToStart)</td></tr>
-<tr class="memdesc:a32176847b11a339cc65055f5e26892a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the "startGameButton" interactive if the client is lobby leader.  <a href="class_network_room_player.html#a32176847b11a339cc65055f5e26892a1">More...</a><br /></td></tr>
-<tr class="separator:a32176847b11a339cc65055f5e26892a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2db5de7c0d1d7089ca9c65b05ded1087"><td class="memItemLeft" align="right" valign="top"><a id="a2db5de7c0d1d7089ca9c65b05ded1087" name="a2db5de7c0d1d7089ca9c65b05ded1087"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Leave</b> ()</td></tr>
+<tr class="memdesc:a2db5de7c0d1d7089ca9c65b05ded1087"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to leave the lobby, stops the networkmanager and reset it.<br /></td></tr>
+<tr class="separator:a2db5de7c0d1d7089ca9c65b05ded1087"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb6767e3c17c0485e20ff0af2f5af7ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_room_player.html#adb6767e3c17c0485e20ff0af2f5af7ed">HandleReadyToStart</a> (bool readyToStart)</td></tr>
+<tr class="memdesc:adb6767e3c17c0485e20ff0af2f5af7ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the "startGameButton" interactive if the client is lobby leader and all the conditions for starting the game are met. Called from the Method "notifyPlayersOfReadyState" from "NetworkManagerLobby" class.  <a href="class_network_room_player.html#adb6767e3c17c0485e20ff0af2f5af7ed">More...</a><br /></td></tr>
+<tr class="separator:adb6767e3c17c0485e20ff0af2f5af7ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10443d0048994105f50d25263be5e523"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_room_player.html#a10443d0048994105f50d25263be5e523">CmdSetDisplayName</a> (string <a class="el" href="class_network_room_player.html#a345352de635d2e47ed77490ca13e694d">displayName</a>)</td></tr>
 <tr class="memdesc:a10443d0048994105f50d25263be5e523"><td class="mdescLeft">&#160;</td><td class="mdescRight">This command sets the value of "displayName" to the synchronised variable "this.displayName".  <a href="class_network_room_player.html#a10443d0048994105f50d25263be5e523">More...</a><br /></td></tr>
 <tr class="separator:a10443d0048994105f50d25263be5e523"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,7 +133,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isReady</b> = false</
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a89d70fada2f0bd206c46802796db9761"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_room_player.html#a89d70fada2f0bd206c46802796db9761">IsLeader</a><code> [set]</code></td></tr>
-<tr class="memdesc:a89d70fada2f0bd206c46802796db9761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set funcion for isLeader. Activates the "startGameButton" in the UI.  <a href="class_network_room_player.html#a89d70fada2f0bd206c46802796db9761">More...</a><br /></td></tr>
+<tr class="memdesc:a89d70fada2f0bd206c46802796db9761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set funcion for isLeader. Activates the "startGameButton" in the UI, if player is lobby leader.  <a href="class_network_room_player.html#a89d70fada2f0bd206c46802796db9761">More...</a><br /></td></tr>
 <tr class="separator:a89d70fada2f0bd206c46802796db9761"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -164,14 +165,14 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="ad91b698a1338ab01861807754272f7c4" name="ad91b698a1338ab01861807754272f7c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad91b698a1338ab01861807754272f7c4">&#9670;&nbsp;</a></span>handleDisplayNameChanged()</h2>
+<a id="acd831b0544de903c40cfb45173c7b227" name="acd831b0544de903c40cfb45173c7b227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd831b0544de903c40cfb45173c7b227">&#9670;&nbsp;</a></span>HandleDisplayNameChanged()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void NetworkRoomPlayer.handleDisplayNameChanged </td>
+          <td class="memname">void NetworkRoomPlayer.HandleDisplayNameChanged </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>oldValue</em>, </td>
@@ -193,22 +194,22 @@ Properties</h2></td></tr>
 <p>Triggers when the variable "isLeader" changes. Then calls "UpdateDisplay()". </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">oldValue</td><td>Old variable</td></tr>
-    <tr><td class="paramname">newValue</td><td>New variable</td></tr>
+    <tr><td class="paramname">oldValue</td><td>Old display name</td></tr>
+    <tr><td class="paramname">newValue</td><td>New display name</td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a1ec3542859bd332b9a499959663c972c" name="a1ec3542859bd332b9a499959663c972c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ec3542859bd332b9a499959663c972c">&#9670;&nbsp;</a></span>handleReadyStatusChanged()</h2>
+<a id="a2db644a408d4ec01933acfd294d5c06f" name="a2db644a408d4ec01933acfd294d5c06f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2db644a408d4ec01933acfd294d5c06f">&#9670;&nbsp;</a></span>HandleReadyStatusChanged()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void NetworkRoomPlayer.handleReadyStatusChanged </td>
+          <td class="memname">void NetworkRoomPlayer.HandleReadyStatusChanged </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>oldValue</em>, </td>
@@ -230,22 +231,22 @@ Properties</h2></td></tr>
 <p>Triggers when the variable "isReady" changes. Then calls "UpdateDisplay()". </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">oldValue</td><td>Old variable</td></tr>
-    <tr><td class="paramname">newValue</td><td>New variable</td></tr>
+    <tr><td class="paramname">oldValue</td><td>Old boolean value</td></tr>
+    <tr><td class="paramname">newValue</td><td>New boolean value</td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a32176847b11a339cc65055f5e26892a1" name="a32176847b11a339cc65055f5e26892a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32176847b11a339cc65055f5e26892a1">&#9670;&nbsp;</a></span>handleReadyToStart()</h2>
+<a id="adb6767e3c17c0485e20ff0af2f5af7ed" name="adb6767e3c17c0485e20ff0af2f5af7ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb6767e3c17c0485e20ff0af2f5af7ed">&#9670;&nbsp;</a></span>HandleReadyToStart()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void NetworkRoomPlayer.handleReadyToStart </td>
+          <td class="memname">void NetworkRoomPlayer.HandleReadyToStart </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>readyToStart</em></td><td>)</td>
@@ -254,10 +255,10 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Makes the "startGameButton" interactive if the client is lobby leader. </p>
+<p>Makes the "startGameButton" interactive if the client is lobby leader and all the conditions for starting the game are met. Called from the Method "notifyPlayersOfReadyState" from "NetworkManagerLobby" class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">readyToStart</td><td></td></tr>
+    <tr><td class="paramname">readyToStart</td><td>true, when all the conditions for starting the game are met.</td></tr>
   </table>
   </dd>
 </dl>
@@ -285,7 +286,7 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Set funcion for isLeader. Activates the "startGameButton" in the UI. </p>
+<p>Set funcion for isLeader. Activates the "startGameButton" in the UI, if player is lobby leader. </p>
 <p >Set value for "isLeader". Is a boolean.</p>
 
 </div>

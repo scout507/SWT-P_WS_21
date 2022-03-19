@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['changevolume_0',['changeVolume',['../class_menu.html#a1e331016ee26ee993a449c9da59e5871',1,'Menu.changeVolume()'],['../class_ingame_menu.html#a87fc95ef587c2884945547ebc8d3f9ba',1,'IngameMenu.changeVolume()']]],
+  ['changevolume_0',['ChangeVolume',['../class_menu.html#a6402582f6f54d912bdd3153ef485a8f9',1,'Menu.ChangeVolume()'],['../class_ingame_menu.html#a16b244d42e3ddcef4594513ef863b175',1,'IngameMenu.ChangeVolume()']]],
   ['checkallfinished_1',['CheckAllFinished',['../class_task_manager.html#a3e581d61b3b8aad7be6fc44bf27fc866',1,'TaskManager']]],
   ['checkgrounded_2',['CheckGrounded',['../class_monster_controller.html#ad3b276a47ba6546d24cc5a842a6316ac',1,'MonsterController.CheckGrounded()'],['../class_player_movement.html#a797284c7f18f2fdeba850c3c1b5a490a',1,'PlayerMovement.CheckGrounded()']]],
   ['cmdactive_3',['CmdActive',['../class_fence_interaction.html#aecaee3f3405be8a5a67cefdc0d3aa79f',1,'FenceInteraction']]],
@@ -20,5 +20,5 @@ var searchData=
   ['cmdstartgame_17',['CmdStartGame',['../class_network_room_player.html#a3e51c63181d4cfe15dc3d318e5f3da05',1,'NetworkRoomPlayer']]],
   ['cmdswitchweapon_18',['CmdSwitchWeapon',['../class_classes.html#a0fa2247f102d576edc28978cb85359ce',1,'Classes']]],
   ['cmdtriggermonster_19',['CmdTriggerMonster',['../class_shoot_gun.html#a252a70c3b7c10ba9ad4ef3186955cdec',1,'ShootGun']]],
-  ['continuebuttonpressed_20',['continueButtonPressed',['../class_player_name_input.html#aacfaafe76b76cafbf377d31f7638820c',1,'PlayerNameInput']]]
+  ['continuebuttonpressed_20',['ContinueButtonPressed',['../class_player_name_input.html#a93ba715d3eaa4f7265c57e69f734def3',1,'PlayerNameInput']]]
 ];

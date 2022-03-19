@@ -4,7 +4,7 @@ var searchData=
   ['targetdamage_1',['TargetDamage',['../class_health.html#a2c71af798c6185e71f4f999a3818ddb9',1,'Health']]],
   ['targetdeath_2',['TargetDeath',['../class_cam_controller.html#aa6667ca163d7145add9b228d06c905c4',1,'CamController.TargetDeath()'],['../class_device.html#ac33fcbc757ed8e0f1a8f5db107e9f72f',1,'Device.TargetDeath()']]],
   ['timetonextwavestring_3',['TimeToNextWaveString',['../class_zombie_spawner.html#afe72b50c38caa1887415dde673481b3e',1,'ZombieSpawner']]],
-  ['togglecanvas_4',['toggleCanvas',['../class_end_game_menu.html#af9c041d80ce0262858b8487164585e14',1,'EndGameMenu']]],
-  ['togglemenu_5',['toggleMenu',['../class_ingame_menu.html#a87783f0d2900bfacc4b9811fdbb3820b',1,'IngameMenu']]],
+  ['togglecanvas_4',['ToggleCanvas',['../class_end_game_menu.html#a21a6a28216c80a523a0605132b15e395',1,'EndGameMenu']]],
+  ['togglemenu_5',['ToggleMenu',['../class_ingame_menu.html#ac1fde9e4f19d78809df00baf947cdf70',1,'IngameMenu']]],
   ['triggeraggro_6',['TriggerAggro',['../class_shoot_gun.html#a6a65ad536b8008432976bf5b421df1d2',1,'ShootGun']]]
 ];
