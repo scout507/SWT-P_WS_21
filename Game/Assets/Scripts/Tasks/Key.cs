@@ -19,7 +19,6 @@ public class Key : NetworkBehaviour
             GameObject.FindObjectOfType<KeyTask>().GetComponent<KeyTask>().playerWithKey = other.gameObject;
             GameObject.FindObjectOfType<KeyTask>().GetComponent<KeyTask>().taskDescription = "Use the key to access the electronics in the south-east building";
             TargetRpcSendMessage(other.gameObject.GetComponent<NetworkIdentity>().connectionToClient, "You picked up the key!");
-            Destroy(this.gameObject);
         }
     }
 
@@ -31,6 +30,16 @@ public class Key : NetworkBehaviour
     [TargetRpc]
     void TargetRpcSendMessage(NetworkConnection target, string message)
     {
-        if(NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
+        if (NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
+        CmdDestroy();
+    }
+
+    /// <summary>
+    /// Sends a command to a server to destroy the key.
+    /// </summary>
+    [Command(requiresAuthority = false)]
+    void CmdDestroy()
+    {
+        Destroy(this.gameObject);
     }
 }
