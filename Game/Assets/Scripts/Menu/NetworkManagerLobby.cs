@@ -18,15 +18,6 @@ public class NetworkManagerLobby : NetworkManager
     [SerializeField]
     public List<NetworkGamePlayer> gamePlayers = new List<NetworkGamePlayer>();
 
-    /// <summary>Holds method "HandleClientConnected" defined by the class "JoinLobbyMenu".</summary>
-    public static event Action OnClientConnected;
-
-    /// <summary>Holds method "HandleClientDisconnected" defined by the class "JoinLobbyMenu".</summary>
-    public static event Action OnClientDisconnected;
-
-    /// <summary>Holds method "SpawnPlayer" defined by the class "PlayerSpawnSystem".</summary>
-    public static event Action<NetworkConnection> OnServerReadied;
-
     /// <summary>Specifies the minimum number of clients required.</summary>
     [SerializeField]
     private int minPlayers = 2;
@@ -54,6 +45,15 @@ public class NetworkManagerLobby : NetworkManager
     /// <summary>Hold the prefab of the spawn system.</summary>
     [SerializeField]
     private GameObject playerSpawnSystem = null;
+
+    /// <summary>Holds method "HandleClientConnected" defined by the class "JoinLobbyMenu".</summary>
+    public static event Action OnClientConnected;
+
+    /// <summary>Holds method "HandleClientDisconnected" defined by the class "JoinLobbyMenu".</summary>
+    public static event Action OnClientDisconnected;
+
+    /// <summary>Holds method "SpawnPlayer" defined by the class "PlayerSpawnSystem".</summary>
+    public static event Action<NetworkConnection> OnServerReadied;
 
     /// <summary>
     /// Loads all available prefabs from the folder "Assets/Prefabs/Resources/SpawnablePrefabs" 
@@ -154,7 +154,7 @@ public class NetworkManagerLobby : NetworkManager
         {
             var player = conn.identity.GetComponent<NetworkRoomPlayer>();
             roomPlayers.Remove(player);
-            notifyPlayersOfReadyState();
+            NotifyPlayersOfReadyState();
         }
 
         base.OnServerDisconnect(conn);
@@ -172,11 +172,11 @@ public class NetworkManagerLobby : NetworkManager
     /// <summary>
     /// Calls the method "handleReadyToStart()" for all clients in the "roomPlayers" list.
     /// </summary>
-    public void notifyPlayersOfReadyState()
+    public void NotifyPlayersOfReadyState()
     {
         foreach (var player in roomPlayers)
         {
-            player.HandleReadyToStart(isReadyToStart());
+            player.HandleReadyToStart(IsReadyToStart());
         }
     }
 
@@ -188,7 +188,7 @@ public class NetworkManagerLobby : NetworkManager
     /// false = all players are not yet ready. 
     /// otherwise true
     /// </returns>
-    public bool isReadyToStart()
+    public bool IsReadyToStart()
     {
         if (numPlayers < minPlayers)
             return false;
@@ -204,11 +204,11 @@ public class NetworkManagerLobby : NetworkManager
     /// Starts the game from the host.
     /// Starts only when the ready condition are met.
     /// </summary>
-    public void startGame()
+    public void StartGame()
     {
         if (SceneManager.GetActiveScene().path == menuScene)
         {
-            if (!isReadyToStart())
+            if (!IsReadyToStart())
                 return;
 
             ServerChangeScene(gameScene);

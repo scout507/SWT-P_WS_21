@@ -189,7 +189,7 @@ public class NetworkRoomPlayer : NetworkBehaviour
     {
         isReady = !isReady;
 
-        Room.notifyPlayersOfReadyState();
+        Room.NotifyPlayersOfReadyState();
     }
 
     /// <summary>
@@ -202,6 +202,6 @@ public class NetworkRoomPlayer : NetworkBehaviour
         if (Room.roomPlayers[0].connectionToClient != connectionToClient)
             return;
 
-        Room.startGame();
+        Room.StartGame();
     }
 }
