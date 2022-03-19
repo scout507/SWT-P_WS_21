@@ -23,7 +23,6 @@ public class MeleeAnimationColliderToggle : MonoBehaviour
     void Start()
     {
         col = melee.gunMount.GetComponentInChildren<CapsuleCollider>();
-        Debug.Log("Melee Collider: " + col);
     }
 
     /// <summary>

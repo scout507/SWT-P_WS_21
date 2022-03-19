@@ -496,14 +496,12 @@ public class PlayerMovement : NetworkBehaviour
             {
                 SetIsGrounded(true);
                 playerTransform.transform.position += Vector3.up * speedUpDown;
-                Debug.Log("LAdderUp");
             }
 
             if (insideLadder == true && Input.GetKey("s"))
             {
                 SetIsGrounded(true);
                 playerTransform.transform.position -= Vector3.up * speedUpDown;
-                Debug.Log("LAdderDown");
             }
         }
     }
