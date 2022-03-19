@@ -3,18 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Mirror;
 
+/// <summary>
+/// This script Updates the Weapon-UI in the HUD.
+/// </summary>
 public class Inventory : MonoBehaviour
 {
     /// <summary>
     /// weapon Icon-Image
     /// </summary>
     public Image icon;
+
     /// <summary>
     /// ammount of ammo in a magazine
     /// </summary>
     public Text currentAmmo;
+
     /// <summary>
     /// amount of magazines per weapon
     /// </summary>

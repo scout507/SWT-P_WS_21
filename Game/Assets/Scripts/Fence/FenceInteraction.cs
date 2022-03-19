@@ -90,8 +90,6 @@ public class FenceInteraction : NetworkBehaviour
 
             if (players.Contains(playerId) && !used && brokenPlanks.Count > 0)
             {
-                Debug.Log("Press [E]");
-
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     CmdActive(playerId);
@@ -142,6 +140,7 @@ public class FenceInteraction : NetworkBehaviour
         )
         {
             players.Add(player.GetComponent<NetworkIdentity>().netId);
+            targetRpcSendMessage(player.GetComponent<NetworkIdentity>().connectionToClient, "Press [E] to repair.");
         }
     }
 
@@ -168,5 +167,11 @@ public class FenceInteraction : NetworkBehaviour
     {
         used = true;
         activPlayer = netidPlayer;
+    }
+
+    [TargetRpc]
+    void targetRpcSendMessage(NetworkConnection target, string message)
+    {
+        if(NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>()) NetworkClient.localPlayer.gameObject.GetComponent<Chatbox>().AddMessage(message);
     }
 }

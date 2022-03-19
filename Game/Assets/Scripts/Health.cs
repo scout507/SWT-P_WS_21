@@ -17,7 +17,7 @@ public class Health : NetworkBehaviour
     [SyncVar]
     public int health = 100;
 
-    public HealthBar healthBar;
+    HealthBar healthBar;
 
     /// <summary>Holds the prefab for a dead player.</summary>
     public GameObject deadPlayerPrefab = null;
@@ -25,12 +25,18 @@ public class Health : NetworkBehaviour
     public GameObject spectatorPlayerPrefab = null;
     /// <summary>Is true when the player is dead.</summary>
     public bool isDead = false;
+    /// <summary>Audio Script that controlls Gun Sound</summary>
+    public AudioController audioController;
+    /// <summary>UI element responsible for flashing red on beeing hit.</summary>
+    public GameObject hitflash;
 
     void Start()
     {
+        if (!isLocalPlayer) return;
 
+        healthBar = GetComponentInChildren<HealthBar>();
         health = 100;
-        healthBar.SetMaxHealth(health);
+        audioController = this.GetComponent<AudioController>();
     }
 
     /// <summary>
@@ -52,42 +58,59 @@ public class Health : NetworkBehaviour
             health -= amount;
             if (health > 0)
             {
-                healthBar.SetHealth(health);
-            }
-            else
-            {
-                healthBar.SetHealth(0);
+                TargetRpcDamageSounds(connectionToClient, 1, 10);
             }
         }
         if (amount > 0) TargetDamage();
         else GotHealed();
         if (health <= 0 && !isDead)
         {
+            TargetRpcDamageSounds(connectionToClient, 10, 11);
             isDead = true;
             TargetDeath();
         }
     }
 
     /// <summary>
-    /// The methode TargetDamage is called when a player is hit. It can then trigger an animation or something similar.
+    /// Disables the hitflash UI element.
+    /// </summary>
+    void DisableHitFlash()
+    {
+        hitflash.SetActive(false);
+    }
+
+    /// <summary>
+    /// The method TargetDamage is called when a player is hit. It can then trigger an animation or something similar.
     /// </summary>
     [TargetRpc]
     public void TargetDamage()
     {
-        Debug.Log("Took damage!");
+        hitflash.SetActive(true);
+        Invoke("DisableHitFlash", 0.2f);
     }
 
     /// <summary>
-    /// The methode GotHealed is called when a player is healed. It can then trigger an animation or something similar.
+    /// The method GotHealed is called when a player is healed. It can then trigger an animation or something similar.
     /// </summary>
     [TargetRpc]
     public void GotHealed()
     {
         Debug.Log("Got healed!");
     }
+    /// <summary>
+    /// Triggers a damage sound on a player that got hit.
+    /// </summary>
+    /// <param name="target">Player that got hit</param>
+    /// <param name="min">Soundindex</param>
+    /// <param name="max">Soundindex</param>
+    [TargetRpc]
+    void TargetRpcDamageSounds(NetworkConnection target, int min, int max)
+    {
+        audioController.CmdPlayDmgTakenSound(min, max);
+    }
 
     /// <summary>
-    /// The methode TargetDeath is called when a player dies. It destroys the gameobject of the player and resets the main camera.
+    /// The method TargetDeath is called when a player dies. It destroys the gameobject of the player and resets the main camera.
     /// </summary>
     [TargetRpc]
     void TargetDeath()
@@ -103,6 +126,7 @@ public class Health : NetworkBehaviour
     [Command]
     void CmdDestroyPlayer()
     {
+        gameObject.tag = "Untagged";
         GameObject deadPlayer = Instantiate(deadPlayerPrefab, transform.position, transform.rotation);
         GameObject spectator = Instantiate(spectatorPlayerPrefab, transform.position + Vector3.up * 5, transform.rotation);
 
