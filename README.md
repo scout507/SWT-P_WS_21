@@ -24,10 +24,10 @@ The gameplay is based on the classic TTT from Garrys-Mod and Amoung Us. Our game
 * Quick-Chat: NUM 1-9
 
 ## Download:
-You can find the free download for our game [here]().
+You can find the free download for our game [here](https://github.com/scout507/SWT-P_WS_21/releases/tag/v1.0.0).
 
 ## How to participate:
-To participate in the project, please read the Planning/Organization section to know how we work on this project. After that, it is recommended to read the section "Development Environment" so that you have all the necessary knowledge and tools to get started. If there are any questions afterwards, they can usually be solved by reading the documentation or the wiki, if not, you can find [here]() how to reach us.
+To participate in the project, please read the Planning/Organization section to know how we work on this project. After that, it is recommended to read the section "Development Environment" so that you have all the necessary knowledge and tools to get started. If there are any questions afterwards, they can usually be solved by reading the documentation or the wiki, if not, you can find [here](https://github.com/scout507/SWT-P_WS_21/wiki/Plannung-Organisation#kommunikation) how to reach us.
 
 ## Link to the documentation:
 Documentation can be found [here](https://scout507.github.io/SWT-P_WS_21/annotated.html).
