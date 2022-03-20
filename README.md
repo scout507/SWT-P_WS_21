@@ -11,15 +11,17 @@ The gameplay is based on the classic TTT from Garrys-Mod and Amoung Us. Our game
 ## Controls
 
 * Move: WASD
-* Look around: Maus
-* Sprint: linke Umschalttaste
-* Crouch: linke Steuerungstaste
-* Jump: Leertaste
+* Look around: Mouse
+* Sprint: left Shift
+* Crouch: left Ctrl
+* Jump: Space
 * Interact: E
 * Open menu: ESC
-* Shooting: linke Maustaste
-* Secondary function (z.B. Sniper-Zoom): rechte Maustaste
+* Shooting: left mouse button
+* Secondary function (sniper-zoom): right mouse button
 * Taunt: T + 1-3
+* Open/Close Chat: Enter (Keypad)
+* Quick-Chat: NUM 1-9
 
 ## Download:
 You can find the free download for our game [here]().
