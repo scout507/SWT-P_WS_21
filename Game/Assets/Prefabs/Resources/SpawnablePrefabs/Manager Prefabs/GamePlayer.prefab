@@ -2713,11 +2713,7 @@ MonoBehaviour:
 
     use chat
 
-    emotes
-
-    enter/leave
-
-    camera switch'
+    emotes'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d89f8d4a692fb48449e06344a319e555, type: 2}
   m_sharedMaterial: {fileID: 3443817356749804247, guid: d89f8d4a692fb48449e06344a319e555, type: 2}
@@ -3956,11 +3952,7 @@ MonoBehaviour:
     Num Enter   -
 
     t
-    + 1/2/3   -
-
-    x   -
-
-    space   -'
+    + 1/2/3   -'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d89f8d4a692fb48449e06344a319e555, type: 2}
   m_sharedMaterial: {fileID: 3443817356749804247, guid: d89f8d4a692fb48449e06344a319e555, type: 2}
