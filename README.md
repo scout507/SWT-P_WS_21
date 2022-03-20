@@ -1,11 +1,11 @@
-# SWT-P_WS_21: **Amoung Dead**
+# SWT-P_WS_21: **Among Dead**
 
 ## What does the project offer?
 This project was developed as part of the software engineering project in WS21/22 at the Technische Hochschule Mittelhessen.
 The topic included: game development and working with Scrum.
 
 ### Amoung Dead:
-The actual project is a game called "Amoung Dead". It is a casual multiplayer game, which is mainly designed to be played with your friends.
+The actual project is a game called "Among Dead". It is a casual multiplayer game, which is mainly designed to be played with your friends.
 The gameplay is based on the classic TTT from Garrys-Mod and Amoung Us. Our game combines the different aspects of the gameplay and unites it as multiplayer in a 3D environment. To learn more about it, please visit our [Game Design](https://github.com/scout507/SWT-P_WS_21/wiki/Game-Design#idee) section.
 
 ## Controls
