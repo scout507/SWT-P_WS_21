@@ -65,6 +65,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_cam_controller-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">CamController Class Reference</div></div>
 </div><!--header-->
@@ -93,9 +95,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa6667ca163d7145add9b228d06c905c4"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cam_controller.html#aa6667ca163d7145add9b228d06c905c4">TargetDeath</a> ()</td></tr>
 <tr class="memdesc:aa6667ca163d7145add9b228d06c905c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function destroys the camera and returns the players perspective to the character if the camera was in use.  <a href="class_cam_controller.html#aa6667ca163d7145add9b228d06c905c4">More...</a><br /></td></tr>
 <tr class="separator:aa6667ca163d7145add9b228d06c905c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e437c6f9d3abfe8250ad805f367e641"><td class="memItemLeft" align="right" valign="top"><a id="a8e437c6f9d3abfe8250ad805f367e641" name="a8e437c6f9d3abfe8250ad805f367e641"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>CmdSetActive</b> ()</td></tr>
-<tr class="memdesc:a8e437c6f9d3abfe8250ad805f367e641"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the isActiv flag depending on whether it is used at the moment or not. <br /></td></tr>
+<tr class="memitem:a8e437c6f9d3abfe8250ad805f367e641"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cam_controller.html#a8e437c6f9d3abfe8250ad805f367e641">CmdSetActive</a> ()</td></tr>
+<tr class="memdesc:a8e437c6f9d3abfe8250ad805f367e641"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the isActiv flag depending on whether it is used at the moment or not.  <a href="class_cam_controller.html#a8e437c6f9d3abfe8250ad805f367e641">More...</a><br /></td></tr>
 <tr class="separator:a8e437c6f9d3abfe8250ad805f367e641"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3efe90c97bf3880925b4e5c5e71a27c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cam_controller.html#a3efe90c97bf3880925b4e5c5e71a27c4">CmdSetNumber</a> (int number)</td></tr>
 <tr class="memdesc:a3efe90c97bf3880925b4e5c5e71a27c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This command calls the function for setting the right index of the camera.  <a href="class_cam_controller.html#a3efe90c97bf3880925b4e5c5e71a27c4">More...</a><br /></td></tr>
@@ -110,14 +111,56 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>CmdSetActive</b> ()</
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a6fc8c4daf5902d444a77ec4db210a048"><td class="memItemLeft" align="right" valign="top"><a id="a6fc8c4daf5902d444a77ec4db210a048" name="a6fc8c4daf5902d444a77ec4db210a048"></a>
-Transform&#160;</td><td class="memItemRight" valign="bottom"><b>cameraMount</b></td></tr>
-<tr class="memdesc:a6fc8c4daf5902d444a77ec4db210a048"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the point, where the camera is mounted when an player enters it.<br /></td></tr>
+<tr class="memitem:a6fc8c4daf5902d444a77ec4db210a048"><td class="memItemLeft" align="right" valign="top">Transform&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cam_controller.html#a6fc8c4daf5902d444a77ec4db210a048">cameraMount</a></td></tr>
+<tr class="memdesc:a6fc8c4daf5902d444a77ec4db210a048"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the point, where the camera is mounted when an player enters it. <a href="class_cam_controller.html#a6fc8c4daf5902d444a77ec4db210a048">More...</a><br /></td></tr>
 <tr class="separator:a6fc8c4daf5902d444a77ec4db210a048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:af2e0c7008e51f4a70c9401a5f14d789b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cam_controller.html#af2e0c7008e51f4a70c9401a5f14d789b">OnCollisionEnter</a> (Collision other)</td></tr>
+<tr class="memdesc:af2e0c7008e51f4a70c9401a5f14d789b"><td class="mdescLeft">&#160;</td><td class="mdescRight">On collision the camera rotates in the correct position. The rotation depends on the orientation of the wall.  <a href="class_cam_controller.html#af2e0c7008e51f4a70c9401a5f14d789b">More...</a><br /></td></tr>
+<tr class="separator:af2e0c7008e51f4a70c9401a5f14d789b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f8209db56deb168b8e55599fbed058e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cam_controller.html#a7f8209db56deb168b8e55599fbed058e">TargetRemoveDevice</a> (NetworkConnection deviceOwner, int number)</td></tr>
+<tr class="memdesc:a7f8209db56deb168b8e55599fbed058e"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the camera is destroyed it needs to be removed from the list of set up cams.  <a href="class_cam_controller.html#a7f8209db56deb168b8e55599fbed058e">More...</a><br /></td></tr>
+<tr class="separator:a7f8209db56deb168b8e55599fbed058e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c309d731b0a5b6e91f0e7c169d95841"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cam_controller.html#a1c309d731b0a5b6e91f0e7c169d95841">TargetReturnToPlayer</a> (NetworkConnection deviceOwner)</td></tr>
+<tr class="memdesc:a1c309d731b0a5b6e91f0e7c169d95841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls function in player character which pulls back the view to the player character.  <a href="class_cam_controller.html#a1c309d731b0a5b6e91f0e7c169d95841">More...</a><br /></td></tr>
+<tr class="separator:a1c309d731b0a5b6e91f0e7c169d95841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae12e9a2667d4a53040bbc3f4dd5da14a"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cam_controller.html#ae12e9a2667d4a53040bbc3f4dd5da14a">owner</a></td></tr>
+<tr class="memdesc:ae12e9a2667d4a53040bbc3f4dd5da14a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the owner of the camera. <a href="class_cam_controller.html#ae12e9a2667d4a53040bbc3f4dd5da14a">More...</a><br /></td></tr>
+<tr class="separator:ae12e9a2667d4a53040bbc3f4dd5da14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c8818a4112db94ef5a4294597153ea9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cam_controller.html#a3c8818a4112db94ef5a4294597153ea9">numberOfCam</a></td></tr>
+<tr class="memdesc:a3c8818a4112db94ef5a4294597153ea9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the index of the camera in the list of set up cameras of the owner. <a href="class_cam_controller.html#a3c8818a4112db94ef5a4294597153ea9">More...</a><br /></td></tr>
+<tr class="separator:a3c8818a4112db94ef5a4294597153ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a386cbf4cb49e8f9e1d9c5c174545caf8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cam_controller.html#a386cbf4cb49e8f9e1d9c5c174545caf8">isActiv</a> = false</td></tr>
+<tr class="memdesc:a386cbf4cb49e8f9e1d9c5c174545caf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This flag indicates if a player uses the camera at the moment. <a href="class_cam_controller.html#a386cbf4cb49e8f9e1d9c5c174545caf8">More...</a><br /></td></tr>
+<tr class="separator:a386cbf4cb49e8f9e1d9c5c174545caf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This Script is responsible for the right position of a thrown camera, for managing the owner of the camera and for destroying the gameobject in case of its death. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8e437c6f9d3abfe8250ad805f367e641" name="a8e437c6f9d3abfe8250ad805f367e641"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e437c6f9d3abfe8250ad805f367e641">&#9670;&nbsp;</a></span>CmdSetActive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CamController.CmdSetActive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the isActiv flag depending on whether it is used at the moment or not. </p>
+
+</div>
+</div>
 <a id="a3efe90c97bf3880925b4e5c5e71a27c4" name="a3efe90c97bf3880925b4e5c5e71a27c4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3efe90c97bf3880925b4e5c5e71a27c4">&#9670;&nbsp;</a></span>CmdSetNumber()</h2>
 
@@ -138,6 +181,40 @@ Transform&#160;</td><td class="memItemRight" valign="bottom"><b>cameraMount</b><
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">number</td><td>Index in List of set up cameras.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af2e0c7008e51f4a70c9401a5f14d789b" name="af2e0c7008e51f4a70c9401a5f14d789b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2e0c7008e51f4a70c9401a5f14d789b">&#9670;&nbsp;</a></span>OnCollisionEnter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CamController.OnCollisionEnter </td>
+          <td>(</td>
+          <td class="paramtype">Collision&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>On collision the camera rotates in the correct position. The rotation depends on the orientation of the wall. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Data about the collision.</td></tr>
   </table>
   </dd>
 </dl>
@@ -225,8 +302,176 @@ Transform&#160;</td><td class="memItemRight" valign="bottom"><b>cameraMount</b><
 
 </div>
 </div>
+<a id="a7f8209db56deb168b8e55599fbed058e" name="a7f8209db56deb168b8e55599fbed058e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f8209db56deb168b8e55599fbed058e">&#9670;&nbsp;</a></span>TargetRemoveDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CamController.TargetRemoveDevice </td>
+          <td>(</td>
+          <td class="paramtype">NetworkConnection&#160;</td>
+          <td class="paramname"><em>deviceOwner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If the camera is destroyed it needs to be removed from the list of set up cams. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">deviceOwner</td><td>Owner of destroyed camera.</td></tr>
+    <tr><td class="paramname">number</td><td>Index of destroyed camera.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1c309d731b0a5b6e91f0e7c169d95841" name="a1c309d731b0a5b6e91f0e7c169d95841"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c309d731b0a5b6e91f0e7c169d95841">&#9670;&nbsp;</a></span>TargetReturnToPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CamController.TargetReturnToPlayer </td>
+          <td>(</td>
+          <td class="paramtype">NetworkConnection&#160;</td>
+          <td class="paramname"><em>deviceOwner</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calls function in player character which pulls back the view to the player character. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">deviceOwner</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a6fc8c4daf5902d444a77ec4db210a048" name="a6fc8c4daf5902d444a77ec4db210a048"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fc8c4daf5902d444a77ec4db210a048">&#9670;&nbsp;</a></span>cameraMount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Transform CamController.cameraMount</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is the point, where the camera is mounted when an player enters it.</p>
+
+</div>
+</div>
+<a id="a386cbf4cb49e8f9e1d9c5c174545caf8" name="a386cbf4cb49e8f9e1d9c5c174545caf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a386cbf4cb49e8f9e1d9c5c174545caf8">&#9670;&nbsp;</a></span>isActiv</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CamController.isActiv = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This flag indicates if a player uses the camera at the moment.</p>
+
+</div>
+</div>
+<a id="a3c8818a4112db94ef5a4294597153ea9" name="a3c8818a4112db94ef5a4294597153ea9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c8818a4112db94ef5a4294597153ea9">&#9670;&nbsp;</a></span>numberOfCam</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CamController.numberOfCam</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is the index of the camera in the list of set up cameras of the owner.</p>
+
+</div>
+</div>
+<a id="ae12e9a2667d4a53040bbc3f4dd5da14a" name="ae12e9a2667d4a53040bbc3f4dd5da14a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae12e9a2667d4a53040bbc3f4dd5da14a">&#9670;&nbsp;</a></span>owner</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject CamController.owner</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is the owner of the camera.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>CamController.cs</li>
+<li><a class="el" href="_cam_controller_8cs.html">CamController.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

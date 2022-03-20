@@ -64,6 +64,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_player_spawn_system-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">PlayerSpawnSystem Class Reference</div></div>
 </div><!--header-->
@@ -80,17 +82,83 @@ Inheritance diagram for PlayerSpawnSystem:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aab62328e988b7780013a16700cd2aea5"><td class="memItemLeft" align="right" valign="top"><a id="aab62328e988b7780013a16700cd2aea5" name="aab62328e988b7780013a16700cd2aea5"></a>
-override void&#160;</td><td class="memItemRight" valign="bottom"><b>OnStartServer</b> ()</td></tr>
-<tr class="memdesc:aab62328e988b7780013a16700cd2aea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the class will been instantiated. Add the Function "SpawnPlayer()" to the Networkmanager. <br /></td></tr>
+<tr class="memitem:aab62328e988b7780013a16700cd2aea5"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_spawn_system.html#aab62328e988b7780013a16700cd2aea5">OnStartServer</a> ()</td></tr>
+<tr class="memdesc:aab62328e988b7780013a16700cd2aea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the class will been instantiated. Add the Function "SpawnPlayer()" to the Networkmanager.  <a href="class_player_spawn_system.html#aab62328e988b7780013a16700cd2aea5">More...</a><br /></td></tr>
 <tr class="separator:aab62328e988b7780013a16700cd2aea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafe7a2d26a6760b0f6e542d3030b30f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_spawn_system.html#aafe7a2d26a6760b0f6e542d3030b30f0">SpawnPlayer</a> (NetworkConnection conn)</td></tr>
 <tr class="memdesc:aafe7a2d26a6760b0f6e542d3030b30f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called only by the server. Randomly creates the player with one of the predefined presets/classes. If no more prefab is available, the default prefab is used. Also sets the display name on the player prefab and the spawn position. The offset is counted up. Replaces the game object for the client connection.  <a href="class_player_spawn_system.html#aafe7a2d26a6760b0f6e542d3030b30f0">More...</a><br /></td></tr>
 <tr class="separator:aafe7a2d26a6760b0f6e542d3030b30f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ae260ce94a768a35dc179dc8c97ad84a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_spawn_system.html#ae260ce94a768a35dc179dc8c97ad84a0">OnDestroy</a> ()</td></tr>
+<tr class="memdesc:ae260ce94a768a35dc179dc8c97ad84a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the class will been Destroyed. Removes the Function "SpawnPlayer()" to the Networkmanager.  <a href="class_player_spawn_system.html#ae260ce94a768a35dc179dc8c97ad84a0">More...</a><br /></td></tr>
+<tr class="separator:ae260ce94a768a35dc179dc8c97ad84a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a82e59d0b81bc1275b40af5efb6ed9ab6"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_spawn_system.html#a82e59d0b81bc1275b40af5efb6ed9ab6">spawn</a> = new Vector3(0.8f, 6.46f, -13.87f)</td></tr>
+<tr class="memdesc:a82e59d0b81bc1275b40af5efb6ed9ab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawn point of the player prefab <a href="class_player_spawn_system.html#a82e59d0b81bc1275b40af5efb6ed9ab6">More...</a><br /></td></tr>
+<tr class="separator:a82e59d0b81bc1275b40af5efb6ed9ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0a28eaa94bde3d78a774af0f2030809"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_spawn_system.html#ab0a28eaa94bde3d78a774af0f2030809">offset</a> = 0</td></tr>
+<tr class="memdesc:ab0a28eaa94bde3d78a774af0f2030809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset for spawning the players <a href="class_player_spawn_system.html#ab0a28eaa94bde3d78a774af0f2030809">More...</a><br /></td></tr>
+<tr class="separator:ab0a28eaa94bde3d78a774af0f2030809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a383c5c978e94c9cc9e9f4c96b379290b"><td class="memItemLeft" align="right" valign="top">List&lt; GameObject &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_spawn_system.html#a383c5c978e94c9cc9e9f4c96b379290b">playerPrefabs</a> = null</td></tr>
+<tr class="memdesc:a383c5c978e94c9cc9e9f4c96b379290b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds a list of the prefabs for the player that can be spawned.  <a href="class_player_spawn_system.html#a383c5c978e94c9cc9e9f4c96b379290b">More...</a><br /></td></tr>
+<tr class="separator:a383c5c978e94c9cc9e9f4c96b379290b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a066e69819b395189c8b43aea72f95ea7"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_spawn_system.html#a066e69819b395189c8b43aea72f95ea7">playerPrefabDefault</a> = null</td></tr>
+<tr class="memdesc:a066e69819b395189c8b43aea72f95ea7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the default prefab for the player that can be spawned if there is no prefab left in the "playerPrefabs" list.  <a href="class_player_spawn_system.html#a066e69819b395189c8b43aea72f95ea7">More...</a><br /></td></tr>
+<tr class="separator:a066e69819b395189c8b43aea72f95ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Needed to spawn players when transitioning from the menu to the game.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae260ce94a768a35dc179dc8c97ad84a0" name="ae260ce94a768a35dc179dc8c97ad84a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae260ce94a768a35dc179dc8c97ad84a0">&#9670;&nbsp;</a></span>OnDestroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerSpawnSystem.OnDestroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when the class will been Destroyed. Removes the Function "SpawnPlayer()" to the Networkmanager. </p>
+
+</div>
+</div>
+<a id="aab62328e988b7780013a16700cd2aea5" name="aab62328e988b7780013a16700cd2aea5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab62328e988b7780013a16700cd2aea5">&#9670;&nbsp;</a></span>OnStartServer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">override void PlayerSpawnSystem.OnStartServer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Called when the class will been instantiated. Add the Function "SpawnPlayer()" to the Networkmanager. </p>
+
+</div>
+</div>
 <a id="aafe7a2d26a6760b0f6e542d3030b30f0" name="aafe7a2d26a6760b0f6e542d3030b30f0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aafe7a2d26a6760b0f6e542d3030b30f0">&#9670;&nbsp;</a></span>SpawnPlayer()</h2>
 
@@ -117,8 +185,105 @@ override void&#160;</td><td class="memItemRight" valign="bottom"><b>OnStartServe
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab0a28eaa94bde3d78a774af0f2030809" name="ab0a28eaa94bde3d78a774af0f2030809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0a28eaa94bde3d78a774af0f2030809">&#9670;&nbsp;</a></span>offset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PlayerSpawnSystem.offset = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Offset for spawning the players</p>
+
+</div>
+</div>
+<a id="a066e69819b395189c8b43aea72f95ea7" name="a066e69819b395189c8b43aea72f95ea7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a066e69819b395189c8b43aea72f95ea7">&#9670;&nbsp;</a></span>playerPrefabDefault</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject PlayerSpawnSystem.playerPrefabDefault = null</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Contains the default prefab for the player that can be spawned if there is no prefab left in the "playerPrefabs" list. </p>
+
+</div>
+</div>
+<a id="a383c5c978e94c9cc9e9f4c96b379290b" name="a383c5c978e94c9cc9e9f4c96b379290b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a383c5c978e94c9cc9e9f4c96b379290b">&#9670;&nbsp;</a></span>playerPrefabs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;GameObject&gt; PlayerSpawnSystem.playerPrefabs = null</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Holds a list of the prefabs for the player that can be spawned. </p>
+
+</div>
+</div>
+<a id="a82e59d0b81bc1275b40af5efb6ed9ab6" name="a82e59d0b81bc1275b40af5efb6ed9ab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82e59d0b81bc1275b40af5efb6ed9ab6">&#9670;&nbsp;</a></span>spawn</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector3 PlayerSpawnSystem.spawn = new Vector3(0.8f, 6.46f, -13.87f)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Spawn point of the player prefab</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>PlayerSpawnSystem.cs</li>
+<li><a class="el" href="_player_spawn_system_8cs.html">PlayerSpawnSystem.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

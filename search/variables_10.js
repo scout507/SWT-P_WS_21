@@ -1,16 +1,19 @@
 var searchData=
 [
-  ['taskdescription_0',['taskDescription',['../class_task.html#abc1112df9f1cc4353af76bea1da74d9f',1,'Task']]],
-  ['taskname_1',['taskName',['../class_task.html#a15816482f88ca69dfbe9a7498ecf262b',1,'Task']]],
-  ['taskscreated_2',['tasksCreated',['../class_task_manager.html#a1f6376ca8025c86afad8374a296f147f',1,'TaskManager']]],
-  ['time_3',['time',['../class_end_game_menu.html#a4c6801092c02bbf496ce921105818285',1,'EndGameMenu']]],
-  ['timeperplankinseconds_4',['timePerPlankInSeconds',['../class_fence_interaction.html#a85ab84ca1105b8558d917a2bdf059938',1,'FenceInteraction']]],
-  ['timertext_5',['timerText',['../class_end_game_menu.html#a218a4f873f496b067a639337763abced',1,'EndGameMenu']]],
-  ['title_6',['title',['../class_end_game_menu.html#abf89c0655fe76fcc58476d561f9e887a',1,'EndGameMenu']]],
-  ['toggle_7',['toggle',['../class_ingame_menu.html#a5fec229572d439072aeb61eeb9e8b057',1,'IngameMenu']]],
-  ['togglefullscreen_8',['toggleFullscreen',['../class_menu.html#ab4e4745db7ac07e0f6bf64308f1718b4',1,'Menu']]],
-  ['totalammo_9',['totalAmmo',['../class_inventory.html#aa01bdaa28ef60341be07501365dc3f1b',1,'Inventory']]],
-  ['totalplayers_10',['totalPlayers',['../class_round_manager.html#a11d22c2c18ed59a69bee5663e79c5037',1,'RoundManager']]],
-  ['triggerrange_11',['triggerRange',['../class_shoot_gun.html#a7cbc4b1709eda81b4004fff64f5f9de4',1,'ShootGun']]],
-  ['turret_12',['turret',['../class_controll_turret.html#aaa906a312249635bab0511313cf9c50a',1,'ControllTurret']]]
+  ['ready_0',['ready',['../class_round_manager.html#a1387168127616f56cdc962caea078b58',1,'RoundManager']]],
+  ['recoil_1',['recoil',['../class_shoot_gun.html#a7e566d4d25065f874c5c879152d5a392',1,'ShootGun']]],
+  ['refreshrate_2',['refreshRate',['../class_wave_monster.html#aea2cf662d9621bdd0e25c68723a18c4b',1,'WaveMonster']]],
+  ['refreshtime_3',['refreshTime',['../class_key_task.html#a85e434a803af2df7370f432c4848232b',1,'KeyTask']]],
+  ['refreshtimer_4',['refreshTimer',['../class_key_task.html#a516fb25481972e10bbd7a864c9f759f8',1,'KeyTask']]],
+  ['reloaddelay_5',['reloadDelay',['../class_shoot_gun.html#a28a8eff99aefba9bc3a533bfd0a0c376',1,'ShootGun']]],
+  ['remainingcams_6',['remainingCams',['../class_i_q_cam.html#aabfe93bb61a2e59023e4b8107354a61a',1,'IQCam']]],
+  ['resolutions_7',['resolutions',['../class_ingame_menu.html#afe5ccce9e8c2b3bd29aec53d6ce6c08e',1,'IngameMenu.resolutions()'],['../class_menu.html#a29f214c8bf0bf2338aacd050ab8916d2',1,'Menu.resolutions()']]],
+  ['rig_8',['rig',['../class_player_animation_state_controller.html#add4236716b31dcb1ce6d5d2eb9923c54',1,'PlayerAnimationStateController']]],
+  ['roameramount_9',['roamerAmount',['../class_zombie_spawner.html#a6b83f36f9e31267ef58b19d91219385b',1,'ZombieSpawner']]],
+  ['roamerspawns_10',['roamerSpawns',['../class_zombie_spawner.html#a086d590b53a32f18169581a7ff170489',1,'ZombieSpawner']]],
+  ['roamingzombie_11',['roamingZombie',['../class_zombie_spawner.html#a166ee34904b5a3be87b49529a507ca89',1,'ZombieSpawner']]],
+  ['room_12',['room',['../class_network_room_player.html#ac1fc93c3faa715eaabd10ae298b1a7df',1,'NetworkRoomPlayer']]],
+  ['roomplayerprefab_13',['roomPlayerPrefab',['../class_network_manager_lobby.html#ae68e1372259b26799f94f56de41b11ad',1,'NetworkManagerLobby']]],
+  ['roomplayers_14',['roomPlayers',['../class_network_manager_lobby.html#a69de78ac448a1ee9c0dc537d5589ca9c',1,'NetworkManagerLobby']]],
+  ['rotatespeed_15',['rotateSpeed',['../class_turret.html#acfe19213a569ff2e5a710cb6e3b61466',1,'Turret']]]
 ];

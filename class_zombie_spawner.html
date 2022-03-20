@@ -64,6 +64,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_zombie_spawner-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ZombieSpawner Class Reference</div></div>
 </div><!--header-->
@@ -83,14 +85,125 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afe72b50c38caa1887415dde673481b3e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_zombie_spawner.html#afe72b50c38caa1887415dde673481b3e">TimeToNextWaveString</a> ()</td></tr>
 <tr class="memdesc:afe72b50c38caa1887415dde673481b3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string of remaining time  <a href="class_zombie_spawner.html#afe72b50c38caa1887415dde673481b3e">More...</a><br /></td></tr>
 <tr class="separator:afe72b50c38caa1887415dde673481b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a714744de0d542293282049ad11000422"><td class="memItemLeft" align="right" valign="top"><a id="a714744de0d542293282049ad11000422" name="a714744de0d542293282049ad11000422"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>InitialSpawn</b> ()</td></tr>
-<tr class="memdesc:a714744de0d542293282049ad11000422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to spawn the inital roaming zombies and setting the first wave-timer <br /></td></tr>
+<tr class="memitem:a714744de0d542293282049ad11000422"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_zombie_spawner.html#a714744de0d542293282049ad11000422">InitialSpawn</a> ()</td></tr>
+<tr class="memdesc:a714744de0d542293282049ad11000422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to spawn the inital roaming zombies and setting the first wave-timer  <a href="class_zombie_spawner.html#a714744de0d542293282049ad11000422">More...</a><br /></td></tr>
 <tr class="separator:a714744de0d542293282049ad11000422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a6adcbd10fdf8448433671f9bef961a61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_zombie_spawner.html#a6adcbd10fdf8448433671f9bef961a61">Start</a> ()</td></tr>
+<tr class="memdesc:a6adcbd10fdf8448433671f9bef961a61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawns first wave at start of game  <a href="class_zombie_spawner.html#a6adcbd10fdf8448433671f9bef961a61">More...</a><br /></td></tr>
+<tr class="separator:a6adcbd10fdf8448433671f9bef961a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2308f373c2267f05450f7c273b23175"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_zombie_spawner.html#ac2308f373c2267f05450f7c273b23175">Update</a> ()</td></tr>
+<tr class="memdesc:ac2308f373c2267f05450f7c273b23175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if time to next wave is over, spawns new wave, if time is over and at the moment returns timer as String in the console  <a href="class_zombie_spawner.html#ac2308f373c2267f05450f7c273b23175">More...</a><br /></td></tr>
+<tr class="separator:ac2308f373c2267f05450f7c273b23175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41405048ac9f7c1ee0ccc153e00cc7c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_zombie_spawner.html#a41405048ac9f7c1ee0ccc153e00cc7c2">SpawnWave</a> ()</td></tr>
+<tr class="memdesc:a41405048ac9f7c1ee0ccc153e00cc7c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawns wave of enemys  <a href="class_zombie_spawner.html#a41405048ac9f7c1ee0ccc153e00cc7c2">More...</a><br /></td></tr>
+<tr class="separator:a41405048ac9f7c1ee0ccc153e00cc7c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a07db3ebf89ed1d5122231875354443e7"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_zombie_spawner.html#a07db3ebf89ed1d5122231875354443e7">waveZombie</a></td></tr>
+<tr class="memdesc:a07db3ebf89ed1d5122231875354443e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prefab of spawnable enemy <a href="class_zombie_spawner.html#a07db3ebf89ed1d5122231875354443e7">More...</a><br /></td></tr>
+<tr class="separator:a07db3ebf89ed1d5122231875354443e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a166ee34904b5a3be87b49529a507ca89"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_zombie_spawner.html#a166ee34904b5a3be87b49529a507ca89">roamingZombie</a></td></tr>
+<tr class="memdesc:a166ee34904b5a3be87b49529a507ca89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prefab of roaming zombies. <a href="class_zombie_spawner.html#a166ee34904b5a3be87b49529a507ca89">More...</a><br /></td></tr>
+<tr class="separator:a166ee34904b5a3be87b49529a507ca89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bacd03052189160019cbccc2edbf566"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_zombie_spawner.html#a6bacd03052189160019cbccc2edbf566">nextWave</a> = 0d</td></tr>
+<tr class="memdesc:a6bacd03052189160019cbccc2edbf566"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seconds to next wave <a href="class_zombie_spawner.html#a6bacd03052189160019cbccc2edbf566">More...</a><br /></td></tr>
+<tr class="separator:a6bacd03052189160019cbccc2edbf566"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cb75af04036e9fd703569f5b751d449"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_zombie_spawner.html#a8cb75af04036e9fd703569f5b751d449">timeBetweenWave</a> = 600</td></tr>
+<tr class="memdesc:a8cb75af04036e9fd703569f5b751d449"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time between waves in seconds <a href="class_zombie_spawner.html#a8cb75af04036e9fd703569f5b751d449">More...</a><br /></td></tr>
+<tr class="separator:a8cb75af04036e9fd703569f5b751d449"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3d85560a5e188a4265cd51cd6c4601e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_zombie_spawner.html#af3d85560a5e188a4265cd51cd6c4601e">zombiesAmount</a> = 10</td></tr>
+<tr class="memdesc:af3d85560a5e188a4265cd51cd6c4601e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of enemys per wave <a href="class_zombie_spawner.html#af3d85560a5e188a4265cd51cd6c4601e">More...</a><br /></td></tr>
+<tr class="separator:af3d85560a5e188a4265cd51cd6c4601e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b83f36f9e31267ef58b19d91219385b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_zombie_spawner.html#a6b83f36f9e31267ef58b19d91219385b">roamerAmount</a> = 15</td></tr>
+<tr class="memdesc:a6b83f36f9e31267ef58b19d91219385b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of roaming zombies <a href="class_zombie_spawner.html#a6b83f36f9e31267ef58b19d91219385b">More...</a><br /></td></tr>
+<tr class="separator:a6b83f36f9e31267ef58b19d91219385b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa58ff49c1349a01e583dcca83a240379"><td class="memItemLeft" align="right" valign="top">GameObject[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_zombie_spawner.html#aa58ff49c1349a01e583dcca83a240379">waveSpawns</a></td></tr>
+<tr class="memdesc:aa58ff49c1349a01e583dcca83a240379"><td class="mdescLeft">&#160;</td><td class="mdescRight">All places where a wave can spawn <a href="class_zombie_spawner.html#aa58ff49c1349a01e583dcca83a240379">More...</a><br /></td></tr>
+<tr class="separator:aa58ff49c1349a01e583dcca83a240379"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a086d590b53a32f18169581a7ff170489"><td class="memItemLeft" align="right" valign="top">List&lt; GameObject &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_zombie_spawner.html#a086d590b53a32f18169581a7ff170489">roamerSpawns</a></td></tr>
+<tr class="memdesc:a086d590b53a32f18169581a7ff170489"><td class="mdescLeft">&#160;</td><td class="mdescRight">All spawing positions for roaming zombies <a href="class_zombie_spawner.html#a086d590b53a32f18169581a7ff170489">More...</a><br /></td></tr>
+<tr class="separator:a086d590b53a32f18169581a7ff170489"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Responsible for spawning zombies during a round. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a714744de0d542293282049ad11000422" name="a714744de0d542293282049ad11000422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a714744de0d542293282049ad11000422">&#9670;&nbsp;</a></span>InitialSpawn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ZombieSpawner.InitialSpawn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Used to spawn the inital roaming zombies and setting the first wave-timer </p>
+
+</div>
+</div>
+<a id="a41405048ac9f7c1ee0ccc153e00cc7c2" name="a41405048ac9f7c1ee0ccc153e00cc7c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41405048ac9f7c1ee0ccc153e00cc7c2">&#9670;&nbsp;</a></span>SpawnWave()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ZombieSpawner.SpawnWave </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Spawns wave of enemys </p>
+
+</div>
+</div>
+<a id="a6adcbd10fdf8448433671f9bef961a61" name="a6adcbd10fdf8448433671f9bef961a61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6adcbd10fdf8448433671f9bef961a61">&#9670;&nbsp;</a></span>Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ZombieSpawner.Start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Spawns first wave at start of game </p>
+
+</div>
+</div>
 <a id="afe72b50c38caa1887415dde673481b3e" name="afe72b50c38caa1887415dde673481b3e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afe72b50c38caa1887415dde673481b3e">&#9670;&nbsp;</a></span>TimeToNextWaveString()</h2>
 
@@ -111,8 +224,228 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>InitialSpawn</b> ()</
 
 </div>
 </div>
+<a id="ac2308f373c2267f05450f7c273b23175" name="ac2308f373c2267f05450f7c273b23175"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2308f373c2267f05450f7c273b23175">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ZombieSpawner.Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if time to next wave is over, spawns new wave, if time is over and at the moment returns timer as String in the console </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a6bacd03052189160019cbccc2edbf566" name="a6bacd03052189160019cbccc2edbf566"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bacd03052189160019cbccc2edbf566">&#9670;&nbsp;</a></span>nextWave</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ZombieSpawner.nextWave = 0d</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Seconds to next wave</p>
+
+</div>
+</div>
+<a id="a6b83f36f9e31267ef58b19d91219385b" name="a6b83f36f9e31267ef58b19d91219385b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b83f36f9e31267ef58b19d91219385b">&#9670;&nbsp;</a></span>roamerAmount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ZombieSpawner.roamerAmount = 15</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of roaming zombies</p>
+
+</div>
+</div>
+<a id="a086d590b53a32f18169581a7ff170489" name="a086d590b53a32f18169581a7ff170489"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a086d590b53a32f18169581a7ff170489">&#9670;&nbsp;</a></span>roamerSpawns</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;GameObject&gt; ZombieSpawner.roamerSpawns</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>All spawing positions for roaming zombies</p>
+
+</div>
+</div>
+<a id="a166ee34904b5a3be87b49529a507ca89" name="a166ee34904b5a3be87b49529a507ca89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a166ee34904b5a3be87b49529a507ca89">&#9670;&nbsp;</a></span>roamingZombie</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject ZombieSpawner.roamingZombie</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prefab of roaming zombies.</p>
+
+</div>
+</div>
+<a id="a8cb75af04036e9fd703569f5b751d449" name="a8cb75af04036e9fd703569f5b751d449"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cb75af04036e9fd703569f5b751d449">&#9670;&nbsp;</a></span>timeBetweenWave</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ZombieSpawner.timeBetweenWave = 600</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Time between waves in seconds</p>
+
+</div>
+</div>
+<a id="aa58ff49c1349a01e583dcca83a240379" name="aa58ff49c1349a01e583dcca83a240379"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa58ff49c1349a01e583dcca83a240379">&#9670;&nbsp;</a></span>waveSpawns</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject [] ZombieSpawner.waveSpawns</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>All places where a wave can spawn</p>
+
+</div>
+</div>
+<a id="a07db3ebf89ed1d5122231875354443e7" name="a07db3ebf89ed1d5122231875354443e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07db3ebf89ed1d5122231875354443e7">&#9670;&nbsp;</a></span>waveZombie</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject ZombieSpawner.waveZombie</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prefab of spawnable enemy</p>
+
+</div>
+</div>
+<a id="af3d85560a5e188a4265cd51cd6c4601e" name="af3d85560a5e188a4265cd51cd6c4601e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3d85560a5e188a4265cd51cd6c4601e">&#9670;&nbsp;</a></span>zombiesAmount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ZombieSpawner.zombiesAmount = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of enemys per wave</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>ZombieSpawner.cs</li>
+<li><a class="el" href="_zombie_spawner_8cs.html">ZombieSpawner.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

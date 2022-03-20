@@ -64,6 +64,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_i_q_cam-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">IQCam Class Reference</div></div>
 </div><!--header-->
@@ -80,21 +82,189 @@ Inheritance diagram for IQCam:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a01ebff7a268b5b01b6c07d638548197a"><td class="memItemLeft" align="right" valign="top"><a id="a01ebff7a268b5b01b6c07d638548197a" name="a01ebff7a268b5b01b6c07d638548197a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GetInCam</b> ()</td></tr>
-<tr class="memdesc:a01ebff7a268b5b01b6c07d638548197a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function sets the camera view of the player to the view of the last activ camera. <br /></td></tr>
+<tr class="memitem:a01ebff7a268b5b01b6c07d638548197a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#a01ebff7a268b5b01b6c07d638548197a">GetInCam</a> ()</td></tr>
+<tr class="memdesc:a01ebff7a268b5b01b6c07d638548197a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function sets the camera view of the player to the view of the last activ camera.  <a href="class_i_q_cam.html#a01ebff7a268b5b01b6c07d638548197a">More...</a><br /></td></tr>
 <tr class="separator:a01ebff7a268b5b01b6c07d638548197a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8fb454ebb23981f96f902bd945daf4f"><td class="memItemLeft" align="right" valign="top"><a id="ad8fb454ebb23981f96f902bd945daf4f" name="ad8fb454ebb23981f96f902bd945daf4f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ReturnToPlayer</b> ()</td></tr>
-<tr class="memdesc:ad8fb454ebb23981f96f902bd945daf4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the camera view to the players character perspective. <br /></td></tr>
+<tr class="memitem:ad8fb454ebb23981f96f902bd945daf4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#ad8fb454ebb23981f96f902bd945daf4f">ReturnToPlayer</a> ()</td></tr>
+<tr class="memdesc:ad8fb454ebb23981f96f902bd945daf4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the camera view to the players character perspective.  <a href="class_i_q_cam.html#ad8fb454ebb23981f96f902bd945daf4f">More...</a><br /></td></tr>
 <tr class="separator:ad8fb454ebb23981f96f902bd945daf4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15894f62fe45ce69df0096b6a11555f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#a15894f62fe45ce69df0096b6a11555f5">RemoveDevice</a> (int number)</td></tr>
 <tr class="memdesc:a15894f62fe45ce69df0096b6a11555f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">If a camera is destroyed it needs to be removed from the list of cameras.  <a href="class_i_q_cam.html#a15894f62fe45ce69df0096b6a11555f5">More...</a><br /></td></tr>
 <tr class="separator:a15894f62fe45ce69df0096b6a11555f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a4b8139f0398941ce63859a67a9be9896"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#a4b8139f0398941ce63859a67a9be9896">Update</a> ()</td></tr>
+<tr class="memdesc:a4b8139f0398941ce63859a67a9be9896"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_i_q_cam.html#a4b8139f0398941ce63859a67a9be9896" title="Update() function is responsible for getting the user input. If Fire1 Button is pressed and the playe...">Update()</a> function is responsible for getting the user input. If Fire1 Button is pressed and the player is not activ in a camera, a new camera is thrown. On <a class="el" href="class_key.html" title="Class for the &#39;Key&#39; object of the &#39;KeyTask&#39;.">Key</a> X the player can enter or leave the camera view.  <a href="class_i_q_cam.html#a4b8139f0398941ce63859a67a9be9896">More...</a><br /></td></tr>
+<tr class="separator:a4b8139f0398941ce63859a67a9be9896"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c2f52d67183370d08d61572ff1f1eb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#a7c2f52d67183370d08d61572ff1f1eb1">OnDisable</a> ()</td></tr>
+<tr class="memdesc:a7c2f52d67183370d08d61572ff1f1eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys gameobject of device when a new gun is equipped.  <a href="class_i_q_cam.html#a7c2f52d67183370d08d61572ff1f1eb1">More...</a><br /></td></tr>
+<tr class="separator:a7c2f52d67183370d08d61572ff1f1eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36374695c39ccc0c6628260fc5f06592"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#a36374695c39ccc0c6628260fc5f06592">OnEnable</a> ()</td></tr>
+<tr class="memdesc:a36374695c39ccc0c6628260fc5f06592"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads prefab of gun when this device is equipped.  <a href="class_i_q_cam.html#a36374695c39ccc0c6628260fc5f06592">More...</a><br /></td></tr>
+<tr class="separator:a36374695c39ccc0c6628260fc5f06592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d6b68b00193d912beccb41d1e525c1e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#a1d6b68b00193d912beccb41d1e525c1e">TargetSetNewCam</a> (NetworkConnection owner, GameObject spawnedCamera)</td></tr>
+<tr class="memdesc:a1d6b68b00193d912beccb41d1e525c1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the owner of a newly set up camera to the right player. Host and Guest need different methods.  <a href="class_i_q_cam.html#a1d6b68b00193d912beccb41d1e525c1e">More...</a><br /></td></tr>
+<tr class="separator:a1d6b68b00193d912beccb41d1e525c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad65e14234224307039c9c8f85cf083b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#ad65e14234224307039c9c8f85cf083b1">CmdSetNewCam</a> (Vector3 direction)</td></tr>
+<tr class="memdesc:ad65e14234224307039c9c8f85cf083b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawns new camera and throws it in right direction, handled on Server.  <a href="class_i_q_cam.html#ad65e14234224307039c9c8f85cf083b1">More...</a><br /></td></tr>
+<tr class="separator:ad65e14234224307039c9c8f85cf083b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac173f15f3b255503d5a99332448aac52"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#ac173f15f3b255503d5a99332448aac52">device</a></td></tr>
+<tr class="memdesc:ac173f15f3b255503d5a99332448aac52"><td class="mdescLeft">&#160;</td><td class="mdescRight">This variable represents the device in the hands of <a class="el" href="class_i_q.html" title="IQ is a class with a MP and a pistol and can set up cameras">IQ</a>, which is rendered if she has her gadget ready. <a href="class_i_q_cam.html#ac173f15f3b255503d5a99332448aac52">More...</a><br /></td></tr>
+<tr class="separator:ac173f15f3b255503d5a99332448aac52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a760d5a44dd3cd9c87b8a40472daea41f"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#a760d5a44dd3cd9c87b8a40472daea41f">cam</a></td></tr>
+<tr class="memdesc:a760d5a44dd3cd9c87b8a40472daea41f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This variable is the gameobject of the cam, which is spawned when she sets one up <a href="class_i_q_cam.html#a760d5a44dd3cd9c87b8a40472daea41f">More...</a><br /></td></tr>
+<tr class="separator:a760d5a44dd3cd9c87b8a40472daea41f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77079e8d1f285a49e5d6d8b61addba61"><td class="memItemLeft" align="right" valign="top">Transform&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#a77079e8d1f285a49e5d6d8b61addba61">deviceMount</a></td></tr>
+<tr class="memdesc:a77079e8d1f285a49e5d6d8b61addba61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Point where device is loaded. <a href="class_i_q_cam.html#a77079e8d1f285a49e5d6d8b61addba61">More...</a><br /></td></tr>
+<tr class="separator:a77079e8d1f285a49e5d6d8b61addba61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa162ac46ac8f8e2e31708c9954411e18"><td class="memItemLeft" align="right" valign="top">Transform&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#aa162ac46ac8f8e2e31708c9954411e18">throwPoint</a></td></tr>
+<tr class="memdesc:aa162ac46ac8f8e2e31708c9954411e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Point where camera is spawned <a href="class_i_q_cam.html#aa162ac46ac8f8e2e31708c9954411e18">More...</a><br /></td></tr>
+<tr class="separator:aa162ac46ac8f8e2e31708c9954411e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ecaf53b2e7f28811be18e3ae9aee694"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_inventory.html">Inventory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#a7ecaf53b2e7f28811be18e3ae9aee694">inventory</a></td></tr>
+<tr class="memdesc:a7ecaf53b2e7f28811be18e3ae9aee694"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weapon inventory of player <a href="class_i_q_cam.html#a7ecaf53b2e7f28811be18e3ae9aee694">More...</a><br /></td></tr>
+<tr class="separator:a7ecaf53b2e7f28811be18e3ae9aee694"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcc5c8a12771b311a4c660a6dd6bf86f"><td class="memItemLeft" align="right" valign="top">Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#adcc5c8a12771b311a4c660a6dd6bf86f">icon</a></td></tr>
+<tr class="memdesc:adcc5c8a12771b311a4c660a6dd6bf86f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprite for the UI. <a href="class_i_q_cam.html#adcc5c8a12771b311a4c660a6dd6bf86f">More...</a><br /></td></tr>
+<tr class="separator:adcc5c8a12771b311a4c660a6dd6bf86f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabfe93bb61a2e59023e4b8107354a61a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#aabfe93bb61a2e59023e4b8107354a61a">remainingCams</a> = 3</td></tr>
+<tr class="memdesc:aabfe93bb61a2e59023e4b8107354a61a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count of remaining cams <a href="class_i_q_cam.html#aabfe93bb61a2e59023e4b8107354a61a">More...</a><br /></td></tr>
+<tr class="separator:aabfe93bb61a2e59023e4b8107354a61a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a623a1120854c65dbb7fcb85b9dd26037"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#a623a1120854c65dbb7fcb85b9dd26037">nextThrow</a></td></tr>
+<tr class="memdesc:a623a1120854c65dbb7fcb85b9dd26037"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time when next camera can be thrown <a href="class_i_q_cam.html#a623a1120854c65dbb7fcb85b9dd26037">More...</a><br /></td></tr>
+<tr class="separator:a623a1120854c65dbb7fcb85b9dd26037"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87e96213b38a20c74759e5673ad83365"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#a87e96213b38a20c74759e5673ad83365">throwRate</a> = 0.25f</td></tr>
+<tr class="memdesc:a87e96213b38a20c74759e5673ad83365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rate in which cameras can be set up <a href="class_i_q_cam.html#a87e96213b38a20c74759e5673ad83365">More...</a><br /></td></tr>
+<tr class="separator:a87e96213b38a20c74759e5673ad83365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac045b893d0ad5a74626d5a5c85497ac0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#ac045b893d0ad5a74626d5a5c85497ac0">isInCams</a> = false</td></tr>
+<tr class="memdesc:ac045b893d0ad5a74626d5a5c85497ac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag if player is in cams <a href="class_i_q_cam.html#ac045b893d0ad5a74626d5a5c85497ac0">More...</a><br /></td></tr>
+<tr class="separator:ac045b893d0ad5a74626d5a5c85497ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a724b538cf390f2260008204bc647a335"><td class="memItemLeft" align="right" valign="top">GameObject[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#a724b538cf390f2260008204bc647a335">cameras</a> = new GameObject[3]</td></tr>
+<tr class="memdesc:a724b538cf390f2260008204bc647a335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of cameras which are set up <a href="class_i_q_cam.html#a724b538cf390f2260008204bc647a335">More...</a><br /></td></tr>
+<tr class="separator:a724b538cf390f2260008204bc647a335"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15a3f38eb7a94261da2ea0d60869914a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#a15a3f38eb7a94261da2ea0d60869914a">setCamerasCount</a> = 0</td></tr>
+<tr class="memdesc:a15a3f38eb7a94261da2ea0d60869914a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tracks how many cameras are set up <a href="class_i_q_cam.html#a15a3f38eb7a94261da2ea0d60869914a">More...</a><br /></td></tr>
+<tr class="separator:a15a3f38eb7a94261da2ea0d60869914a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b2a51c11ccc375720b19630338d8fc4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#a0b2a51c11ccc375720b19630338d8fc4">lastActiveCam</a> = 0</td></tr>
+<tr class="memdesc:a0b2a51c11ccc375720b19630338d8fc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tracks which camera was last activ <a href="class_i_q_cam.html#a0b2a51c11ccc375720b19630338d8fc4">More...</a><br /></td></tr>
+<tr class="separator:a0b2a51c11ccc375720b19630338d8fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae190980c3cadf1199e8f674b3897e80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cam_controller.html">CamController</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_q_cam.html#aae190980c3cadf1199e8f674b3897e80">activeCam</a></td></tr>
+<tr class="memdesc:aae190980c3cadf1199e8f674b3897e80"><td class="mdescLeft">&#160;</td><td class="mdescRight">The correct rotation and the destruction of cameras is controlled in <a class="el" href="class_cam_controller.html" title="This Script is responsible for the right position of a thrown camera, for managing the owner of the c...">CamController</a>. This script needs a way to set the camera activ and to get the right camera, it is saved in this variable.  <a href="class_i_q_cam.html#aae190980c3cadf1199e8f674b3897e80">More...</a><br /></td></tr>
+<tr class="separator:aae190980c3cadf1199e8f674b3897e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This Script controls the camera device. It is responsible for setting up new cams and change view to the camera perspective. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad65e14234224307039c9c8f85cf083b1" name="ad65e14234224307039c9c8f85cf083b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad65e14234224307039c9c8f85cf083b1">&#9670;&nbsp;</a></span>CmdSetNewCam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQCam.CmdSetNewCam </td>
+          <td>(</td>
+          <td class="paramtype">Vector3&#160;</td>
+          <td class="paramname"><em>direction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Spawns new camera and throws it in right direction, handled on Server. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">direction</td><td>Direction in which camera is thrown.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a01ebff7a268b5b01b6c07d638548197a" name="a01ebff7a268b5b01b6c07d638548197a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01ebff7a268b5b01b6c07d638548197a">&#9670;&nbsp;</a></span>GetInCam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQCam.GetInCam </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function sets the camera view of the player to the view of the last activ camera. </p>
+
+</div>
+</div>
+<a id="a7c2f52d67183370d08d61572ff1f1eb1" name="a7c2f52d67183370d08d61572ff1f1eb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c2f52d67183370d08d61572ff1f1eb1">&#9670;&nbsp;</a></span>OnDisable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQCam.OnDisable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys gameobject of device when a new gun is equipped. </p>
+
+</div>
+</div>
+<a id="a36374695c39ccc0c6628260fc5f06592" name="a36374695c39ccc0c6628260fc5f06592"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36374695c39ccc0c6628260fc5f06592">&#9670;&nbsp;</a></span>OnEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQCam.OnEnable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Loads prefab of gun when this device is equipped. </p>
+
+</div>
+</div>
 <a id="a15894f62fe45ce69df0096b6a11555f5" name="a15894f62fe45ce69df0096b6a11555f5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a15894f62fe45ce69df0096b6a11555f5">&#9670;&nbsp;</a></span>RemoveDevice()</h2>
 
@@ -121,8 +291,436 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ReturnToPlayer</b> ()
 
 </div>
 </div>
+<a id="ad8fb454ebb23981f96f902bd945daf4f" name="ad8fb454ebb23981f96f902bd945daf4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8fb454ebb23981f96f902bd945daf4f">&#9670;&nbsp;</a></span>ReturnToPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQCam.ReturnToPlayer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function returns the camera view to the players character perspective. </p>
+
+</div>
+</div>
+<a id="a1d6b68b00193d912beccb41d1e525c1e" name="a1d6b68b00193d912beccb41d1e525c1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d6b68b00193d912beccb41d1e525c1e">&#9670;&nbsp;</a></span>TargetSetNewCam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQCam.TargetSetNewCam </td>
+          <td>(</td>
+          <td class="paramtype">NetworkConnection&#160;</td>
+          <td class="paramname"><em>owner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GameObject&#160;</td>
+          <td class="paramname"><em>spawnedCamera</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the owner of a newly set up camera to the right player. Host and Guest need different methods. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">owner</td><td>Networkconnection of owner.</td></tr>
+    <tr><td class="paramname">spawnedCamera</td><td>Newly set up camera.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4b8139f0398941ce63859a67a9be9896" name="a4b8139f0398941ce63859a67a9be9896"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b8139f0398941ce63859a67a9be9896">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQCam.Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_i_q_cam.html#a4b8139f0398941ce63859a67a9be9896" title="Update() function is responsible for getting the user input. If Fire1 Button is pressed and the playe...">Update()</a> function is responsible for getting the user input. If Fire1 Button is pressed and the player is not activ in a camera, a new camera is thrown. On <a class="el" href="class_key.html" title="Class for the &#39;Key&#39; object of the &#39;KeyTask&#39;.">Key</a> X the player can enter or leave the camera view. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aae190980c3cadf1199e8f674b3897e80" name="aae190980c3cadf1199e8f674b3897e80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae190980c3cadf1199e8f674b3897e80">&#9670;&nbsp;</a></span>activeCam</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_cam_controller.html">CamController</a> IQCam.activeCam</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The correct rotation and the destruction of cameras is controlled in <a class="el" href="class_cam_controller.html" title="This Script is responsible for the right position of a thrown camera, for managing the owner of the c...">CamController</a>. This script needs a way to set the camera activ and to get the right camera, it is saved in this variable. </p>
+
+</div>
+</div>
+<a id="a760d5a44dd3cd9c87b8a40472daea41f" name="a760d5a44dd3cd9c87b8a40472daea41f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a760d5a44dd3cd9c87b8a40472daea41f">&#9670;&nbsp;</a></span>cam</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject IQCam.cam</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This variable is the gameobject of the cam, which is spawned when she sets one up</p>
+
+</div>
+</div>
+<a id="a724b538cf390f2260008204bc647a335" name="a724b538cf390f2260008204bc647a335"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a724b538cf390f2260008204bc647a335">&#9670;&nbsp;</a></span>cameras</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject [] IQCam.cameras = new GameObject[3]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Array of cameras which are set up</p>
+
+</div>
+</div>
+<a id="ac173f15f3b255503d5a99332448aac52" name="ac173f15f3b255503d5a99332448aac52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac173f15f3b255503d5a99332448aac52">&#9670;&nbsp;</a></span>device</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject IQCam.device</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This variable represents the device in the hands of <a class="el" href="class_i_q.html" title="IQ is a class with a MP and a pistol and can set up cameras">IQ</a>, which is rendered if she has her gadget ready.</p>
+
+</div>
+</div>
+<a id="a77079e8d1f285a49e5d6d8b61addba61" name="a77079e8d1f285a49e5d6d8b61addba61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77079e8d1f285a49e5d6d8b61addba61">&#9670;&nbsp;</a></span>deviceMount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Transform IQCam.deviceMount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Point where device is loaded.</p>
+
+</div>
+</div>
+<a id="adcc5c8a12771b311a4c660a6dd6bf86f" name="adcc5c8a12771b311a4c660a6dd6bf86f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcc5c8a12771b311a4c660a6dd6bf86f">&#9670;&nbsp;</a></span>icon</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sprite IQCam.icon</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sprite for the UI.</p>
+
+</div>
+</div>
+<a id="a7ecaf53b2e7f28811be18e3ae9aee694" name="a7ecaf53b2e7f28811be18e3ae9aee694"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ecaf53b2e7f28811be18e3ae9aee694">&#9670;&nbsp;</a></span>inventory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_inventory.html">Inventory</a> IQCam.inventory</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Weapon inventory of player</p>
+
+</div>
+</div>
+<a id="ac045b893d0ad5a74626d5a5c85497ac0" name="ac045b893d0ad5a74626d5a5c85497ac0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac045b893d0ad5a74626d5a5c85497ac0">&#9670;&nbsp;</a></span>isInCams</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IQCam.isInCams = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flag if player is in cams</p>
+
+</div>
+</div>
+<a id="a0b2a51c11ccc375720b19630338d8fc4" name="a0b2a51c11ccc375720b19630338d8fc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b2a51c11ccc375720b19630338d8fc4">&#9670;&nbsp;</a></span>lastActiveCam</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int IQCam.lastActiveCam = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tracks which camera was last activ</p>
+
+</div>
+</div>
+<a id="a623a1120854c65dbb7fcb85b9dd26037" name="a623a1120854c65dbb7fcb85b9dd26037"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a623a1120854c65dbb7fcb85b9dd26037">&#9670;&nbsp;</a></span>nextThrow</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IQCam.nextThrow</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Time when next camera can be thrown</p>
+
+</div>
+</div>
+<a id="aabfe93bb61a2e59023e4b8107354a61a" name="aabfe93bb61a2e59023e4b8107354a61a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabfe93bb61a2e59023e4b8107354a61a">&#9670;&nbsp;</a></span>remainingCams</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int IQCam.remainingCams = 3</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Count of remaining cams</p>
+
+</div>
+</div>
+<a id="a15a3f38eb7a94261da2ea0d60869914a" name="a15a3f38eb7a94261da2ea0d60869914a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15a3f38eb7a94261da2ea0d60869914a">&#9670;&nbsp;</a></span>setCamerasCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int IQCam.setCamerasCount = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tracks how many cameras are set up</p>
+
+</div>
+</div>
+<a id="aa162ac46ac8f8e2e31708c9954411e18" name="aa162ac46ac8f8e2e31708c9954411e18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa162ac46ac8f8e2e31708c9954411e18">&#9670;&nbsp;</a></span>throwPoint</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Transform IQCam.throwPoint</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Point where camera is spawned</p>
+
+</div>
+</div>
+<a id="a87e96213b38a20c74759e5673ad83365" name="a87e96213b38a20c74759e5673ad83365"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87e96213b38a20c74759e5673ad83365">&#9670;&nbsp;</a></span>throwRate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IQCam.throwRate = 0.25f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rate in which cameras can be set up</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>IQCam.cs</li>
+<li><a class="el" href="_i_q_cam_8cs.html">IQCam.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -64,6 +64,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_chatbox-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Chatbox Class Reference</div></div>
 </div><!--header-->
@@ -83,6 +85,71 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0d6e3bebe8b575161ff5215e1a49bd82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#a0d6e3bebe8b575161ff5215e1a49bd82">AddMessage</a> (string message)</td></tr>
 <tr class="memdesc:a0d6e3bebe8b575161ff5215e1a49bd82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new message to the UI. If you want to send a message to a player, use this function. Can hold a maximum of 5 messages before it overrides the oldes one.  <a href="class_chatbox.html#a0d6e3bebe8b575161ff5215e1a49bd82">More...</a><br /></td></tr>
 <tr class="separator:a0d6e3bebe8b575161ff5215e1a49bd82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a709e13c6e9f0c900a3f69d80fcb0fbe6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#a709e13c6e9f0c900a3f69d80fcb0fbe6">Start</a> ()</td></tr>
+<tr class="memdesc:a709e13c6e9f0c900a3f69d80fcb0fbe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches dependencies  <a href="class_chatbox.html#a709e13c6e9f0c900a3f69d80fcb0fbe6">More...</a><br /></td></tr>
+<tr class="separator:a709e13c6e9f0c900a3f69d80fcb0fbe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f573764cb3ca5303a3f617963a19d99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#a8f573764cb3ca5303a3f617963a19d99">Update</a> ()</td></tr>
+<tr class="memdesc:a8f573764cb3ca5303a3f617963a19d99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers input. And triggers message sending.  <a href="class_chatbox.html#a8f573764cb3ca5303a3f617963a19d99">More...</a><br /></td></tr>
+<tr class="separator:a8f573764cb3ca5303a3f617963a19d99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb5a6858d3fcbeb60acafd875f76991c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#acb5a6858d3fcbeb60acafd875f76991c">UpdateTimers</a> ()</td></tr>
+<tr class="memdesc:acb5a6858d3fcbeb60acafd875f76991c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the timers for message deletion.  <a href="class_chatbox.html#acb5a6858d3fcbeb60acafd875f76991c">More...</a><br /></td></tr>
+<tr class="separator:acb5a6858d3fcbeb60acafd875f76991c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08166e148e937085a79de4d6477aee90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#a08166e148e937085a79de4d6477aee90">UpdateText</a> ()</td></tr>
+<tr class="memdesc:a08166e148e937085a79de4d6477aee90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the text of the chatbox.  <a href="class_chatbox.html#a08166e148e937085a79de4d6477aee90">More...</a><br /></td></tr>
+<tr class="separator:a08166e148e937085a79de4d6477aee90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f9ee6f14dd7f3ccc962d5d2f250a2de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#a0f9ee6f14dd7f3ccc962d5d2f250a2de">SubmitMessage</a> (string message)</td></tr>
+<tr class="memdesc:a0f9ee6f14dd7f3ccc962d5d2f250a2de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Submits a message to the chat. Sends the message via command to all nearby players.  <a href="class_chatbox.html#a0f9ee6f14dd7f3ccc962d5d2f250a2de">More...</a><br /></td></tr>
+<tr class="separator:a0f9ee6f14dd7f3ccc962d5d2f250a2de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b1d59428c96c50556e1e331065e3286"><td class="memItemLeft" align="right" valign="top">List&lt; GameObject &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#a0b1d59428c96c50556e1e331065e3286">FindNearbyPlayers</a> ()</td></tr>
+<tr class="memdesc:a0b1d59428c96c50556e1e331065e3286"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds all players within a given radius  <a href="class_chatbox.html#a0b1d59428c96c50556e1e331065e3286">More...</a><br /></td></tr>
+<tr class="separator:a0b1d59428c96c50556e1e331065e3286"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c9a8870d95b5750fabb018aa822a57d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#a4c9a8870d95b5750fabb018aa822a57d">CmdSendMessage</a> (string message, GameObject target)</td></tr>
+<tr class="memdesc:a4c9a8870d95b5750fabb018aa822a57d"><td class="mdescLeft">&#160;</td><td class="mdescRight">For distributing a message to other players. Only used for player-to-player messages.  <a href="class_chatbox.html#a4c9a8870d95b5750fabb018aa822a57d">More...</a><br /></td></tr>
+<tr class="separator:a4c9a8870d95b5750fabb018aa822a57d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1314e228fbc9a6e89a6c273066da4543"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#a1314e228fbc9a6e89a6c273066da4543">TargetRPCSendMessage</a> (NetworkConnection target, string message)</td></tr>
+<tr class="memdesc:a1314e228fbc9a6e89a6c273066da4543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a given message to the checkbox of the target player. Only used for player-to-player messages.  <a href="class_chatbox.html#a1314e228fbc9a6e89a6c273066da4543">More...</a><br /></td></tr>
+<tr class="separator:a1314e228fbc9a6e89a6c273066da4543"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a143fe336ac0e30a0968600968a50d085"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#a143fe336ac0e30a0968600968a50d085">textBoxUI</a></td></tr>
+<tr class="memdesc:a143fe336ac0e30a0968600968a50d085"><td class="mdescLeft">&#160;</td><td class="mdescRight">The UI component holding the textbox. <a href="class_chatbox.html#a143fe336ac0e30a0968600968a50d085">More...</a><br /></td></tr>
+<tr class="separator:a143fe336ac0e30a0968600968a50d085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84a144dbaf9a60131170d33f759bb37d"><td class="memItemLeft" align="right" valign="top">TMP_InputField&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#a84a144dbaf9a60131170d33f759bb37d">chatBoxUI</a></td></tr>
+<tr class="separator:a84a144dbaf9a60131170d33f759bb37d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f7d5339abdeb27ff1f1b0c4cdb1fe6b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#a1f7d5339abdeb27ff1f1b0c4cdb1fe6b">audioCooldown</a> = 0.5f</td></tr>
+<tr class="memdesc:a1f7d5339abdeb27ff1f1b0c4cdb1fe6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cooldown for the message sound effect <a href="class_chatbox.html#a1f7d5339abdeb27ff1f1b0c4cdb1fe6b">More...</a><br /></td></tr>
+<tr class="separator:a1f7d5339abdeb27ff1f1b0c4cdb1fe6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0650501f53deeb7812ef41f4b229f4f"><td class="memItemLeft" align="right" valign="top">TextMeshProUGUI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#aa0650501f53deeb7812ef41f4b229f4f">textBox</a></td></tr>
+<tr class="memdesc:aa0650501f53deeb7812ef41f4b229f4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The text component of the textbox. <a href="class_chatbox.html#aa0650501f53deeb7812ef41f4b229f4f">More...</a><br /></td></tr>
+<tr class="separator:aa0650501f53deeb7812ef41f4b229f4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad168a63d22d8ca9c2f887871d64814eb"><td class="memItemLeft" align="right" valign="top">TextMeshProUGUI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#ad168a63d22d8ca9c2f887871d64814eb">chatText</a></td></tr>
+<tr class="memdesc:ad168a63d22d8ca9c2f887871d64814eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The text component of the input field. <a href="class_chatbox.html#ad168a63d22d8ca9c2f887871d64814eb">More...</a><br /></td></tr>
+<tr class="separator:ad168a63d22d8ca9c2f887871d64814eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a104ecc1ef3967bd53d774cbd7277c0bd"><td class="memItemLeft" align="right" valign="top">string[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#a104ecc1ef3967bd53d774cbd7277c0bd">messages</a> = new string[5]</td></tr>
+<tr class="memdesc:a104ecc1ef3967bd53d774cbd7277c0bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array holding the newest 5 messages <a href="class_chatbox.html#a104ecc1ef3967bd53d774cbd7277c0bd">More...</a><br /></td></tr>
+<tr class="separator:a104ecc1ef3967bd53d774cbd7277c0bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6932ac752635c5f340a32d29e17d178b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#a6932ac752635c5f340a32d29e17d178b">timeForDeletion</a> = 25f</td></tr>
+<tr class="memdesc:a6932ac752635c5f340a32d29e17d178b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time until a message is deleted <a href="class_chatbox.html#a6932ac752635c5f340a32d29e17d178b">More...</a><br /></td></tr>
+<tr class="separator:a6932ac752635c5f340a32d29e17d178b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1707b8c2509ac2f4742e322a1c125e76"><td class="memItemLeft" align="right" valign="top">float[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#a1707b8c2509ac2f4742e322a1c125e76">timer</a> = new float[5]</td></tr>
+<tr class="memdesc:a1707b8c2509ac2f4742e322a1c125e76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer for deletion <a href="class_chatbox.html#a1707b8c2509ac2f4742e322a1c125e76">More...</a><br /></td></tr>
+<tr class="separator:a1707b8c2509ac2f4742e322a1c125e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae048efa21b1d1fd220976bea1c64c1e8"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#ae048efa21b1d1fd220976bea1c64c1e8">playerName</a></td></tr>
+<tr class="memdesc:ae048efa21b1d1fd220976bea1c64c1e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the player for the chat <a href="class_chatbox.html#ae048efa21b1d1fd220976bea1c64c1e8">More...</a><br /></td></tr>
+<tr class="separator:ae048efa21b1d1fd220976bea1c64c1e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16209284d620deca809b63714e33614d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#a16209284d620deca809b63714e33614d">typing</a></td></tr>
+<tr class="memdesc:a16209284d620deca809b63714e33614d"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when the player opened the chat <a href="class_chatbox.html#a16209284d620deca809b63714e33614d">More...</a><br /></td></tr>
+<tr class="separator:a16209284d620deca809b63714e33614d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9f1f03abdd8a99d7ad3ee62209a1b40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_audio_controller.html">AudioController</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#ae9f1f03abdd8a99d7ad3ee62209a1b40">audioController</a></td></tr>
+<tr class="memdesc:ae9f1f03abdd8a99d7ad3ee62209a1b40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audiocontroller for playing sounds <a href="class_chatbox.html#ae9f1f03abdd8a99d7ad3ee62209a1b40">More...</a><br /></td></tr>
+<tr class="separator:ae9f1f03abdd8a99d7ad3ee62209a1b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ada3c2533ea2b061a35d8bcd6d43e38"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chatbox.html#a9ada3c2533ea2b061a35d8bcd6d43e38">audioTimer</a></td></tr>
+<tr class="memdesc:a9ada3c2533ea2b061a35d8bcd6d43e38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer for tracking the last message sound <a href="class_chatbox.html#a9ada3c2533ea2b061a35d8bcd6d43e38">More...</a><br /></td></tr>
+<tr class="separator:a9ada3c2533ea2b061a35d8bcd6d43e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This class is responsible for handling the chatbox displayed on the UI. If you want to use this class to send a message to a player, please call the AddMessage function. </p>
@@ -113,8 +180,555 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a4c9a8870d95b5750fabb018aa822a57d" name="a4c9a8870d95b5750fabb018aa822a57d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c9a8870d95b5750fabb018aa822a57d">&#9670;&nbsp;</a></span>CmdSendMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Chatbox.CmdSendMessage </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GameObject&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>For distributing a message to other players. Only used for player-to-player messages. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>Message to send.</td></tr>
+    <tr><td class="paramname">target</td><td>The player GameObject to send it to.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0b1d59428c96c50556e1e331065e3286" name="a0b1d59428c96c50556e1e331065e3286"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b1d59428c96c50556e1e331065e3286">&#9670;&nbsp;</a></span>FindNearbyPlayers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt; GameObject &gt; Chatbox.FindNearbyPlayers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Finds all players within a given radius </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a list of all nearby player gameObjects, excluding the own.</dd></dl>
+
+</div>
+</div>
+<a id="a709e13c6e9f0c900a3f69d80fcb0fbe6" name="a709e13c6e9f0c900a3f69d80fcb0fbe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a709e13c6e9f0c900a3f69d80fcb0fbe6">&#9670;&nbsp;</a></span>Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Chatbox.Start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fetches dependencies </p>
+
+</div>
+</div>
+<a id="a0f9ee6f14dd7f3ccc962d5d2f250a2de" name="a0f9ee6f14dd7f3ccc962d5d2f250a2de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f9ee6f14dd7f3ccc962d5d2f250a2de">&#9670;&nbsp;</a></span>SubmitMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Chatbox.SubmitMessage </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Submits a message to the chat. Sends the message via command to all nearby players. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message to send.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1314e228fbc9a6e89a6c273066da4543" name="a1314e228fbc9a6e89a6c273066da4543"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1314e228fbc9a6e89a6c273066da4543">&#9670;&nbsp;</a></span>TargetRPCSendMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Chatbox.TargetRPCSendMessage </td>
+          <td>(</td>
+          <td class="paramtype">NetworkConnection&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds a given message to the checkbox of the target player. Only used for player-to-player messages. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>NetworkConnection of the Target.</td></tr>
+    <tr><td class="paramname">message</td><td>The message to deliver.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8f573764cb3ca5303a3f617963a19d99" name="a8f573764cb3ca5303a3f617963a19d99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f573764cb3ca5303a3f617963a19d99">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Chatbox.Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Registers input. And triggers message sending. </p>
+
+</div>
+</div>
+<a id="a08166e148e937085a79de4d6477aee90" name="a08166e148e937085a79de4d6477aee90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08166e148e937085a79de4d6477aee90">&#9670;&nbsp;</a></span>UpdateText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Chatbox.UpdateText </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the text of the chatbox. </p>
+
+</div>
+</div>
+<a id="acb5a6858d3fcbeb60acafd875f76991c" name="acb5a6858d3fcbeb60acafd875f76991c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb5a6858d3fcbeb60acafd875f76991c">&#9670;&nbsp;</a></span>UpdateTimers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Chatbox.UpdateTimers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the timers for message deletion. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae9f1f03abdd8a99d7ad3ee62209a1b40" name="ae9f1f03abdd8a99d7ad3ee62209a1b40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9f1f03abdd8a99d7ad3ee62209a1b40">&#9670;&nbsp;</a></span>audioController</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_audio_controller.html">AudioController</a> Chatbox.audioController</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Audiocontroller for playing sounds</p>
+
+</div>
+</div>
+<a id="a1f7d5339abdeb27ff1f1b0c4cdb1fe6b" name="a1f7d5339abdeb27ff1f1b0c4cdb1fe6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f7d5339abdeb27ff1f1b0c4cdb1fe6b">&#9670;&nbsp;</a></span>audioCooldown</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Chatbox.audioCooldown = 0.5f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cooldown for the message sound effect</p>
+
+</div>
+</div>
+<a id="a9ada3c2533ea2b061a35d8bcd6d43e38" name="a9ada3c2533ea2b061a35d8bcd6d43e38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ada3c2533ea2b061a35d8bcd6d43e38">&#9670;&nbsp;</a></span>audioTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Chatbox.audioTimer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Timer for tracking the last message sound</p>
+
+</div>
+</div>
+<a id="a84a144dbaf9a60131170d33f759bb37d" name="a84a144dbaf9a60131170d33f759bb37d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84a144dbaf9a60131170d33f759bb37d">&#9670;&nbsp;</a></span>chatBoxUI</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TMP_InputField Chatbox.chatBoxUI</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad168a63d22d8ca9c2f887871d64814eb" name="ad168a63d22d8ca9c2f887871d64814eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad168a63d22d8ca9c2f887871d64814eb">&#9670;&nbsp;</a></span>chatText</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TextMeshProUGUI Chatbox.chatText</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The text component of the input field.</p>
+
+</div>
+</div>
+<a id="a104ecc1ef3967bd53d774cbd7277c0bd" name="a104ecc1ef3967bd53d774cbd7277c0bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a104ecc1ef3967bd53d774cbd7277c0bd">&#9670;&nbsp;</a></span>messages</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string [] Chatbox.messages = new string[5]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Array holding the newest 5 messages</p>
+
+</div>
+</div>
+<a id="ae048efa21b1d1fd220976bea1c64c1e8" name="ae048efa21b1d1fd220976bea1c64c1e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae048efa21b1d1fd220976bea1c64c1e8">&#9670;&nbsp;</a></span>playerName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Chatbox.playerName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The name of the player for the chat</p>
+
+</div>
+</div>
+<a id="aa0650501f53deeb7812ef41f4b229f4f" name="aa0650501f53deeb7812ef41f4b229f4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0650501f53deeb7812ef41f4b229f4f">&#9670;&nbsp;</a></span>textBox</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TextMeshProUGUI Chatbox.textBox</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The text component of the textbox.</p>
+
+</div>
+</div>
+<a id="a143fe336ac0e30a0968600968a50d085" name="a143fe336ac0e30a0968600968a50d085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a143fe336ac0e30a0968600968a50d085">&#9670;&nbsp;</a></span>textBoxUI</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject Chatbox.textBoxUI</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The UI component holding the textbox.</p>
+
+</div>
+</div>
+<a id="a6932ac752635c5f340a32d29e17d178b" name="a6932ac752635c5f340a32d29e17d178b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6932ac752635c5f340a32d29e17d178b">&#9670;&nbsp;</a></span>timeForDeletion</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Chatbox.timeForDeletion = 25f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Time until a message is deleted</p>
+
+</div>
+</div>
+<a id="a1707b8c2509ac2f4742e322a1c125e76" name="a1707b8c2509ac2f4742e322a1c125e76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1707b8c2509ac2f4742e322a1c125e76">&#9670;&nbsp;</a></span>timer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float [] Chatbox.timer = new float[5]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Timer for deletion</p>
+
+</div>
+</div>
+<a id="a16209284d620deca809b63714e33614d" name="a16209284d620deca809b63714e33614d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16209284d620deca809b63714e33614d">&#9670;&nbsp;</a></span>typing</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Chatbox.typing</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>True when the player opened the chat</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Chatbox.cs</li>
+<li><a class="el" href="_chatbox_8cs.html">Chatbox.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

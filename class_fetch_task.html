@@ -63,6 +63,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_fetch_task-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">FetchTask Class Reference</div></div>
 </div><!--header-->
@@ -80,59 +82,400 @@ Inheritance diagram for FetchTask:</div>
   </map>
 </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a648e268230501da6810721b7b96447b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fetch_task.html#a648e268230501da6810721b7b96447b7">Update</a> ()</td></tr>
+<tr class="memdesc:a648e268230501da6810721b7b96447b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawns the fetchitems and checks for completion.  <a href="class_fetch_task.html#a648e268230501da6810721b7b96447b7">More...</a><br /></td></tr>
+<tr class="separator:a648e268230501da6810721b7b96447b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affdffef9cf93c627b52a28723e3de2eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fetch_task.html#affdffef9cf93c627b52a28723e3de2eb">InitTask</a> ()</td></tr>
+<tr class="memdesc:affdffef9cf93c627b52a28723e3de2eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawns the fetch-items.  <a href="class_fetch_task.html#affdffef9cf93c627b52a28723e3de2eb">More...</a><br /></td></tr>
+<tr class="separator:affdffef9cf93c627b52a28723e3de2eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40780410a2287b8be71c2297f0d79879"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fetch_task.html#a40780410a2287b8be71c2297f0d79879">OnTriggerEnter</a> (Collider other)</td></tr>
+<tr class="memdesc:a40780410a2287b8be71c2297f0d79879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the detection of FetchItems inside the drop-off area.  <a href="class_fetch_task.html#a40780410a2287b8be71c2297f0d79879">More...</a><br /></td></tr>
+<tr class="separator:a40780410a2287b8be71c2297f0d79879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f167ab0a5dd6186f60793c97bc919a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fetch_task.html#a2f167ab0a5dd6186f60793c97bc919a6">OnTriggerExit</a> (Collider other)</td></tr>
+<tr class="memdesc:a2f167ab0a5dd6186f60793c97bc919a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the detection of FetchItems inside the drop-off area.  <a href="class_fetch_task.html#a2f167ab0a5dd6186f60793c97bc919a6">More...</a><br /></td></tr>
+<tr class="separator:a2f167ab0a5dd6186f60793c97bc919a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adab2e58361da9c634f36974f9118f864"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fetch_task.html#adab2e58361da9c634f36974f9118f864">RpcFlipLight</a> (GameObject item, bool lightStatus)</td></tr>
+<tr class="memdesc:adab2e58361da9c634f36974f9118f864"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for dis/enabling the light on the FetchItems.  <a href="class_fetch_task.html#adab2e58361da9c634f36974f9118f864">More...</a><br /></td></tr>
+<tr class="separator:adab2e58361da9c634f36974f9118f864"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a9f288be4427aaa5b89e33cdda6d03cc0"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fetch_task.html#a9f288be4427aaa5b89e33cdda6d03cc0">fetchItem</a></td></tr>
+<tr class="memdesc:a9f288be4427aaa5b89e33cdda6d03cc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The item to spawn <a href="class_fetch_task.html#a9f288be4427aaa5b89e33cdda6d03cc0">More...</a><br /></td></tr>
+<tr class="separator:a9f288be4427aaa5b89e33cdda6d03cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e3c2fab30cb919120d5d9ec39d820ff"><td class="memItemLeft" align="right" valign="top">List&lt; Vector3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fetch_task.html#a7e3c2fab30cb919120d5d9ec39d820ff">spawns</a></td></tr>
+<tr class="memdesc:a7e3c2fab30cb919120d5d9ec39d820ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of all possible spawn locations <a href="class_fetch_task.html#a7e3c2fab30cb919120d5d9ec39d820ff">More...</a><br /></td></tr>
+<tr class="separator:a7e3c2fab30cb919120d5d9ec39d820ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6253697ea238bdd9cd8be6bdc005b5fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fetch_task.html#a6253697ea238bdd9cd8be6bdc005b5fe">maxItems</a></td></tr>
+<tr class="memdesc:a6253697ea238bdd9cd8be6bdc005b5fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of items to spawn for one task <a href="class_fetch_task.html#a6253697ea238bdd9cd8be6bdc005b5fe">More...</a><br /></td></tr>
+<tr class="separator:a6253697ea238bdd9cd8be6bdc005b5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae648b4fc04c094cd97564721c17f0589"><td class="memItemLeft" align="right" valign="top">List&lt; GameObject &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fetch_task.html#ae648b4fc04c094cd97564721c17f0589">itemsInZone</a> = new List&lt;GameObject&gt;()</td></tr>
+<tr class="memdesc:ae648b4fc04c094cd97564721c17f0589"><td class="mdescLeft">&#160;</td><td class="mdescRight">Items in the drop-off zone <a href="class_fetch_task.html#ae648b4fc04c094cd97564721c17f0589">More...</a><br /></td></tr>
+<tr class="separator:ae648b4fc04c094cd97564721c17f0589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a92cffc37739b3646dbcdab52929528"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fetch_task.html#a1a92cffc37739b3646dbcdab52929528">currentItems</a></td></tr>
+<tr class="memdesc:a1a92cffc37739b3646dbcdab52929528"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of items in the drop-off zone <a href="class_fetch_task.html#a1a92cffc37739b3646dbcdab52929528">More...</a><br /></td></tr>
+<tr class="separator:a1a92cffc37739b3646dbcdab52929528"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01ebd169c988664b2d6d611a6e361d81"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fetch_task.html#a01ebd169c988664b2d6d611a6e361d81">init</a></td></tr>
+<tr class="memdesc:a01ebd169c988664b2d6d611a6e361d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when the items have been spawned <a href="class_fetch_task.html#a01ebd169c988664b2d6d611a6e361d81">More...</a><br /></td></tr>
+<tr class="separator:a01ebd169c988664b2d6d611a6e361d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_methods_class_task"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_task')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_task.html">Task</a></td></tr>
-<tr class="memitem:a9fcff87319531c15ece7cf474746dd0d inherit pub_methods_class_task"><td class="memItemLeft" align="right" valign="top"><a id="a9fcff87319531c15ece7cf474746dd0d" name="a9fcff87319531c15ece7cf474746dd0d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>FinishTask</b> ()</td></tr>
-<tr class="memdesc:a9fcff87319531c15ece7cf474746dd0d inherit pub_methods_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to finish the task. <br /></td></tr>
+<tr class="memitem:a9fcff87319531c15ece7cf474746dd0d inherit pub_methods_class_task"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#a9fcff87319531c15ece7cf474746dd0d">FinishTask</a> ()</td></tr>
+<tr class="memdesc:a9fcff87319531c15ece7cf474746dd0d inherit pub_methods_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to finish the task.  <a href="class_task.html#a9fcff87319531c15ece7cf474746dd0d">More...</a><br /></td></tr>
 <tr class="separator:a9fcff87319531c15ece7cf474746dd0d inherit pub_methods_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29bccb92051b35f8f00726902e1efcce inherit pub_methods_class_task"><td class="memItemLeft" align="right" valign="top"><a id="a29bccb92051b35f8f00726902e1efcce" name="a29bccb92051b35f8f00726902e1efcce"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UndoTask</b> ()</td></tr>
-<tr class="memdesc:a29bccb92051b35f8f00726902e1efcce inherit pub_methods_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to undo the task and set it active again. <br /></td></tr>
+<tr class="memitem:a29bccb92051b35f8f00726902e1efcce inherit pub_methods_class_task"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#a29bccb92051b35f8f00726902e1efcce">UndoTask</a> ()</td></tr>
+<tr class="memdesc:a29bccb92051b35f8f00726902e1efcce inherit pub_methods_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to undo the task and set it active again.  <a href="class_task.html#a29bccb92051b35f8f00726902e1efcce">More...</a><br /></td></tr>
 <tr class="separator:a29bccb92051b35f8f00726902e1efcce inherit pub_methods_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_task"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_task')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_task.html">Task</a></td></tr>
-<tr class="memitem:a63b08be82a450d0829928c71b4f8d573 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="a63b08be82a450d0829928c71b4f8d573" name="a63b08be82a450d0829928c71b4f8d573"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>active</b></td></tr>
-<tr class="memdesc:a63b08be82a450d0829928c71b4f8d573 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when the task is ready to be interacted with.<br /></td></tr>
+<tr class="memitem:a63b08be82a450d0829928c71b4f8d573 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#a63b08be82a450d0829928c71b4f8d573">active</a></td></tr>
+<tr class="memdesc:a63b08be82a450d0829928c71b4f8d573 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when the task is ready to be interacted with. <a href="class_task.html#a63b08be82a450d0829928c71b4f8d573">More...</a><br /></td></tr>
 <tr class="separator:a63b08be82a450d0829928c71b4f8d573 inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad490836f8e9454ed8e3a7d59aa282696 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="ad490836f8e9454ed8e3a7d59aa282696" name="ad490836f8e9454ed8e3a7d59aa282696"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>done</b></td></tr>
-<tr class="memdesc:ad490836f8e9454ed8e3a7d59aa282696 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when the task is done.<br /></td></tr>
+<tr class="memitem:ad490836f8e9454ed8e3a7d59aa282696 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#ad490836f8e9454ed8e3a7d59aa282696">done</a></td></tr>
+<tr class="memdesc:ad490836f8e9454ed8e3a7d59aa282696 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when the task is done. <a href="class_task.html#ad490836f8e9454ed8e3a7d59aa282696">More...</a><br /></td></tr>
 <tr class="separator:ad490836f8e9454ed8e3a7d59aa282696 inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae635f72017a9459b60f40fc5bee5339d inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="ae635f72017a9459b60f40fc5bee5339d" name="ae635f72017a9459b60f40fc5bee5339d"></a>
-Vector3&#160;</td><td class="memItemRight" valign="bottom"><b>spawn</b></td></tr>
-<tr class="memdesc:ae635f72017a9459b60f40fc5bee5339d inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">The place where the task should spawn.<br /></td></tr>
+<tr class="memitem:ae635f72017a9459b60f40fc5bee5339d inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#ae635f72017a9459b60f40fc5bee5339d">spawn</a></td></tr>
+<tr class="memdesc:ae635f72017a9459b60f40fc5bee5339d inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">The place where the task should spawn. <a href="class_task.html#ae635f72017a9459b60f40fc5bee5339d">More...</a><br /></td></tr>
 <tr class="separator:ae635f72017a9459b60f40fc5bee5339d inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13d308203949f40afa931c6bb9ad7fe9 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="a13d308203949f40afa931c6bb9ad7fe9" name="a13d308203949f40afa931c6bb9ad7fe9"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
-<tr class="memdesc:a13d308203949f40afa931c6bb9ad7fe9 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id of the task, assinged by the <a class="el" href="class_task_manager.html" title="Reponsible for handling the tasks in an active round. Chooses and spawns the tasks and keeps track of...">TaskManager</a>. Can be used to identify the <a class="el" href="class_task.html" title="Base class for the ingame tasks. Every task must inherit from this class. Handles basic information a...">Task</a>.<br /></td></tr>
+<tr class="memitem:a13d308203949f40afa931c6bb9ad7fe9 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#a13d308203949f40afa931c6bb9ad7fe9">id</a></td></tr>
+<tr class="memdesc:a13d308203949f40afa931c6bb9ad7fe9 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id of the task, assinged by the <a class="el" href="class_task_manager.html" title="Reponsible for handling the tasks in an active round. Chooses and spawns the tasks and keeps track of...">TaskManager</a>. Can be used to identify the <a class="el" href="class_task.html" title="Base class for the ingame tasks. Every task must inherit from this class. Handles basic information a...">Task</a>. <a href="class_task.html#a13d308203949f40afa931c6bb9ad7fe9">More...</a><br /></td></tr>
 <tr class="separator:a13d308203949f40afa931c6bb9ad7fe9 inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15816482f88ca69dfbe9a7498ecf262b inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="a15816482f88ca69dfbe9a7498ecf262b" name="a15816482f88ca69dfbe9a7498ecf262b"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>taskName</b></td></tr>
-<tr class="memdesc:a15816482f88ca69dfbe9a7498ecf262b inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the task for the UI.<br /></td></tr>
+<tr class="memitem:a15816482f88ca69dfbe9a7498ecf262b inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#a15816482f88ca69dfbe9a7498ecf262b">taskName</a></td></tr>
+<tr class="memdesc:a15816482f88ca69dfbe9a7498ecf262b inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the task for the UI. <a href="class_task.html#a15816482f88ca69dfbe9a7498ecf262b">More...</a><br /></td></tr>
 <tr class="separator:a15816482f88ca69dfbe9a7498ecf262b inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc1112df9f1cc4353af76bea1da74d9f inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="abc1112df9f1cc4353af76bea1da74d9f" name="abc1112df9f1cc4353af76bea1da74d9f"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>taskDescription</b></td></tr>
-<tr class="memdesc:abc1112df9f1cc4353af76bea1da74d9f inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short description for the UI.<br /></td></tr>
+<tr class="memitem:abc1112df9f1cc4353af76bea1da74d9f inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#abc1112df9f1cc4353af76bea1da74d9f">taskDescription</a></td></tr>
+<tr class="memdesc:abc1112df9f1cc4353af76bea1da74d9f inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short description for the UI. <a href="class_task.html#abc1112df9f1cc4353af76bea1da74d9f">More...</a><br /></td></tr>
 <tr class="separator:abc1112df9f1cc4353af76bea1da74d9f inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a156373f99c36bcc2c1a58d565283f835 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="a156373f99c36bcc2c1a58d565283f835" name="a156373f99c36bcc2c1a58d565283f835"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>progress</b></td></tr>
-<tr class="memdesc:a156373f99c36bcc2c1a58d565283f835 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Progress in percent. 50% should be 0.5<br /></td></tr>
+<tr class="memitem:a156373f99c36bcc2c1a58d565283f835 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#a156373f99c36bcc2c1a58d565283f835">progress</a></td></tr>
+<tr class="memdesc:a156373f99c36bcc2c1a58d565283f835 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Progress in percent. 50% should be 0.5 <a href="class_task.html#a156373f99c36bcc2c1a58d565283f835">More...</a><br /></td></tr>
 <tr class="separator:a156373f99c36bcc2c1a58d565283f835 inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d05caff67206a3f62b157058cb97417 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="a8d05caff67206a3f62b157058cb97417" name="a8d05caff67206a3f62b157058cb97417"></a>
-readonly SyncList&lt; uint &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>players</b> = new SyncList&lt;uint&gt;()</td></tr>
-<tr class="memdesc:a8d05caff67206a3f62b157058cb97417 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of all Players within the interactable radius<br /></td></tr>
+<tr class="memitem:a8d05caff67206a3f62b157058cb97417 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top">readonly SyncList&lt; uint &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#a8d05caff67206a3f62b157058cb97417">players</a> = new SyncList&lt;uint&gt;()</td></tr>
+<tr class="memdesc:a8d05caff67206a3f62b157058cb97417 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of all Players within the interactable radius <a href="class_task.html#a8d05caff67206a3f62b157058cb97417">More...</a><br /></td></tr>
 <tr class="separator:a8d05caff67206a3f62b157058cb97417 inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32271edae61ca893c9873286eff39f79 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="a32271edae61ca893c9873286eff39f79" name="a32271edae61ca893c9873286eff39f79"></a>
-<a class="el" href="class_destructable_object.html">DestructableObject</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dObjScript</b></td></tr>
-<tr class="memdesc:a32271edae61ca893c9873286eff39f79 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_destructable_object.html" title="This class is used to make non player objects attackable for the zombies. If you want to use this,...">DestructableObject</a> script to track the health of the task and make it attackable.<br /></td></tr>
+<tr class="memitem:a32271edae61ca893c9873286eff39f79 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_destructable_object.html">DestructableObject</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#a32271edae61ca893c9873286eff39f79">dObjScript</a></td></tr>
+<tr class="memdesc:a32271edae61ca893c9873286eff39f79 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_destructable_object.html" title="This class is used to make non player objects attackable for the zombies. If you want to use this,...">DestructableObject</a> script to track the health of the task and make it attackable. <a href="class_task.html#a32271edae61ca893c9873286eff39f79">More...</a><br /></td></tr>
 <tr class="separator:a32271edae61ca893c9873286eff39f79 inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Class for the '<a class="el" href="class_fetch_task.html" title="Class for the &#39;FetchTask&#39;-task. Inherits from Task.">FetchTask</a>'-task. Inherits from <a class="el" href="class_task.html" title="Base class for the ingame tasks. Every task must inherit from this class. Handles basic information a...">Task</a>. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>FetchTask.cs</li>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="affdffef9cf93c627b52a28723e3de2eb" name="affdffef9cf93c627b52a28723e3de2eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affdffef9cf93c627b52a28723e3de2eb">&#9670;&nbsp;</a></span>InitTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FetchTask.InitTask </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Spawns the fetch-items. </p>
+
+</div>
+</div>
+<a id="a40780410a2287b8be71c2297f0d79879" name="a40780410a2287b8be71c2297f0d79879"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40780410a2287b8be71c2297f0d79879">&#9670;&nbsp;</a></span>OnTriggerEnter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FetchTask.OnTriggerEnter </td>
+          <td>(</td>
+          <td class="paramtype">Collider&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handles the detection of FetchItems inside the drop-off area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The collider of the gameobject that triggered this method</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2f167ab0a5dd6186f60793c97bc919a6" name="a2f167ab0a5dd6186f60793c97bc919a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f167ab0a5dd6186f60793c97bc919a6">&#9670;&nbsp;</a></span>OnTriggerExit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FetchTask.OnTriggerExit </td>
+          <td>(</td>
+          <td class="paramtype">Collider&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handles the detection of FetchItems inside the drop-off area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The collider of the gameobject that triggered this method</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adab2e58361da9c634f36974f9118f864" name="adab2e58361da9c634f36974f9118f864"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adab2e58361da9c634f36974f9118f864">&#9670;&nbsp;</a></span>RpcFlipLight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FetchTask.RpcFlipLight </td>
+          <td>(</td>
+          <td class="paramtype">GameObject&#160;</td>
+          <td class="paramname"><em>item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>lightStatus</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used for dis/enabling the light on the FetchItems. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Item to switch the light on</td></tr>
+    <tr><td class="paramname">lightStatus</td><td>If the light is on (true) or of(false)</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a648e268230501da6810721b7b96447b7" name="a648e268230501da6810721b7b96447b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a648e268230501da6810721b7b96447b7">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FetchTask.Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Spawns the fetchitems and checks for completion. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1a92cffc37739b3646dbcdab52929528" name="a1a92cffc37739b3646dbcdab52929528"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a92cffc37739b3646dbcdab52929528">&#9670;&nbsp;</a></span>currentItems</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FetchTask.currentItems</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Amount of items in the drop-off zone</p>
+
+</div>
+</div>
+<a id="a9f288be4427aaa5b89e33cdda6d03cc0" name="a9f288be4427aaa5b89e33cdda6d03cc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f288be4427aaa5b89e33cdda6d03cc0">&#9670;&nbsp;</a></span>fetchItem</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject FetchTask.fetchItem</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The item to spawn</p>
+
+</div>
+</div>
+<a id="a01ebd169c988664b2d6d611a6e361d81" name="a01ebd169c988664b2d6d611a6e361d81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01ebd169c988664b2d6d611a6e361d81">&#9670;&nbsp;</a></span>init</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FetchTask.init</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>True when the items have been spawned</p>
+
+</div>
+</div>
+<a id="ae648b4fc04c094cd97564721c17f0589" name="ae648b4fc04c094cd97564721c17f0589"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae648b4fc04c094cd97564721c17f0589">&#9670;&nbsp;</a></span>itemsInZone</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;GameObject&gt; FetchTask.itemsInZone = new List&lt;GameObject&gt;()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Items in the drop-off zone</p>
+
+</div>
+</div>
+<a id="a6253697ea238bdd9cd8be6bdc005b5fe" name="a6253697ea238bdd9cd8be6bdc005b5fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6253697ea238bdd9cd8be6bdc005b5fe">&#9670;&nbsp;</a></span>maxItems</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FetchTask.maxItems</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Amount of items to spawn for one task</p>
+
+</div>
+</div>
+<a id="a7e3c2fab30cb919120d5d9ec39d820ff" name="a7e3c2fab30cb919120d5d9ec39d820ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e3c2fab30cb919120d5d9ec39d820ff">&#9670;&nbsp;</a></span>spawns</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;Vector3&gt; FetchTask.spawns</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A list of all possible spawn locations</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="_fetch_task_8cs.html">FetchTask.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -65,6 +65,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_player_name_input-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">PlayerNameInput Class Reference</div></div>
 </div><!--header-->
@@ -81,22 +82,149 @@ Inheritance diagram for PlayerNameInput:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a93ba715d3eaa4f7265c57e69f734def3"><td class="memItemLeft" align="right" valign="top"><a id="a93ba715d3eaa4f7265c57e69f734def3" name="a93ba715d3eaa4f7265c57e69f734def3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ContinueButtonPressed</b> ()</td></tr>
-<tr class="memdesc:a93ba715d3eaa4f7265c57e69f734def3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reacts to the interaction of a button. Checks if the input field of the name is empty. If the input is not empty, the playername is set to a max amout of 15 and blank characters are replaced with an underline. Then the UI elmente are changed by de- and activating them. <br /></td></tr>
+<tr class="memitem:a93ba715d3eaa4f7265c57e69f734def3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_name_input.html#a93ba715d3eaa4f7265c57e69f734def3">ContinueButtonPressed</a> ()</td></tr>
+<tr class="memdesc:a93ba715d3eaa4f7265c57e69f734def3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reacts to the interaction of a button. Checks if the input field of the name is empty. If the input is not empty, the playername is set to a max amout of 15 and blank characters are replaced with an underline. Then the UI elmente are changed by de- and activating them.  <a href="class_player_name_input.html#a93ba715d3eaa4f7265c57e69f734def3">More...</a><br /></td></tr>
 <tr class="separator:a93ba715d3eaa4f7265c57e69f734def3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:afe05966bdec71a56930c9c62c3d7fc2a"><td class="memItemLeft" align="right" valign="top"><a id="afe05966bdec71a56930c9c62c3d7fc2a" name="afe05966bdec71a56930c9c62c3d7fc2a"></a>
-static string&#160;</td><td class="memItemRight" valign="bottom"><b>playerName</b> = &quot;&quot;</td></tr>
-<tr class="memdesc:afe05966bdec71a56930c9c62c3d7fc2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static variable containing the player name.<br /></td></tr>
+<tr class="memitem:afe05966bdec71a56930c9c62c3d7fc2a"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_name_input.html#afe05966bdec71a56930c9c62c3d7fc2a">playerName</a> = &quot;&quot;</td></tr>
+<tr class="memdesc:afe05966bdec71a56930c9c62c3d7fc2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static variable containing the player name. <a href="class_player_name_input.html#afe05966bdec71a56930c9c62c3d7fc2a">More...</a><br /></td></tr>
 <tr class="separator:afe05966bdec71a56930c9c62c3d7fc2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a9d94c0c8179a1740925bacc2cb18160b"><td class="memItemLeft" align="right" valign="top">TMP_InputField&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_name_input.html#a9d94c0c8179a1740925bacc2cb18160b">nameInput</a> = null</td></tr>
+<tr class="memdesc:a9d94c0c8179a1740925bacc2cb18160b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the input field for the name input. <a href="class_player_name_input.html#a9d94c0c8179a1740925bacc2cb18160b">More...</a><br /></td></tr>
+<tr class="separator:a9d94c0c8179a1740925bacc2cb18160b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac136f43fa72bc16c2fd8ff732336124b"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_name_input.html#ac136f43fa72bc16c2fd8ff732336124b">hostMenu</a> = null</td></tr>
+<tr class="memdesc:ac136f43fa72bc16c2fd8ff732336124b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the next UI element, after the name input. <a href="class_player_name_input.html#ac136f43fa72bc16c2fd8ff732336124b">More...</a><br /></td></tr>
+<tr class="separator:ac136f43fa72bc16c2fd8ff732336124b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35b2cad7b1216b6292a6fe4284d2707d"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_name_input.html#a35b2cad7b1216b6292a6fe4284d2707d">nameMenu</a> = null</td></tr>
+<tr class="memdesc:a35b2cad7b1216b6292a6fe4284d2707d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the UI of the class itself. <a href="class_player_name_input.html#a35b2cad7b1216b6292a6fe4284d2707d">More...</a><br /></td></tr>
+<tr class="separator:a35b2cad7b1216b6292a6fe4284d2707d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This class is needed to validate the name input in the lobby UI.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>PlayerNameInput.cs</li>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a93ba715d3eaa4f7265c57e69f734def3" name="a93ba715d3eaa4f7265c57e69f734def3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93ba715d3eaa4f7265c57e69f734def3">&#9670;&nbsp;</a></span>ContinueButtonPressed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerNameInput.ContinueButtonPressed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reacts to the interaction of a button. Checks if the input field of the name is empty. If the input is not empty, the playername is set to a max amout of 15 and blank characters are replaced with an underline. Then the UI elmente are changed by de- and activating them. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac136f43fa72bc16c2fd8ff732336124b" name="ac136f43fa72bc16c2fd8ff732336124b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac136f43fa72bc16c2fd8ff732336124b">&#9670;&nbsp;</a></span>hostMenu</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject PlayerNameInput.hostMenu = null</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Holds the next UI element, after the name input.</p>
+
+</div>
+</div>
+<a id="a9d94c0c8179a1740925bacc2cb18160b" name="a9d94c0c8179a1740925bacc2cb18160b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d94c0c8179a1740925bacc2cb18160b">&#9670;&nbsp;</a></span>nameInput</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TMP_InputField PlayerNameInput.nameInput = null</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Holds the input field for the name input.</p>
+
+</div>
+</div>
+<a id="a35b2cad7b1216b6292a6fe4284d2707d" name="a35b2cad7b1216b6292a6fe4284d2707d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35b2cad7b1216b6292a6fe4284d2707d">&#9670;&nbsp;</a></span>nameMenu</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject PlayerNameInput.nameMenu = null</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Contains the UI of the class itself.</p>
+
+</div>
+</div>
+<a id="afe05966bdec71a56930c9c62c3d7fc2a" name="afe05966bdec71a56930c9c62c3d7fc2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe05966bdec71a56930c9c62c3d7fc2a">&#9670;&nbsp;</a></span>playerName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string PlayerNameInput.playerName = &quot;&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Static variable containing the player name.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="_player_name_input_8cs.html">PlayerNameInput.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

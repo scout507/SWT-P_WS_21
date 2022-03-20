@@ -64,6 +64,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_join_lobby_menu-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">JoinLobbyMenu Class Reference</div></div>
 </div><!--header-->
@@ -80,15 +82,242 @@ Inheritance diagram for JoinLobbyMenu:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae8fd5c76e8f5bfe85463d5493e12aefe"><td class="memItemLeft" align="right" valign="top"><a id="ae8fd5c76e8f5bfe85463d5493e12aefe" name="ae8fd5c76e8f5bfe85463d5493e12aefe"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>JoinLobby</b> ()</td></tr>
-<tr class="memdesc:ae8fd5c76e8f5bfe85463d5493e12aefe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts the IP address from the vaiable "ipAdressInputField" into the network manager. The client is then started via the network manager and the join button is deactivated, so that the user does not trigger the function again afterwards. <br /></td></tr>
+<tr class="memitem:ae8fd5c76e8f5bfe85463d5493e12aefe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_join_lobby_menu.html#ae8fd5c76e8f5bfe85463d5493e12aefe">JoinLobby</a> ()</td></tr>
+<tr class="memdesc:ae8fd5c76e8f5bfe85463d5493e12aefe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts the IP address from the vaiable "ipAdressInputField" into the network manager. The client is then started via the network manager and the join button is deactivated, so that the user does not trigger the function again afterwards.  <a href="class_join_lobby_menu.html#ae8fd5c76e8f5bfe85463d5493e12aefe">More...</a><br /></td></tr>
 <tr class="separator:ae8fd5c76e8f5bfe85463d5493e12aefe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aaad3d08c4a5cd8cd74f9c46456e6cd49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_join_lobby_menu.html#aaad3d08c4a5cd8cd74f9c46456e6cd49">OnEnable</a> ()</td></tr>
+<tr class="memdesc:aaad3d08c4a5cd8cd74f9c46456e6cd49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the object of the class in the scene will activated. Adds the functions "HandleClientConnected" and "HandleClientDisconnected" to the lobby network manager.  <a href="class_join_lobby_menu.html#aaad3d08c4a5cd8cd74f9c46456e6cd49">More...</a><br /></td></tr>
+<tr class="separator:aaad3d08c4a5cd8cd74f9c46456e6cd49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95483e355354f8da7992b4ae9dd3e49c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_join_lobby_menu.html#a95483e355354f8da7992b4ae9dd3e49c">OnDisable</a> ()</td></tr>
+<tr class="memdesc:a95483e355354f8da7992b4ae9dd3e49c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the object of the class in the scene will deactivated. Removes the functions "HandleClientConnected" and "HandleClientDisconnected" from the lobby network manager.  <a href="class_join_lobby_menu.html#a95483e355354f8da7992b4ae9dd3e49c">More...</a><br /></td></tr>
+<tr class="separator:a95483e355354f8da7992b4ae9dd3e49c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8264500a5bc73b11d22635fa91abff0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_join_lobby_menu.html#a8264500a5bc73b11d22635fa91abff0e">HandleClientConnected</a> ()</td></tr>
+<tr class="memdesc:a8264500a5bc73b11d22635fa91abff0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates the join button after connected to server. Deactivates its own GameObject in the UI and the game object that defines the host UI of the Lobby UI.  <a href="class_join_lobby_menu.html#a8264500a5bc73b11d22635fa91abff0e">More...</a><br /></td></tr>
+<tr class="separator:a8264500a5bc73b11d22635fa91abff0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeff0a3c6f9c0f2fae2229d0b3bb7d510"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_join_lobby_menu.html#aeff0a3c6f9c0f2fae2229d0b3bb7d510">HandleClientDisconnected</a> ()</td></tr>
+<tr class="memdesc:aeff0a3c6f9c0f2fae2229d0b3bb7d510"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates the join button after connection failed to server.  <a href="class_join_lobby_menu.html#aeff0a3c6f9c0f2fae2229d0b3bb7d510">More...</a><br /></td></tr>
+<tr class="separator:aeff0a3c6f9c0f2fae2229d0b3bb7d510"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a8591da40ee80a2be39d4eb401ebf2e2b"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_join_lobby_menu.html#a8591da40ee80a2be39d4eb401ebf2e2b">landingPagePanel</a> = null</td></tr>
+<tr class="memdesc:a8591da40ee80a2be39d4eb401ebf2e2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the game object that defines the host UI of the Lobby UI. <a href="class_join_lobby_menu.html#a8591da40ee80a2be39d4eb401ebf2e2b">More...</a><br /></td></tr>
+<tr class="separator:a8591da40ee80a2be39d4eb401ebf2e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a6843834e2be342f25f207d27b9c4a2"><td class="memItemLeft" align="right" valign="top">TMP_InputField&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_join_lobby_menu.html#a6a6843834e2be342f25f207d27b9c4a2">ipAdressInputField</a> = null</td></tr>
+<tr class="memdesc:a6a6843834e2be342f25f207d27b9c4a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the input field for the IP address of the Lobby UI. <a href="class_join_lobby_menu.html#a6a6843834e2be342f25f207d27b9c4a2">More...</a><br /></td></tr>
+<tr class="separator:a6a6843834e2be342f25f207d27b9c4a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a771c20cd7064cfe5184ba9ed788e3e82"><td class="memItemLeft" align="right" valign="top">Button&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_join_lobby_menu.html#a771c20cd7064cfe5184ba9ed788e3e82">joinButton</a> = null</td></tr>
+<tr class="memdesc:a771c20cd7064cfe5184ba9ed788e3e82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the Join button of the Lobby UI. <a href="class_join_lobby_menu.html#a771c20cd7064cfe5184ba9ed788e3e82">More...</a><br /></td></tr>
+<tr class="separator:a771c20cd7064cfe5184ba9ed788e3e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This class processes the interactions of the lobby UI.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>JoinLobbyMenu.cs</li>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8264500a5bc73b11d22635fa91abff0e" name="a8264500a5bc73b11d22635fa91abff0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8264500a5bc73b11d22635fa91abff0e">&#9670;&nbsp;</a></span>HandleClientConnected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JoinLobbyMenu.HandleClientConnected </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Activates the join button after connected to server. Deactivates its own GameObject in the UI and the game object that defines the host UI of the Lobby UI. </p>
+
+</div>
+</div>
+<a id="aeff0a3c6f9c0f2fae2229d0b3bb7d510" name="aeff0a3c6f9c0f2fae2229d0b3bb7d510"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeff0a3c6f9c0f2fae2229d0b3bb7d510">&#9670;&nbsp;</a></span>HandleClientDisconnected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JoinLobbyMenu.HandleClientDisconnected </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Activates the join button after connection failed to server. </p>
+
+</div>
+</div>
+<a id="ae8fd5c76e8f5bfe85463d5493e12aefe" name="ae8fd5c76e8f5bfe85463d5493e12aefe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8fd5c76e8f5bfe85463d5493e12aefe">&#9670;&nbsp;</a></span>JoinLobby()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JoinLobbyMenu.JoinLobby </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts the IP address from the vaiable "ipAdressInputField" into the network manager. The client is then started via the network manager and the join button is deactivated, so that the user does not trigger the function again afterwards. </p>
+
+</div>
+</div>
+<a id="a95483e355354f8da7992b4ae9dd3e49c" name="a95483e355354f8da7992b4ae9dd3e49c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95483e355354f8da7992b4ae9dd3e49c">&#9670;&nbsp;</a></span>OnDisable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JoinLobbyMenu.OnDisable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when the object of the class in the scene will deactivated. Removes the functions "HandleClientConnected" and "HandleClientDisconnected" from the lobby network manager. </p>
+
+</div>
+</div>
+<a id="aaad3d08c4a5cd8cd74f9c46456e6cd49" name="aaad3d08c4a5cd8cd74f9c46456e6cd49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaad3d08c4a5cd8cd74f9c46456e6cd49">&#9670;&nbsp;</a></span>OnEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JoinLobbyMenu.OnEnable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when the object of the class in the scene will activated. Adds the functions "HandleClientConnected" and "HandleClientDisconnected" to the lobby network manager. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a6a6843834e2be342f25f207d27b9c4a2" name="a6a6843834e2be342f25f207d27b9c4a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a6843834e2be342f25f207d27b9c4a2">&#9670;&nbsp;</a></span>ipAdressInputField</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TMP_InputField JoinLobbyMenu.ipAdressInputField = null</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Holds the input field for the IP address of the Lobby UI.</p>
+
+</div>
+</div>
+<a id="a771c20cd7064cfe5184ba9ed788e3e82" name="a771c20cd7064cfe5184ba9ed788e3e82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a771c20cd7064cfe5184ba9ed788e3e82">&#9670;&nbsp;</a></span>joinButton</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Button JoinLobbyMenu.joinButton = null</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Holds the Join button of the Lobby UI.</p>
+
+</div>
+</div>
+<a id="a8591da40ee80a2be39d4eb401ebf2e2b" name="a8591da40ee80a2be39d4eb401ebf2e2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8591da40ee80a2be39d4eb401ebf2e2b">&#9670;&nbsp;</a></span>landingPagePanel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject JoinLobbyMenu.landingPagePanel = null</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Holds the game object that defines the host UI of the Lobby UI.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="_join_lobby_menu_8cs.html">JoinLobbyMenu.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

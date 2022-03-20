@@ -63,6 +63,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_task_timer-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">TaskTimer Class Reference</div></div>
 </div><!--header-->
@@ -80,59 +82,396 @@ Inheritance diagram for TaskTimer:</div>
   </map>
 </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:acd02c9ac21df935757d3763597462b60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task_timer.html#acd02c9ac21df935757d3763597462b60">Update</a> ()</td></tr>
+<tr class="memdesc:acd02c9ac21df935757d3763597462b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles Client interaction. Checks for task completion. Spawns zombies and ticks up health until completion.  <a href="class_task_timer.html#acd02c9ac21df935757d3763597462b60">More...</a><br /></td></tr>
+<tr class="separator:acd02c9ac21df935757d3763597462b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6faee87a7d265f13022b369ab0c4b08c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task_timer.html#a6faee87a7d265f13022b369ab0c4b08c">SpawnZombies</a> ()</td></tr>
+<tr class="memdesc:a6faee87a7d265f13022b369ab0c4b08c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawns the Zombies during the task.  <a href="class_task_timer.html#a6faee87a7d265f13022b369ab0c4b08c">More...</a><br /></td></tr>
+<tr class="separator:a6faee87a7d265f13022b369ab0c4b08c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a431991f40fbf0ffc683eec806cce62a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task_timer.html#a431991f40fbf0ffc683eec806cce62a4">UpdateText</a> ()</td></tr>
+<tr class="memdesc:a431991f40fbf0ffc683eec806cce62a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the text for the UI to show progress of the task.  <a href="class_task_timer.html#a431991f40fbf0ffc683eec806cce62a4">More...</a><br /></td></tr>
+<tr class="separator:a431991f40fbf0ffc683eec806cce62a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93a57e397e9e1b26843342e01aeaa7d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task_timer.html#a93a57e397e9e1b26843342e01aeaa7d4">OnTriggerEnter</a> (Collider other)</td></tr>
+<tr class="memdesc:a93a57e397e9e1b26843342e01aeaa7d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds players to the players List once they are in the interactive radius.  <a href="class_task_timer.html#a93a57e397e9e1b26843342e01aeaa7d4">More...</a><br /></td></tr>
+<tr class="separator:a93a57e397e9e1b26843342e01aeaa7d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca589e94c367494fc36d3b71aaac4671"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task_timer.html#aca589e94c367494fc36d3b71aaac4671">CmdStartCountdown</a> ()</td></tr>
+<tr class="memdesc:aca589e94c367494fc36d3b71aaac4671"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to start the Countdown by the players.  <a href="class_task_timer.html#aca589e94c367494fc36d3b71aaac4671">More...</a><br /></td></tr>
+<tr class="separator:aca589e94c367494fc36d3b71aaac4671"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dc6a7503279ede02ef1a46bfa6a61a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task_timer.html#a0dc6a7503279ede02ef1a46bfa6a61a2">TargetRpcSendMessage</a> (NetworkConnection target, string message)</td></tr>
+<tr class="memdesc:a0dc6a7503279ede02ef1a46bfa6a61a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message to the choosen player.  <a href="class_task_timer.html#a0dc6a7503279ede02ef1a46bfa6a61a2">More...</a><br /></td></tr>
+<tr class="separator:a0dc6a7503279ede02ef1a46bfa6a61a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a41d1382570a4edecc4ebb18d3558cd09"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task_timer.html#a41d1382570a4edecc4ebb18d3558cd09">zombie</a></td></tr>
+<tr class="memdesc:a41d1382570a4edecc4ebb18d3558cd09"><td class="mdescLeft">&#160;</td><td class="mdescRight">The spawnable zombies <a href="class_task_timer.html#a41d1382570a4edecc4ebb18d3558cd09">More...</a><br /></td></tr>
+<tr class="separator:a41d1382570a4edecc4ebb18d3558cd09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd874a31633675b8a0045719ca33ef31"><td class="memItemLeft" align="right" valign="top">List&lt; GameObject &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task_timer.html#acd874a31633675b8a0045719ca33ef31">zombieSpawns</a></td></tr>
+<tr class="memdesc:acd874a31633675b8a0045719ca33ef31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Places for the Zombies to spawn <a href="class_task_timer.html#acd874a31633675b8a0045719ca33ef31">More...</a><br /></td></tr>
+<tr class="separator:acd874a31633675b8a0045719ca33ef31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad9fc1f1d56b5f642a3edadf13cc8d80"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task_timer.html#aad9fc1f1d56b5f642a3edadf13cc8d80">nextZombies</a> = 2f</td></tr>
+<tr class="memdesc:aad9fc1f1d56b5f642a3edadf13cc8d80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time for the next zombies to spawn <a href="class_task_timer.html#aad9fc1f1d56b5f642a3edadf13cc8d80">More...</a><br /></td></tr>
+<tr class="separator:aad9fc1f1d56b5f642a3edadf13cc8d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37f83a7d790042ae6b0175f5359914f3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task_timer.html#a37f83a7d790042ae6b0175f5359914f3">started</a></td></tr>
+<tr class="memdesc:a37f83a7d790042ae6b0175f5359914f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when the task has started <a href="class_task_timer.html#a37f83a7d790042ae6b0175f5359914f3">More...</a><br /></td></tr>
+<tr class="separator:a37f83a7d790042ae6b0175f5359914f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a284b4fa1fba50263d40c64dcf3faef7e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task_timer.html#a284b4fa1fba50263d40c64dcf3faef7e">fails</a></td></tr>
+<tr class="memdesc:a284b4fa1fba50263d40c64dcf3faef7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The amount of times the hp has come down to 0 <a href="class_task_timer.html#a284b4fa1fba50263d40c64dcf3faef7e">More...</a><br /></td></tr>
+<tr class="separator:a284b4fa1fba50263d40c64dcf3faef7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_methods_class_task"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_task')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_task.html">Task</a></td></tr>
-<tr class="memitem:a9fcff87319531c15ece7cf474746dd0d inherit pub_methods_class_task"><td class="memItemLeft" align="right" valign="top"><a id="a9fcff87319531c15ece7cf474746dd0d" name="a9fcff87319531c15ece7cf474746dd0d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>FinishTask</b> ()</td></tr>
-<tr class="memdesc:a9fcff87319531c15ece7cf474746dd0d inherit pub_methods_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to finish the task. <br /></td></tr>
+<tr class="memitem:a9fcff87319531c15ece7cf474746dd0d inherit pub_methods_class_task"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#a9fcff87319531c15ece7cf474746dd0d">FinishTask</a> ()</td></tr>
+<tr class="memdesc:a9fcff87319531c15ece7cf474746dd0d inherit pub_methods_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to finish the task.  <a href="class_task.html#a9fcff87319531c15ece7cf474746dd0d">More...</a><br /></td></tr>
 <tr class="separator:a9fcff87319531c15ece7cf474746dd0d inherit pub_methods_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29bccb92051b35f8f00726902e1efcce inherit pub_methods_class_task"><td class="memItemLeft" align="right" valign="top"><a id="a29bccb92051b35f8f00726902e1efcce" name="a29bccb92051b35f8f00726902e1efcce"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UndoTask</b> ()</td></tr>
-<tr class="memdesc:a29bccb92051b35f8f00726902e1efcce inherit pub_methods_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to undo the task and set it active again. <br /></td></tr>
+<tr class="memitem:a29bccb92051b35f8f00726902e1efcce inherit pub_methods_class_task"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#a29bccb92051b35f8f00726902e1efcce">UndoTask</a> ()</td></tr>
+<tr class="memdesc:a29bccb92051b35f8f00726902e1efcce inherit pub_methods_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to undo the task and set it active again.  <a href="class_task.html#a29bccb92051b35f8f00726902e1efcce">More...</a><br /></td></tr>
 <tr class="separator:a29bccb92051b35f8f00726902e1efcce inherit pub_methods_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_task"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_task')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_task.html">Task</a></td></tr>
-<tr class="memitem:a63b08be82a450d0829928c71b4f8d573 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="a63b08be82a450d0829928c71b4f8d573" name="a63b08be82a450d0829928c71b4f8d573"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>active</b></td></tr>
-<tr class="memdesc:a63b08be82a450d0829928c71b4f8d573 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when the task is ready to be interacted with.<br /></td></tr>
+<tr class="memitem:a63b08be82a450d0829928c71b4f8d573 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#a63b08be82a450d0829928c71b4f8d573">active</a></td></tr>
+<tr class="memdesc:a63b08be82a450d0829928c71b4f8d573 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when the task is ready to be interacted with. <a href="class_task.html#a63b08be82a450d0829928c71b4f8d573">More...</a><br /></td></tr>
 <tr class="separator:a63b08be82a450d0829928c71b4f8d573 inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad490836f8e9454ed8e3a7d59aa282696 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="ad490836f8e9454ed8e3a7d59aa282696" name="ad490836f8e9454ed8e3a7d59aa282696"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>done</b></td></tr>
-<tr class="memdesc:ad490836f8e9454ed8e3a7d59aa282696 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when the task is done.<br /></td></tr>
+<tr class="memitem:ad490836f8e9454ed8e3a7d59aa282696 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#ad490836f8e9454ed8e3a7d59aa282696">done</a></td></tr>
+<tr class="memdesc:ad490836f8e9454ed8e3a7d59aa282696 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when the task is done. <a href="class_task.html#ad490836f8e9454ed8e3a7d59aa282696">More...</a><br /></td></tr>
 <tr class="separator:ad490836f8e9454ed8e3a7d59aa282696 inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae635f72017a9459b60f40fc5bee5339d inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="ae635f72017a9459b60f40fc5bee5339d" name="ae635f72017a9459b60f40fc5bee5339d"></a>
-Vector3&#160;</td><td class="memItemRight" valign="bottom"><b>spawn</b></td></tr>
-<tr class="memdesc:ae635f72017a9459b60f40fc5bee5339d inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">The place where the task should spawn.<br /></td></tr>
+<tr class="memitem:ae635f72017a9459b60f40fc5bee5339d inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#ae635f72017a9459b60f40fc5bee5339d">spawn</a></td></tr>
+<tr class="memdesc:ae635f72017a9459b60f40fc5bee5339d inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">The place where the task should spawn. <a href="class_task.html#ae635f72017a9459b60f40fc5bee5339d">More...</a><br /></td></tr>
 <tr class="separator:ae635f72017a9459b60f40fc5bee5339d inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13d308203949f40afa931c6bb9ad7fe9 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="a13d308203949f40afa931c6bb9ad7fe9" name="a13d308203949f40afa931c6bb9ad7fe9"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
-<tr class="memdesc:a13d308203949f40afa931c6bb9ad7fe9 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id of the task, assinged by the <a class="el" href="class_task_manager.html" title="Reponsible for handling the tasks in an active round. Chooses and spawns the tasks and keeps track of...">TaskManager</a>. Can be used to identify the <a class="el" href="class_task.html" title="Base class for the ingame tasks. Every task must inherit from this class. Handles basic information a...">Task</a>.<br /></td></tr>
+<tr class="memitem:a13d308203949f40afa931c6bb9ad7fe9 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#a13d308203949f40afa931c6bb9ad7fe9">id</a></td></tr>
+<tr class="memdesc:a13d308203949f40afa931c6bb9ad7fe9 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id of the task, assinged by the <a class="el" href="class_task_manager.html" title="Reponsible for handling the tasks in an active round. Chooses and spawns the tasks and keeps track of...">TaskManager</a>. Can be used to identify the <a class="el" href="class_task.html" title="Base class for the ingame tasks. Every task must inherit from this class. Handles basic information a...">Task</a>. <a href="class_task.html#a13d308203949f40afa931c6bb9ad7fe9">More...</a><br /></td></tr>
 <tr class="separator:a13d308203949f40afa931c6bb9ad7fe9 inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15816482f88ca69dfbe9a7498ecf262b inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="a15816482f88ca69dfbe9a7498ecf262b" name="a15816482f88ca69dfbe9a7498ecf262b"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>taskName</b></td></tr>
-<tr class="memdesc:a15816482f88ca69dfbe9a7498ecf262b inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the task for the UI.<br /></td></tr>
+<tr class="memitem:a15816482f88ca69dfbe9a7498ecf262b inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#a15816482f88ca69dfbe9a7498ecf262b">taskName</a></td></tr>
+<tr class="memdesc:a15816482f88ca69dfbe9a7498ecf262b inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the task for the UI. <a href="class_task.html#a15816482f88ca69dfbe9a7498ecf262b">More...</a><br /></td></tr>
 <tr class="separator:a15816482f88ca69dfbe9a7498ecf262b inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc1112df9f1cc4353af76bea1da74d9f inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="abc1112df9f1cc4353af76bea1da74d9f" name="abc1112df9f1cc4353af76bea1da74d9f"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>taskDescription</b></td></tr>
-<tr class="memdesc:abc1112df9f1cc4353af76bea1da74d9f inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short description for the UI.<br /></td></tr>
+<tr class="memitem:abc1112df9f1cc4353af76bea1da74d9f inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#abc1112df9f1cc4353af76bea1da74d9f">taskDescription</a></td></tr>
+<tr class="memdesc:abc1112df9f1cc4353af76bea1da74d9f inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short description for the UI. <a href="class_task.html#abc1112df9f1cc4353af76bea1da74d9f">More...</a><br /></td></tr>
 <tr class="separator:abc1112df9f1cc4353af76bea1da74d9f inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a156373f99c36bcc2c1a58d565283f835 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="a156373f99c36bcc2c1a58d565283f835" name="a156373f99c36bcc2c1a58d565283f835"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>progress</b></td></tr>
-<tr class="memdesc:a156373f99c36bcc2c1a58d565283f835 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Progress in percent. 50% should be 0.5<br /></td></tr>
+<tr class="memitem:a156373f99c36bcc2c1a58d565283f835 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#a156373f99c36bcc2c1a58d565283f835">progress</a></td></tr>
+<tr class="memdesc:a156373f99c36bcc2c1a58d565283f835 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Progress in percent. 50% should be 0.5 <a href="class_task.html#a156373f99c36bcc2c1a58d565283f835">More...</a><br /></td></tr>
 <tr class="separator:a156373f99c36bcc2c1a58d565283f835 inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d05caff67206a3f62b157058cb97417 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="a8d05caff67206a3f62b157058cb97417" name="a8d05caff67206a3f62b157058cb97417"></a>
-readonly SyncList&lt; uint &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>players</b> = new SyncList&lt;uint&gt;()</td></tr>
-<tr class="memdesc:a8d05caff67206a3f62b157058cb97417 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of all Players within the interactable radius<br /></td></tr>
+<tr class="memitem:a8d05caff67206a3f62b157058cb97417 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top">readonly SyncList&lt; uint &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#a8d05caff67206a3f62b157058cb97417">players</a> = new SyncList&lt;uint&gt;()</td></tr>
+<tr class="memdesc:a8d05caff67206a3f62b157058cb97417 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of all Players within the interactable radius <a href="class_task.html#a8d05caff67206a3f62b157058cb97417">More...</a><br /></td></tr>
 <tr class="separator:a8d05caff67206a3f62b157058cb97417 inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32271edae61ca893c9873286eff39f79 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a id="a32271edae61ca893c9873286eff39f79" name="a32271edae61ca893c9873286eff39f79"></a>
-<a class="el" href="class_destructable_object.html">DestructableObject</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dObjScript</b></td></tr>
-<tr class="memdesc:a32271edae61ca893c9873286eff39f79 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_destructable_object.html" title="This class is used to make non player objects attackable for the zombies. If you want to use this,...">DestructableObject</a> script to track the health of the task and make it attackable.<br /></td></tr>
+<tr class="memitem:a32271edae61ca893c9873286eff39f79 inherit pub_attribs_class_task"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_destructable_object.html">DestructableObject</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_task.html#a32271edae61ca893c9873286eff39f79">dObjScript</a></td></tr>
+<tr class="memdesc:a32271edae61ca893c9873286eff39f79 inherit pub_attribs_class_task"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_destructable_object.html" title="This class is used to make non player objects attackable for the zombies. If you want to use this,...">DestructableObject</a> script to track the health of the task and make it attackable. <a href="class_task.html#a32271edae61ca893c9873286eff39f79">More...</a><br /></td></tr>
 <tr class="separator:a32271edae61ca893c9873286eff39f79 inherit pub_attribs_class_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This class implements the Defence/Timer task. Inherits from <a class="el" href="class_task.html" title="Base class for the ingame tasks. Every task must inherit from this class. Handles basic information a...">Task</a>. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>TaskTimer.cs</li>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aca589e94c367494fc36d3b71aaac4671" name="aca589e94c367494fc36d3b71aaac4671"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca589e94c367494fc36d3b71aaac4671">&#9670;&nbsp;</a></span>CmdStartCountdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TaskTimer.CmdStartCountdown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used to start the Countdown by the players. </p>
+
+</div>
+</div>
+<a id="a93a57e397e9e1b26843342e01aeaa7d4" name="a93a57e397e9e1b26843342e01aeaa7d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93a57e397e9e1b26843342e01aeaa7d4">&#9670;&nbsp;</a></span>OnTriggerEnter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TaskTimer.OnTriggerEnter </td>
+          <td>(</td>
+          <td class="paramtype">Collider&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds players to the players List once they are in the interactive radius. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Collider of the entering GameObject</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6faee87a7d265f13022b369ab0c4b08c" name="a6faee87a7d265f13022b369ab0c4b08c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6faee87a7d265f13022b369ab0c4b08c">&#9670;&nbsp;</a></span>SpawnZombies()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TaskTimer.SpawnZombies </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Spawns the Zombies during the task. </p>
+
+</div>
+</div>
+<a id="a0dc6a7503279ede02ef1a46bfa6a61a2" name="a0dc6a7503279ede02ef1a46bfa6a61a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dc6a7503279ede02ef1a46bfa6a61a2">&#9670;&nbsp;</a></span>TargetRpcSendMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TaskTimer.TargetRpcSendMessage </td>
+          <td>(</td>
+          <td class="paramtype">NetworkConnection&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a message to the choosen player. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>The players NetworkConnecton</td></tr>
+    <tr><td class="paramname">message</td><td>The message for the player to recieve</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acd02c9ac21df935757d3763597462b60" name="acd02c9ac21df935757d3763597462b60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd02c9ac21df935757d3763597462b60">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TaskTimer.Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handles Client interaction. Checks for task completion. Spawns zombies and ticks up health until completion. </p>
+
+</div>
+</div>
+<a id="a431991f40fbf0ffc683eec806cce62a4" name="a431991f40fbf0ffc683eec806cce62a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a431991f40fbf0ffc683eec806cce62a4">&#9670;&nbsp;</a></span>UpdateText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TaskTimer.UpdateText </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the text for the UI to show progress of the task. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a284b4fa1fba50263d40c64dcf3faef7e" name="a284b4fa1fba50263d40c64dcf3faef7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a284b4fa1fba50263d40c64dcf3faef7e">&#9670;&nbsp;</a></span>fails</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TaskTimer.fails</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The amount of times the hp has come down to 0</p>
+
+</div>
+</div>
+<a id="aad9fc1f1d56b5f642a3edadf13cc8d80" name="aad9fc1f1d56b5f642a3edadf13cc8d80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad9fc1f1d56b5f642a3edadf13cc8d80">&#9670;&nbsp;</a></span>nextZombies</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TaskTimer.nextZombies = 2f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Time for the next zombies to spawn</p>
+
+</div>
+</div>
+<a id="a37f83a7d790042ae6b0175f5359914f3" name="a37f83a7d790042ae6b0175f5359914f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37f83a7d790042ae6b0175f5359914f3">&#9670;&nbsp;</a></span>started</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TaskTimer.started</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>True when the task has started</p>
+
+</div>
+</div>
+<a id="a41d1382570a4edecc4ebb18d3558cd09" name="a41d1382570a4edecc4ebb18d3558cd09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41d1382570a4edecc4ebb18d3558cd09">&#9670;&nbsp;</a></span>zombie</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject TaskTimer.zombie</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The spawnable zombies</p>
+
+</div>
+</div>
+<a id="acd874a31633675b8a0045719ca33ef31" name="acd874a31633675b8a0045719ca33ef31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd874a31633675b8a0045719ca33ef31">&#9670;&nbsp;</a></span>zombieSpawns</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;GameObject&gt; TaskTimer.zombieSpawns</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Places for the Zombies to spawn</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="_task_timer_8cs.html">TaskTimer.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

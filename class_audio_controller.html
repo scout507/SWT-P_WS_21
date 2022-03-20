@@ -65,6 +65,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_audio_controller-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">AudioController Class Reference</div></div>
 </div><!--header-->
@@ -81,30 +83,430 @@ Inheritance diagram for AudioController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a77b1f6331131fb80de7f2146a8e2ecc3"><td class="memItemLeft" align="right" valign="top"><a id="a77b1f6331131fb80de7f2146a8e2ecc3" name="a77b1f6331131fb80de7f2146a8e2ecc3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>PlayMessageSound</b> ()</td></tr>
-<tr class="memdesc:a77b1f6331131fb80de7f2146a8e2ecc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the incoming message sound localy for one player. <br /></td></tr>
+<tr class="memitem:a77b1f6331131fb80de7f2146a8e2ecc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audio_controller.html#a77b1f6331131fb80de7f2146a8e2ecc3">PlayMessageSound</a> ()</td></tr>
+<tr class="memdesc:a77b1f6331131fb80de7f2146a8e2ecc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the incoming message sound localy for one player.  <a href="class_audio_controller.html#a77b1f6331131fb80de7f2146a8e2ecc3">More...</a><br /></td></tr>
 <tr class="separator:a77b1f6331131fb80de7f2146a8e2ecc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a282bc44a0a906d598f03102e8ff4ab34"><td class="memItemLeft" align="right" valign="top"><a id="a282bc44a0a906d598f03102e8ff4ab34" name="a282bc44a0a906d598f03102e8ff4ab34"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>CmdPlayGunSound</b> (int weaponNumber)</td></tr>
-<tr class="memdesc:a282bc44a0a906d598f03102e8ff4ab34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method is called on Weapon Usage, once per shot WeaponNumbe is the Number of the Used weapon, Number is linked to a SoundClip 0 = <a class="el" href="class_pistol.html" title="Pistol implements a pistol. It inherits from ShootGun.">Pistol</a>; 1 = <a class="el" href="class_m_p.html" title="MP implements a simple submachine gun. It inherits from ShootGun.">MP</a> ; 2 = <a class="el" href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun.">Shotgun</a> ; 3 = <a class="el" href="class_melee.html" title="Melee is responsible for the functions of the melee weapon, in our case a hammer. It inherits ShootGu...">Melee</a> ; 4 = <a class="el" href="class_rifle.html" title="Rifle implements a rifle. Only one class is able to zoom, so the zoom is handled in the class and not...">Rifle</a> 5 = <a class="el" href="class_pistol.html" title="Pistol implements a pistol. It inherits from ShootGun.">Pistol</a> reload; 6 = <a class="el" href="class_m_p.html" title="MP implements a simple submachine gun. It inherits from ShootGun.">MP</a> reload; 7 = <a class="el" href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun.">Shotgun</a> reload; 8 = <a class="el" href="class_rifle.html" title="Rifle implements a rifle. Only one class is able to zoom, so the zoom is handled in the class and not...">Rifle</a> reload <br /></td></tr>
+<tr class="memitem:a282bc44a0a906d598f03102e8ff4ab34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audio_controller.html#a282bc44a0a906d598f03102e8ff4ab34">CmdPlayGunSound</a> (int weaponNumber)</td></tr>
+<tr class="memdesc:a282bc44a0a906d598f03102e8ff4ab34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method is called on Weapon Usage, once per shot WeaponNumbe is the Number of the Used weapon, Number is linked to a SoundClip 0 = <a class="el" href="class_pistol.html" title="Pistol implements a pistol. It inherits from ShootGun.">Pistol</a>; 1 = <a class="el" href="class_m_p.html" title="MP implements a simple submachine gun. It inherits from ShootGun.">MP</a> ; 2 = <a class="el" href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun.">Shotgun</a> ; 3 = <a class="el" href="class_melee.html" title="Melee is responsible for the functions of the melee weapon, in our case a hammer. It inherits ShootGu...">Melee</a> ; 4 = <a class="el" href="class_rifle.html" title="Rifle implements a rifle. Only one class is able to zoom, so the zoom is handled in the class and not...">Rifle</a> 5 = <a class="el" href="class_pistol.html" title="Pistol implements a pistol. It inherits from ShootGun.">Pistol</a> reload; 6 = <a class="el" href="class_m_p.html" title="MP implements a simple submachine gun. It inherits from ShootGun.">MP</a> reload; 7 = <a class="el" href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun.">Shotgun</a> reload; 8 = <a class="el" href="class_rifle.html" title="Rifle implements a rifle. Only one class is able to zoom, so the zoom is handled in the class and not...">Rifle</a> reload  <a href="class_audio_controller.html#a282bc44a0a906d598f03102e8ff4ab34">More...</a><br /></td></tr>
 <tr class="separator:a282bc44a0a906d598f03102e8ff4ab34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a488a657995b63285d9ba1e4a339fa41d"><td class="memItemLeft" align="right" valign="top"><a id="a488a657995b63285d9ba1e4a339fa41d" name="a488a657995b63285d9ba1e4a339fa41d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>CmdPlayDmgTakenSound</b> (int min, int max)</td></tr>
-<tr class="memdesc:a488a657995b63285d9ba1e4a339fa41d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method is called when the <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a> takes Damage with a changeg pitch value and different Damage Sound every time its called <br /></td></tr>
+<tr class="memitem:a488a657995b63285d9ba1e4a339fa41d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audio_controller.html#a488a657995b63285d9ba1e4a339fa41d">CmdPlayDmgTakenSound</a> (int min, int max)</td></tr>
+<tr class="memdesc:a488a657995b63285d9ba1e4a339fa41d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method is called when the <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a> takes Damage with a changeg pitch value and different Damage Sound every time its called  <a href="class_audio_controller.html#a488a657995b63285d9ba1e4a339fa41d">More...</a><br /></td></tr>
 <tr class="separator:a488a657995b63285d9ba1e4a339fa41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a0c43e4f3caa2db514c1bbcf5eb3e532d"><td class="memItemLeft" align="right" valign="top"><a id="a0c43e4f3caa2db514c1bbcf5eb3e532d" name="a0c43e4f3caa2db514c1bbcf5eb3e532d"></a>
-AudioSource&#160;</td><td class="memItemRight" valign="bottom"><b>audioSource</b></td></tr>
-<tr class="memdesc:a0c43e4f3caa2db514c1bbcf5eb3e532d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Audio Source that is attached to the <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a><br /></td></tr>
+<tr class="memitem:a0c43e4f3caa2db514c1bbcf5eb3e532d"><td class="memItemLeft" align="right" valign="top">AudioSource&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audio_controller.html#a0c43e4f3caa2db514c1bbcf5eb3e532d">audioSource</a></td></tr>
+<tr class="memdesc:a0c43e4f3caa2db514c1bbcf5eb3e532d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Audio Source that is attached to the <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a> <a href="class_audio_controller.html#a0c43e4f3caa2db514c1bbcf5eb3e532d">More...</a><br /></td></tr>
 <tr class="separator:a0c43e4f3caa2db514c1bbcf5eb3e532d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a9f54b63fdcc425116ff24c93775a1338"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audio_controller.html#a9f54b63fdcc425116ff24c93775a1338">Start</a> ()</td></tr>
+<tr class="memdesc:a9f54b63fdcc425116ff24c93775a1338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets dependencies.  <a href="class_audio_controller.html#a9f54b63fdcc425116ff24c93775a1338">More...</a><br /></td></tr>
+<tr class="separator:a9f54b63fdcc425116ff24c93775a1338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a32c3f46bc98ac613909804bc9b81cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audio_controller.html#a1a32c3f46bc98ac613909804bc9b81cc">Update</a> ()</td></tr>
+<tr class="memdesc:a1a32c3f46bc98ac613909804bc9b81cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Footstep Sounds gets called on <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a> Movement with a delay between the next Footstep  <a href="class_audio_controller.html#a1a32c3f46bc98ac613909804bc9b81cc">More...</a><br /></td></tr>
+<tr class="separator:a1a32c3f46bc98ac613909804bc9b81cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cc8fd6397d3424fe6609bac053a91ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audio_controller.html#a1cc8fd6397d3424fe6609bac053a91ef">CmdPlayFootStepSound</a> ()</td></tr>
+<tr class="memdesc:a1cc8fd6397d3424fe6609bac053a91ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Command for the Footstep Sound  <a href="class_audio_controller.html#a1cc8fd6397d3424fe6609bac053a91ef">More...</a><br /></td></tr>
+<tr class="separator:a1cc8fd6397d3424fe6609bac053a91ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a4ad4061f5e05e555796a334990bdb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audio_controller.html#a9a4ad4061f5e05e555796a334990bdb3">RPCPlayFootStepSound</a> (float randomf)</td></tr>
+<tr class="memdesc:a9a4ad4061f5e05e555796a334990bdb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ClientRpC for the Footstep Sound, to play the sound on all Clients  <a href="class_audio_controller.html#a9a4ad4061f5e05e555796a334990bdb3">More...</a><br /></td></tr>
+<tr class="separator:a9a4ad4061f5e05e555796a334990bdb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1964e0ed5a8db192d0c66358bc0ead65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audio_controller.html#a1964e0ed5a8db192d0c66358bc0ead65">RPCPlayGunSound</a> (int weaponNumber, float randomf)</td></tr>
+<tr class="memdesc:a1964e0ed5a8db192d0c66358bc0ead65"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ClientRpC for the Gun Sound, to play the sound on all Clients with a fixed Volume level and a changing pitch value  <a href="class_audio_controller.html#a1964e0ed5a8db192d0c66358bc0ead65">More...</a><br /></td></tr>
+<tr class="separator:a1964e0ed5a8db192d0c66358bc0ead65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7140f03cff5910d11016d9edac05afb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audio_controller.html#af7140f03cff5910d11016d9edac05afb">RPCPlayDmgTakenSound</a> (int random, float randomf)</td></tr>
+<tr class="memdesc:af7140f03cff5910d11016d9edac05afb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ClientRpC for the <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a> Damage taken Sound with a fixed Volume level and a changing pitch value  <a href="class_audio_controller.html#af7140f03cff5910d11016d9edac05afb">More...</a><br /></td></tr>
+<tr class="separator:af7140f03cff5910d11016d9edac05afb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac1e545da948ab8f59ba7bb78db37b471"><td class="memItemLeft" align="right" valign="top">AudioClip[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audio_controller.html#ac1e545da948ab8f59ba7bb78db37b471">gunSounds</a></td></tr>
+<tr class="memdesc:ac1e545da948ab8f59ba7bb78db37b471"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Audio Clips, Gun Sounds and Footstep Sounds <a href="class_audio_controller.html#ac1e545da948ab8f59ba7bb78db37b471">More...</a><br /></td></tr>
+<tr class="separator:ac1e545da948ab8f59ba7bb78db37b471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41ff15f78abbd7e9d79f663381533e05"><td class="memItemLeft" align="right" valign="top">AudioClip[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audio_controller.html#a41ff15f78abbd7e9d79f663381533e05">playerSounds</a></td></tr>
+<tr class="memdesc:a41ff15f78abbd7e9d79f663381533e05"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Audio Clips, Gun Sounds and Footstep Sounds <a href="class_audio_controller.html#a41ff15f78abbd7e9d79f663381533e05">More...</a><br /></td></tr>
+<tr class="separator:a41ff15f78abbd7e9d79f663381533e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5df1217c0569d3af696736b7227f2ec"><td class="memItemLeft" align="right" valign="top">AudioClip&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audio_controller.html#ac5df1217c0569d3af696736b7227f2ec">messageClip</a></td></tr>
+<tr class="memdesc:ac5df1217c0569d3af696736b7227f2ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">The sound effect for chatbox messages <a href="class_audio_controller.html#ac5df1217c0569d3af696736b7227f2ec">More...</a><br /></td></tr>
+<tr class="separator:ac5df1217c0569d3af696736b7227f2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a645c178d94f22f49123b67e209192332"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audio_controller.html#a645c178d94f22f49123b67e209192332">stepCoolDown</a></td></tr>
+<tr class="memdesc:a645c178d94f22f49123b67e209192332"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Time until the next Footstep Sound is Played <a href="class_audio_controller.html#a645c178d94f22f49123b67e209192332">More...</a><br /></td></tr>
+<tr class="separator:a645c178d94f22f49123b67e209192332"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The Script to handle the Sounds on the <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a> </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>AudioController.cs</li>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a488a657995b63285d9ba1e4a339fa41d" name="a488a657995b63285d9ba1e4a339fa41d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a488a657995b63285d9ba1e4a339fa41d">&#9670;&nbsp;</a></span>CmdPlayDmgTakenSound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AudioController.CmdPlayDmgTakenSound </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Method is called when the <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a> takes Damage with a changeg pitch value and different Damage Sound every time its called </p>
+
+</div>
+</div>
+<a id="a1cc8fd6397d3424fe6609bac053a91ef" name="a1cc8fd6397d3424fe6609bac053a91ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cc8fd6397d3424fe6609bac053a91ef">&#9670;&nbsp;</a></span>CmdPlayFootStepSound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AudioController.CmdPlayFootStepSound </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The Command for the Footstep Sound </p>
+
+</div>
+</div>
+<a id="a282bc44a0a906d598f03102e8ff4ab34" name="a282bc44a0a906d598f03102e8ff4ab34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a282bc44a0a906d598f03102e8ff4ab34">&#9670;&nbsp;</a></span>CmdPlayGunSound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AudioController.CmdPlayGunSound </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>weaponNumber</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Method is called on Weapon Usage, once per shot WeaponNumbe is the Number of the Used weapon, Number is linked to a SoundClip 0 = <a class="el" href="class_pistol.html" title="Pistol implements a pistol. It inherits from ShootGun.">Pistol</a>; 1 = <a class="el" href="class_m_p.html" title="MP implements a simple submachine gun. It inherits from ShootGun.">MP</a> ; 2 = <a class="el" href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun.">Shotgun</a> ; 3 = <a class="el" href="class_melee.html" title="Melee is responsible for the functions of the melee weapon, in our case a hammer. It inherits ShootGu...">Melee</a> ; 4 = <a class="el" href="class_rifle.html" title="Rifle implements a rifle. Only one class is able to zoom, so the zoom is handled in the class and not...">Rifle</a> 5 = <a class="el" href="class_pistol.html" title="Pistol implements a pistol. It inherits from ShootGun.">Pistol</a> reload; 6 = <a class="el" href="class_m_p.html" title="MP implements a simple submachine gun. It inherits from ShootGun.">MP</a> reload; 7 = <a class="el" href="class_shotgun.html" title="Shotgun implements a shotgun, inherits from ShootGun.">Shotgun</a> reload; 8 = <a class="el" href="class_rifle.html" title="Rifle implements a rifle. Only one class is able to zoom, so the zoom is handled in the class and not...">Rifle</a> reload </p>
+
+</div>
+</div>
+<a id="a77b1f6331131fb80de7f2146a8e2ecc3" name="a77b1f6331131fb80de7f2146a8e2ecc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77b1f6331131fb80de7f2146a8e2ecc3">&#9670;&nbsp;</a></span>PlayMessageSound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AudioController.PlayMessageSound </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Plays the incoming message sound localy for one player. </p>
+
+</div>
+</div>
+<a id="af7140f03cff5910d11016d9edac05afb" name="af7140f03cff5910d11016d9edac05afb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7140f03cff5910d11016d9edac05afb">&#9670;&nbsp;</a></span>RPCPlayDmgTakenSound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AudioController.RPCPlayDmgTakenSound </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>random</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>randomf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The ClientRpC for the <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a> Damage taken Sound with a fixed Volume level and a changing pitch value </p>
+
+</div>
+</div>
+<a id="a9a4ad4061f5e05e555796a334990bdb3" name="a9a4ad4061f5e05e555796a334990bdb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a4ad4061f5e05e555796a334990bdb3">&#9670;&nbsp;</a></span>RPCPlayFootStepSound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AudioController.RPCPlayFootStepSound </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>randomf</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The ClientRpC for the Footstep Sound, to play the sound on all Clients </p>
+
+</div>
+</div>
+<a id="a1964e0ed5a8db192d0c66358bc0ead65" name="a1964e0ed5a8db192d0c66358bc0ead65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1964e0ed5a8db192d0c66358bc0ead65">&#9670;&nbsp;</a></span>RPCPlayGunSound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AudioController.RPCPlayGunSound </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>weaponNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>randomf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The ClientRpC for the Gun Sound, to play the sound on all Clients with a fixed Volume level and a changing pitch value </p>
+
+</div>
+</div>
+<a id="a9f54b63fdcc425116ff24c93775a1338" name="a9f54b63fdcc425116ff24c93775a1338"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f54b63fdcc425116ff24c93775a1338">&#9670;&nbsp;</a></span>Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AudioController.Start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets dependencies. </p>
+
+</div>
+</div>
+<a id="a1a32c3f46bc98ac613909804bc9b81cc" name="a1a32c3f46bc98ac613909804bc9b81cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a32c3f46bc98ac613909804bc9b81cc">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AudioController.Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The Footstep Sounds gets called on <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a> Movement with a delay between the next Footstep </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0c43e4f3caa2db514c1bbcf5eb3e532d" name="a0c43e4f3caa2db514c1bbcf5eb3e532d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c43e4f3caa2db514c1bbcf5eb3e532d">&#9670;&nbsp;</a></span>audioSource</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AudioSource AudioController.audioSource</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The Audio Source that is attached to the <a class="el" href="class_player.html" title="This class holds variables which are needed on the player prefab.">Player</a></p>
+
+</div>
+</div>
+<a id="ac1e545da948ab8f59ba7bb78db37b471" name="ac1e545da948ab8f59ba7bb78db37b471"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1e545da948ab8f59ba7bb78db37b471">&#9670;&nbsp;</a></span>gunSounds</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">AudioClip [] AudioController.gunSounds</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The Audio Clips, Gun Sounds and Footstep Sounds</p>
+
+</div>
+</div>
+<a id="ac5df1217c0569d3af696736b7227f2ec" name="ac5df1217c0569d3af696736b7227f2ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5df1217c0569d3af696736b7227f2ec">&#9670;&nbsp;</a></span>messageClip</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">AudioClip AudioController.messageClip</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The sound effect for chatbox messages</p>
+
+</div>
+</div>
+<a id="a41ff15f78abbd7e9d79f663381533e05" name="a41ff15f78abbd7e9d79f663381533e05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41ff15f78abbd7e9d79f663381533e05">&#9670;&nbsp;</a></span>playerSounds</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">AudioClip [] AudioController.playerSounds</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The Audio Clips, Gun Sounds and Footstep Sounds</p>
+
+</div>
+</div>
+<a id="a645c178d94f22f49123b67e209192332" name="a645c178d94f22f49123b67e209192332"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a645c178d94f22f49123b67e209192332">&#9670;&nbsp;</a></span>stepCoolDown</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AudioController.stepCoolDown</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The Time until the next Footstep Sound is Played</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="_audio_controller_8cs.html">AudioController.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
