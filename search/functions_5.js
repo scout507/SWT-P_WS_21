@@ -13,5 +13,5 @@ var searchData=
   ['gettaskinfo_10',['GetTaskInfo',['../class_task_manager.html#adc5e56e136f64982ab30e176284d557f',1,'TaskManager']]],
   ['getvelocityx_11',['GetVelocityX',['../class_monster_controller.html#aee5da85a14a71153470e44c4c530c0e9',1,'MonsterController']]],
   ['getvelocityz_12',['GetVelocityZ',['../class_monster_controller.html#a30322eb230fa4ae12e768505389b5384',1,'MonsterController']]],
-  ['gothealed_13',['GotHealed',['../class_health.html#a9767f521bb5acd0c12d3fef5164e39f3',1,'Health']]]
+  ['getxrotation_13',['GetXRotation',['../class_player_movement.html#ad0e99e2b70748d5ca07fd093bd38bbb2',1,'PlayerMovement']]]
 ];

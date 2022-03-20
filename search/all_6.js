@@ -14,7 +14,7 @@ var searchData=
   ['gettaskinfo_11',['GetTaskInfo',['../class_task_manager.html#adc5e56e136f64982ab30e176284d557f',1,'TaskManager']]],
   ['getvelocityx_12',['GetVelocityX',['../class_monster_controller.html#aee5da85a14a71153470e44c4c530c0e9',1,'MonsterController']]],
   ['getvelocityz_13',['GetVelocityZ',['../class_monster_controller.html#a30322eb230fa4ae12e768505389b5384',1,'MonsterController']]],
-  ['gothealed_14',['GotHealed',['../class_health.html#a9767f521bb5acd0c12d3fef5164e39f3',1,'Health']]],
+  ['getxrotation_14',['GetXRotation',['../class_player_movement.html#ad0e99e2b70748d5ca07fd093bd38bbb2',1,'PlayerMovement']]],
   ['gun_15',['gun',['../class_shoot_gun.html#ac9c94f1d09aa439831b8ba41b70aab29',1,'ShootGun']]],
   ['gunammo_16',['gunAmmo',['../class_shoot_gun.html#ad5b3a593548a365cd2babd43aa4549be',1,'ShootGun']]],
   ['gundamage_17',['gunDamage',['../class_shoot_gun.html#af1bb469ecd9f408a799258ccb09e3934',1,'ShootGun']]],
