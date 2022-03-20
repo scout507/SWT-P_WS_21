@@ -1,16 +1,27 @@
-## Was ist das Projekt
-> Diese Projekt entstand im Rahmen eines Softwaretechnik-Projekts im WS21 an der Technischen Hochschule Mittelhessen.
-> Das Thema umfasste: Game-Development und arbeiten mit dem Scrum-System.
-> ### Das Game:
-> > Das Konzept des Spiels ist ein Gelegenheits-Multiplayer, welcher gut mit zusammen mit Freunden spielbar sein soll.
-> > Mehr Dazu im Bereich Spieldesign.
+# SWT-P_WS_21: **Game_Title**
+
+## What is this?
+This project was created during the Software-Engineering-Project module in WS21/22 at the THM.
+
+The topic of the module: Game-Development and working in a Scrum-System. Its purpose is to teach the Students the process of software development.
+
+### Editor used:
+[Unity](https://unity.com/de).**2020.3.20f1** for editing
+
+[Mirror](https://mirror-networking.com/) for networking
+
+[Official C# Code Convention](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
+
+## Short Game Concept:
+Post-apokalyptic setting. With a group of 5-8 Friends you have to fulfill Tasks to survive against waves of enemies. Meanwhile one of your "friends" is secretly an imposter trying to stop you from fulfilling your tasks.
+
+## Wiki
+Here is a [link](https://github.com/scout507/SWT-P_WS_21/wiki/1.-Welcome) to the wiki, with more information about the game. However, the wiki is written in german. 
 
 ## Download:
-> _DLPLACEHOLDER_
+_PlaceholderLinkToDownload_
 
-## Link zur Doku:
-> Dokumentation findest du [hier](https://scout507.github.io/SWT-P_WS_21/annotated.html).
+## Doku:
+_PlaceholderLinkToDoku_
 
-## Wie kann man mitwirken:
-> Es stehen leider noch keine Pläne das Projekt aktiv weiter zu führen.
-> Bei Änderung würde dieses Wiki entsprechend aktualisiert werden.
+
