@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['active_0',['active',['../class_spectator.html#abb441b02f81068b18dff9457844ad722',1,'Spectator.active()'],['../class_player_movement.html#a73d442ad4ae6f4fe3df61e1e3e0b9bf5',1,'PlayerMovement.active()'],['../class_destructable_object.html#a0410ac98bb0f1fe923fd5a43fabb0da2',1,'DestructableObject.active()'],['../class_task.html#a63b08be82a450d0829928c71b4f8d573',1,'Task.active()']]],
+  ['active_0',['active',['../class_player_movement.html#a73d442ad4ae6f4fe3df61e1e3e0b9bf5',1,'PlayerMovement.active()'],['../class_spectator.html#abb441b02f81068b18dff9457844ad722',1,'Spectator.active()'],['../class_destructable_object.html#a0410ac98bb0f1fe923fd5a43fabb0da2',1,'DestructableObject.active()'],['../class_task.html#a63b08be82a450d0829928c71b4f8d573',1,'Task.active()']]],
   ['activecam_1',['activeCam',['../class_i_q_cam.html#aae190980c3cadf1199e8f674b3897e80',1,'IQCam']]],
   ['activeplayers_2',['activePlayers',['../class_round_manager.html#a660d49e4d1fd67bd769e90565ee9253a',1,'RoundManager']]],
   ['activetasks_3',['activeTasks',['../class_task_manager.html#a3f5ea561e8394557fdf2531d5a74622b',1,'TaskManager']]],
@@ -16,7 +16,7 @@ var searchData=
   ['amounthard_13',['amountHard',['../class_task_manager.html#ababa493bb47fb4f428c8e74bebe1ed72',1,'TaskManager']]],
   ['amountmedium_14',['amountMedium',['../class_task_manager.html#a41879be9eb1d63eaf3b37f5ee8566729',1,'TaskManager']]],
   ['amountsimple_15',['amountSimple',['../class_task_manager.html#aa26a8ae3a02488358f1d9611a6ef050d',1,'TaskManager']]],
-  ['animator_16',['animator',['../class_monster_controller.html#a90c78f2d19ed4accf60dfbf4381d85f0',1,'MonsterController.animator()'],['../class_player_animation_state_controller.html#a1dfeffff1d6adfd079dcffc30788c5e8',1,'PlayerAnimationStateController.animator()'],['../class_monster_animation_state_controller.html#a16c695eb7153485aba104c8ff99e6371',1,'MonsterAnimationStateController.animator()']]],
+  ['animator_16',['animator',['../class_player_animation_state_controller.html#a1dfeffff1d6adfd079dcffc30788c5e8',1,'PlayerAnimationStateController.animator()'],['../class_monster_controller.html#a90c78f2d19ed4accf60dfbf4381d85f0',1,'MonsterController.animator()'],['../class_monster_animation_state_controller.html#a16c695eb7153485aba104c8ff99e6371',1,'MonsterAnimationStateController.animator()']]],
   ['atkcooldown_17',['atkCooldown',['../class_monster_controller.html#a0d31ab9a332d2c17b5fef8a5add562e4',1,'MonsterController']]],
   ['atkrange_18',['atkRange',['../class_monster_controller.html#a604b9cba61d49183c1fc8470d47a4261',1,'MonsterController']]],
   ['atktimer_19',['atkTimer',['../class_monster_controller.html#a38046d67531f300a39e478d607f3784b',1,'MonsterController']]],
@@ -25,7 +25,7 @@ var searchData=
   ['attackable_22',['attackAble',['../class_destructable_object.html#ae7d8503fd8cf726bf1b9eefe5b7aa8e6',1,'DestructableObject']]],
   ['attackplayer_23',['AttackPlayer',['../class_monster_controller.html#a25a4e9af1d2d02132700a98bb58e8c27',1,'MonsterController']]],
   ['audiocontroller_24',['AudioController',['../class_audio_controller.html',1,'']]],
-  ['audiocontroller_25',['audioController',['../class_health.html#ab9ced1f3dbce7150e18e11fab30a2031',1,'Health.audioController()'],['../class_chatbox.html#ae9f1f03abdd8a99d7ad3ee62209a1b40',1,'Chatbox.audioController()'],['../class_shoot_gun.html#a145381ad5a2f4aad11a8c6e057100b0d',1,'ShootGun.audioController()']]],
+  ['audiocontroller_25',['audioController',['../class_shoot_gun.html#a145381ad5a2f4aad11a8c6e057100b0d',1,'ShootGun.audioController()'],['../class_chatbox.html#ae9f1f03abdd8a99d7ad3ee62209a1b40',1,'Chatbox.audioController()'],['../class_health.html#ab9ced1f3dbce7150e18e11fab30a2031',1,'Health.audioController()']]],
   ['audiocontroller_2ecs_26',['AudioController.cs',['../_audio_controller_8cs.html',1,'']]],
   ['audiocooldown_27',['audioCooldown',['../class_chatbox.html#a1f7d5339abdeb27ff1f1b0c4cdb1fe6b',1,'Chatbox']]],
   ['audiosource_28',['audioSource',['../class_ambiente_audio.html#a90244884d752fcf5278cf296f1414b69',1,'AmbienteAudio.audioSource()'],['../class_audio_controller.html#a0c43e4f3caa2db514c1bbcf5eb3e532d',1,'AudioController.audioSource()'],['../class_zombie_audio_controller.html#a44df9d886141886f81dd6900868ff7aa',1,'ZombieAudioController.audioSource()'],['../class_meeting_button.html#ae678b80e6906639b97200558155611a3',1,'MeetingButton.audioSource()']]],

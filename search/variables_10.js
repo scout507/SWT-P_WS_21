@@ -7,7 +7,7 @@ var searchData=
   ['refreshtimer_4',['refreshTimer',['../class_key_task.html#a516fb25481972e10bbd7a864c9f759f8',1,'KeyTask']]],
   ['reloaddelay_5',['reloadDelay',['../class_shoot_gun.html#a28a8eff99aefba9bc3a533bfd0a0c376',1,'ShootGun']]],
   ['remainingcams_6',['remainingCams',['../class_i_q_cam.html#aabfe93bb61a2e59023e4b8107354a61a',1,'IQCam']]],
-  ['resolutions_7',['resolutions',['../class_ingame_menu.html#afe5ccce9e8c2b3bd29aec53d6ce6c08e',1,'IngameMenu.resolutions()'],['../class_menu.html#a29f214c8bf0bf2338aacd050ab8916d2',1,'Menu.resolutions()']]],
+  ['resolutions_7',['resolutions',['../class_menu.html#a29f214c8bf0bf2338aacd050ab8916d2',1,'Menu.resolutions()'],['../class_ingame_menu.html#afe5ccce9e8c2b3bd29aec53d6ce6c08e',1,'IngameMenu.resolutions()']]],
   ['rig_8',['rig',['../class_player_animation_state_controller.html#add4236716b31dcb1ce6d5d2eb9923c54',1,'PlayerAnimationStateController']]],
   ['roameramount_9',['roamerAmount',['../class_zombie_spawner.html#a6b83f36f9e31267ef58b19d91219385b',1,'ZombieSpawner']]],
   ['roamerspawns_10',['roamerSpawns',['../class_zombie_spawner.html#a086d590b53a32f18169581a7ff170489',1,'ZombieSpawner']]],

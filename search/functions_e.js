@@ -2,7 +2,7 @@ var searchData=
 [
   ['recoil_0',['Recoil',['../class_shoot_gun.html#aa48019105790c4be9275b69c0796b5bc',1,'ShootGun']]],
   ['register_1',['Register',['../class_round_manager.html#af5aa47cad3bfd6056f9b374e0c2f6a77',1,'RoundManager']]],
-  ['reload_2',['Reload',['../class_heal_gun.html#a6ccce6abb8d26e06d399b185162fdba4',1,'HealGun.Reload()'],['../class_melee.html#a453579e1cd38116dbbc037605dbf0919',1,'Melee.Reload()'],['../class_m_p.html#a96160592bf791057e6906b2975671183',1,'MP.Reload()'],['../class_pistol.html#a7674138919aa89cd038bfe752fbf053c',1,'Pistol.Reload()'],['../class_rifle.html#a689fa0b2c700433bff195b5e3e2894f5',1,'Rifle.Reload()'],['../class_shoot_gun.html#a6cf092493f9580f67fd82e0031128909',1,'ShootGun.Reload()'],['../class_shotgun.html#ae8b7b18ed12aaf068a236f34ffc3489c',1,'Shotgun.Reload()']]],
+  ['reload_2',['Reload',['../class_melee.html#a453579e1cd38116dbbc037605dbf0919',1,'Melee.Reload()'],['../class_m_p.html#a96160592bf791057e6906b2975671183',1,'MP.Reload()'],['../class_pistol.html#a7674138919aa89cd038bfe752fbf053c',1,'Pistol.Reload()'],['../class_rifle.html#a689fa0b2c700433bff195b5e3e2894f5',1,'Rifle.Reload()'],['../class_shoot_gun.html#a6cf092493f9580f67fd82e0031128909',1,'ShootGun.Reload()'],['../class_shotgun.html#ae8b7b18ed12aaf068a236f34ffc3489c',1,'Shotgun.Reload()'],['../class_heal_gun.html#a6ccce6abb8d26e06d399b185162fdba4',1,'HealGun.Reload()']]],
   ['removedevice_3',['RemoveDevice',['../class_i_q_cam.html#a15894f62fe45ce69df0096b6a11555f5',1,'IQCam']]],
   ['returntoplayer_4',['ReturnToPlayer',['../class_i_q_cam.html#ad8fb454ebb23981f96f902bd945daf4f',1,'IQCam']]],
   ['rpcdestroydevice_5',['RpcDestroyDevice',['../class_device.html#a1e9b2a63ec9aba3d18401ceccd47f401',1,'Device']]],
@@ -13,7 +13,7 @@ var searchData=
   ['rpcmessage_10',['RpcMessage',['../class_round_manager.html#ad5fd08570ae335f5702120a7debf7da7',1,'RoundManager']]],
   ['rpcplayalarm_11',['RPCPlayAlarm',['../class_meeting_button.html#ac9d0d699532ef2883951d29dc823cb8f',1,'MeetingButton']]],
   ['rpcplaydmgtakensound_12',['RPCPlayDmgTakenSound',['../class_audio_controller.html#af7140f03cff5910d11016d9edac05afb',1,'AudioController']]],
-  ['rpcplayfootstepsound_13',['RPCPlayFootStepSound',['../class_audio_controller.html#a9a4ad4061f5e05e555796a334990bdb3',1,'AudioController.RPCPlayFootStepSound()'],['../class_zombie_audio_controller.html#a5eadca6477e6579d9f759190853b7e00',1,'ZombieAudioController.RPCPlayFootStepSound()']]],
+  ['rpcplayfootstepsound_13',['RPCPlayFootStepSound',['../class_zombie_audio_controller.html#a5eadca6477e6579d9f759190853b7e00',1,'ZombieAudioController.RPCPlayFootStepSound()'],['../class_audio_controller.html#a9a4ad4061f5e05e555796a334990bdb3',1,'AudioController.RPCPlayFootStepSound(float randomf)']]],
   ['rpcplaygunsound_14',['RPCPlayGunSound',['../class_audio_controller.html#a1964e0ed5a8db192d0c66358bc0ead65',1,'AudioController']]],
   ['rpcplaymusicsounds_15',['RPCPlayMusicSounds',['../class_ambiente_audio.html#a6a1a2acb7006eb48681e4ab4c610d4b8',1,'AmbienteAudio']]],
   ['rpcplaythundersounds_16',['RPCPlayThunderSounds',['../class_ambiente_audio.html#ab7cf8901f52ffc1f414a94e394be9552',1,'AmbienteAudio']]],

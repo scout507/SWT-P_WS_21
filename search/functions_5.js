@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['generateresolutionlist_0',['GenerateResolutionList',['../class_ingame_menu.html#aed9d3cb2aa3336cbfbd6d00bdd0ec0dc',1,'IngameMenu.GenerateResolutionList()'],['../class_menu.html#ab7585f263ed74df059bb2b3ec8ba72f5',1,'Menu.GenerateResolutionList()']]],
+  ['generateresolutionlist_0',['GenerateResolutionList',['../class_menu.html#ab7585f263ed74df059bb2b3ec8ba72f5',1,'Menu.GenerateResolutionList()'],['../class_ingame_menu.html#aed9d3cb2aa3336cbfbd6d00bdd0ec0dc',1,'IngameMenu.GenerateResolutionList()']]],
   ['getallplayers_1',['GetAllPlayers',['../class_round_manager.html#a565771a076933bf841d672da456df3f4',1,'RoundManager']]],
   ['getcollider_2',['GetCollider',['../class_melee.html#ae3a7d0d2517d5a24720c29ca0e8ee0b7',1,'Melee']]],
   ['getcurrenttaunt_3',['GetCurrentTaunt',['../class_player_movement.html#a364291d4d9095ee16023a5597827ab5f',1,'PlayerMovement']]],

@@ -11,7 +11,7 @@ var searchData=
   ['healgun_8',['HealGun',['../class_heal_gun.html',1,'']]],
   ['healgun_2ecs_9',['HealGun.cs',['../_heal_gun_8cs.html',1,'']]],
   ['health_10',['Health',['../class_health.html',1,'']]],
-  ['health_11',['health',['../class_device.html#a4a27fa7c6aa0f756ae33d091a4a52d20',1,'Device.health()'],['../class_health.html#a3a88c607ce77007b4f46ee774629309e',1,'Health.health()'],['../class_destructable_object.html#a26afd09e0071aab6f19430e8746610ba',1,'DestructableObject.health()']]],
+  ['health_11',['health',['../class_destructable_object.html#a26afd09e0071aab6f19430e8746610ba',1,'DestructableObject.health()'],['../class_health.html#a3a88c607ce77007b4f46ee774629309e',1,'Health.health()'],['../class_device.html#a4a27fa7c6aa0f756ae33d091a4a52d20',1,'Device.health()']]],
   ['health_2ecs_12',['Health.cs',['../_health_8cs.html',1,'']]],
   ['healthbar_13',['HealthBar',['../class_health_bar.html',1,'']]],
   ['healthbar_14',['healthBar',['../class_health.html#a5b50919bbcca3645c3e22c5d619cfd62',1,'Health']]],
